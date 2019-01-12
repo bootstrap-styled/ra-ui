@@ -30,6 +30,8 @@ module.exports = merge({
         legacy: true,
       },
     ],
+    'babel-plugin-inline-react-svg',
+    'babel-plugin-styled-components',
   ],
   env: {
     production: {

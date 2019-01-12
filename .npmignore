@@ -31,3 +31,5 @@ rollup.config.js
 /reports
 /*.tgz
 /lib/**/*.md
+/examples
+/Makefile
