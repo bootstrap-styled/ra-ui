@@ -60,6 +60,9 @@ const plugins = [
   }),
   commonjs({
     include: 'node_modules/**',
+    namedExports: {
+      'node_modules/react-is/index.js': ['isValidElementType']
+    }
   }),
   replace({
     'process.env.NODE_ENV': JSON.stringify(prod ? 'production' : 'development'),
