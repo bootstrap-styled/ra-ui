@@ -26,4 +26,4 @@ CardActions.propTypes = {
     className: PropTypes.string,
 };
 
-export default CardActions);
+export default CardActions;

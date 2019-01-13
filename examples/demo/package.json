@@ -5,9 +5,9 @@
   "dependencies": {
     "@material-ui/core": "~1.4.0",
     "@material-ui/icons": "~1.1.0",
+    "@react-admin/data-generator": "^2.4.0",
     "fakerest": "~2.1.0",
     "fetch-mock": "~6.3.0",
-    "@react-admin/data-generator": "^2.4.0",
     "json-graphql-server": "~2.1.1",
     "ra-data-fakerest": "^2.0.0",
     "ra-data-graphql-simple": "^2.0.0",
@@ -18,6 +18,7 @@
     "react": "~16.3.1",
     "react-admin": "^2.0.0",
     "react-app-polyfill": "^0.1.3",
+    "react-app-rewired": "^2.0.2",
     "react-dom": "~16.3.1",
     "react-redux": "~5.0.7",
     "react-router-dom": "~4.2.2",
@@ -27,8 +28,8 @@
     "redux-saga": "~0.16.0"
   },
   "scripts": {
-    "start": "[ -d node_modules ] || npm install; [ -d node_modules/ra-ui ] || ln -s ../../.. node_modules/ra-ui; REACT_APP_DATA_PROVIDER=rest react-scripts start",
-    "build": "react-scripts build",
+    "start": "[ -d node_modules ] || npm install; [ -d node_modules/ra-ui ] || ln -s ../../.. node_modules/ra-ui; REACT_APP_DATA_PROVIDER=rest react-app-rewired start",
+    "build": "react-app-rewired build",
     "eject": "react-scripts eject"
   },
   "homepage": "https://marmelab.com/react-admin-demo",
