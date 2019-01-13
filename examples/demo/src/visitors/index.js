@@ -18,11 +18,12 @@ import {
   SearchInput,
   TabbedForm,
   TextField,
+  // TextInput,
 } from 'react-admin';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Icon from '@material-ui/icons/Person';
 
-import TextInput from 'ra-ui/components/input/TextInput';
+import TextInput from 'ra-ui/src/components/input/TextInput';
 
 import NbItemsField from '../commands/NbItemsField';
 import ProductReferenceField from '../products/ProductReferenceField';
