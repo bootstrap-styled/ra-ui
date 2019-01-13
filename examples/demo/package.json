@@ -27,7 +27,7 @@
     "redux-saga": "~0.16.0"
   },
   "scripts": {
-    "start": "[ -d node_modules ] || npm install; [ -d node_modules/ra-ui ] || ln -s ../../../src node_modules/ra-ui; REACT_APP_DATA_PROVIDER=rest react-scripts start",
+    "start": "[ -d node_modules ] || npm install; [ -d node_modules/ra-ui ] || ln -s ../../.. node_modules/ra-ui; REACT_APP_DATA_PROVIDER=rest react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
   },
