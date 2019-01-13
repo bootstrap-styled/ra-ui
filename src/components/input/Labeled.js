@@ -108,4 +108,4 @@ Labeled.propTypes = {
     labelStyle: PropTypes.object,
 };
 
-export default Labeled);
+export default Labeled;

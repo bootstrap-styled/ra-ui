@@ -26,4 +26,4 @@ Link.propTypes = {
 };
 
 /** @component */
-export default Link);
+export default Link;
