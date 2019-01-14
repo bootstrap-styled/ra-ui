@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import MenuItem from '@material-ui/core/MenuItem';
+import DropdownItem from '@bootstrap-styled/v4/lib/Dropdown/DropdownItem';
 import { FieldTitle } from 'ra-core';
 
 class FilterButtonMenuItem extends Component {
@@ -19,7 +19,7 @@ class FilterButtonMenuItem extends Component {
         const { filter, resource } = this.props;
 
         return (
-            <MenuItem
+            <DropdownItem
                 className="new-filter-item"
                 data-key={filter.source}
                 data-default-value={filter.defaultValue}
@@ -31,7 +31,7 @@ class FilterButtonMenuItem extends Component {
                     source={filter.source}
                     resource={resource}
                 />
-            </MenuItem>
+            </DropdownItem>
         );
     }
 }

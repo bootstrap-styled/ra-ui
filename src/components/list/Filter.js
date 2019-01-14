@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import { sanitizeListRestProps } from 'ra-core';
 
 import FilterForm from './FilterForm';
 import FilterButton from './FilterButton';
-
-const styles = {
-    button: {},
-    form: {},
-};
 
 export class Filter extends Component {
     constructor(props) {
@@ -18,7 +12,6 @@ export class Filter extends Component {
 
     renderButton() {
         const {
-            classes = {},
             context,
             debounce,
             resource,
@@ -32,7 +25,6 @@ export class Filter extends Component {
 
         return (
             <FilterButton
-                className={classes.button}
                 resource={resource}
                 filters={React.Children.toArray(children)}
                 showFilter={showFilter}
@@ -45,7 +37,6 @@ export class Filter extends Component {
 
     renderForm() {
         const {
-            classes = {},
             context,
             debounce,
             resource,
@@ -60,7 +51,6 @@ export class Filter extends Component {
 
         return (
             <FilterForm
-                className={classes.form}
                 resource={resource}
                 filters={React.Children.toArray(children)}
                 hideFilter={hideFilter}
@@ -81,7 +71,6 @@ export class Filter extends Component {
 
 Filter.propTypes = {
     children: PropTypes.node,
-    classes: PropTypes.object,
     context: PropTypes.oneOf(['form', 'button']),
     debounce: PropTypes.number.isRequired,
     displayedFilters: PropTypes.object,
@@ -96,4 +85,4 @@ Filter.defaultProps = {
     debounce: 500,
 };
 
-export default Filter);
+export default Filter;
