@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import compose from 'recompose/compose';
 import SearchIcon from '@material-ui/icons/Search';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import { withStyles } from '@material-ui/core/styles';
 import { translate } from 'ra-core';
 
 import TextInput from './TextInput';
@@ -28,6 +26,7 @@ const SearchTextInput = styled(TextInput)`
 const SearchInput = ({ classes, translate, ...props }) => (
     <SearchTextInput
         label={false}
+        className="flex-row"
         placeholder={translate('ra.action.search')}
         InputProps={{
             endAdornment: (

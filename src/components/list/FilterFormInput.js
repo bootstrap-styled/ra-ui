@@ -20,12 +20,14 @@ const FilterFormInput = ({
 }) => (
     <div
         data-source={filterElement.props.source}
-        className="filter-field mx-2 align-items-end my-3 d-flex"
+        className="filter-field mx-2 align-items-center my-3 d-flex"
     >
       {!filterElement.props.alwaysOn && (
         <Button
-          className="hide-filter cursor-pointer rounded-0"
+          className="hide-filter cursor-pointer d-flex"
           size="sm"
+          color="danger"
+          outline
           onClick={handleHide}
           data-key={filterElement.props.source}
           tooltip={translate(

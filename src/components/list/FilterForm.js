@@ -113,8 +113,7 @@ export class FilterForm extends Component {
 
         return (
             <Form
-                inline
-                className={classnames(className, 'justify-content-end flex-wrap align-items-md-center')}
+                className={classnames(className, 'd-inline-flex justify-content-end flex-wrap align-items-md-center')}
                 {...sanitizeRestProps(rest)}
             >
                 {this.getShownFilters().map(filterElement => (
