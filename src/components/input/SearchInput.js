@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import compose from 'recompose/compose';
 import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -8,24 +9,30 @@ import { translate } from 'ra-core';
 
 import TextInput from './TextInput';
 
-const searchFilterStyles = {
-    input: {
-        marginTop: 32,
-    },
-};
+const SearchTextInput = styled(TextInput)`
+  border-bottom: 1px solid grey;
+  display: flex;
+  margin-top: 32px;
+  &:hover {
+    border-bottom: 2px solid black;
+  }
+  .form-control {
+    border: none;
+    &:focus {
+      outline: none;
+    }
+  }
+`;
 
 const SearchInput = ({ classes, translate, ...props }) => (
-    <TextInput
+    <SearchTextInput
         label={false}
         placeholder={translate('ra.action.search')}
         InputProps={{
             endAdornment: (
-                <InputAdornment position="end">
-                    <SearchIcon color="disabled" />
-                </InputAdornment>
+                <SearchIcon color="disabled" />
             ),
         }}
-        className={classes.input}
         {...props}
     />
 );
@@ -37,7 +44,6 @@ SearchInput.propTypes = {
 
 const enhance = compose(
     translate,
-    withStyles(searchFilterStyles)
 );
 
 export default enhance(SearchInput);
