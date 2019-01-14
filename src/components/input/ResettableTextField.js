@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import compose from 'recompose/compose';
-import classNames from 'classnames';
+import classnames from 'classnames';
+import Input from '@bootstrap-styled/v4/lib/Input';
+import FormGroup from '@bootstrap-styled/v4/lib/Form/FormGroup';
+import FormFeedback from '@bootstrap-styled/v4/lib/Form/FormFeedback';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import MuiTextField from '@material-ui/core/TextField';
@@ -32,7 +35,6 @@ const styles = {
  */
 class ResettableTextField extends Component {
     static propTypes = {
-        classes: PropTypes.object.isRequired,
         clearAlwaysVisible: PropTypes.bool,
         InputProps: PropTypes.object,
         onBlur: PropTypes.func,
@@ -67,67 +69,59 @@ class ResettableTextField extends Component {
     render() {
         const {
             translate,
-            classes,
             clearAlwaysVisible,
             InputProps,
             value,
             resettable,
+            error,
+            helperText,
+            className,
+            label,
+            fullWidth,
             ...props
         } = this.props;
+
         const { showClear } = this.state;
-        const {
-            clearButton,
-            clearIcon,
-            visibleClearButton,
-            visibleClearIcon,
-            ...restClasses
-        } = classes;
+
 
         return (
-            <MuiTextField
-                classes={restClasses}
-                value={value}
-                InputProps={{
-                    endAdornment: resettable &&
-                        value && (
-                            <InputAdornment position="end">
-                                <IconButton
-                                    className={classNames(clearButton, {
-                                        [visibleClearButton]:
-                                            clearAlwaysVisible || showClear,
-                                    })}
-                                    aria-label={translate(
-                                        'ra.action.clear_input_value'
-                                    )}
-                                    title={translate(
-                                        'ra.action.clear_input_value'
-                                    )}
-                                    disableRipple
-                                    onClick={this.handleClickClearButton}
-                                    onMouseDown={
-                                        this.handleMouseDownClearButton
-                                    }
-                                >
-                                    <ClearIcon
-                                        className={classNames(clearIcon, {
-                                            [visibleClearIcon]:
-                                                clearAlwaysVisible || showClear,
-                                        })}
-                                    />
-                                </IconButton>
-                            </InputAdornment>
-                        ),
-                    ...InputProps,
-                }}
-                {...props}
-                onFocus={this.handleFocus}
-                onBlur={this.handleBlur}
+          <FormGroup color={error ? 'danger' : ''} className={className}>
+            {label}
+            <Input
+              onBlur={this.handleBlur}
+              onFocus={this.handleFocus}
+              value={value}
+              className={classnames({'w-100': fullWidth })}
+              {...InputProps}
+              {...props}
             />
+            {!InputProps.endAdornment ? resettable &&
+            value && (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label={translate(
+                    'ra.action.clear_input_value'
+                  )}
+                  title={translate(
+                    'ra.action.clear_input_value'
+                  )}
+                  disableRipple
+                  onClick={this.handleClickClearButton}
+                  onMouseDown={
+                    this.handleMouseDownClearButton
+                  }
+                >
+                  <ClearIcon />
+                </IconButton>
+              </InputAdornment>
+            ) : InputProps.endAdornment}
+            {error && <FormFeedback>{error}</FormFeedback>}
+            {helperText && <FormFeedback>{helperText}</FormFeedback>}
+          </FormGroup>
         );
     }
 }
 
 export default compose(
     translate,
-    withStyles(styles)
 )(ResettableTextField);
