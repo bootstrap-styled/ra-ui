@@ -13,13 +13,14 @@ const SearchTextInput = styled(TextInput)`
   border-bottom: 1px solid grey;
   display: flex;
   margin-top: 32px;
+  flex-direction: row !important;
   &:hover {
     border-bottom: 2px solid black;
   }
   .form-control {
-    border: none;
+    border: none !important;
     &:focus {
-      outline: none;
+      outline: none !important;
     }
   }
 `;
