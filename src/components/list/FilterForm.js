@@ -3,11 +3,30 @@ import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 import classnames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
+import FormBs from '@bootstrap-styled/v4/lib/Form';
+import styled from 'styled-components';
+
 import compose from 'recompose/compose';
 import withProps from 'recompose/withProps';
 import lodashSet from 'lodash/set';
 
 import FilterFormInput from './FilterFormInput';
+
+const Form = styled(FormBs)`
+  &.form-inline {
+    .filter-field {
+      position: relative;
+      }
+    .form-group {
+      flex-direction: column !important;
+    }
+    
+    .form-control {
+      flex-direction: row;
+    }
+  }
+`;
+
 
 const styles = ({ palette: { primary1Color } }) => ({
     form: {
@@ -93,8 +112,9 @@ export class FilterForm extends Component {
         const { classes = {}, className, resource, ...rest } = this.props;
 
         return (
-            <div
-                className={classnames(className, classes.form)}
+            <Form
+                inline
+                className={classnames(className, 'justify-content-end flex-wrap align-items-md-center')}
                 {...sanitizeRestProps(rest)}
             >
                 {this.getShownFilters().map(filterElement => (
@@ -107,7 +127,7 @@ export class FilterForm extends Component {
                     />
                 ))}
                 <div className={classes.clearFix} />
-            </div>
+            </Form>
         );
     }
 }

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
 import IconButton from '@material-ui/core/IconButton';
 import ActionHide from '@material-ui/icons/HighlightOff';
-import classnames from 'classnames';
+import Button from '@bootstrap-styled/v4/lib/Button';
+
 import { translate } from 'ra-core';
 
 const emptyRecord = {};
@@ -19,25 +20,28 @@ const FilterFormInput = ({
 }) => (
     <div
         data-source={filterElement.props.source}
-        className={classnames('filter-field', classes.body)}
+        className="filter-field mx-2 align-items-end my-3 d-flex"
     >
-        {!filterElement.props.alwaysOn && (
-            <IconButton
-                className="hide-filter"
-                onClick={handleHide}
-                data-key={filterElement.props.source}
-                tooltip={translate('ra.action.remove_filter')}
-            >
-                <ActionHide />
-            </IconButton>
-        )}
+      {!filterElement.props.alwaysOn && (
+        <Button
+          className="hide-filter cursor-pointer rounded-0"
+          size="sm"
+          onClick={handleHide}
+          data-key={filterElement.props.source}
+          tooltip={translate(
+            'ra.action.remove_filter'
+          )}
+        >
+          <ActionHide />
+        </Button>
+      )}
         <Field
-            allowEmpty
-            {...sanitizeRestProps(filterElement.props)}
-            name={filterElement.props.source}
-            component={filterElement.type}
-            resource={resource}
-            record={emptyRecord}
+          allowEmpty
+          {...sanitizeRestProps(filterElement.props)}
+          name={filterElement.props.source}
+          component={filterElement.type}
+          resource={resource}
+          record={emptyRecord}
         />
         <div className={classes.spacer}>&nbsp;</div>
     </div>
