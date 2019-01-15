@@ -274,6 +274,7 @@
     "@bootstrap-styled/v4": "^2.0.15",
     "bootstrap-styled": "^2.4.7",
     "@material-ui/icons": "^3.0.2",
+    "@material-ui/core": "^3.0.2",
     "material-ui-chip-input": "1.0.0-beta.6 - 1.0.0-beta.8",
     "classnames": "^2.2.6",
     "prop-types": "^15.6.2",
