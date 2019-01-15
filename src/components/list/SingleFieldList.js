@@ -135,4 +135,4 @@ SingleFieldList.defaultProps = {
     linkType: 'edit',
 };
 
-export default SingleFieldList);
+export default SingleFieldList;

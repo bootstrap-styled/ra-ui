@@ -34,8 +34,7 @@ const LinkOrNot =
             </Link>
         ) : (
             <span>{children}</span>
-        )
-);
+        );
 
 const SimpleList = ({
     basePath,
@@ -137,4 +136,4 @@ SimpleList.defaultProps = {
     selectedIds: [],
 };
 
-export default SimpleList);
+export default SimpleList;

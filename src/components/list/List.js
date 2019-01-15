@@ -288,4 +288,4 @@ List.defaultProps = {
     theme: defaultTheme,
 };
 
-export default List);
+export default List;

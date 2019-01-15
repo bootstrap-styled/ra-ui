@@ -43,4 +43,4 @@ ListToolbar.propTypes = {
     exporter: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
 };
 
-export default ListToolbar);
+export default ListToolbar;

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import ActionDelete from '@material-ui/icons/Delete';
-import { withStyles } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { crudDeleteMany, startUndoable } from 'ra-core';
 
@@ -98,7 +97,6 @@ const EnhancedBulkDeleteButton = compose(
             dispatchCrudDeleteMany: crudDeleteMany,
         }
     ),
-    withStyles(styles)
 )(BulkDeleteButton);
 
 export default EnhancedBulkDeleteButton;

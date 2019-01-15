@@ -56,4 +56,4 @@ const ListGuesser = props => (
     </ListController>
 );
 
-export default ListGuesser);
+export default ListGuesser;
