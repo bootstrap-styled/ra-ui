@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
-import IconButton from '@material-ui/core/IconButton';
-import TableCell from '@material-ui/core/TableCell';
-import TableRow from '@material-ui/core/TableRow';
-import Checkbox from '@material-ui/core/Checkbox';
+import Tr from '@bootstrap-styled/v4/lib/Table/Tr';
+import Td from '@bootstrap-styled/v4/lib/Table/Td';
+import Input from '@bootstrap-styled/v4/lib/Input';
+import FormGroup from '@bootstrap-styled/v4/lib/Form/FormGroup';
+import Label from '@bootstrap-styled/v4/lib/Label';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import classnames from 'classnames';
 import { linkToRecord } from 'ra-core';
@@ -16,7 +17,6 @@ import DatagridCell from './DatagridCell';
 const sanitizeRestProps = ({
     basePath,
     children,
-    classes,
     className,
     rowClick,
     id,
@@ -99,11 +99,9 @@ class DatagridRow extends Component {
         const {
             basePath,
             children,
-            classes,
             className,
             expand,
             hasBulkActions,
-            hover,
             id,
             record,
             resource,
@@ -115,42 +113,38 @@ class DatagridRow extends Component {
         const { expanded, colSpan } = this.state;
         return (
             <Fragment>
-                <TableRow
+                <Tr
                     className={className}
                     key={id}
-                    style={style}
-                    hover={hover}
                     onClick={this.handleClick}
                     {...sanitizeRestProps(rest)}
                 >
                     {expand && (
-                        <TableCell
-                            padding="none"
-                            className={classes.expandIconCell}
-                        >
-                            <IconButton
-                                className={classNames(classes.expandIcon, {
-                                    [classes.expanded]: expanded,
-                                })}
-                                component="div"
+                        <Td>
+                            <Button
+                                tag="div"
                                 tabIndex={-1}
                                 aria-hidden="true"
                                 role="expand"
                                 onClick={this.handleToggleExpanded}
                             >
                                 <ExpandMoreIcon />
-                            </IconButton>
-                        </TableCell>
+                            </Button>
+                        </Td>
                     )}
                     {hasBulkActions && (
-                        <TableCell padding="none">
-                            <Checkbox
-                                color="primary"
-                                className={`select-item ${classes.checkbox}`}
+                        <Td>
+                          <FormGroup className="mb-0">
+                            <Label check>
+                              <Input
+                                type="checkbox"
+                                className="select-item cursor-pointer"
                                 checked={selected}
                                 onClick={this.handleToggle}
-                            />
-                        </TableCell>
+                              />
+                            </Label>
+                          </FormGroup>
+                        </Td>
                     )}
                     {React.Children.map(
                         children,
@@ -160,7 +154,6 @@ class DatagridRow extends Component {
                                     key={`${id}-${field.props.source || index}`}
                                     className={classnames(
                                         `column-${field.props.source}`,
-                                        classes.rowCell
                                     )}
                                     record={record}
                                     id={id}
@@ -168,19 +161,19 @@ class DatagridRow extends Component {
                                 />
                             ) : null
                     )}
-                </TableRow>
+                </Tr>
                 {expand &&
                     expanded && (
-                        <TableRow key={`${id}-expand`}>
-                            <TableCell colSpan={colSpan} role="expand-content">
+                        <Tr key={`${id}-expand`}>
+                            <Td colSpan={colSpan} role="expand-content">
                                 {React.cloneElement(expand, {
                                     record,
                                     basePath,
                                     resource,
                                     id: String(id),
                                 })}
-                            </TableCell>
-                        </TableRow>
+                            </Td>
+                        </Tr>
                     )}
             </Fragment>
         );
@@ -190,11 +183,9 @@ class DatagridRow extends Component {
 DatagridRow.propTypes = {
     basePath: PropTypes.string,
     children: PropTypes.node,
-    classes: PropTypes.object,
     className: PropTypes.string,
     expand: PropTypes.node,
     hasBulkActions: PropTypes.bool.isRequired,
-    hover: PropTypes.bool,
     id: PropTypes.any,
     onToggleItem: PropTypes.func,
     push: PropTypes.func,
@@ -208,7 +199,6 @@ DatagridRow.propTypes = {
 
 DatagridRow.defaultProps = {
     hasBulkActions: false,
-    hover: true,
     record: {},
     selected: false,
 };

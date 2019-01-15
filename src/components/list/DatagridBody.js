@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import shouldUpdate from 'recompose/shouldUpdate';
-import TableBody from '@material-ui/core/TableBody';
+import Tbody from '@bootstrap-styled/v4/lib/Table/Tbody';
 import classnames from 'classnames';
 
 import DatagridRow from './DatagridRow';
@@ -9,7 +9,6 @@ import DatagridRow from './DatagridRow';
 const DatagridBody = ({
     basePath,
     children,
-    classes,
     className,
     data,
     expand,
@@ -27,18 +26,13 @@ const DatagridBody = ({
     version,
     ...rest
 }) => (
-    <TableBody className={classnames('datagrid-body', className)} {...rest}>
+    <Tbody className={classnames('datagrid-body', className)} {...rest}>
         {ids.map((id, rowIndex) =>
             React.cloneElement(
                 row,
                 {
                     basePath,
-                    classes,
-                    className: classnames(classes.row, {
-                        [classes.rowEven]: rowIndex % 2 === 0,
-                        [classes.rowOdd]: rowIndex % 2 !== 0,
-                        [classes.clickableRow]: rowClick,
-                    }),
+                    className,
                     expand,
                     hasBulkActions,
                     hover,
@@ -54,12 +48,11 @@ const DatagridBody = ({
                 children
             )
         )}
-    </TableBody>
+    </Tbody>
 );
 
 DatagridBody.propTypes = {
     basePath: PropTypes.string,
-    classes: PropTypes.object,
     className: PropTypes.string,
     children: PropTypes.node,
     data: PropTypes.object.isRequired,

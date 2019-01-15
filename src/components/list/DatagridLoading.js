@@ -1,27 +1,26 @@
 import React from 'react';
-import Table from '@material-ui/core/Table';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import TableBody from '@material-ui/core/TableBody';
+
+import Table from '@bootstrap-styled/v4/lib/Table';
+import Thead from '@bootstrap-styled/v4/lib/Table/Thead';
+import Tr from '@bootstrap-styled/v4/lib/Table/Tr';
+import Th from '@bootstrap-styled/v4/lib/Table/Th';
+import Td from '@bootstrap-styled/v4/lib/Table/Td';
+import Tbody from '@bootstrap-styled/v4/lib/Table/Tbody';
+import FormGroup from '@bootstrap-styled/v4/lib/Form/FormGroup';
+import FormCustom from '@bootstrap-styled/v4/lib/Form/FormCustom';
+import Form from '@bootstrap-styled/v4/lib/Form';
+
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
 import Checkbox from '@material-ui/core/Checkbox';
 import classnames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 
-const RawPlaceholder = ({ classes }) => (
-    <div className={classes.root}>&nbsp;</div>
+const RawPlaceholder = () => (
+    <div className="d-flex" style={{ backgroundColor: 'lightgrey' }}>&nbsp;</div>
 );
 
-const styles = theme => ({
-    root: {
-        backgroundColor: theme.palette.grey[300],
-        display: 'flex',
-    },
-});
-
-const Placeholder = RawPlaceholder);
+const Placeholder = RawPlaceholder;
 
 const times = (nbChildren, fn) =>
     Array.from({ length: nbChildren }, (_, key) => fn(key));
@@ -34,75 +33,62 @@ export default ({
     nbChildren,
     nbFakeLines = 5,
 }) => (
-    <Table className={classnames(classes.table, className)}>
-        <TableHead>
-            <TableRow className={classes.row}>
-                {expand && <TableCell className={classes.expandHeader} />}
+    <Table className={className}>
+        <Thead>
+            <Tr>
+                {expand && <Th />}
                 {hasBulkActions && (
-                    <TableCell
-                        padding="none"
-                        className={classes.expandIconCell}
-                    >
-                        <Checkbox
-                            className="select-all"
-                            color="primary"
+                    <Th>
+                      <Form>
+                        <FormGroup className="mb-0">
+                          <FormCustom
+                            className="select-all cursor-pointer"
                             checked={false}
-                        />
-                    </TableCell>
+                          />
+                        </FormGroup>
+                      </Form>
+                    </Th>
                 )}
                 {times(nbChildren, key => (
-                    <TableCell
-                        padding="none"
-                        variant="head"
-                        className={classes.headerCell}
-                        key={key}
-                    >
+                    <Th key={key}>
                         <Placeholder />
-                    </TableCell>
+                    </Th>
                 ))}
-            </TableRow>
-        </TableHead>
-        <TableBody>
+            </Tr>
+        </Thead>
+        <Tbody>
             {times(nbFakeLines, key1 => (
-                <TableRow key={key1} style={{ opacity: 1 / (key1 + 1) }}>
+                <Tr key={key1} style={{ opacity: 1 / (key1 + 1) }}>
                     {expand && (
-                        <TableCell
-                            padding="none"
-                            className={classes.expandIconCell}
-                        >
+                        <Td>
                             <IconButton
-                                className={classes.expandIcon}
                                 component="div"
                                 aria-hidden="true"
                                 role="expand"
                             >
                                 <ExpandMoreIcon />
                             </IconButton>
-                        </TableCell>
+                        </Td>
                     )}
                     {hasBulkActions && (
-                        <TableCell
-                            padding="none"
-                            className={classes.expandIconCell}
-                        >
-                            <Checkbox
+                        <Td>
+                          <Form>
+                            <FormGroup className="mb-0">
+                              <FormCustom
                                 className="select-all"
-                                color="primary"
                                 checked={false}
-                            />
-                        </TableCell>
+                              />
+                            </FormGroup>
+                          </Form>
+                        </Td>
                     )}
                     {times(nbChildren, key2 => (
-                        <TableCell
-                            padding="none"
-                            className={classes.rowCell}
-                            key={key2}
-                        >
+                        <Td key={key2}>
                             <Placeholder />
-                        </TableCell>
+                        </Td>
                     ))}
-                </TableRow>
+                </Tr>
             ))}
-        </TableBody>
+        </Tbody>
     </Table>
 );

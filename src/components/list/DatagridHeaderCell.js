@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import shouldUpdate from 'recompose/shouldUpdate';
 import compose from 'recompose/compose';
-import TableCell from '@material-ui/core/TableCell';
-import TableSortLabel from '@material-ui/core/TableSortLabel';
-import Tooltip from '@material-ui/core/Tooltip';
-import { withStyles } from '@material-ui/core/styles';
+import Th from '@bootstrap-styled/v4/lib/Table/Th';
+import Button from '@bootstrap-styled/v4/lib/Button';
+
 import { FieldTitle, translate } from 'ra-core';
 
 // remove the sort icons when not active
@@ -22,7 +21,6 @@ const styles = {
 };
 
 export const DatagridHeaderCell = ({
-    classes,
     className,
     field,
     currentSort,
@@ -32,53 +30,46 @@ export const DatagridHeaderCell = ({
     translate,
     ...rest
 }) => (
-    <TableCell
-        className={classnames(className, field.props.headerClassName)}
-        numeric={field.props.textAlign === 'right'}
-        padding="none"
-        variant="head"
+    <Th
+        className={classnames(className, 'p-0', field.props.headerClassName)}
         {...rest}
     >
         {field.props.sortable !== false &&
         (field.props.sortBy || field.props.source) ? (
-            <Tooltip
-                title={translate('ra.action.sort')}
-                placement={
-                    field.props.textAlign === 'right'
-                        ? 'bottom-end'
-                        : 'bottom-start'
-                }
-                enterDelay={300}
-            >
-                <TableSortLabel
-                    active={
-                        currentSort.field ===
-                        (field.props.sortBy || field.props.source)
-                    }
-                    direction={currentSort.order === 'ASC' ? 'asc' : 'desc'}
-                    data-sort={field.props.sortBy || field.props.source}
-                    onClick={updateSort}
-                    classes={classes}
-                >
-                    <FieldTitle
-                        label={field.props.label}
-                        source={field.props.source}
-                        resource={resource}
-                    />
-                </TableSortLabel>
-            </Tooltip>
+              <Button
+                tag='span'
+                color="secondary"
+                className="border-0 w-100 rounded-0"
+                active={field.props.source === currentSort.field}
+                onClick={updateSort}
+                data-sort={field.props.source}
+              >
+                <FieldTitle
+                  label={field.props.label}
+                  source={field.props.source}
+                  resource={resource}
+                />
+                {field.props.source === currentSort.field ? (
+                  currentSort.order === 'ASC' ? (
+                    "UP"
+                  ) : (
+                    "DOWN"
+                  )
+                ) : (
+                  false
+                )}
+              </Button>
         ) : (
-            <FieldTitle
-                label={field.props.label}
-                source={field.props.source}
-                resource={resource}
-            />
+          <FieldTitle
+            label={field.props.label}
+            source={field.props.source}
+            resource={resource}
+          />
         )}
-    </TableCell>
+    </Th>
 );
 
 DatagridHeaderCell.propTypes = {
-    classes: PropTypes.object,
     className: PropTypes.string,
     field: PropTypes.element,
     currentSort: PropTypes.shape({
@@ -100,7 +91,6 @@ const enhance = compose(
                 props.currentSort.order !== nextProps.currentSort.order)
     ),
     translate,
-    withStyles(styles)
 );
 
 export default enhance(DatagridHeaderCell);

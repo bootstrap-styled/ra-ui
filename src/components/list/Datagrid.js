@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { sanitizeListRestProps } from 'ra-core';
-import { withStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Checkbox from '@material-ui/core/Checkbox';
+import Table from '@bootstrap-styled/v4/lib/Table';
+import Thead from '@bootstrap-styled/v4/lib/Table/Thead';
+import Tr from '@bootstrap-styled/v4/lib/Table/Tr';
+import Th from '@bootstrap-styled/v4/lib/Table/Th';
+import FormGroup from '@bootstrap-styled/v4/lib/Form/FormGroup';
+import FormCustom from '@bootstrap-styled/v4/lib/Form/FormCustom';
+import Td from '@bootstrap-styled/v4/lib/Table/Td';
 
 import classnames from 'classnames';
 
@@ -119,7 +120,6 @@ class Datagrid extends Component {
             basePath,
             body,
             children,
-            classes,
             className,
             currentSort,
             data,
@@ -149,7 +149,6 @@ class Datagrid extends Component {
         if (loadedOnce === false) {
             return (
                 <DatagridLoading
-                    classes={classes}
                     className={className}
                     expand={expand}
                     hasBulkActions={hasBulkActions}
@@ -174,38 +173,35 @@ class Datagrid extends Component {
          */
         return (
             <Table
-                className={classnames(classes.table, className)}
-                {...sanitizeListRestProps(rest)}
+              className={classnames(className, 'mb-0')} style={{ tableLayout: 'fixed' }}
+              {...sanitizeListRestProps(rest)}
             >
-                <TableHead className={classes.thead}>
-                    <TableRow
-                        className={classnames(classes.row, classes.headerRow)}
-                    >
+                <Thead>
+                    <Tr>
                         {expand && (
-                            <TableCell className={classes.expandHeader} />
+                            <Th />
                         )}
                         {hasBulkActions && (
-                            <TableCell padding="none">
-                                <Checkbox
-                                    className="select-all"
-                                    color="primary"
-                                    checked={
-                                        selectedIds.length > 0 &&
-                                        ids.length > 0 &&
-                                        !ids.find(
-                                            it => selectedIds.indexOf(it) === -1
-                                        )
-                                    }
-                                    onChange={this.handleSelectAll}
+                            <Td className="py-0">
+                                <FormCustom
+                                  className="select-all cursor-pointer mb-0"
+                                  checked={
+                                    selectedIds.length > 0 &&
+                                    ids.length > 0 &&
+                                    !ids.find(
+                                      it => selectedIds.indexOf(it) === -1
+                                    )
+                                  }
+                                  onChange={this.handleSelectAll}
                                 />
-                            </TableCell>
+                            </Td>
                         )}
                         {React.Children.map(
                             children,
                             (field, index) =>
                                 field ? (
                                     <DatagridHeaderCell
-                                        className={classes.headerCell}
+                                      className="p-0"
                                         currentSort={currentSort}
                                         field={field}
                                         isSorting={
@@ -218,14 +214,12 @@ class Datagrid extends Component {
                                     />
                                 ) : null
                         )}
-                    </TableRow>
-                </TableHead>
+                    </Tr>
+                </Thead>
                 {React.cloneElement(
                     body,
                     {
                         basePath,
-                        className: classes.tbody,
-                        classes,
                         expand,
                         rowClick,
                         data,
@@ -250,7 +244,6 @@ Datagrid.propTypes = {
     basePath: PropTypes.string,
     body: PropTypes.element.isRequired,
     children: PropTypes.node.isRequired,
-    classes: PropTypes.object,
     className: PropTypes.string,
     currentSort: PropTypes.shape({
         sort: PropTypes.string,
@@ -281,4 +274,4 @@ Datagrid.defaultProps = {
     body: <DatagridBody />,
 };
 
-export default Datagrid);
+export default Datagrid;
