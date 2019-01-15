@@ -19,7 +19,7 @@ const Button = ({
     color = 'primary',
     disabled,
     label,
-    size = 'small',
+    size = 'sm',
     translate,
     ...rest
 }) => (
@@ -58,9 +58,7 @@ const Button = ({
             >
                 {alignIcon === 'left' &&
                     children &&
-                    React.cloneElement(children, {
-                        className: classes[`${size}Icon`],
-                    })}
+                    React.cloneElement(children)}
                 {label && (
                     <span
                         className={classnames({
@@ -73,9 +71,7 @@ const Button = ({
                 )}
                 {alignIcon === 'right' &&
                     children &&
-                    React.cloneElement(children, {
-                        className: classes[`${size}Icon`],
-                    })}
+                    React.cloneElement(children)}
             </ButtonBs>
         }
     />

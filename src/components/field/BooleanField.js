@@ -4,30 +4,38 @@ import get from 'lodash/get';
 import pure from 'recompose/pure';
 import FalseIcon from '@material-ui/icons/Clear';
 import TrueIcon from '@material-ui/icons/Done';
-import Typography from '@material-ui/core/Typography';
+import styled from 'styled-components';
+
+const Typography = styled.div`
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.46429em;
+`;
+
 
 import sanitizeRestProps from './sanitizeRestProps';
 
 export const BooleanField = ({ className, source, record = {}, ...rest }) => {
     if (get(record, source) === false) {
         return (
-            <span
+            <Typography
                 className={className}
                 {...sanitizeRestProps(rest)}
             >
                 <FalseIcon />
-            </span>
+            </Typography>
         );
     }
 
     if (get(record, source) === true) {
         return (
-            <span
+            <Typography
                 className={className}
                 {...sanitizeRestProps(rest)}
             >
                 <TrueIcon />
-            </span>
+            </Typography>
         );
     }
 

@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import get from 'lodash/get';
 import pure from 'recompose/pure';
-import Typography from '@material-ui/core/Typography';
+
+const Typography = styled.div`
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.46429em;
+`;
 
 import sanitizeRestProps from './sanitizeRestProps';
 
@@ -63,9 +70,9 @@ export const DateField = ({
             : date.toLocaleDateString();
 
     return (
-      <span className={className} {...sanitizeRestProps(rest)}>
+        <Typography className={className} {...sanitizeRestProps(rest)}>
             {dateString}
-        </span>
+        </Typography>
     );
 };
 

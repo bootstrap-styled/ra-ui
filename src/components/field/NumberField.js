@@ -4,6 +4,14 @@ import get from 'lodash/get';
 import pure from 'recompose/pure';
 import classnames from 'classnames';
 import sanitizeRestProps from './sanitizeRestProps';
+import styled from "styled-components";
+
+const Typography = styled.div`
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.46429em;
+`;
 
 const hasNumberFormat = !!(
     typeof Intl === 'object' &&
@@ -53,22 +61,22 @@ export const NumberField = ({
     if (value == null) return null;
     if (!hasNumberFormat) {
         return (
-            <span
+            <Typography
               className={classnames('text-right', className)}
                 {...sanitizeRestProps(rest)}
             >
                 {value}
-            </span>
+            </Typography>
         );
     }
 
     return (
-        <span
+        <Typography
           className={classnames('text-right', className)}
             {...sanitizeRestProps(rest)}
         >
             {value.toLocaleString(locales, options)}
-        </span>
+        </Typography>
     );
 };
 

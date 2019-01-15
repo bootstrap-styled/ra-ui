@@ -1,7 +1,16 @@
 import React from 'react';
-import Chip from '@material-ui/core/Chip';
+import Badge from '@bootstrap-styled/v4/lib/Badge';
 import { translate } from 'react-admin';
+import styled from 'styled-components';
+
 import segments from '../segments/data';
+
+const Typography = styled.div`
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.46429em;
+`;
 
 const styles = {
   main: { display: 'flex', flexWrap: 'wrap' },
@@ -9,16 +18,19 @@ const styles = {
 };
 
 const SegmentsField = ({ record, translate }) => (
-  <span style={styles.main}>
+  <Typography style={styles.main}>
     {record.groups
             && record.groups.map((segment) => (
-              <Chip
+              <Badge
                 key={segment}
-                style={styles.chip}
-                label={translate(segments.find((s) => s.id === segment).name)}
-              />
+                className="p-2"
+                color="primary"
+                pill
+              >
+                {translate(segments.find((s) => s.id === segment).name)}
+              </Badge>
             ))}
-  </span>
+  </Typography>
 );
 
 const TranslatedSegmentsField = translate(SegmentsField);
