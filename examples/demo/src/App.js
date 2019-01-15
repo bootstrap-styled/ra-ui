@@ -74,7 +74,7 @@ class App extends Component {
       }
 
       return (
-        <BootstrapProvider theme={theme} injectGlobal reset>
+        <BootstrapProvider theme={theme} injectGlobal={true} reset={true} >
           <Admin
             title="Posters Galore Admin"
             dataProvider={dataProvider}

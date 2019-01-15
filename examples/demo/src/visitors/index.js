@@ -1,21 +1,21 @@
 import React from 'react';
 import {
-  BooleanField,
+  // BooleanField,
   Create,
-  Datagrid,
-  DateField,
-  DateInput,
+  // Datagrid,
+  // DateField,
+  // DateInput,
   Edit,
-  EditButton,
-  Filter,
+  // EditButton,
+  // Filter,
   FormTab,
   List,
   LongTextInput,
-  NullableBooleanInput,
-  NumberField,
+  // NullableBooleanInput,
+  // NumberField,
   ReferenceManyField,
   Responsive,
-  SearchInput,
+  // SearchInput,
   TabbedForm,
   TextField,
   // TextInput,
@@ -23,7 +23,25 @@ import {
 import withStyles from '@material-ui/core/styles/withStyles';
 import Icon from '@material-ui/icons/Person';
 
+// import FormTab from 'ra-ui/src/components/form/FormTab';
+// import TabbedForm from 'ra-ui/src/components/form/TabbedForm';
+
 import TextInput from 'ra-ui/src/components/input/TextInput';
+import DateInput from 'ra-ui/src/components/input/DateInput';
+import SearchInput from 'ra-ui/src/components/input/SearchInput';
+// import LongTextInput from 'ra-ui/src/components/input/LongTextInput';
+import NullableBooleanInput from 'ra-ui/src/components/input/NullableBooleanInput';
+
+// import TextField from 'ra-ui/src/components/field/TextField';
+import NumberField from 'ra-ui/src/components/field/NumberField';
+import DateField from 'ra-ui/src/components/field/DateField';
+import BooleanField from 'ra-ui/src/components/field/BooleanField';
+
+import Filter from 'ra-ui/src/components/list/Filter';
+import Datagrid from 'ra-ui/src/components/list/Datagrid';
+
+import EditButton from 'ra-ui/src/components/button/EditButton';
+
 
 import NbItemsField from '../commands/NbItemsField';
 import ProductReferenceField from '../products/ProductReferenceField';
@@ -123,28 +141,27 @@ export const VisitorEdit = withStyles(editStyles)(({ classes, ...props }) => (
       <FormTab label="resources.customers.tabs.identity">
         <TextInput
           source="first_name"
-          formClassName={classes.first_name}
+          formClassName="d-inline-block"
+          className="d-inline-block"
         />
         <TextInput
           source="last_name"
-          formClassName={classes.last_name}
+          formClassName="d-inline-block ml-4"
         />
         <TextInput
           type="email"
           source="email"
           validation={{ email: true }}
           fullWidth
-          formClassName={classes.email}
         />
         <DateInput source="birthday" />
       </FormTab>
       <FormTab label="resources.customers.tabs.address" path="address">
         <LongTextInput
           source="address"
-          formClassName={classes.address}
         />
-        <TextInput source="zipcode" formClassName={classes.zipcode} />
-        <TextInput source="city" formClassName={classes.city} />
+        <TextInput source="zipcode" />
+        <TextInput source="city" />
       </FormTab>
       <FormTab label="resources.customers.tabs.orders" path="orders">
         <ReferenceManyField
@@ -212,28 +229,24 @@ export const VisitorCreate = withStyles(editStyles)(({ classes, ...props }) => (
         <TextInput
           autoFocus
           source="first_name"
-          formClassName={classes.first_name}
         />
         <TextInput
           source="last_name"
-          formClassName={classes.last_name}
         />
         <TextInput
           type="email"
           source="email"
           validation={{ email: true }}
           fullWidth
-          formClassName={classes.email}
         />
         <DateInput source="birthday" />
       </FormTab>
       <FormTab label="resources.customers.tabs.address" path="address">
         <LongTextInput
           source="address"
-          formClassName={classes.address}
         />
-        <TextInput source="zipcode" formClassName={classes.zipcode} />
-        <TextInput source="city" formClassName={classes.city} />
+        <TextInput source="zipcode" />
+        <TextInput source="city" />
       </FormTab>
     </TabbedForm>
   </Create>
