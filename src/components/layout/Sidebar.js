@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import classnames from 'classnames';
 import compose from 'recompose/compose';
-import Drawer from '@material-ui/core/Drawer';
+import Drawer from '@bootstrap-styled/v4/lib/Drawer';
 import { withStyles } from '@material-ui/core/styles';
 import withWidth from '@material-ui/core/withWidth';
 import { setSidebarVisibility } from 'ra-core';
@@ -66,55 +67,56 @@ class Sidebar extends PureComponent {
         return (
             <Responsive
                 xsmall={
-                    <Drawer
-                        variant="temporary"
-                        open={open}
-                        PaperProps={{
-                            className: classes.drawerPaper,
-                            style: { width: size },
-                        }}
-                        onClose={this.toggleSidebar}
-                        {...rest}
-                    >
-                        {React.cloneElement(children, {
-                            onMenuClick: this.handleClose,
-                        })}
-                    </Drawer>
+                  <Drawer
+                    active={open}
+                    left={DRAWER_WIDTH}
+                    style={{ top: '45px' }}
+                    classes={{
+                      paper: classes.drawerPaper,
+                    }}
+                    onClose={this.toggleSidebar}
+                    {...rest}
+                  >
+                    {React.cloneElement(children, {
+                      onMenuClick: this.handleClose,
+                    })}
+                  </Drawer>
                 }
                 small={
-                    <Drawer
-                        variant="permanent"
-                        open={open}
-                        PaperProps={{
-                            className: classes.drawerPaper,
-                            style: {
-                                width: open ? size : closedSize,
-                            },
-                        }}
-                        onClose={this.toggleSidebar}
-                        {...rest}
-                    >
-                        {React.cloneElement(children, {
-                            dense: true,
-                            onMenuClick: this.handleClose,
-                        })}
-                    </Drawer>
+                  <Drawer
+                    docked={true}
+                    left={DRAWER_WIDTH}
+                    active={open}
+                    classes={{
+                      paper: classnames(
+                        classes.drawerPaper,
+                      )
+                    }}
+                    onClose={this.toggleSidebar}
+                    className="mt-2"
+                    {...rest}
+                  >
+                    {React.cloneElement(children, {
+                      onMenuClick: this.handleClose,
+                    })}
+                  </Drawer>
                 }
                 medium={
-                    <Drawer
-                        variant="permanent"
-                        open={open}
-                        PaperProps={{
-                            className: classes.drawerPaper,
-                            style: {
-                                width: open ? size : closedSize,
-                            },
-                        }}
-                        onClose={this.toggleSidebar}
-                        {...rest}
-                    >
-                        {React.cloneElement(children, { dense: true })}
-                    </Drawer>
+                  <Drawer
+                    docked={true}
+                    left={DRAWER_WIDTH}
+                    active={open}
+                    classes={{
+                      paper: classnames(
+                        classes.drawerPaper,
+                      ),
+                    }}
+                    className="mt-2"
+                    onClose={this.toggleSidebar}
+                    {...rest}
+                  >
+                    {React.cloneElement(children)}
+                  </Drawer>
                 }
             />
         );
