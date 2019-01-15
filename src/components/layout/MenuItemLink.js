@@ -2,7 +2,7 @@ import React, { cloneElement, Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { NavLink } from 'react-router-dom';
-import MenuItem from '@material-ui/core/MenuItem';
+import ListGroupItem from '@bootstrap-styled/v4/lib/ListGroup/ListGroupItem';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
@@ -43,22 +43,23 @@ export class MenuItemLink extends Component {
         } = this.props;
 
         return (
-            <MenuItem
-                className={classnames(classes.root, className)}
-                activeClassName={classes.active}
-                component={NavLink}
+            <ListGroupItem
+                className={classnames(className, 'border-0 rounded-0 d-flex flex-start pl-2')}
+                style={{ textDecoration: 'none', transition: 'all .2s ease-in-out' }}
+                action
+                tag={NavLink}
                 {...props}
                 onClick={this.handleMenuTap}
             >
                 {leftIcon && (
-                    <span className={classes.icon}>
+                    <span className="pr-3 py-1 d-flex">
                         {cloneElement(leftIcon, { titleAccess: primaryText })}
                     </span>
                 )}
                 {primaryText}
-            </MenuItem>
+            </ListGroupItem>
         );
     }
 }
 
-export default MenuItemLink);
+export default MenuItemLink;
