@@ -10,9 +10,6 @@ import { addField, translate, FieldTitle } from 'ra-core';
 
 import sanitizeRestProps from './sanitizeRestProps';
 
-const styles = theme => ({
-    input: { width: theme.spacing.unit * 16 },
-});
 
 export class NullableBooleanInput extends Component {
     state = {
@@ -65,13 +62,11 @@ export class NullableBooleanInput extends Component {
               source={source}
               resource={resource}
               isRequired={isRequired}
-              labelHidden={labelHidden}
             />
             <Input
               value={this.getStringFromBoolean(this.state.value)}
               onChange={this.handleChange}
               type="select"
-              size={size}
               {...options}
               {...sanitizeRestProps(rest)}
             >
@@ -84,7 +79,7 @@ export class NullableBooleanInput extends Component {
               </Option>
             </Input>
             {!!(touched && error) && <FormFeedback>{error}</FormFeedback>}
-            {touched && error && <FormFeedback>{helpText}</FormFeedback>}
+            {touched && error && <FormFeedback>{helperText}</FormFeedback>}
           </FormGroup>
         );
     }

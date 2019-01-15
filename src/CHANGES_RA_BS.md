@@ -9,7 +9,13 @@ AutocompleteInput
 FileInput
 Labeled
 LongTextInput
-ResetTextField
+
+ResettableTextField
+====================
+We have basic BS input but ra uses more advanced MuiTextField. We are missing functionalities fofered by RA.
+
+
+
 SearchInput
 SelectInput
 TextInput

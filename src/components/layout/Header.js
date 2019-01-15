@@ -45,4 +45,4 @@ Header.propTypes = {
     actionProps: PropTypes.object,
 };
 
-export default Header);
+export default Header;

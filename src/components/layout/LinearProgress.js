@@ -31,4 +31,4 @@ LinearProgress.propTypes = {
 // wat? TypeScript looses the displayName if we don't set it explicitly
 LinearProgress.displayName = 'LinearProgress';
 
-export default LinearProgress);
+export default LinearProgress;

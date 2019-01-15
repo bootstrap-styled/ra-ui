@@ -16,30 +16,10 @@ export const FormInput = ({ classes, input, ...rest }) =>
             )}
         >
             {input.props.addLabel ? (
-                <Labeled
-                    id={input.props.id || input.props.source}
-                    {...input.props}
-                    {...sanitizeRestProps(rest)}
-                >
-                    {React.cloneElement(input, {
-                        className: classnames(
-                            {
-                                [classes.input]: !input.props.fullWidth,
-                            },
-                            input.props.className
-                        ),
-                        id: input.props.id || input.props.source,
-                        ...rest,
-                    })}
-                </Labeled>
+              console.log(input.props)
             ) : (
-                React.cloneElement(input, {
-                    className: classnames(
-                        input.props.className
-                    ),
-                    id: input.props.id || input.props.source,
-                    ...rest,
-                })
+              console.log(input.props)
+
             )}
         </div>
     ) : null;

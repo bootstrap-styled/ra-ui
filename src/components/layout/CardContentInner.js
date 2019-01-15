@@ -10,8 +10,8 @@ import CardHeader from '@bootstrap-styled/v4/lib/Cards/CardHeader';
  * padding double the spacing between each CardContent, leading to too much
  * wasted space. Use this component as a CardContent alternative.
  */
-const CardContentInner = ({ classes, className, children }) => (
-    <CardHeader className={classnames('flex-column flex-sm-row d-flex justify-content-between mb-0 align-items-center rounded-bottom-0', className)} {...rest}>
+const CardContentInner = ({ className, children }) => (
+    <CardHeader className={classnames('flex-column flex-sm-row d-flex justify-content-between mb-0 align-items-center rounded-bottom-0', className)}>
         {children}
     </CardHeader>
 );

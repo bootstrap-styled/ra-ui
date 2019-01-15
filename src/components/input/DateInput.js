@@ -74,10 +74,8 @@ export class DateInput extends Component {
                 />
                 <Input
                     type="date"
-                    onChange={this.handleChange}
-                    size={size}
+                    onChange={this.onChange}
                     value={value}
-                    className={classNameInput}
                     {...input}
                     {...options}
                 />
