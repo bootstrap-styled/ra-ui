@@ -5,8 +5,8 @@ import classnames from 'classnames';
 import compose from 'recompose/compose';
 import Drawer from '@bootstrap-styled/v4/lib/Drawer';
 import { withStyles } from '@material-ui/core/styles';
-import withWidth from '@material-ui/core/withWidth';
 import { setSidebarVisibility } from 'ra-core';
+import withWidth from '../extendMui/withWidth';
 
 import Responsive from './Responsive';
 

@@ -12,7 +12,7 @@ const ActionsWrapper = styled.div`
 `;
 
 const CardActions = ({
-  classes, className, children, ...rest
+  className, children, ...rest
 }) => (
   <ActionsWrapper className={className} {...rest}>
     {children}
@@ -21,7 +21,6 @@ const CardActions = ({
 
 CardActions.propTypes = {
   children: PropTypes.node,
-  classes: PropTypes.object,
   className: PropTypes.string,
 };
 

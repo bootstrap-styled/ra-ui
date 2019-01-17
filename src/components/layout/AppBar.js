@@ -8,9 +8,9 @@ import Button from '@bootstrap-styled/v4/lib/Button';
 import styled from 'styled-components';
 
 import MenuIcon from '@material-ui/icons/Menu';
-import withWidth from '@material-ui/core/withWidth';
 import compose from 'recompose/compose';
 import { toggleSidebar as toggleSidebarAction } from 'ra-core';
+import withWidth from '../extendMui/withWidth';
 import BsAppBar from '../extendMui/AppBar';
 
 import LoadingIndicator from './LoadingIndicator';

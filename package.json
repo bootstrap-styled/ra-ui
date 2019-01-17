@@ -142,7 +142,11 @@
       "react/require-extension": 0,
       "react/self-closing-comp": 0,
       "react/destructuring-assignment": 0,
-      "react/require-default-props": 0
+      "react/require-default-props": 0,
+      "react/default-props-match-prop-types": 0,
+      "no-nested-ternary": 0,
+      "no-shadow": 0,
+      "react/prop-types": 0
     },
     "settings": {
       "import/resolver": {
@@ -205,6 +209,7 @@
     "@yeutech/rollup-umd-ci-release-transitive": "^1.2.5",
     "@yeutech/rollup-umd-ci-test": "^1.0.6",
     "@yeutech/rollup-umd-scripts": "^0.19.2",
+    "@yeutech/ra-core": "^2.0.0-beta4-yeutech.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.6.0",

@@ -60,6 +60,12 @@ const Content = styled.div.attrs({ className: 'layout-content' })`
 `;
 
 
+const componentPropType = PropTypes.oneOfType([
+  PropTypes.func,
+  PropTypes.string,
+]);
+
+
 const sanitizeRestProps = ({
   staticContext,
   history,
@@ -137,11 +143,6 @@ class Layout extends Component {
     );
   }
 }
-
-const componentPropType = PropTypes.oneOfType([
-  PropTypes.func,
-  PropTypes.string,
-]);
 
 Layout.propTypes = {
   appBar: componentPropType,

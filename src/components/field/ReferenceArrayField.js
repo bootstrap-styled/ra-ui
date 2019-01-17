@@ -2,46 +2,46 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Progress from '@bootstrap-styled/v4/lib/Progress';
 import ProgressBar from '@bootstrap-styled/v4/lib/Progress/ProgressBar';
-import LinearProgress from '@material-ui/core/LinearProgress';
+
 import { ReferenceArrayFieldController } from 'ra-core';
 
 
 export const ReferenceArrayFieldView = ({
-    children,
-    className,
-    data,
-    ids,
-    loadedOnce,
-    reference,
-    referenceBasePath,
+  children,
+  className,
+  data,
+  ids,
+  loadedOnce,
+  reference,
+  referenceBasePath,
 }) => {
-    if (loadedOnce === false) {
-        return (
-          <Progress className="mt-2">
-            <ProgressBar valueNow={100} striped animated />
-          </Progress>
-        );
-    }
+  if (loadedOnce === false) {
+    return (
+      <Progress className="mt-2">
+        <ProgressBar valueNow={100} striped animated />
+      </Progress>
+    );
+  }
 
-    return React.cloneElement(children, {
-        className,
-        resource: reference,
-        ids,
-        data,
-        loadedOnce,
-        basePath: referenceBasePath,
-        currentSort: {},
-    });
+  return React.cloneElement(children, {
+    className,
+    resource: reference,
+    ids,
+    data,
+    loadedOnce,
+    basePath: referenceBasePath,
+    currentSort: {},
+  });
 };
 
 ReferenceArrayFieldView.propTypes = {
-    className: PropTypes.string,
-    data: PropTypes.object,
-    ids: PropTypes.array,
-    loadedOnce: PropTypes.bool,
-    children: PropTypes.element.isRequired,
-    reference: PropTypes.string.isRequired,
-    referenceBasePath: PropTypes.string,
+  className: PropTypes.string,
+  data: PropTypes.object,
+  ids: PropTypes.array,
+  loadedOnce: PropTypes.bool,
+  children: PropTypes.element.isRequired,
+  reference: PropTypes.string.isRequired,
+  referenceBasePath: PropTypes.string,
 };
 
 /**
@@ -77,41 +77,41 @@ ReferenceArrayFieldView.propTypes = {
  *
  */
 export const ReferenceArrayField = ({ children, ...props }) => {
-    if (React.Children.count(children) !== 1) {
-        throw new Error(
-            '<ReferenceArrayField> only accepts a single child (like <Datagrid>)'
-        );
-    }
-
-    return (
-        <ReferenceArrayFieldController {...props}>
-            {controllerProps => (
-                <ReferenceArrayFieldView
-                    {...props}
-                    {...{ children, ...controllerProps }}
-                />
-            )}
-        </ReferenceArrayFieldController>
+  if (React.Children.count(children) !== 1) {
+    throw new Error(
+      '<ReferenceArrayField> only accepts a single child (like <Datagrid>)'
     );
+  }
+
+  return (
+    <ReferenceArrayFieldController {...props}>
+      {(controllerProps) => (
+        <ReferenceArrayFieldView
+          {...props}
+          {...{ children, ...controllerProps }}
+        />
+      )}
+    </ReferenceArrayFieldController>
+  );
 };
 
 ReferenceArrayField.propTypes = {
-    addLabel: PropTypes.bool,
-    basePath: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    children: PropTypes.element.isRequired,
-    label: PropTypes.string,
-    record: PropTypes.object.isRequired,
-    reference: PropTypes.string.isRequired,
-    resource: PropTypes.string.isRequired,
-    sortBy: PropTypes.string,
-    source: PropTypes.string.isRequired,
+  addLabel: PropTypes.bool,
+  basePath: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  children: PropTypes.element.isRequired,
+  label: PropTypes.string,
+  record: PropTypes.object.isRequired,
+  reference: PropTypes.string.isRequired,
+  resource: PropTypes.string.isRequired,
+  sortBy: PropTypes.string,
+  source: PropTypes.string.isRequired,
 };
 
 const EnhancedReferenceArrayField = ReferenceArrayField;
 
 EnhancedReferenceArrayField.defaultProps = {
-    addLabel: true,
+  addLabel: true,
 };
 
 export default EnhancedReferenceArrayField;

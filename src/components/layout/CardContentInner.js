@@ -11,14 +11,14 @@ import CardHeader from '@bootstrap-styled/v4/lib/Cards/CardHeader';
  * wasted space. Use this component as a CardContent alternative.
  */
 const CardContentInner = ({ className, children }) => (
-    <CardHeader className={classnames('flex-column flex-sm-row d-flex justify-content-between mb-0 align-items-center rounded-bottom-0', className)}>
-        {children}
-    </CardHeader>
+  <CardHeader className={classnames('flex-column d-flex justify-content-between mb-0 rounded-bottom-0', className)}>
+    {children}
+  </CardHeader>
 );
 
 CardContentInner.propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.node,
+  className: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default CardContentInner;
