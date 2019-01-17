@@ -10,144 +10,147 @@ import { setSidebarVisibility } from 'ra-core';
 
 import Responsive from './Responsive';
 
-export const DRAWER_WIDTH = 240;
-export const CLOSED_DRAWER_WIDTH = 55;
+export const DRAWER_WIDTH = '230px';
+export const CLOSED_DRAWER_WIDTH = '55px';
 
-const styles = theme => ({
-    drawerPaper: {
-        position: 'relative',
-        height: 'auto',
-        overflowX: 'hidden',
-        transition: theme.transitions.create('width', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-        backgroundColor: 'transparent',
-        marginTop: '0.5em',
-        borderRight: 'none',
-        [theme.breakpoints.only('xs')]: {
-            marginTop: 0,
-            height: '100vh',
-            position: 'inherit',
-            backgroundColor: theme.palette.background.default,
-        },
-        [theme.breakpoints.up('md')]: {
-            border: 'none',
-            marginTop: '1.5em',
-        },
+const styles = (theme) => ({
+  drawerPaper: {
+    position: 'relative',
+    height: 'auto',
+    width: DRAWER_WIDTH,
+    overflowX: 'hidden',
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    backgroundColor: 'transparent',
+    borderRight: 'none',
+    marginTop: '4.5em',
+    [theme.breakpoints.only('xs')]: {
+      marginTop: 0,
+      height: '100vh',
+      position: 'inherit',
+      backgroundColor: theme.palette.background.default,
     },
+    [theme.breakpoints.up('md')]: {
+      border: 'none',
+      marginTop: '5.5em',
+    },
+  },
+  drawerPaperClose: {
+    width: 55,
+  },
 });
+
 
 // We shouldn't need PureComponent here as it's connected
 // but for some reason it keeps rendering even though mapStateToProps returns the same object
 class Sidebar extends PureComponent {
-    componentWillMount() {
-        const { width, setSidebarVisibility } = this.props;
-        if (width !== 'xs' && width !== 'sm') {
-            setSidebarVisibility(true);
-        }
+  componentWillMount() {
+    const { width, setSidebarVisibility } = this.props; // eslint-disable-line no-shadow
+    if (width !== 'xs' && width !== 'sm') {
+      setSidebarVisibility(true);
     }
+  }
 
-    handleClose = () => this.props.setSidebarVisibility(false);
+  handleClose = () => this.props.setSidebarVisibility(false);
 
-    toggleSidebar = () => this.props.setSidebarVisibility(!this.props.open);
+  toggleSidebar = () => this.props.setSidebarVisibility(!this.props.open);
 
-    render() {
-        const {
-            children,
-            classes,
-            closedSize,
-            open,
-            setSidebarVisibility,
-            size,
-            width,
-            ...rest
-        } = this.props;
+  render() {
+    const {
+      children,
+      classes,
+      closedSize,
+      open,
+      setSidebarVisibility, // eslint-disable-line no-shadow
+      size,
+      width,
+      ...rest
+    } = this.props;
 
-        return (
-            <Responsive
-                xsmall={
-                  <Drawer
-                    active={open}
-                    left={DRAWER_WIDTH}
-                    style={{ top: '45px' }}
-                    classes={{
-                      paper: classes.drawerPaper,
-                    }}
-                    onClose={this.toggleSidebar}
-                    {...rest}
-                  >
-                    {React.cloneElement(children, {
-                      onMenuClick: this.handleClose,
-                    })}
-                  </Drawer>
-                }
-                small={
-                  <Drawer
-                    docked={true}
-                    left={DRAWER_WIDTH}
-                    active={open}
-                    classes={{
-                      paper: classnames(
-                        classes.drawerPaper,
-                      )
-                    }}
-                    onClose={this.toggleSidebar}
-                    className="mt-2"
-                    {...rest}
-                  >
-                    {React.cloneElement(children, {
-                      onMenuClick: this.handleClose,
-                    })}
-                  </Drawer>
-                }
-                medium={
-                  <Drawer
-                    docked={true}
-                    left={DRAWER_WIDTH}
-                    active={open}
-                    classes={{
-                      paper: classnames(
-                        classes.drawerPaper,
-                      ),
-                    }}
-                    className="mt-2"
-                    onClose={this.toggleSidebar}
-                    {...rest}
-                  >
-                    {React.cloneElement(children)}
-                  </Drawer>
-                }
-            />
-        );
-    }
+    return (
+      <Responsive
+        xsmall={(
+          <Drawer
+            active={open}
+            left={DRAWER_WIDTH}
+            style={{ top: '45px' }}
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            onClose={this.toggleSidebar}
+            {...rest}
+          >
+            {React.cloneElement(children, {
+              onMenuClick: this.handleClose,
+            })}
+          </Drawer>
+        )}
+        small={(
+          <Drawer
+            docked
+            left={DRAWER_WIDTH}
+            active={open}
+            classes={{
+              paper: classnames(classes.drawerPaper,
+                !open && classes.drawerPaperClose),
+            }}
+            onClose={this.toggleSidebar}
+            className="mt-2"
+            {...rest}
+          >
+            {React.cloneElement(children, {
+              onMenuClick: this.handleClose,
+            })}
+          </Drawer>
+        )}
+        medium={(
+          <Drawer
+            docked
+            left={DRAWER_WIDTH}
+            active={open}
+            classes={{
+              paper: classnames(classes.drawerPaper,
+                !open && classes.drawerPaperClose),
+            }}
+            className="mt-2"
+            onClose={this.toggleSidebar}
+            {...rest}
+          >
+            {React.cloneElement(children)}
+          </Drawer>
+        )}
+      />
+    );
+  }
 }
 
 Sidebar.propTypes = {
-    children: PropTypes.node.isRequired,
-    classes: PropTypes.object,
-    closedSize: PropTypes.number,
-    open: PropTypes.bool.isRequired,
-    setSidebarVisibility: PropTypes.func.isRequired,
-    size: PropTypes.number,
-    width: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  classes: PropTypes.object,
+  closedSize: PropTypes.string,
+  open: PropTypes.bool.isRequired,
+  setSidebarVisibility: PropTypes.func.isRequired,
+  size: PropTypes.string,
+  width: PropTypes.string,
 };
 
 Sidebar.defaultProps = {
-    size: DRAWER_WIDTH,
-    closedSize: CLOSED_DRAWER_WIDTH,
+  size: DRAWER_WIDTH,
+  closedSize: CLOSED_DRAWER_WIDTH,
 };
 
-const mapStateToProps = state => ({
-    open: state.admin.ui.sidebarOpen,
-    locale: state.locale, // force redraw on locale change
+const mapStateToProps = (state) => ({
+  open: state.admin.ui.sidebarOpen,
+  locale: state.locale, // force redraw on locale change
 });
 
 export default compose(
-    connect(
-        mapStateToProps,
-        { setSidebarVisibility }
-    ),
-    withStyles(styles),
-    withWidth({ resizeInterval: Infinity }) // used to initialize the visibility on first render
+  connect(
+    mapStateToProps,
+    { setSidebarVisibility }
+  ),
+  withStyles(styles),
+  withWidth({ resizeInterval: Infinity }) // used to initialize the visibility on first render
 )(Sidebar);
