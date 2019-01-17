@@ -1,29 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import classnames from 'classnames';
+import styled from 'styled-components';
 
-const styles = {
-    cardActions: {
-        zIndex: 2,
-        display: 'flex',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-end',
-        flexWrap: 'wrap',
-        padding: 0,
-    },
-};
+const Acions = styled.div`
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  padding: 0;
+`;
 
-const CardActions = ({ classes, className, children, ...rest }) => (
-    <div className={classnames(classes.cardActions, className)} {...rest}>
-        {children}
-    </div>
+const CardActions = ({
+  classes, className, children, ...rest
+}) => (
+  <Acions className={className} {...rest}>
+    {children}
+  </Acions>
 );
 
 CardActions.propTypes = {
-    children: PropTypes.node,
-    classes: PropTypes.object,
-    className: PropTypes.string,
+  children: PropTypes.node,
+  classes: PropTypes.object,
+  className: PropTypes.string,
 };
 
 export default CardActions;
