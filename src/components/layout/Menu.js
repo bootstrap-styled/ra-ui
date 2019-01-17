@@ -5,8 +5,8 @@ import inflection from 'inflection';
 import compose from 'recompose/compose';
 import classnames from 'classnames';
 import { getResources, translate } from 'ra-core';
-import DefaultIcon from '@material-ui/icons/ViewList';
 import ListGroup from '@bootstrap-styled/v4/lib/ListGroup';
+import Fa from '@bootstrap-styled/v4/lib/Fa';
 
 import DashboardMenuItem from './DashboardMenuItem';
 import MenuItemLink from './MenuItemLink';
@@ -46,7 +46,9 @@ const Menu = ({
           to={`/${resource.name}`}
           primaryText={translatedResourceName(resource, translate)}
           leftIcon={
-            resource.icon ? <resource.icon /> : <DefaultIcon />
+            resource.icon && React.createElement(Fa, {
+              className: `fa fa-${resource.icon}`,
+            })
           }
           onClick={onMenuClick}
           dense={dense}
