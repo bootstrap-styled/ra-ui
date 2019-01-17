@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Acions = styled.div`
+const ActionsWrapper = styled.div`
   z-index: 2;
   display: flex;
   align-items: flex-start;
@@ -14,9 +14,9 @@ const Acions = styled.div`
 const CardActions = ({
   classes, className, children, ...rest
 }) => (
-  <Acions className={className} {...rest}>
+  <ActionsWrapper className={className} {...rest}>
     {children}
-  </Acions>
+  </ActionsWrapper>
 );
 
 CardActions.propTypes = {
