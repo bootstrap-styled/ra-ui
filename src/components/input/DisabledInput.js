@@ -7,21 +7,21 @@ import { addField, FieldTitle } from '@yeutech/ra-core';
 import sanitizeRestProps from './sanitizeRestProps';
 
 const DisabledInput = ({
-                         classes,
-                         className,
-                         record,
-                         input: { value },   // eslint-disable-line no-unused-vars
-                         label,
-                         resource,
-                         source,
-                         options,
-                         // Our props
-                         labelHidden,
-                         classNameInput,
-                         input,
-                         size,
-                         ...rest
-                       }) => (
+  classes,
+  className,
+  record,
+  input: { value }, // eslint-disable-line no-unused-vars
+  label,
+  resource,
+  source,
+  options,
+  // Our props
+  labelHidden,
+  classNameInput,
+  input,
+  size,
+  ...rest
+}) => (
   <FormGroup className={className} {...sanitizeRestProps(rest)}>
     <FieldTitle
       label={label}
