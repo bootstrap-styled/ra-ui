@@ -12,83 +12,77 @@ import Form from '@bootstrap-styled/v4/lib/Form';
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
-import Checkbox from '@material-ui/core/Checkbox';
-import classnames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
 
 const RawPlaceholder = () => (
-    <div className="d-flex" style={{ backgroundColor: 'lightgrey' }}>&nbsp;</div>
+  <div className="d-flex" style={{ backgroundColor: 'lightgrey' }}>&nbsp;</div>
 );
 
 const Placeholder = RawPlaceholder;
 
-const times = (nbChildren, fn) =>
-    Array.from({ length: nbChildren }, (_, key) => fn(key));
+const times = (nbChildren, fn) => Array.from({ length: nbChildren }, (_, key) => fn(key));
 
 export default ({
-    classes,
-    className,
-    expand,
-    hasBulkActions,
-    nbChildren,
-    nbFakeLines = 5,
+  className,
+  expand,
+  hasBulkActions,
+  nbChildren,
+  nbFakeLines = 5,
 }) => (
-    <Table className={className}>
-        <Thead>
-            <Tr>
-                {expand && <Th />}
-                {hasBulkActions && (
-                    <Th>
-                      <Form>
-                        <FormGroup className="mb-0">
-                          <FormCustom
-                            className="select-all cursor-pointer"
-                            checked={false}
-                          />
-                        </FormGroup>
-                      </Form>
-                    </Th>
-                )}
-                {times(nbChildren, key => (
-                    <Th key={key}>
-                        <Placeholder />
-                    </Th>
-                ))}
-            </Tr>
-        </Thead>
-        <Tbody>
-            {times(nbFakeLines, key1 => (
-                <Tr key={key1} style={{ opacity: 1 / (key1 + 1) }}>
-                    {expand && (
-                        <Td>
-                            <IconButton
-                                component="div"
-                                aria-hidden="true"
-                                role="expand"
-                            >
-                                <ExpandMoreIcon />
-                            </IconButton>
-                        </Td>
-                    )}
-                    {hasBulkActions && (
-                        <Td>
-                          <Form>
-                            <FormGroup className="mb-0">
-                              <FormCustom
-                                className="select-all"
-                                checked={false}
-                              />
-                            </FormGroup>
-                          </Form>
-                        </Td>
-                    )}
-                    {times(nbChildren, key2 => (
-                        <Td key={key2}>
-                            <Placeholder />
-                        </Td>
-                    ))}
-                </Tr>
-            ))}
-        </Tbody>
-    </Table>
+  <Table className={className}>
+    <Thead>
+      <Tr>
+        {expand && <Th />}
+        {hasBulkActions && (
+          <Th>
+            <Form>
+              <FormGroup className="mb-0">
+                <FormCustom
+                  className="select-all cursor-pointer"
+                  defaultChecked={false}
+                />
+              </FormGroup>
+            </Form>
+          </Th>
+        )}
+        {times(nbChildren, (key) => (
+          <Th key={key}>
+            <Placeholder />
+          </Th>
+        ))}
+      </Tr>
+    </Thead>
+    <Tbody>
+      {times(nbFakeLines, (key1) => (
+        <Tr key={key1} style={{ opacity: 1 / (key1 + 1) }}>
+          {expand && (
+            <Td>
+              <IconButton
+                component="div"
+                aria-hidden="true"
+              >
+                <ExpandMoreIcon />
+              </IconButton>
+            </Td>
+          )}
+          {hasBulkActions && (
+            <Td>
+              <Form>
+                <FormGroup className="mb-0">
+                  <FormCustom
+                    className="select-all"
+                    defaultChecked={false}
+                  />
+                </FormGroup>
+              </Form>
+            </Td>
+          )}
+          {times(nbChildren, (key2) => (
+            <Td key={key2}>
+              <Placeholder />
+            </Td>
+          ))}
+        </Tr>
+      ))}
+    </Tbody>
+  </Table>
 );

@@ -1,7 +1,9 @@
 /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '@material-ui/core/Card';
+import Card from '@bootstrap-styled/v4/lib/Cards/Card';
+import styled from 'styled-components';
+
 import classnames from 'classnames';
 import { ListController, getListControllerProps } from 'ra-core';
 
@@ -12,14 +14,13 @@ import DefaultBulkActionButtons from '../button/BulkDeleteButton';
 import BulkActionsToolbar from './BulkActionsToolbar';
 import DefaultActions from './ListActions';
 
+const ListCardBs = styled(Card)`
+  position: relative;
+  flex: 1 1 auto;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+`;
 export const styles = {
-  root: {
-    display: 'flex',
-  },
-  card: {
-    position: 'relative',
-    flex: '1 1 auto',
-  },
+
   actions: {
     zIndex: 2,
     display: 'flex',
@@ -114,11 +115,11 @@ export const ListView = ({
   const controllerProps = getListControllerProps(rest);
   return (
     <div
-      className={classnames('list-page', classes.root, className)}
+      className={classnames('list-page d-flex', className)}
       {...sanitizeRestProps(rest)}
     >
       <Title title={title} defaultTitle={defaultTitle} />
-      <Card className={classes.card}>
+      <ListCardBs>
         {bulkActions !== false
         && bulkActionButtons !== false
         && bulkActionButtons
@@ -147,7 +148,7 @@ export const ListView = ({
           {pagination
           && React.cloneElement(pagination, controllerProps)}
         </div>
-      </Card>
+      </ListCardBs>
       {aside && React.cloneElement(aside, controllerProps)}
     </div>
   );
@@ -195,10 +196,6 @@ ListView.propTypes = {
   total: PropTypes.number,
   translate: PropTypes.func,
   version: PropTypes.number,
-};
-
-ListView.defaultProps = {
-  classes: {},
 };
 
 /**
@@ -255,7 +252,6 @@ List.propTypes = {
   bulkActions: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
   bulkActionButtons: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
   children: PropTypes.node,
-  classes: PropTypes.object,
   className: PropTypes.string,
   filter: PropTypes.object,
   filterDefaultValues: PropTypes.object,

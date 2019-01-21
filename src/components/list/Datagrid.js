@@ -6,9 +6,6 @@ import Thead from '@bootstrap-styled/v4/lib/Table/Thead';
 import Tr from '@bootstrap-styled/v4/lib/Table/Tr';
 import Th from '@bootstrap-styled/v4/lib/Table/Th';
 import FormCustom from '@bootstrap-styled/v4/lib/Form/FormCustom';
-import Td from '@bootstrap-styled/v4/lib/Table/Td';
-
-import classnames from 'classnames';
 
 import DatagridHeaderCell from './DatagridHeaderCell';
 import DatagridBody from './DatagridBody';
@@ -92,7 +89,6 @@ class Datagrid extends Component {
         version,
         ...rest
       } = this.props;
-
       /**
          * if loadedOnce is false, the list displays for the first time, and the dataProvider hasn't answered yet
          * if loadedOnce is true, the data for the list has at least been returned once by the dataProvider
@@ -125,8 +121,9 @@ class Datagrid extends Component {
          */
       return (
         <Table
-          className={classnames(className, 'mb-0')}
-          style={{ tableLayout: 'fixed' }}
+          hover
+          className={className}
+          style={{ tableLayout: 'auto' }}
           {...sanitizeListRestProps(rest)}
         >
           <Thead>
@@ -135,7 +132,7 @@ class Datagrid extends Component {
                 <Th />
               )}
               {hasBulkActions && (
-                <Td className="py-0">
+                <Th>
                   <FormCustom
                     className="select-all cursor-pointer mb-0"
                     checked={
@@ -147,13 +144,12 @@ class Datagrid extends Component {
                     }
                     onChange={this.handleSelectAll}
                   />
-                </Td>
+                </Th>
               )}
               {React.Children.map(
                 children,
                 (field, index) => field ? (
                   <DatagridHeaderCell
-                    className="p-0"
                     currentSort={currentSort}
                     field={field}
                     isSorting={
@@ -198,9 +194,9 @@ Datagrid.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   currentSort: PropTypes.shape({
-    sort: PropTypes.string,
+    field: PropTypes.string,
     order: PropTypes.string,
-  }).isRequired,
+  }),
   data: PropTypes.object.isRequired,
   expand: PropTypes.node,
   hasBulkActions: PropTypes.bool.isRequired,

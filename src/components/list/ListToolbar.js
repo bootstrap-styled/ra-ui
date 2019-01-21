@@ -1,46 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Toolbar from '@material-ui/core/Toolbar';
-import { withStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
+import { mediaBreakpointDown } from '@bootstrap-styled/css-mixins/lib/breakpoints';
 
-const styles = {
-    toolbar: {
-        justifyContent: 'space-between',
-    },
-};
+const Toolbar = styled.div`
+  ${(props) => `
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    min-height: 56px;
+    ${mediaBreakpointDown('sm', props.theme['$grid-breakpoints'], `
+      padding: 0 24px;
+      min-height: 64px;
+    `)}
+  `}
+`;
 
 const ListToolbar = ({
-    classes = {},
-    filters,
-    actions,
-    bulkActions,
-    exporter,
-    ...rest
+  filters,
+  actions,
+  bulkActions,
+  exporter,
+  ...rest
 }) => (
-    <Toolbar className={classes.toolbar}>
-        {filters &&
-            React.cloneElement(filters, {
-                ...rest,
-                context: 'form',
-            })}
-        <span />
-        {actions &&
-            React.cloneElement(actions, {
-                ...rest,
-                className: classes.actions,
-                bulkActions,
-                exporter,
-                filters,
-            })}
-    </Toolbar>
+  <Toolbar>
+    {filters
+    && React.cloneElement(filters, {
+      ...rest,
+      context: 'form',
+    })}
+    <span />
+    {actions
+    && React.cloneElement(actions, {
+      ...rest,
+      bulkActions,
+      exporter,
+      filters,
+    })}
+  </Toolbar>
 );
 
 ListToolbar.propTypes = {
-    classes: PropTypes.object,
-    filters: PropTypes.element,
-    actions: PropTypes.element,
-    bulkActions: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
-    exporter: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  filters: PropTypes.element,
+  actions: PropTypes.element,
+  bulkActions: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
+  exporter: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
 };
 
 export default ListToolbar;

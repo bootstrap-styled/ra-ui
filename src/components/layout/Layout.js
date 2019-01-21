@@ -46,7 +46,11 @@ const Content = styled.div.attrs({ className: 'layout-content' })`
             display: flex;
             flex-direction: column;
             flex-grow: 1;
-            padding: 1rem 1rem .75rem 0rem;
+            padding: 24px;
+            ${mediaBreakpointDown('md', props.theme['$grid-breakpoints'],
+    `
+                padding: 0;
+              `)}
             ${mediaBreakpointDown('xs', props.theme['$grid-breakpoints'],
     `
                 padding-left: 5rem;

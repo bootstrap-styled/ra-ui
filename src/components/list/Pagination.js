@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import pure from 'recompose/pure';
-import TablePagination from '@material-ui/core/TablePagination';
+import styled from 'styled-components';
+
+import CardFooter from '@bootstrap-styled/v4/lib/Cards/CardFooter';
 import compose from 'recompose/compose';
 import { translate, sanitizeListRestProps } from 'ra-core';
 
@@ -9,117 +11,123 @@ import PaginationActions from './PaginationActions';
 import PaginationLimit from './PaginationLimit';
 import Responsive from '../layout/Responsive';
 
-const emptyArray = [];
+const PaginationText = styled.span`
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.375em;
+  flex-shrink: 0;
+  margin: 0;
+  display: block;
+`;
 
 export class Pagination extends Component {
-    getNbPages = () => Math.ceil(this.props.total / this.props.perPage) || 1;
-
-    componentDidUpdate() {
-        if (this.props.page < 1 || isNaN(this.props.page)) {
-            this.props.setPage(1);
-        }
+  componentDidUpdate() {
+    if (this.props.page < 1 || isNaN(this.props.page)) { // eslint-disable-line no-restricted-globals
+      this.props.setPage(1);
     }
+  }
 
-    /**
-     * Warning: material-ui's page is 0-based
-     */
-    handlePageChange = (event, page) => {
-        event && event.stopPropagation();
-        if (page < 0 || page > this.getNbPages() - 1) {
-            throw new Error(
-                this.props.translate('ra.navigation.page_out_of_boundaries', {
-                    page: page + 1,
-                })
-            );
-        }
-        this.props.setPage(page + 1);
-    };
+  getNbPages = () => Math.ceil(this.props.total / this.props.perPage) || 1;
 
-    handlePerPageChange = event => {
-        this.props.setPerPage(event.target.value);
-    };
+  /**
+   * Warning: material-ui's page is 0-based
+   */
+  handlePageChange = (event, page) => {
+    event && event.stopPropagation(); // eslint-disable-line no-unused-expressions
+    if (page < 0 || page > this.getNbPages() - 1) {
+      throw new Error(
+        this.props.translate('ra.navigation.page_out_of_boundaries', {
+          page: page + 1,
+        })
+      );
+    }
+    this.props.setPage(page + 1);
+  };
 
-    labelDisplayedRows = ({ from, to, count }) => {
-        const { translate } = this.props;
-        return translate('ra.navigation.page_range_info', {
-            offsetBegin: from,
-            offsetEnd: to,
-            total: count,
-        });
-    };
+  handlePerPageChange = (event) => {
+    this.props.setPerPage(event.target.value);
+  };
 
-    render() {
-        const {
-            isLoading,
-            page,
-            perPage,
-            rowsPerPageOptions,
-            total,
-            translate,
-            ...rest
-        } = this.props;
+  render() {
+    const {
+      isLoading,
+      page,
+      perPage,
+      rowsPerPageOptions,
+      total,
+      translate,
+      ...rest
+    } = this.props;
 
-        if (!isLoading && total === 0) {
-            return <PaginationLimit />;
-        }
+    if (!isLoading && total === 0) {
+      return <PaginationLimit />;
+    }
+    const offsetEnd = Math.min(page * perPage, total);
+    const offsetBegin = Math.min((page - 1) * perPage + 1, offsetEnd);
 
-        return (
-            <Responsive
-                small={
-                    <TablePagination
-                        count={total}
-                        rowsPerPage={perPage}
-                        page={page - 1}
-                        onChangePage={this.handlePageChange}
-                        rowsPerPageOptions={emptyArray}
-                        component="span"
-                        labelDisplayedRows={this.labelDisplayedRows}
-                        {...sanitizeListRestProps(rest)}
-                    />
-                }
-                medium={
-                    <TablePagination
-                        count={total}
-                        rowsPerPage={perPage}
-                        page={page - 1}
-                        onChangePage={this.handlePageChange}
-                        onChangeRowsPerPage={this.handlePerPageChange}
-                        ActionsComponent={PaginationActions}
-                        component="span"
-                        labelRowsPerPage={translate(
-                            'ra.navigation.page_rows_per_page'
-                        )}
-                        labelDisplayedRows={this.labelDisplayedRows}
-                        rowsPerPageOptions={rowsPerPageOptions}
-                        {...sanitizeListRestProps(rest)}
-                    />
-                }
+    return (
+      <Responsive
+        small={(
+          <CardFooter className="d-flex align-items-center justify-content-end" {...sanitizeListRestProps(rest)}>
+            <PaginationText className="displayed-records p-3">
+              {translate('ra.navigation.page_range_info', {
+                offsetBegin,
+                offsetEnd,
+                total,
+              })}
+            </PaginationText>
+            <PaginationActions
+              count={total}
+              rowsPerPage={perPage}
+              page={page - 1}
+              onChangePage={this.handlePageChange}
             />
-        );
-    }
+          </CardFooter>
+        )}
+        medium={(
+          <CardFooter className="d-flex align-items-center justify-content-end" {...sanitizeListRestProps(rest)}>
+            <PaginationText className="displayed-records">
+              {translate('ra.navigation.page_range_info', {
+                offsetBegin,
+                offsetEnd,
+                total,
+              })}
+            </PaginationText>
+            <PaginationActions
+              count={total}
+              rowsPerPage={perPage}
+              page={page - 1}
+              onChangePage={this.handlePageChange}
+            />
+          </CardFooter>
+        )}
+      />
+    );
+  }
 }
 
 Pagination.propTypes = {
-    classes: PropTypes.object,
-    className: PropTypes.string,
-    ids: PropTypes.array,
-    isLoading: PropTypes.bool,
-    page: PropTypes.number,
-    perPage: PropTypes.number,
-    rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
-    setPage: PropTypes.func,
-    setPerPage: PropTypes.func,
-    translate: PropTypes.func.isRequired,
-    total: PropTypes.number,
+  classes: PropTypes.object,
+  className: PropTypes.string,
+  ids: PropTypes.array,
+  isLoading: PropTypes.bool,
+  page: PropTypes.number,
+  perPage: PropTypes.number,
+  rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
+  setPage: PropTypes.func,
+  setPerPage: PropTypes.func,
+  translate: PropTypes.func.isRequired,
+  total: PropTypes.number,
 };
 
 Pagination.defaultProps = {
-    rowsPerPageOptions: [5, 10, 25],
+  rowsPerPageOptions: [5, 10, 25],
 };
 
 const enhance = compose(
-    pure,
-    translate
+  pure,
+  translate
 );
 
 export default enhance(Pagination);
