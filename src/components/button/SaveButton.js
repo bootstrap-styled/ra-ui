@@ -7,7 +7,7 @@ import ButtonBs from '@bootstrap-styled/v4/lib/Button';
 import ContentSave from '@material-ui/icons/Save';
 import classnames from 'classnames';
 import { showNotification, translate } from 'ra-core';
-import Fa from '@bootstrap-styled/v4/lib/Fa';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const sanitizeRestProps = ({
   basePath,
@@ -99,14 +99,13 @@ export class SaveButton extends Component {
           className={classnames(className, 'cursor-pointer d-flex align-items-center')}
           type={type}
           onClick={this.handleClick}
-          color={saving ? 'default' : 'primary'}
+          color="primary"
           {...sanitizeRestProps(rest)}
         >
           {saving && saving.redirect === redirect ? (
-            <Fa
-              className="m-3"
-              size="2x"
-              spin
+            <CircularProgress
+              size={25}
+              thickness={2}
             />
           ) : (
             React.cloneElement(icon, {

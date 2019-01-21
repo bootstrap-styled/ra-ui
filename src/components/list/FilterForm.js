@@ -14,7 +14,6 @@ import FilterFormInput from './FilterFormInput';
 const Form = styled(FormBs)`
   display: flex;
   flex-wrap: wrap;
-  margin-top: -10px;
   padding-top: 0;
   align-items: flex-end;
 `;
@@ -77,7 +76,7 @@ const sanitizeRestProps = ({
 
 export class FilterForm extends Component {
   componentDidMount() {
-    this.props.filters.forEach((filter) => {
+    this.props.filters.forEach(filter => {
       if (filter.props.alwaysOn && filter.props.defaultValue) {
         throw new Error(
           'Cannot use alwaysOn and defaultValue on a filter input. Please set the filterDefaultValues props on the <List> element instead.'
@@ -90,13 +89,13 @@ export class FilterForm extends Component {
     const { filters, displayedFilters, initialValues } = this.props;
 
     return filters.filter(
-      (filterElement) => filterElement.props.alwaysOn
+      filterElement => filterElement.props.alwaysOn
         || displayedFilters[filterElement.props.source]
         || typeof initialValues[filterElement.props.source] !== 'undefined'
     );
   }
 
-  handleHide = (event) => this.props.hideFilter(event.currentTarget.dataset.key);
+  handleHide = event => this.props.hideFilter(event.currentTarget.dataset.key);
 
   render() {
     const {
@@ -109,7 +108,7 @@ export class FilterForm extends Component {
         className={className}
         {...sanitizeRestProps(rest)}
       >
-        {this.getShownFilters().map((filterElement) => (
+        {this.getShownFilters().map(filterElement => (
           <FilterFormInput
             key={filterElement.props.source}
             filterElement={filterElement}
@@ -141,7 +140,7 @@ export const mergeInitialValuesWithDefaultValues = ({
   initialValues: {
     ...filters
       .filter(
-        (filterElement) => filterElement.props.alwaysOn
+        filterElement => filterElement.props.alwaysOn
           && filterElement.props.defaultValue
       )
       .reduce(
