@@ -96,7 +96,7 @@ export class SaveButton extends Component {
       const type = submitOnEnter ? 'submit' : 'button';
       return (
         <ButtonBs
-          className={classnames(className, 'cursor-pointer')}
+          className={classnames(className, 'cursor-pointer d-flex align-items-center')}
           type={type}
           onClick={this.handleClick}
           color={saving ? 'default' : 'primary'}

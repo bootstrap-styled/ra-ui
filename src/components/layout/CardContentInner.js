@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import CardHeader from '@bootstrap-styled/v4/lib/Cards/CardHeader';
+import CardBlock from '@bootstrap-styled/v4/lib/Cards/CardBlock';
 
 /**
  * Overrides material-ui CardContent to allow inner content
@@ -11,9 +11,9 @@ import CardHeader from '@bootstrap-styled/v4/lib/Cards/CardHeader';
  * wasted space. Use this component as a CardContent alternative.
  */
 const CardContentInner = ({ className, children }) => (
-  <CardHeader className={classnames('flex-column d-flex justify-content-between mb-0 rounded-bottom-0', className)}>
+  <CardBlock className={classnames('flex-column d-flex justify-content-between mb-0 rounded-bottom-0', className)}>
     {children}
-  </CardHeader>
+  </CardBlock>
 );
 
 CardContentInner.propTypes = {

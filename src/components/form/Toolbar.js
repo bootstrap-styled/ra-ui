@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import compose from 'recompose/compose';
 import styled from 'styled-components';
 import { mediaBreakpointDown } from '@bootstrap-styled/css-mixins/lib/breakpoints';
+import CardBlock from '@bootstrap-styled/v4/lib/Cards/CardBlock';
 
 import classnames from 'classnames';
 import withWidth from '../extendMui/withWidth';
 
 import { SaveButton, DeleteButton } from '../button';
 
-const ToolbarBs = styled.div`
-  ${(props) => `
+const ToolbarBs = styled(CardBlock)`
+  ${props => `
     position: relative;
     display: flex;
     align-items: center;
@@ -55,7 +56,6 @@ const Toolbar = ({
     <ToolbarBs
       className={classnames(className, {
         mobile: width === 'xs',
-        'my-3': width !== 'xs',
       })
       }
       {...rest}
@@ -81,7 +81,7 @@ const Toolbar = ({
       ) : (
         Children.map(
           children,
-          (button) => button
+          button => button
             ? React.cloneElement(button, {
               basePath,
               handleSubmit: valueOrDefault(
