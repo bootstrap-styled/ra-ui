@@ -25,6 +25,11 @@ const ToolbarBs = styled(CardBlock)`
       flex-shrink: 0;
       z-index: 2;
     }
+    .toolbar-button-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+    }
     .toolbar-spacer {
       ${mediaBreakpointDown('xs', props.theme['$grid-breakpoints'],
     `
@@ -61,7 +66,7 @@ const Toolbar = ({
       {...rest}
     >
       {Children.count(children) === 0 ? (
-        <div className="my-2">
+        <div className="toolbar-button-wrapper">
           <SaveButton
             handleSubmitWithRedirect={handleSubmitWithRedirect}
             invalid={invalid}
