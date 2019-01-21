@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '@bootstrap-styled/v4/lib/Cards/Card';
 import CardBlock from '@bootstrap-styled/v4/lib/Cards/CardBlock';
 
 import classnames from 'classnames';
@@ -9,6 +8,7 @@ import { EditController } from 'ra-core';
 import DefaultActions from './EditActions';
 import TitleForRecord from '../layout/TitleForRecord';
 import CardContentInner from '../layout/CardContentInner';
+import CardContent from '../layout/CardContent';
 
 const sanitizeRestProps = ({
   actions,
@@ -72,7 +72,7 @@ export const EditView = ({
         record={record}
         defaultTitle={defaultTitle}
       />
-      <Card>
+      <CardContent>
         {actions && (
           <CardContentInner>
             {React.cloneElement(actions, {
@@ -85,21 +85,23 @@ export const EditView = ({
           </CardContentInner>
         )}
         {record ? (
-          React.cloneElement(children, {
-            basePath,
-            record,
-            redirect:
-              typeof children.props.redirect === 'undefined'
-                ? redirect
-                : children.props.redirect,
-            resource,
-            save,
-            version,
-          })
+          <CardContentInner>
+            {React.cloneElement(children, {
+              basePath,
+              record,
+              redirect:
+                typeof children.props.redirect === 'undefined'
+                  ? redirect
+                  : children.props.redirect,
+              resource,
+              save,
+              version,
+            })}
+          </CardContentInner>
         ) : (
           <CardBlock>&nbsp;</CardBlock>
         )}
-      </Card>
+      </CardContent>
       {aside
       && React.cloneElement(aside, {
         basePath,
@@ -170,9 +172,9 @@ EditView.propTypes = {
  *     );
  *     export default App;
  */
-export const Edit = (props) => (
+export const Edit = props => (
   <EditController {...props}>
-    {(controllerProps) => <EditView {...props} {...controllerProps} />}
+    {controllerProps => <EditView {...props} {...controllerProps} />}
   </EditController>
 );
 

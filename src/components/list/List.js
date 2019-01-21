@@ -1,8 +1,6 @@
 /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '@bootstrap-styled/v4/lib/Cards/Card';
-import styled from 'styled-components';
 
 import classnames from 'classnames';
 import { ListController, getListControllerProps } from 'ra-core';
@@ -13,12 +11,9 @@ import DefaultPagination from './Pagination';
 import DefaultBulkActionButtons from '../button/BulkDeleteButton';
 import BulkActionsToolbar from './BulkActionsToolbar';
 import DefaultActions from './ListActions';
+import CardContent from '../layout/CardContent';
 
-const ListCardBs = styled(Card)`
-  position: relative;
-  flex: 1 1 auto;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
-`;
+
 export const styles = {
 
   actions: {
@@ -119,7 +114,7 @@ export const ListView = ({
       {...sanitizeRestProps(rest)}
     >
       <Title title={title} defaultTitle={defaultTitle} />
-      <ListCardBs>
+      <CardContent>
         {bulkActions !== false
         && bulkActionButtons !== false
         && bulkActionButtons
@@ -148,7 +143,7 @@ export const ListView = ({
           {pagination
           && React.cloneElement(pagination, controllerProps)}
         </div>
-      </ListCardBs>
+      </CardContent>
       {aside && React.cloneElement(aside, controllerProps)}
     </div>
   );
@@ -239,9 +234,9 @@ ListView.propTypes = {
  *         </List>
  *     );
  */
-export const List = (props) => (
+export const List = props => (
   <ListController {...props}>
-    {(controllerProps) => <ListView {...props} {...controllerProps} />}
+    {controllerProps => <ListView {...props} {...controllerProps} />}
   </ListController>
 );
 

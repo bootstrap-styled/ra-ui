@@ -1,16 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '@bootstrap-styled/v4/lib/Cards/Card';
-import styled from 'styled-components';
 import classnames from 'classnames';
 import { CreateController } from 'ra-core';
 
 import TitleForRecord from '../layout/TitleForRecord';
 import CardContentInner from '../layout/CardContentInner';
-
-const CardBs = styled(Card)`
-  flex: 1 1 auto;
-`;
+import CardContent from '../layout/CardContent';
 
 const sanitizeRestProps = ({
   actions,
@@ -59,7 +54,7 @@ export const CreateView = ({
       record={record}
       defaultTitle={defaultTitle}
     />
-    <CardBs>
+    <CardContent>
       {actions && (
         <CardContentInner>
           {React.cloneElement(actions, {
@@ -79,7 +74,7 @@ export const CreateView = ({
         resource,
         save,
       })}
-    </CardBs>
+    </CardContent>
     {aside
     && React.cloneElement(aside, {
       basePath,
@@ -148,9 +143,9 @@ CreateView.propTypes = {
  *     );
  *     export default App;
  */
-export const Create = (props) => (
+export const Create = props => (
   <CreateController {...props}>
-    {(controllerProps) => <CreateView {...props} {...controllerProps} />}
+    {controllerProps => <CreateView {...props} {...controllerProps} />}
   </CreateController>
 );
 

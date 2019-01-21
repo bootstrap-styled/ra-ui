@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '@bootstrap-styled/v4/lib/Cards/Card';
 import classnames from 'classnames';
 import { ShowController } from 'ra-core';
 
 import DefaultActions from './ShowActions';
 import TitleForRecord from '../layout/TitleForRecord';
 import CardContentInner from '../layout/CardContentInner';
+import CardContent from '../layout/CardContent';
 
 const sanitizeRestProps = ({
   actions,
@@ -66,7 +66,7 @@ export const ShowView = ({
         record={record}
         defaultTitle={defaultTitle}
       />
-      <Card>
+      <CardContent>
         {actions && (
           <CardContentInner>
             {React.cloneElement(actions, {
@@ -79,13 +79,18 @@ export const ShowView = ({
           </CardContentInner>
         )}
         {record
-        && React.cloneElement(children, {
-          resource,
-          basePath,
-          record,
-          version,
-        })}
-      </Card>
+        && (
+          <CardContentInner>
+            {React.cloneElement(children, {
+              resource,
+              basePath,
+              record,
+              version,
+            })}
+          </CardContentInner>
+        )
+        }
+      </CardContent>
       {aside
       && React.cloneElement(aside, {
         resource,
@@ -155,9 +160,9 @@ ShowView.propTypes = {
  *     );
  *     export default App;
  */
-export const Show = (props) => (
+export const Show = props => (
   <ShowController {...props}>
-    {(controllerProps) => <ShowView {...props} {...controllerProps} />}
+    {controllerProps => <ShowView {...props} {...controllerProps} />}
   </ShowController>
 );
 
