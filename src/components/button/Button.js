@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import compose from 'recompose/compose';
-
+import styled from 'styled-components';
 import ButtonBs from '@bootstrap-styled/v4/lib/Button';
 import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
@@ -11,12 +11,28 @@ import { translate } from 'ra-core';
 
 import Responsive from '../layout/Responsive';
 
+const ButtonRa = styled(ButtonBs)`
+  ${props => `
+    &.btn-secondary {
+      text-decoration: none;
+      border: none;
+      background: transparent;
+      color: ${props.theme['$brand-primary']};
+      &:hover {
+        background-color: rgba(63, 81, 181, 0.08);
+        border: none;
+        color: ${props.theme['$brand-primary']};
+      }
+    }
+  `}
+`;
+
 
 const Button = ({
   alignIcon = 'left',
   children,
   className,
-  color = 'primary',
+  color = 'secondary',
   disabled,
   label,
   size = 'sm',
@@ -48,7 +64,7 @@ const Button = ({
       )
     }
     medium={(
-      <ButtonBs
+      <ButtonRa
         className={classnames('d-inline-flex align-items-center', className)}
         color={color}
         size={size}
@@ -72,7 +88,7 @@ const Button = ({
         {alignIcon === 'right'
         && children
         && React.cloneElement(children)}
-      </ButtonBs>
+      </ButtonRa>
     )}
   />
 );

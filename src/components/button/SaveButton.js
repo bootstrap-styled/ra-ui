@@ -49,7 +49,7 @@ export class SaveButton extends Component {
       icon: <ContentSave />,
     };
 
-    handleClick = (e) => {
+    handleClick = e => {
       const {
         handleSubmitWithRedirect,
         invalid,
@@ -99,7 +99,7 @@ export class SaveButton extends Component {
           className={classnames(className, 'cursor-pointer')}
           type={type}
           onClick={this.handleClick}
-          color={saving ? 'success' : 'primary'}
+          color={saving ? 'default' : 'primary'}
           {...sanitizeRestProps(rest)}
         >
           {saving && saving.redirect === redirect ? (

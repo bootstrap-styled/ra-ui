@@ -11,39 +11,37 @@ import Button from './Button';
 const stopPropagation = e => e.stopPropagation();
 
 const ShowButton = ({
-    basePath = '',
-    label = 'ra.action.show',
-    record = {},
-    icon = <ImageEye />,
-    ...rest
+  basePath = '',
+  label = 'ra.action.show',
+  record = {},
+  icon = <ImageEye />,
+  ...rest
 }) => (
-    <Button
-        tag={Link}
-        to={`${linkToRecord(basePath, record.id)}/show`}
-        label={label}
-        onClick={stopPropagation}
-        color="info"
-        {...rest}
-    >
-        {icon}
-    </Button>
+  <Button
+    tag={Link}
+    to={`${linkToRecord(basePath, record.id)}/show`}
+    label={label}
+    onClick={stopPropagation}
+    {...rest}
+  >
+    {icon}
+  </Button>
 );
 
 ShowButton.propTypes = {
-    basePath: PropTypes.string,
-    label: PropTypes.string,
-    record: PropTypes.object,
-    icon: PropTypes.element,
+  basePath: PropTypes.string,
+  label: PropTypes.string,
+  record: PropTypes.object,
+  icon: PropTypes.element,
 };
 
 const enhance = shouldUpdate(
-    (props, nextProps) =>
-        props.translate !== nextProps.translate ||
-        (props.record &&
-            nextProps.record &&
-            props.record.id !== nextProps.record.id) ||
-        props.basePath !== nextProps.basePath ||
-        (props.record == null && nextProps.record != null)
+  (props, nextProps) => props.translate !== nextProps.translate
+    || (props.record
+      && nextProps.record
+      && props.record.id !== nextProps.record.id)
+    || props.basePath !== nextProps.basePath
+    || (props.record == null && nextProps.record != null)
 );
 
 export default enhance(ShowButton);

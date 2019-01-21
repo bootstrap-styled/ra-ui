@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ContentFilter from '@material-ui/icons/FilterList';
 import ButtonDropdown from '@bootstrap-styled/v4/lib/Button/ButtonDropdown';
-import DropdownToggle from '@bootstrap-styled/v4/lib/Dropdown/DropdownToggle';
 import DropdownMenu from '@bootstrap-styled/v4/lib/Dropdown/DropdownMenu';
 import classnames from 'classnames';
 import compose from 'recompose/compose';
@@ -12,8 +11,6 @@ import FilterButtonMenuItem from './FilterButtonMenuItem';
 import Button from '../button/Button';
 
 export class FilterButton extends Component {
-  button = null;
-
   constructor(props) {
     super(props);
     this.state = {
@@ -27,7 +24,7 @@ export class FilterButton extends Component {
   getHiddenFilters() {
     const { filters, displayedFilters, filterValues } = this.props;
     return filters.filter(
-      (filterElement) => !filterElement.props.alwaysOn
+      filterElement => !filterElement.props.alwaysOn
         && !displayedFilters[filterElement.props.source]
         && !filterValues[filterElement.props.source]
     );
@@ -38,6 +35,7 @@ export class FilterButton extends Component {
     event && event.preventDefault(); // eslint-disable-line no-unused-expressions
 
     this.setState({
+      open: !this.state.open, // eslint-disable-line react/no-access-state-in-setstate
     });
   }
 
@@ -53,6 +51,8 @@ export class FilterButton extends Component {
       open: false,
     });
   }
+
+  button = null; // eslint-disable-line react/sort-comp
 
   render() {
     const hiddenFilters = this.getHiddenFilters();
@@ -75,16 +75,15 @@ export class FilterButton extends Component {
           toggle={this.handleClickButton}
           {...rest}
         >
-          <DropdownToggle
+          <Button
             className="add-filter h-100 cursor-pointer"
-            tag={Button}
             onClick={this.handleClickButton}
             label="ra.action.add_filter"
           >
             <ContentFilter />
-          </DropdownToggle>
+          </Button>
           <DropdownMenu right>
-            {hiddenFilters.map((filterElement) => (
+            {hiddenFilters.map(filterElement => (
               <FilterButtonMenuItem
                 key={filterElement.props.source}
                 filter={filterElement.props}
