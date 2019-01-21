@@ -136,7 +136,7 @@ export class SelectInput extends Component {
       }
     }
 
-    handleChange = (eventOrValue) => {
+    handleChange = eventOrValue => {
       const value = eventOrValue.target
         ? eventOrValue.target.value
         : eventOrValue;
@@ -147,7 +147,7 @@ export class SelectInput extends Component {
       this.setState({ value });
     };
 
-    addAllowEmpty = (choices) => {
+    addAllowEmpty = choices => {
       if (this.props.allowEmpty) {
         return [<Option value="" key="null" />, ...choices];
       }
@@ -155,7 +155,7 @@ export class SelectInput extends Component {
       return choices;
     };
 
-    renderMenuItemOption = (choice) => {
+    renderMenuItemOption = choice => {
       const { optionText, translate, translateChoice } = this.props;
       if (React.isValidElement(optionText)) {
         return React.cloneElement(optionText, {
@@ -170,7 +170,7 @@ export class SelectInput extends Component {
         : choiceName;
     };
 
-    renderMenuItem = (choice) => {
+    renderMenuItem = choice => {
       const { optionValue, disableValue } = this.props;
       return (
         <Option
@@ -217,10 +217,10 @@ export class SelectInput extends Component {
             />
           )}
           name={input.name}
-          className={`${classes.input} ${className}`}
-          clearAlwaysVisible
+          className={className}
           error={!!(touched && error)}
           helperText={(touched && error) || helperText}
+          type="select"
           {...options}
           {...sanitizeRestProps(rest)}
           onChange={this.handleChange}
