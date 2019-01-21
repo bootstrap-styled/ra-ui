@@ -74,7 +74,6 @@ class Datagrid extends Component {
         data,
         expand,
         hasBulkActions,
-        hover,
         ids,
         isLoading,
         loadedOnce, // eslint-disable-line react/prop-types
@@ -172,7 +171,6 @@ class Datagrid extends Component {
               rowClick,
               data,
               hasBulkActions,
-              hover,
               ids,
               isLoading,
               onToggleItem,
@@ -200,7 +198,6 @@ Datagrid.propTypes = {
   data: PropTypes.object.isRequired,
   expand: PropTypes.node,
   hasBulkActions: PropTypes.bool.isRequired,
-  hover: PropTypes.bool,
   ids: PropTypes.arrayOf(PropTypes.any).isRequired,
   isLoading: PropTypes.bool,
   onSelect: PropTypes.func,

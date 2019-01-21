@@ -104,8 +104,6 @@ class DatagridRow extends Component {
       record,
       resource,
       selected,
-      style,
-      styles,
       ...rest
     } = this.props;
     const { expanded } = this.state;
