@@ -1,83 +1,65 @@
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import Tooltip from '@material-ui/core/Tooltip';
-import IconButton from '@material-ui/core/IconButton';
-import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { translate } from 'ra-core';
+import ButtonDropdown from '@bootstrap-styled/v4/lib/Button/ButtonDropdown';
+import DropdownMenu from '@bootstrap-styled/v4/lib/Dropdown/DropdownMenu';
+import Button from '../button/Button';
 
 class UserMenu extends React.Component {
-    static propTypes = {
-        children: PropTypes.node,
-        label: PropTypes.string.isRequired,
-        logout: PropTypes.node,
-        icon: PropTypes.node,
-        translate: PropTypes.func.isRequired,
-    };
+  static propTypes = {
+    children: PropTypes.node,
+    label: PropTypes.string.isRequired,
+    logout: PropTypes.node,
+    icon: PropTypes.node,
+    translate: PropTypes.func.isRequired,
+  };
 
-    static defaultProps = {
-        label: 'ra.auth.user_menu',
-        icon: <AccountCircle />,
-    };
+  static defaultProps = {
+    label: 'ra.auth.user_menu',
+    icon: <AccountCircle />,
+  };
 
-    state = {
-        auth: true,
-        anchorEl: null,
-    };
+  state = {
+    open: false,
+  };
 
-    handleChange = (event, checked) => {
-        this.setState({ auth: checked });
-    };
+  handleMenu = () => {
+    this.setState({ open: !this.state.open }); // eslint-disable-line react/no-access-state-in-setstate
+  };
 
-    handleMenu = event => {
-        this.setState({ anchorEl: event.currentTarget });
-    };
 
-    handleClose = () => {
-        this.setState({ anchorEl: null });
-    };
+  render() {
+    const {
+      children, label, icon, logout, translate,
+    } = this.props;
+    const { open } = this.state;
+    if (!logout && !children) return null;
 
-    render() {
-        const { children, label, icon, logout, translate } = this.props;
-        if (!logout && !children) return null;
-        const { anchorEl } = this.state;
-        const open = Boolean(anchorEl);
-
-        return (
-            <div>
-                <Tooltip title={label && translate(label, { _: label })}>
-                    <IconButton
-                        aria-label={label && translate(label, { _: label })}
-                        aria-owns={open ? 'menu-appbar' : null}
-                        aria-haspopup={true}
-                        color="inherit"
-                        onClick={this.handleMenu}
-                    >
-                        {icon}
-                    </IconButton>
-                </Tooltip>
-                <Menu
-                    id="menu-appbar"
-                    anchorEl={anchorEl}
-                    anchorOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                    }}
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                    }}
-                    open={open}
-                    onClose={this.handleClose}
-                >
-                    {Children.map(children, menuItem =>
-                        cloneElement(menuItem, { onClick: this.handleClose })
-                    )}
-                    {logout}
-                </Menu>
-            </div>
-        );
-    }
+    return (
+      <div>
+        <ButtonDropdown
+          id="menu-appbar"
+          aria-owns={open ? 'menu-appbar' : null}
+          aria-haspopup
+          toggle={this.handleMenu}
+          isOpen={open}
+        >
+          <Button
+            className="add-filter h-100 cursor-pointer"
+            onClick={this.handleMenu}
+            label={label && translate(label, { _: label })}
+          >
+            {icon}
+          </Button>
+          <DropdownMenu right>
+            {Children.map(children, menuItem => cloneElement(menuItem, { onClick: this.handleMenu }))}
+            {logout}
+          </DropdownMenu>
+        </ButtonDropdown>
+      </div>
+    );
+  }
 }
 
 export default translate(UserMenu);
