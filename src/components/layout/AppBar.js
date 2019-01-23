@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 
 import H2 from '@bootstrap-styled/v4/lib/H2';
-import Button from '@bootstrap-styled/v4/lib/Button';
 import styled from 'styled-components';
 
 import MenuIcon from '@material-ui/icons/Menu';
@@ -16,6 +15,26 @@ import BsAppBar from '../extendMui/AppBar';
 import LoadingIndicator from './LoadingIndicator';
 import UserMenu from './UserMenu';
 import Headroom from './Headroom';
+
+const MenuButton = styled.button`
+  cursor: pointer;
+  color: inherit;
+  margin: 0;
+  border: 0;
+  outline: none;
+  user-select: none;
+  text-decoration: none;
+  background-color: transparent;
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  font-size: 1.5rem;
+  text-align: center;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+`;
 
 const AppBarUnstyled = ({
   children,
@@ -29,16 +48,18 @@ const AppBarUnstyled = ({
   ...rest
 }) => (
   <Headroom>
-    <BsAppBar className={classnames(className, 'appbar')} {...rest}>
-      <Button
-        color="primary"
+    <BsAppBar className={classnames(className, 'appbar p-0')} {...rest}>
+      <MenuButton
         aria-label="open drawer"
+        className="mx-3"
         onClick={toggleSidebar}
       >
         <MenuIcon />
-      </Button>
-      <H2 className="appbar-title my-0">
-        {typeof title === 'string' ? title : React.cloneElement(title)}
+      </MenuButton>
+      <H2 className="appbar-title my-0" id="react-admin-title">
+        <span>
+          {typeof title === 'string' ? title : React.cloneElement(title)}
+        </span>
       </H2>
       <LoadingIndicator />
       {cloneElement(userMenu, { logout })}
@@ -88,7 +109,7 @@ const AppBar = styled(AppBarUnstyled)`
 
 const enhance = compose(
   connect(
-    (state) => ({
+    state => ({
       locale: state.i18n.locale, // force redraw on locale change
     }),
     {

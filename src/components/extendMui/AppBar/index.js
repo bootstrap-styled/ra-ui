@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 const AppBar = styled.header`
-${(props) => `
+${props => `
   position: static;
   top: 0;
   right: 0;
   left: 0;
-  height: ${props.theme.raUiBootstrapStyled['$appbar-height']};
   padding: ${props.theme.raUiBootstrapStyled['$appbar-padding-y']} ${props.theme.raUiBootstrapStyled['$appbar-padding-x']};
   display: flex;
   align-items: center;
@@ -22,7 +21,6 @@ ${(props) => `
 const defaultProps = {
   theme: {
     raUiBootstrapStyled: {
-      '$appbar-height': '70px',
       '$appbar-padding-y': '.75rem',
       '$appbar-padding-x': '.25rem',
       '$zindex-appbar': '1000',

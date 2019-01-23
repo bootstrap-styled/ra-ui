@@ -13,7 +13,7 @@ import Responsive from './Responsive';
 export const DRAWER_WIDTH = '230px';
 export const CLOSED_DRAWER_WIDTH = '55px';
 
-const styles = (theme) => ({
+const styles = theme => ({
   drawerPaper: {
     position: 'relative',
     height: 'auto',
@@ -97,7 +97,7 @@ class Sidebar extends PureComponent {
                 !open && classes.drawerPaperClose),
             }}
             onClose={this.toggleSidebar}
-            className="mt-2"
+            className="mt-3"
             {...rest}
           >
             {React.cloneElement(children, {
@@ -114,7 +114,7 @@ class Sidebar extends PureComponent {
               paper: classnames(classes.drawerPaper,
                 !open && classes.drawerPaperClose),
             }}
-            className="mt-2"
+            className="mt-3"
             onClose={this.toggleSidebar}
             {...rest}
           >
@@ -141,7 +141,7 @@ Sidebar.defaultProps = {
   closedSize: CLOSED_DRAWER_WIDTH,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   open: state.admin.ui.sidebarOpen,
   locale: state.locale, // force redraw on locale change
 });
