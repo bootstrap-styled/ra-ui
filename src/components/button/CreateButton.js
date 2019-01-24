@@ -37,7 +37,7 @@ const CreateButton = ({
         tag={Link}
         to={`${basePath}/create`}
         className={className}
-        label={label && translate(label)}
+        label={label}
         {...rest}
       >
         {icon}

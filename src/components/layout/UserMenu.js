@@ -1,7 +1,6 @@
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import { translate } from 'ra-core';
 import ButtonDropdown from '@bootstrap-styled/v4/lib/Button/ButtonDropdown';
 import DropdownMenu from '@bootstrap-styled/v4/lib/Dropdown/DropdownMenu';
 import Button from '../button/Button';
@@ -12,7 +11,6 @@ class UserMenu extends React.Component {
     label: PropTypes.string.isRequired,
     logout: PropTypes.node,
     icon: PropTypes.node,
-    translate: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -31,7 +29,7 @@ class UserMenu extends React.Component {
 
   render() {
     const {
-      children, label, icon, logout, translate,
+      children, label, icon, logout,
     } = this.props;
     const { open } = this.state;
     if (!logout && !children) return null;
@@ -48,7 +46,7 @@ class UserMenu extends React.Component {
           <Button
             className="add-filter h-100 cursor-pointer"
             onClick={this.handleMenu}
-            label={label && translate(label, { _: label })}
+            label={label}
           >
             {icon}
           </Button>
@@ -62,4 +60,4 @@ class UserMenu extends React.Component {
   }
 }
 
-export default translate(UserMenu);
+export default UserMenu;
