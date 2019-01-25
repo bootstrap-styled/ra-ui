@@ -55,7 +55,6 @@ export const isWidthDown = (breakpoint, width, inclusive = true) => {
 };
 
 const withWidth = (options = {}) => Component => {
-
   const {
     resizeInterval = 166, // Corresponds to 10 frames at 60 Hz.
     withTheme: withThemeOption = false,
@@ -79,12 +78,12 @@ const withWidth = (options = {}) => Component => {
     }, resizeInterval);
 
     updateWidth(innerWidth) {
-			const breakpoints = this.props.theme['$grid-breakpoints'];
+      const breakpoints = this.props.theme['$grid-breakpoints'];
 
-			// theme provides strings as the value, we thus transform them from string to number.
-			const breakpointsWithNumbers = {};
-      Object.keys(breakpoints).forEach((bpKeys) => {
-				breakpointsWithNumbers[bpKeys] = parseInt(breakpoints[bpKeys]);
+      // theme provides strings as the value, we thus transform them from string to number.
+      const breakpointsWithNumbers = {};
+      Object.keys(breakpoints).forEach(bpKeys => {
+        breakpointsWithNumbers[bpKeys] = parseInt(breakpoints[bpKeys]);
       });
 
       let width = null;
@@ -98,13 +97,12 @@ const withWidth = (options = {}) => Component => {
        */
       let index = 1;
 
-			while (width === null && index < breakpointKeys.length) {
+      while (width === null && index < breakpointKeys.length) {
         const currentWidth = breakpointKeys[index];
 
         // @media are inclusive, so reproduce the behavior here.
         if (innerWidth < breakpointsWithNumbers[currentWidth]) {
-
-					width = breakpointKeys[index - 1];
+          width = breakpointKeys[index - 1];
           break;
         }
 
@@ -118,10 +116,12 @@ const withWidth = (options = {}) => Component => {
           width,
         });
       }
-		}
+    }
 
     render() {
-      const { initialWidth, theme, width, ...other } = this.props;
+      const {
+        initialWidth, theme, width, ...other
+      } = this.props;
       const props = {
         width: width || this.state.width || initialWidth,
         ...other,
@@ -149,6 +149,7 @@ const withWidth = (options = {}) => Component => {
       );
     }
   }
+
   WithWidth.defaultProps = defaultProps;
   WithWidth.propTypes = propTypes;
 

@@ -44,7 +44,7 @@ export default ({
             </Form>
           </Th>
         )}
-        {times(nbChildren, (key) => (
+        {times(nbChildren, key => (
           <Th key={key}>
             <Placeholder />
           </Th>
@@ -52,7 +52,7 @@ export default ({
       </Tr>
     </Thead>
     <Tbody>
-      {times(nbFakeLines, (key1) => (
+      {times(nbFakeLines, key1 => (
         <Tr key={key1} style={{ opacity: 1 / (key1 + 1) }}>
           {expand && (
             <Td>
@@ -76,7 +76,7 @@ export default ({
               </Form>
             </Td>
           )}
-          {times(nbChildren, (key2) => (
+          {times(nbChildren, key2 => (
             <Td key={key2}>
               <Placeholder />
             </Td>

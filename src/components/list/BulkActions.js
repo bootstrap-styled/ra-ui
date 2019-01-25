@@ -12,7 +12,7 @@ import { translate } from 'ra-core';
 import Button from '../button/Button';
 import BulkDeleteAction from './BulkDeleteAction';
 
-const styles = (theme) => ({
+const styles = theme => ({
   bulkActionsButton: {
     opacity: 1,
     transition: theme.transitions.create('opacity', {
@@ -69,7 +69,7 @@ class BulkActions extends Component {
     }
   }
 
-  storeButtonRef = (node) => {
+  storeButtonRef = node => {
     this.anchorElement = node;
   };
 
@@ -81,7 +81,7 @@ class BulkActions extends Component {
     this.setState({ isOpen: false });
   };
 
-  handleLaunchAction = (action) => {
+  handleLaunchAction = action => {
     this.setState({ activeAction: action, isOpen: false });
   };
 

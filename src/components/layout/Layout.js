@@ -19,29 +19,29 @@ import Error from './Error';
 import defaultTheme from '../defaultTheme';
 
 const LayoutWrapper = styled.div`
-    ${(props) => `
-        display: flex;
-        flex-direction: column;
-        z-index: 1;
-        background-color: ${props.theme['$body-bg']};
-        position: relative;
-        min-width: fit-content;
-        width: 100%;
-    `}
+  ${props => `
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    background-color: ${props.theme['$body-bg']};
+    position: relative;
+    min-width: fit-content;
+    width: 100%;
+  `}
 `;
 
 const LayoutFrame = styled.div`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 const ContentWithSidebar = styled.main`
-    display: flex;
-    flex-grow: 1;
+  display: flex;
+  flex-grow: 1;
 `;
 
 const Content = styled.div.attrs({ className: 'layout-content' })`
-    ${(props) => `
+    ${props => `
         &.layout-content {
             display: flex;
             flex-direction: column;
@@ -177,7 +177,7 @@ Layout.defaultProps = {
   sidebar: Sidebar,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   open: state.admin.ui.sidebarOpen,
 });
 

@@ -5,7 +5,6 @@ import ActionHide from '@material-ui/icons/HighlightOff';
 import { translate } from 'ra-core';
 import Button from '../button/Button';
 
-
 const emptyRecord = {};
 
 const sanitizeRestProps = ({ alwaysOn, ...props }) => props;

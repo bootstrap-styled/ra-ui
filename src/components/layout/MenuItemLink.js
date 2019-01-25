@@ -14,7 +14,7 @@ export class MenuItemLink extends Component {
       to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
     };
 
-    handleMenuTap = (e) => {
+    handleMenuTap = e => {
       this.props.onClick && this.props.onClick(e); // eslint-disable-line no-unused-expressions
     };
 

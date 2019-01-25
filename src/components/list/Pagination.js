@@ -45,7 +45,7 @@ export class Pagination extends Component {
     this.props.setPage(page + 1);
   };
 
-  handlePerPageChange = (event) => {
+  handlePerPageChange = event => {
     this.props.setPerPage(event.target.value);
   };
 
@@ -108,7 +108,6 @@ export class Pagination extends Component {
 }
 
 Pagination.propTypes = {
-  classes: PropTypes.object,
   className: PropTypes.string,
   ids: PropTypes.array,
   isLoading: PropTypes.bool,

@@ -13,7 +13,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { translate } from 'ra-core';
 import Title from './Title';
 
-const styles = (theme) => ({
+const styles = theme => ({
   container: {
     display: 'flex',
     flexDirection: 'column',

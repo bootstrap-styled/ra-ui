@@ -7,20 +7,20 @@ import compose from 'recompose/compose';
 import { translate } from 'ra-core';
 
 const PaginationLimit = ({ translate }) => (
-    <CardContent>
-        <Typography variant="body1">
-            {translate('ra.navigation.no_results')}
-        </Typography>
-    </CardContent>
+  <CardContent>
+    <Typography variant="body1">
+      {translate('ra.navigation.no_results')}
+    </Typography>
+  </CardContent>
 );
 
 PaginationLimit.propTypes = {
-    translate: PropTypes.func.isRequired,
+  translate: PropTypes.func.isRequired,
 };
 
 const enhance = compose(
-    pure,
-    translate
+  pure,
+  translate
 );
 
 export default enhance(PaginationLimit);

@@ -13,30 +13,12 @@ import BulkActionsToolbar from './BulkActionsToolbar';
 import DefaultActions from './ListActions';
 import CardContent from '../layout/CardContent';
 
-
-export const styles = {
-
-  actions: {
-    zIndex: 2,
-    display: 'flex',
-    justifyContent: 'flex-end',
-    flexWrap: 'wrap',
-  },
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignSelf: 'flex-start',
-  },
-  noResults: { padding: 20 },
-};
-
 const sanitizeRestProps = ({
   actions,
   basePath,
   bulkActions,
   changeListParams,
   children,
-  classes,
   className,
   crudGetList,
   currentSort,
@@ -101,7 +83,6 @@ export const ListView = ({
   // overridable by user
   children,
   className,
-  classes,
   exporter,
   title,
   ...rest
@@ -157,7 +138,6 @@ ListView.propTypes = {
   bulkActionButtons: PropTypes.oneOfType([PropTypes.bool, PropTypes.element]),
   children: PropTypes.element,
   className: PropTypes.string,
-  classes: PropTypes.object,
   currentSort: PropTypes.shape({
     field: PropTypes.string,
     order: PropTypes.string,

@@ -218,7 +218,7 @@ export const ReferenceInput = ({ children, ...props }) => {
 
   return (
     <ReferenceInputController {...props}>
-      {(controllerProps) => (
+      {controllerProps => (
         <ReferenceInputView
           {...props}
           {...{ children, ...controllerProps }}
@@ -255,7 +255,7 @@ ReferenceInput.propTypes = {
 ReferenceInput.defaultProps = {
   allowEmpty: false,
   filter: {},
-  filterToQuery: (searchText) => ({ q: searchText }),
+  filterToQuery: searchText => ({ q: searchText }),
   perPage: 25,
   sort: { field: 'id', order: 'DESC' },
 };

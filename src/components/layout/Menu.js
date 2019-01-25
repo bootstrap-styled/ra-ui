@@ -39,8 +39,8 @@ const Menu = ({
   <ListGroup className={classnames(className, 'd-flex flex-column flex-start pl-4')} style={{ width: DRAWER_WIDTH }} {...rest}>
     {hasDashboard && <DashboardMenuItem onClick={onMenuClick} />}
     {resources
-      .filter((r) => r.hasList)
-      .map((resource) => (
+      .filter(r => r.hasList)
+      .map(resource => (
         <MenuItemLink
           key={resource.name}
           to={`/${resource.name}`}
@@ -74,7 +74,7 @@ Menu.defaultProps = {
   onMenuClick: () => null,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   open: state.admin.ui.sidebarOpen,
   resources: getResources(state),
   pathname: state.router.location.pathname, // used to force redraw on navigation

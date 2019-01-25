@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
-import { withStyles } from '@material-ui/core/styles';
 import FormBs from '@bootstrap-styled/v4/lib/Form';
 import styled from 'styled-components';
-
 import compose from 'recompose/compose';
 import withProps from 'recompose/withProps';
 import lodashSet from 'lodash/set';
@@ -17,21 +15,6 @@ const Form = styled(FormBs)`
   padding-top: 0;
   align-items: flex-end;
 `;
-
-
-const styles = ({ palette: { primary1Color } }) => ({
-  form: {
-    marginTop: '-10px',
-    paddingTop: 0,
-    display: 'flex',
-    alignItems: 'flex-end',
-    flexWrap: 'wrap',
-  },
-  body: { display: 'flex', alignItems: 'flex-end' },
-  spacer: { width: '1em' },
-  icon: { color: primary1Color || '#00bcd4', paddingBottom: 0 },
-  clearFix: { clear: 'right' },
-});
 
 const sanitizeRestProps = ({
   anyTouched,
@@ -156,7 +139,6 @@ export const mergeInitialValuesWithDefaultValues = ({
 });
 
 const enhance = compose(
-  withStyles(styles),
   withProps(mergeInitialValuesWithDefaultValues),
   reduxForm({
     form: 'filterForm',

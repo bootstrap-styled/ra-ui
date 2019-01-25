@@ -48,9 +48,7 @@ const CreateButton = ({
 
 CreateButton.propTypes = {
   basePath: PropTypes.string,
-
   className: PropTypes.string,
-  classes: PropTypes.object,
   label: PropTypes.string,
   size: PropTypes.string,
   translate: PropTypes.func.isRequired,

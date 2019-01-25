@@ -9,7 +9,7 @@ import { translate, sanitizeListRestProps } from 'ra-core';
 
 import CardActions from '../layout/CardActions';
 
-const styles = (theme) => ({
+const styles = theme => ({
   toolbar: {
     position: 'absolute',
     top: 0,
@@ -72,7 +72,7 @@ const BulkActionsToolbar = ({
       </Typography>
     </div>
     <CardActions>
-      {Children.map(children, (child) => cloneElement(child, {
+      {Children.map(children, child => cloneElement(child, {
         basePath,
         filterValues,
         resource,

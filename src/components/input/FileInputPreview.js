@@ -7,65 +7,65 @@ import RemoveCircle from '@material-ui/icons/RemoveCircle';
 import { translate } from 'ra-core';
 
 const styles = theme => ({
-    removeButton: {},
-    removeIcon: {
-        color: theme.palette.accent1Color,
-    },
+  removeButton: {},
+  removeIcon: {
+    color: theme.palette.accent1Color,
+  },
 });
 
 export class FileInputPreview extends Component {
-    static propTypes = {
-        children: PropTypes.element.isRequired,
-        classes: PropTypes.object,
-        className: PropTypes.string,
-        file: PropTypes.object,
-        onRemove: PropTypes.func.isRequired,
-        revokeObjectURL: PropTypes.func,
-    };
+  static propTypes = {
+    children: PropTypes.element.isRequired,
+    classes: PropTypes.object,
+    className: PropTypes.string,
+    file: PropTypes.object,
+    onRemove: PropTypes.func.isRequired,
+    revokeObjectURL: PropTypes.func,
+  };
 
-    static defaultProps = {
-        file: undefined,
-        translate: id => id,
-    };
+  static defaultProps = {
+    file: undefined,
+    translate: id => id,
+  };
 
-    componentWillUnmount() {
-        const { file, revokeObjectURL } = this.props;
+  componentWillUnmount() {
+    const { file, revokeObjectURL } = this.props;
 
-        if (file.preview) {
-            revokeObjectURL
-                ? revokeObjectURL(file.preview)
-                : window.URL.revokeObjectURL(file.preview);
-        }
+    if (file.preview) {
+      revokeObjectURL // eslint-disable-line no-unused-expressions
+        ? revokeObjectURL(file.preview)
+        : window.URL.revokeObjectURL(file.preview);
     }
+  }
 
-    render() {
-        const {
-            children,
-            classes = {},
-            className,
-            onRemove,
-            revokeObjectURL,
-            file,
-            translate,
-            ...rest
-        } = this.props;
+  render() {
+    const {
+      children,
+      classes = {},
+      className,
+      onRemove,
+      revokeObjectURL,
+      file,
+      translate,
+      ...rest
+    } = this.props;
 
-        return (
-            <div className={className} {...rest}>
-                <IconButton
-                    className={classes.removeButton}
-                    onClick={onRemove}
-                    title={translate('ra.action.delete')}
-                >
-                    <RemoveCircle className={classes.removeIcon} />
-                </IconButton>
-                {children}
-            </div>
-        );
-    }
+    return (
+      <div className={className} {...rest}>
+        <IconButton
+          className={classes.removeButton}
+          onClick={onRemove}
+          title={translate('ra.action.delete')}
+        >
+          <RemoveCircle className={classes.removeIcon} />
+        </IconButton>
+        {children}
+      </div>
+    );
+  }
 }
 
 export default compose(
-    withStyles(styles),
-    translate
+  withStyles(styles),
+  translate
 )(FileInputPreview);

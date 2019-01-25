@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { mediaBreakpointDown } from '@bootstrap-styled/css-mixins/lib/breakpoints';
 
 const Toolbar = styled.div`
-  ${(props) => `
+  ${props => `
     display: flex;
     position: relative;
     align-items: center;

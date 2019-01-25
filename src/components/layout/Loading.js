@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import { translate } from 'ra-core';
 import Fa from '@bootstrap-styled/v4/lib/Fa';
 
-const styles = (theme) => ({
+const styles = theme => ({
   container: {
     display: 'flex',
     flexDirection: 'column',

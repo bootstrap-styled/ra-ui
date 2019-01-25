@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import pure from 'recompose/pure';
 import classnames from 'classnames';
+import styled from 'styled-components';
 import sanitizeRestProps from './sanitizeRestProps';
-import styled from "styled-components";
 
 const Typography = styled.div`
-    color: rgba(0, 0, 0, 0.87);
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 1.46429em;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.46429em;
 `;
 
 const hasNumberFormat = !!(
-    typeof Intl === 'object' &&
-    Intl &&
-    typeof Intl.NumberFormat === 'function'
+  typeof Intl === 'object'
+  && Intl
+  && typeof Intl.NumberFormat === 'function'
 );
 
 /**
@@ -48,55 +48,55 @@ const hasNumberFormat = !!(
  * <span>25,99 $US</span>
  */
 export const NumberField = ({
-    className,
-    record,
-    source,
-    locales,
-    options,
-    textAlign,
-    ...rest
+  className,
+  record,
+  source,
+  locales,
+  options,
+  textAlign,
+  ...rest
 }) => {
-    if (!record) return null;
-    const value = get(record, source);
-    if (value == null) return null;
-    if (!hasNumberFormat) {
-        return (
-            <Typography
-              className={classnames('text-right', className)}
-                {...sanitizeRestProps(rest)}
-            >
-                {value}
-            </Typography>
-        );
-    }
-
+  if (!record) return null;
+  const value = get(record, source);
+  if (value == null) return null;
+  if (!hasNumberFormat) {
     return (
-        <Typography
-          className={classnames('text-right', className)}
-            {...sanitizeRestProps(rest)}
-        >
-            {value.toLocaleString(locales, options)}
-        </Typography>
+      <Typography
+        className={classnames('text-right', className)}
+        {...sanitizeRestProps(rest)}
+      >
+        {value}
+      </Typography>
     );
+  }
+
+  return (
+    <Typography
+      className={classnames('text-right', className)}
+      {...sanitizeRestProps(rest)}
+    >
+      {value.toLocaleString(locales, options)}
+    </Typography>
+  );
 };
 
 NumberField.propTypes = {
-    addLabel: PropTypes.bool,
-    basePath: PropTypes.string,
-    classes: PropTypes.object,
-    className: PropTypes.string,
-    cellClassName: PropTypes.string,
-    headerClassName: PropTypes.string,
-    label: PropTypes.string,
-    locales: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.arrayOf(PropTypes.string),
-    ]),
-    options: PropTypes.object,
-    record: PropTypes.object,
-    textAlign: PropTypes.string,
-    sortBy: PropTypes.string,
-    source: PropTypes.string.isRequired,
+  addLabel: PropTypes.bool,
+  basePath: PropTypes.string,
+  classes: PropTypes.object,
+  className: PropTypes.string,
+  cellClassName: PropTypes.string,
+  headerClassName: PropTypes.string,
+  label: PropTypes.string,
+  locales: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
+  options: PropTypes.object,
+  record: PropTypes.object,
+  textAlign: PropTypes.string,
+  sortBy: PropTypes.string,
+  source: PropTypes.string.isRequired,
 };
 
 // wat? TypeScript looses the displayName if we don't set it explicitly
@@ -105,7 +105,7 @@ NumberField.displayName = 'NumberField';
 const ComposedNumberField = pure(NumberField);
 
 ComposedNumberField.defaultProps = {
-    addLabel: true,
-    textAlign: 'right',
+  addLabel: true,
+  textAlign: 'right',
 };
 export default ComposedNumberField;

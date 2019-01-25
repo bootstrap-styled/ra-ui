@@ -12,7 +12,7 @@ import { translate } from 'ra-core';
 export class PaginationActions extends Component {
   getNbPages = () => Math.ceil(this.props.count / this.props.rowsPerPage) || 1;
 
-  prevPage = (event) => {
+  prevPage = event => {
     if (this.props.page === 0) {
       throw new Error(
         this.props.translate('ra.navigation.page_out_from_begin')
@@ -21,7 +21,7 @@ export class PaginationActions extends Component {
     this.props.onChangePage(event, this.props.page - 1);
   };
 
-  nextPage = (event) => {
+  nextPage = event => {
     if (this.props.page > this.getNbPages() - 1) {
       throw new Error(
         this.props.translate('ra.navigation.page_out_from_end')
@@ -30,7 +30,7 @@ export class PaginationActions extends Component {
     this.props.onChangePage(event, this.props.page + 1);
   };
 
-  gotoPage = (event) => {
+  gotoPage = event => {
     const page = parseInt(event.currentTarget.dataset.page, 10);
     if (page < 0 || page > this.getNbPages() - 1) {
       throw new Error(
@@ -82,10 +82,9 @@ export class PaginationActions extends Component {
     return input;
   }
 
-
   renderPageNums() {
     return this.range().map(
-      (pageNum) => pageNum === '.' ? (
+      pageNum => pageNum === '.' ? (
         <PaginationItem key={`hyphen_${pageNum}`}>
           <PaginationLink
             className="page-number my-1 cursor-default"

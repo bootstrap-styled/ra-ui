@@ -24,26 +24,26 @@ const SearchTextInput = styled(TextInput)`
 `;
 
 const SearchInput = ({ classes, translate, ...props }) => (
-    <SearchTextInput
-        label={false}
-        className="flex-row"
-        placeholder={translate('ra.action.search')}
-        InputProps={{
-            endAdornment: (
-                <SearchIcon color="disabled" />
-            ),
-        }}
-        {...props}
-    />
+  <SearchTextInput
+    label={false}
+    className="flex-row"
+    placeholder={translate('ra.action.search')}
+    InputProps={{
+      endAdornment: (
+        <SearchIcon color="disabled" />
+      ),
+    }}
+    {...props}
+  />
 );
 
 SearchInput.propTypes = {
-    classes: PropTypes.object,
-    translate: PropTypes.func,
+  classes: PropTypes.object,
+  translate: PropTypes.func,
 };
 
 const enhance = compose(
-    translate,
+  translate,
 );
 
 export default enhance(SearchInput);

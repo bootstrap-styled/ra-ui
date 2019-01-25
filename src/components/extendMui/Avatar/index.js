@@ -4,70 +4,70 @@ import classnames from 'classnames';
 import styled from 'styled-components';
 
 export const styles = theme => ({
-	colorDefault: {
-		color: theme.palette.background.default,
-		backgroundColor:
-			theme.palette.type === 'light' ? theme.palette.grey[400] : theme.palette.grey[600],
-	},
+  colorDefault: {
+    color: theme.palette.background.default,
+    backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[400] : theme.palette.grey[600],
+  },
 });
 
 function AvatarUnstyled(props) {
-	const {
-		alt,
-		children: childrenProp,
-		childrenClassName: childrenClassNameProp,
-		classes,
-		className: classNameProp,
-		component: Component,
-		imgProps,
-		sizes,
-		src,
-		srcSet,
-		...other
-	} = props;
+  const {
+    alt,
+    children: childrenProp,
+    childrenClassName: childrenClassNameProp,
+    classes,
+    className: classNameProp,
+    component: Component,
+    imgProps,
+    sizes,
+    src,
+    srcSet,
+    ...other
+  } = props;
 
-	const className = classnames(
-		classes.root,
-		{
-			'color-default': childrenProp && !src && !srcSet,
-		},
-		classNameProp,
-	);
-	let children = null;
+  const className = classnames(
+    classes.root,
+    {
+      'color-default': childrenProp && !src && !srcSet,
+    },
+    classNameProp,
+  );
+  let children = null;
 
-	if (childrenProp) {
-		if (
-			childrenClassNameProp &&
-			typeof childrenProp !== 'string' &&
-			React.isValidElement(childrenProp)
-		) {
-			const childrenClassName = classnames(childrenClassNameProp, childrenProp.props.className);
-			children = React.cloneElement(childrenProp, { className: childrenClassName });
-		} else {
-			children = childrenProp;
-		}
-	} else if (src || srcSet) {
-		children = (
+  if (childrenProp) {
+    if (
+      childrenClassNameProp
+      && typeof childrenProp !== 'string'
+      && React.isValidElement(childrenProp)
+    ) {
+      const childrenClassName = classnames(childrenClassNameProp, childrenProp.props.className);
+      children = React.cloneElement(childrenProp, { className: childrenClassName });
+    } else {
+      children = childrenProp;
+    }
+  } else if (src || srcSet) {
+    children = (
       <img
         alt={alt}
         src={src}
         srcSet={srcSet}
         sizes={sizes}
         className="avatar-img"
-				{...imgProps}
+        {...imgProps}
       />
-		);
-	}
+    );
+  }
 
-	return (
+  return (
     <Component className={classnames(className, 'avatar')} {...other}>
-			{children}
+      {children}
     </Component>
-	);
+  );
 }
 
 const Avatar = styled(AvatarUnstyled)`
-  ${(props) => `
+  ${props => `
     &.avatar {
       position: 'relative';
       display: 'flex';
@@ -97,60 +97,60 @@ const Avatar = styled(AvatarUnstyled)`
 `;
 
 Avatar.propTypes = {
-	/**
-	 * Used in combination with `src` or `srcSet` to
-	 * provide an alt attribute for the rendered `img` element.
-	 */
-	alt: PropTypes.string,
-	/**
-	 * Used to render icon or text elements inside the Avatar.
-	 * `src` and `alt` props will not be used and no `img` will
-	 * be rendered by default.
-	 *
-	 * This can be an element, or just a string.
-	 */
-	children: PropTypes.node,
-	/**
-	 * @ignore
-	 * The className of the child element.
-	 * Used by Chip and ListItemIcon to style the Avatar icon.
-	 */
-	childrenClassName: PropTypes.string,
-	/**
-	 * Override or extend the styles applied to the component.
-	 * See [CSS API](#css-api) below for more details.
-	 */
-	classes: PropTypes.object.isRequired,
-	/**
-	 * @ignore
-	 */
-	className: PropTypes.string,
-	/**
-	 * The component used for the root node.
-	 * Either a string to use a DOM element or a component.
-	 */
-	component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-	/**
-	 * Properties applied to the `img` element when the component
-	 * is used to display an image.
-	 */
-	imgProps: PropTypes.object,
-	/**
-	 * The `sizes` attribute for the `img` element.
-	 */
-	sizes: PropTypes.string,
-	/**
-	 * The `src` attribute for the `img` element.
-	 */
-	src: PropTypes.string,
-	/**
-	 * The `srcSet` attribute for the `img` element.
-	 */
-	srcSet: PropTypes.string,
+  /**
+   * Used in combination with `src` or `srcSet` to
+   * provide an alt attribute for the rendered `img` element.
+   */
+  alt: PropTypes.string,
+  /**
+   * Used to render icon or text elements inside the Avatar.
+   * `src` and `alt` props will not be used and no `img` will
+   * be rendered by default.
+   *
+   * This can be an element, or just a string.
+   */
+  children: PropTypes.node,
+  /**
+   * @ignore
+   * The className of the child element.
+   * Used by Chip and ListItemIcon to style the Avatar icon.
+   */
+  childrenClassName: PropTypes.string,
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css-api) below for more details.
+   */
+  classes: PropTypes.object.isRequired,
+  /**
+   * @ignore
+   */
+  className: PropTypes.string,
+  /**
+   * The component used for the root node.
+   * Either a string to use a DOM element or a component.
+   */
+  component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  /**
+   * Properties applied to the `img` element when the component
+   * is used to display an image.
+   */
+  imgProps: PropTypes.object,
+  /**
+   * The `sizes` attribute for the `img` element.
+   */
+  sizes: PropTypes.string,
+  /**
+   * The `src` attribute for the `img` element.
+   */
+  src: PropTypes.string,
+  /**
+   * The `srcSet` attribute for the `img` element.
+   */
+  srcSet: PropTypes.string,
 };
 
 Avatar.defaultProps = {
-	component: 'div',
+  component: 'div',
 };
 
 export default Avatar;

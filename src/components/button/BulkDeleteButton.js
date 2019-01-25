@@ -73,7 +73,7 @@ class BulkDeleteButton extends Component {
 
     render() {
       const {
-        label, icon, onClick, ...rest
+        label, icon, ...rest
       } = this.props;
       return (
         <Button

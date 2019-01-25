@@ -1,6 +1,6 @@
 import React, { cloneElement, Component } from 'react';
 import PropTypes from 'prop-types';
-import { isRequired, FieldTitle, withDefaultValue } from 'ra-core';
+import { isRequired, FieldTitle } from 'ra-core';
 import { FieldArray } from 'redux-form';
 import FormGroup from '@bootstrap-styled/v4/lib/Form/FormGroup';
 import Label from '@bootstrap-styled/v4/lib/Label';
@@ -49,67 +49,72 @@ import sanitizeRestProps from './sanitizeRestProps';
  * @see https://redux-form.com/7.3.0/examples/fieldarrays/
  */
 export class ArrayInput extends Component {
-    renderFieldArray = fieldProps => {
-        const { children, record, resource, source } = this.props;
-        return cloneElement(children, {
-            ...fieldProps,
-            record,
-            resource,
-            source,
-        });
-    };
+  renderFieldArray = fieldProps => {
+    const {
+      children,
+      record,
+      resource,
+      source,
+    } = this.props;
+    return cloneElement(children, {
+      ...fieldProps,
+      record,
+      resource,
+      source,
+    });
+  };
 
-    render() {
-        const {
-            className,
-            defaultValue,
-            label,
-            source,
-            resource,
-            validate,
-            ...rest
-        } = this.props;
+  render() {
+    const {
+      className,
+      defaultValue,
+      label,
+      source,
+      resource,
+      validate,
+      ...rest
+    } = this.props;
 
-        return (
-            <FormGroup
-                className={className}
-                {...sanitizeRestProps(rest)}
-            >
-                <Label htmlFor={source}>
-                    <FieldTitle
-                        label={label}
-                        source={source}
-                        resource={resource}
-                        isRequired={isRequired(validate)}
-                    />
-                </Label>
-                <FieldArray
-                    name={source}
-                    defaultValue={defaultValue}
-                    component={this.renderFieldArray}
-                    validate={validate}
-                    isRequired={isRequired(validate)}
-                />
-            </FormGroup>
-        );
-    }
+    return (
+      <FormGroup
+        className={className}
+        {...sanitizeRestProps(rest)}
+      >
+        <Label htmlFor={source}>
+          <FieldTitle
+            label={label}
+            source={source}
+            resource={resource}
+            isRequired={isRequired(validate)}
+          />
+        </Label>
+        <FieldArray
+          name={source}
+          defaultValue={defaultValue}
+          component={this.renderFieldArray}
+          validate={validate}
+          isRequired={isRequired(validate)}
+        />
+      </FormGroup>
+    );
+  }
 }
 
 ArrayInput.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    defaultValue: PropTypes.any,
-    isRequired: PropTypes.bool,
-    label: PropTypes.string,
-    resource: PropTypes.string,
-    source: PropTypes.string,
-    record: PropTypes.object,
-    options: PropTypes.object,
-    validate: PropTypes.func,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  defaultValue: PropTypes.any,
+  isRequired: PropTypes.bool,
+  label: PropTypes.string,
+  resource: PropTypes.string,
+  source: PropTypes.string,
+  record: PropTypes.object,
+  options: PropTypes.object,
+  validate: PropTypes.func,
 };
 
 ArrayInput.defaultProps = {
-    options: {},
-    fullWidth: true,
+  options: {},
+  fullWidth: true,
 };
 export default ArrayInput;

@@ -27,20 +27,20 @@ class ResettableTextField extends Component {
     value: PropTypes.any.isRequired,
   };
 
-  handleClickClearButton = (event) => {
+  handleClickClearButton = event => {
     event.preventDefault();
     this.props.onChange('');
   };
 
-  handleMouseDownClearButton = (event) => {
+  handleMouseDownClearButton = event => {
     event.preventDefault();
   };
 
-  handleFocus = (event) => {
+  handleFocus = event => {
     this.props.onFocus && this.props.onFocus(event); // eslint-disable-line no-unused-expressions
   };
 
-  handleBlur = (event) => {
+  handleBlur = event => {
     this.props.onBlur && this.props.onBlur(event); // eslint-disable-line no-unused-expressions
   };
 

@@ -26,7 +26,6 @@ const FormCheckBoxBs = styled(FormGroup)`
   text-align: center;
 `;
 
-
 const sanitizeRestProps = ({
   basePath,
   children,
@@ -39,8 +38,6 @@ const sanitizeRestProps = ({
   record,
   resource,
   selected,
-  style,
-  styles,
   ...rest
 }) => rest;
 
@@ -52,12 +49,12 @@ class DatagridRow extends Component {
     };
   }
 
-  handleToggleExpanded = (event) => {
-    this.setState((state) => ({ expanded: !state.expanded }));
+  handleToggleExpanded = event => {
+    this.setState(state => ({ expanded: !state.expanded }));
     event.stopPropagation();
   };
 
-  handleToggle = (event) => {
+  handleToggle = event => {
     this.props.onToggleItem(this.props.id);
     event.stopPropagation();
   };
@@ -78,7 +75,7 @@ class DatagridRow extends Component {
     this.handleRedirection(rowClick);
   };
 
-  handleRedirection = (path) => {
+  handleRedirection = path => {
     const { basePath, id, push } = this.props;
 
     if (path === 'edit') {
@@ -187,8 +184,6 @@ DatagridRow.propTypes = {
   resource: PropTypes.string,
   rowClick: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   selected: PropTypes.bool,
-  style: PropTypes.object,
-  styles: PropTypes.object,
 };
 
 DatagridRow.defaultProps = {

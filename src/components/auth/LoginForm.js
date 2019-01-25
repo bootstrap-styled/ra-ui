@@ -79,7 +79,7 @@ LoginForm.propTypes = {
   redirectTo: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
 };
 
-const mapStateToProps = (state) => ({ isLoading: state.admin.loading > 0 });
+const mapStateToProps = state => ({ isLoading: state.admin.loading > 0 });
 
 const enhance = compose(
   translate,

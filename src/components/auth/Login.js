@@ -39,14 +39,14 @@ const LoginCard = styled(Card)`
 // });
 
 const sanitizeRestProps = ({
-    array,
-    backgroundImage,
-    className,
-    location,
-    staticContext,
-    theme,
-    title,
-    ...rest
+  array,
+  backgroundImage,
+  className,
+  location,
+  staticContext,
+  theme,
+  title,
+  ...rest
 }) => rest;
 
 /**
@@ -68,86 +68,86 @@ const sanitizeRestProps = ({
  *     );
  */
 class Login extends Component {
-    constructor(props) {
-        super(props);
-        this.containerRef = React.createRef();
-        this.backgroundImageLoaded = false;
+  constructor(props) {
+    super(props);
+    this.containerRef = React.createRef();
+    this.backgroundImageLoaded = false;
+  }
+
+  // Even though the React doc ensure the ref creation is done before the
+  // componentDidMount, it can happen that the ref is set to null until the
+  // next render.
+  // So, to handle this case the component will now try to load the image on
+  // the componentDidMount, but if the ref doesn't exist, it will try again
+  // on the following componentDidUpdate. The try will be done only once.
+  // @see https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-dom-element
+  updateBackgroundImage = (lastTry = false) => {  // eslint-disable-line
+    if (!this.backgroundImageLoaded && this.containerRef.current) {
+      const { backgroundImage } = this.props;
+      this.containerRef.current.style.backgroundImage = `url(${backgroundImage})`;
+      this.backgroundImageLoaded = true;
     }
 
-    // Even though the React doc ensure the ref creation is done before the
-    // componentDidMount, it can happen that the ref is set to null until the
-    // next render.
-    // So, to handle this case the component will now try to load the image on
-    // the componentDidMount, but if the ref doesn't exist, it will try again
-    // on the following componentDidUpdate. The try will be done only once.
-    // @see https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-dom-element
-    updateBackgroundImage = (lastTry = false) => {
-        if (!this.backgroundImageLoaded && this.containerRef.current) {
-            const { backgroundImage } = this.props;
-            this.containerRef.current.style.backgroundImage = `url(${backgroundImage})`;
-            this.backgroundImageLoaded = true;
-        }
-
-        if (lastTry) {
-            this.backgroundImageLoaded = true;
-        }
+    if (lastTry) {
+      this.backgroundImageLoaded = true;
     }
+  }
 
-    // Load background image asynchronously to speed up time to interactive
-    lazyLoadBackgroundImage() {
-        const { backgroundImage } = this.props;
+  // Load background image asynchronously to speed up time to interactive
+  lazyLoadBackgroundImage() { // eslint-disable-line
+    const { backgroundImage } = this.props;
 
-        if (backgroundImage) {
-            const img = new Image();
-            img.onload = this.updateBackgroundImage;
-            img.src = backgroundImage;
-        }
+    if (backgroundImage) {
+      const img = new Image();
+      img.onload = this.updateBackgroundImage;
+      img.src = backgroundImage;
     }
+  }
 
-    componentDidMount() {
-        this.lazyLoadBackgroundImage();
+  componentDidMount() {
+    this.lazyLoadBackgroundImage();
+  }
+
+  componentDidUpdate() {
+    if (!this.backgroundImageLoaded) {
+      this.lazyLoadBackgroundImage(true);
     }
+  }
 
-    componentDidUpdate() {
-        if (!this.backgroundImageLoaded) {
-            this.lazyLoadBackgroundImage(true);
-        }
-    }
+  render() {
+    const { className, loginForm, ...rest } = this.props;
 
-    render() {
-        const { className, loginForm, ...rest } = this.props;
-
-        return (
-            <MainWrapper
-                className={className}
-                {...sanitizeRestProps(rest)}
-                ref={this.containerRef}
-            >
-                <LoginCard className="login-form">
-                  <div className="d-flex justify-content-center m-3 bg-inverse text-white">
-                    TODO: fit logo(discuss how this should be passed) or icon!
-                  </div>
-                  {loginForm}
-                </LoginCard>
-                <Notification />
-            </MainWrapper>
-        );
-    }
+    return (
+      <MainWrapper
+        className={className}
+        {...sanitizeRestProps(rest)}
+        ref={this.containerRef}
+      >
+        <LoginCard className="login-form">
+          <div className="d-flex justify-content-center m-3 bg-inverse text-white">
+            TODO: fit logo(discuss how this should be passed) or icon!
+          </div>
+          {loginForm}
+        </LoginCard>
+        <Notification />
+      </MainWrapper>
+    );
+  }
 }
 
 Login.propTypes = {
-    authProvider: PropTypes.func,
-    backgroundImage: PropTypes.string,
-    className: PropTypes.string,
-    input: PropTypes.object,
-    loginForm: PropTypes.element,
-    meta: PropTypes.object,
-    previousRoute: PropTypes.string,
+  authProvider: PropTypes.func,
+  backgroundImage: PropTypes.string,
+  className: PropTypes.string,
+  input: PropTypes.object,
+  loginForm: PropTypes.element,
+  meta: PropTypes.object,
+  previousRoute: PropTypes.string,
 };
 
 Login.defaultProps = {
-    backgroundImage: 'https://source.unsplash.com/random/1600x900/daily',
-    loginForm: <DefaultLoginForm />,
+  backgroundImage: 'https://source.unsplash.com/random/1600x900/daily',
+  loginForm: <DefaultLoginForm />,
 };
 
 export default Login;

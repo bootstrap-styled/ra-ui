@@ -44,12 +44,12 @@ import DatagridLoading from './DatagridLoading';
  * </ReferenceManyField>
  */
 class Datagrid extends Component {
-    updateSort = (event) => {
+    updateSort = event => {
       event.stopPropagation();
       this.props.setSort(event.currentTarget.dataset.sort);
     };
 
-    handleSelectAll = (event) => {
+    handleSelectAll = event => {
       const { onSelect, ids, selectedIds } = this.props;
       if (event.target.checked) {
         onSelect(
@@ -138,7 +138,7 @@ class Datagrid extends Component {
                       selectedIds.length > 0
                                     && ids.length > 0
                                     && !ids.find(
-                                      (it) => selectedIds.indexOf(it) === -1
+                                      it => selectedIds.indexOf(it) === -1
                                     )
                     }
                     onChange={this.handleSelectAll}

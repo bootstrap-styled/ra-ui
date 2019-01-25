@@ -7,41 +7,46 @@ import { refreshView as refreshViewAction } from 'ra-core';
 import Button from './Button';
 
 class RefreshButton extends Component {
-    static propTypes = {
-        label: PropTypes.string,
-        refreshView: PropTypes.func.isRequired,
-        icon: PropTypes.element,
-    };
+  static propTypes = {
+    label: PropTypes.string,
+    refreshView: PropTypes.func.isRequired,
+    icon: PropTypes.element,
+  };
 
-    static defaultProps = {
-        label: 'ra.action.refresh',
-        icon: <NavigationRefresh />,
-    };
+  static defaultProps = {
+    label: 'ra.action.refresh',
+    icon: <NavigationRefresh />,
+  };
 
-    handleClick = event => {
-        const { refreshView, onClick } = this.props; 
-        event.preventDefault();
-        refreshView();
+  handleClick = event => {
+    const { refreshView, onClick } = this.props;
+    event.preventDefault();
+    refreshView();
 
-        if (typeof onClick === 'function') {
-            onClick();
-        }
-    };
-
-    render() {
-        const { label, refreshView, icon, ...rest } = this.props;
-
-        return (
-            <Button label={label} onClick={this.handleClick} color="success" {...rest}>
-                {icon}
-            </Button>
-        );
+    if (typeof onClick === 'function') {
+      onClick();
     }
+  };
+
+  render() {
+    const {
+      label,
+      refreshView,
+      icon,
+      ...rest
+    } = this.props;
+
+    return (
+      <Button label={label} onClick={this.handleClick} color="success" {...rest}>
+        {icon}
+      </Button>
+    );
+  }
 }
 
 const enhance = connect(
-    null,
-    { refreshView: refreshViewAction }
+  null,
+  { refreshView: refreshViewAction }
 );
 
 export default enhance(RefreshButton);
