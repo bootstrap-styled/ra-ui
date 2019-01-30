@@ -23,7 +23,7 @@ describe('<ImageField />', () => {
       />
     );
 
-    const img = wrapper.find('img');
+    const img = wrapper.find('Img');
     assert.equal(img.prop('src'), 'http://foo.com/bar.jpg');
     assert.equal(img.prop('alt'), 'Hello world!');
     assert.equal(img.prop('title'), 'Hello world!');
@@ -43,7 +43,7 @@ describe('<ImageField />', () => {
       />
     );
 
-    const img = wrapper.find('img');
+    const img = wrapper.find('Img');
     assert.equal(img.prop('src'), 'http://foo.com/bar.jpg');
     assert.equal(img.prop('alt'), 'Hello world!');
     assert.equal(img.prop('title'), 'Hello world!');
@@ -60,7 +60,7 @@ describe('<ImageField />', () => {
       />
     );
 
-    const img = wrapper.find('img');
+    const img = wrapper.find('Img');
     assert.equal(img.prop('alt'), 'Hello world!');
     assert.equal(img.prop('title'), 'Hello world!');
   });
@@ -86,7 +86,7 @@ describe('<ImageField />', () => {
       />
     );
 
-    const imgs = wrapper.find('img');
+    const imgs = wrapper.find('Img');
     assert.equal(imgs.at(0).prop('src'), 'http://foo.com/bar.jpg');
     assert.equal(imgs.at(0).prop('alt'), 'Hello world!');
     assert.equal(imgs.at(0).prop('title'), 'Hello world!');

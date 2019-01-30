@@ -7,7 +7,7 @@ describe('<FileField />', () => {
   it('should return an empty div when record is not set', () => {
     assert.equal(
       shallow(<FileField source="url" />).html(),
-      '<div class=""></div>'
+      '<div></div>'
     );
   });
 
@@ -22,8 +22,7 @@ describe('<FileField />', () => {
         title="title"
       />
     );
-
-    const link = wrapper.find('a');
+    const link = wrapper.find('A');
     assert.equal(link.prop('href'), 'http://foo.com/bar.jpg');
     assert.equal(link.prop('title'), 'Hello world!');
   });
@@ -42,7 +41,7 @@ describe('<FileField />', () => {
       />
     );
 
-    const link = wrapper.find('a');
+    const link = wrapper.find('A');
     assert.equal(link.prop('href'), 'http://foo.com/bar.jpg');
     assert.equal(link.prop('title'), 'Hello world!');
   });
@@ -58,7 +57,7 @@ describe('<FileField />', () => {
       />
     );
 
-    const link = wrapper.find('a');
+    const link = wrapper.find('A');
     assert.equal(link.prop('title'), 'Hello world!');
   });
 
@@ -73,7 +72,7 @@ describe('<FileField />', () => {
       />
     );
 
-    const link = wrapper.find('a');
+    const link = wrapper.find('A');
     assert.equal(link.prop('target'), '_blank');
   });
 
@@ -98,7 +97,7 @@ describe('<FileField />', () => {
       />
     );
 
-    const links = wrapper.find('a');
+    const links = wrapper.find('A');
     assert.equal(links.at(0).prop('href'), 'http://foo.com/bar.jpg');
     assert.equal(links.at(0).prop('title'), 'Hello world!');
     assert.equal(links.at(1).prop('href'), 'http://bar.com/foo.jpg');

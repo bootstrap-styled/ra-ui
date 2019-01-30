@@ -16,7 +16,7 @@ describe('<SelectInput />', () => {
       <SelectInput {...defaultProps} input={{ value: 'hello' }} />
     );
     const SelectFieldElement = wrapper.find(
-      'translate(WithStyles(ResettableTextField))'
+      'translate(ResettableTextField)'
     );
 
     assert.equal(SelectFieldElement.length, 1);
@@ -28,7 +28,7 @@ describe('<SelectInput />', () => {
       <SelectInput {...defaultProps} input={{ value: 2 }} />
     );
     const SelectFieldElement = wrapper
-      .find('translate(WithStyles(ResettableTextField))')
+      .find('translate(ResettableTextField)')
       .first();
     assert.equal(SelectFieldElement.prop('value'), '2');
   });
@@ -43,7 +43,7 @@ describe('<SelectInput />', () => {
         ]}
       />
     );
-    const MenuItemElements = wrapper.find('WithStyles(MenuItem)');
+    const MenuItemElements = wrapper.find('Option');
     assert.equal(MenuItemElements.length, 2);
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), 'M');
@@ -69,7 +69,7 @@ describe('<SelectInput />', () => {
         ]}
       />
     );
-    const MenuItemElements = wrapper.find('WithStyles(MenuItem)');
+    const MenuItemElements = wrapper.find('Option');
     const MenuItemElement = MenuItemElements.at(1);
     assert.equal(!!MenuItemElement.prop('disabled'), false);
     const MenuItemElement2 = MenuItemElements.at(2);
@@ -87,7 +87,7 @@ describe('<SelectInput />', () => {
         ]}
       />
     );
-    const MenuItemElements = wrapper.find('WithStyles(MenuItem)');
+    const MenuItemElements = wrapper.find('Option');
     assert.equal(MenuItemElements.length, 3);
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), '');
@@ -104,7 +104,7 @@ describe('<SelectInput />', () => {
         ]}
       />
     );
-    const MenuItemElements = wrapper.find('WithStyles(MenuItem)');
+    const MenuItemElements = wrapper.find('Option');
     assert.equal(MenuItemElements.length, 2);
   });
 
@@ -116,7 +116,7 @@ describe('<SelectInput />', () => {
         choices={[{ foobar: 'M', name: 'Male' }]}
       />
     );
-    const MenuItemElements = wrapper.find('WithStyles(MenuItem)');
+    const MenuItemElements = wrapper.find('Option');
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), 'M');
     assert.equal(MenuItemElement1.childAt(0).text(), 'Male');
@@ -130,7 +130,7 @@ describe('<SelectInput />', () => {
         choices={[{ foobar: { id: 'M' }, name: 'Male' }]}
       />
     );
-    const MenuItemElements = wrapper.find('WithStyles(MenuItem)');
+    const MenuItemElements = wrapper.find('Option');
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), 'M');
     assert.equal(MenuItemElement1.childAt(0).text(), 'Male');
@@ -144,7 +144,7 @@ describe('<SelectInput />', () => {
         choices={[{ id: 'M', foobar: 'Male' }]}
       />
     );
-    const MenuItemElements = wrapper.find('WithStyles(MenuItem)');
+    const MenuItemElements = wrapper.find('Option');
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), 'M');
     assert.equal(MenuItemElement1.childAt(0).text(), 'Male');
@@ -158,7 +158,7 @@ describe('<SelectInput />', () => {
         choices={[{ id: 'M', foobar: { name: 'Male' } }]}
       />
     );
-    const MenuItemElements = wrapper.find('WithStyles(MenuItem)');
+    const MenuItemElements = wrapper.find('Option');
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), 'M');
     assert.equal(MenuItemElement1.childAt(0).text(), 'Male');
@@ -172,7 +172,7 @@ describe('<SelectInput />', () => {
         choices={[{ id: 'M', foobar: 'Male' }]}
       />
     );
-    const MenuItemElements = wrapper.find('WithStyles(MenuItem)');
+    const MenuItemElements = wrapper.find('Option');
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), 'M');
     assert.equal(MenuItemElement1.childAt(0).text(), 'Male');
@@ -187,7 +187,7 @@ describe('<SelectInput />', () => {
         choices={[{ id: 'M', foobar: 'Male' }]}
       />
     );
-    const MenuItemElements = wrapper.find('WithStyles(MenuItem)');
+    const MenuItemElements = wrapper.find('Option');
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), 'M');
     assert.equal(MenuItemElement1.childAt(0).type(), Foobar);
@@ -208,7 +208,7 @@ describe('<SelectInput />', () => {
         translate={x => `**${x}**`}
       />
     );
-    const MenuItemElements = wrapper.find('WithStyles(MenuItem)');
+    const MenuItemElements = wrapper.find('Option');
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), 'M');
     assert.equal(MenuItemElement1.childAt(0).text(), '**Male**');
@@ -226,7 +226,7 @@ describe('<SelectInput />', () => {
         translateChoice={false}
       />
     );
-    const MenuItemElements = wrapper.find('WithStyles(MenuItem)');
+    const MenuItemElements = wrapper.find('Option');
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), 'M');
     assert.equal(MenuItemElement1.childAt(0).text(), 'Male');
@@ -240,7 +240,7 @@ describe('<SelectInput />', () => {
       />
     );
     const SelectFieldElement = wrapper.find(
-      'translate(WithStyles(ResettableTextField))'
+      'translate(ResettableTextField)'
     );
     assert.equal(SelectFieldElement.prop('helperText'), 'Can i help you?');
   });
@@ -251,7 +251,7 @@ describe('<SelectInput />', () => {
         <SelectInput {...defaultProps} meta={{ touched: false }} />
       );
       const SelectFieldElement = wrapper.find(
-        'translate(WithStyles(ResettableTextField))'
+        'translate(ResettableTextField)'
       );
       assert.equal(SelectFieldElement.prop('helperText'), false);
     });
@@ -264,7 +264,7 @@ describe('<SelectInput />', () => {
         />
       );
       const SelectFieldElement = wrapper.find(
-        'translate(WithStyles(ResettableTextField))'
+        'translate(ResettableTextField)'
       );
       assert.equal(SelectFieldElement.prop('helperText'), false);
     });
@@ -277,7 +277,7 @@ describe('<SelectInput />', () => {
         />
       );
       const SelectFieldElement = wrapper.find(
-        'translate(WithStyles(ResettableTextField))'
+        'translate(ResettableTextField)'
       );
       assert.equal(
         SelectFieldElement.prop('helperText'),
@@ -297,7 +297,7 @@ describe('<SelectInput />', () => {
         />
       );
       const SelectFieldElement = wrapper.find(
-        'translate(WithStyles(ResettableTextField))'
+        'translate(ResettableTextField)'
       );
       assert.equal(
         SelectFieldElement.prop('helperText'),

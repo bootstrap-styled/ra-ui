@@ -26,7 +26,7 @@ export class ShowViewGuesser extends Component {
         inferredElements
       );
 
-      process.env.NODE_ENV !== 'production'
+      process.env.NODE_ENV !== 'production' // eslint-disable-line
       // eslint-disable-next-line no-console
       && console.log(
         `Guessed Show:
@@ -39,7 +39,7 @@ ${inferredChild.getRepresentation()}
     </Show>
 );`
       );
-      this.setState({ inferredChild: inferredChild.getElement() });
+      this.setState({ inferredChild: inferredChild.getElement() }); // eslint-disable-line
     }
   }
 
@@ -56,4 +56,4 @@ const ShowGuesser = props => (
   </ShowController>
 );
 
-export default showGuesser;
+export default ShowGuesser;

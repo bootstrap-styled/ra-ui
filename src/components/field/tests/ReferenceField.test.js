@@ -20,7 +20,7 @@ describe('<ReferenceField />', () => {
         <TextField source="title" />
       </ReferenceFieldView>
     );
-    const linkElement = wrapper.find('WithStyles(Link)');
+    const linkElement = wrapper.find('Link');
     assert.equal(linkElement.prop('to'), '/posts/123');
   });
   it('should render no link when resourceLinkPath is not specified', () => {

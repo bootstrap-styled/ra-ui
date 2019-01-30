@@ -92,7 +92,7 @@ export class ArrayField extends Component {
     return list
       ? {
         data: list.reduce((prev, item) => {
-          prev[JSON.stringify(item)] = item;
+          prev[JSON.stringify(item)] = item; // eslint-disable-line no-param-reassign
           return prev;
         }, {}),
         ids: list.map(JSON.stringify),

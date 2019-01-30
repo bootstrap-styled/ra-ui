@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import compose from 'recompose/compose';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import get from 'lodash/get';
-import { withStyles } from 'material-ui/styles';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
 import Ul from '@bootstrap-styled/v4/lib/Ul';
@@ -18,51 +17,51 @@ import classNames from 'classnames';
 
 import FormInput from './FormInput';
 
-const styles = theme => ({
-  root: {
-    padding: 0,
-    marginBottom: 0,
-    '& > li:last-child': {
-      borderBottom: 'none',
-    },
-  },
-  line: {
-    display: 'flex',
-    listStyleType: 'none',
-    borderBottom: `solid 1px ${theme.palette.divider}`,
-    [theme.breakpoints.down('xs')]: { display: 'block' },
-    '&.fade-enter': {
-      opacity: 0.01,
-      transform: 'translateX(100vw)',
-    },
-    '&.fade-enter-active': {
-      opacity: 1,
-      transform: 'translateX(0)',
-      transition: 'all 500ms ease-in',
-    },
-    '&.fade-exit': {
-      opacity: 1,
-      transform: 'translateX(0)',
-    },
-    '&.fade-exit-active': {
-      opacity: 0.01,
-      transform: 'translateX(100vw)',
-      transition: 'all 500ms ease-in',
-    },
-  },
-  index: {
-    width: '3em',
-    paddingTop: '1em',
-    [theme.breakpoints.down('sm')]: { display: 'none' },
-  },
-  form: { flex: 2 },
-  action: {
-    paddingTop: '0.5em',
-  },
-  leftIcon: {
-    marginRight: theme.spacing.unit,
-  },
-});
+// const styles = theme => ({
+//   root: {
+//     padding: 0,
+//     marginBottom: 0,
+//     '& > li:last-child': {
+//       borderBottom: 'none',
+//     },
+//   },
+//   line: {
+//     display: 'flex',
+//     listStyleType: 'none',
+//     borderBottom: `solid 1px ${theme.palette.divider}`,
+//     [theme.breakpoints.down('xs')]: { display: 'block' },
+//     '&.fade-enter': {
+//       opacity: 0.01,
+//       transform: 'translateX(100vw)',
+//     },
+//     '&.fade-enter-active': {
+//       opacity: 1,
+//       transform: 'translateX(0)',
+//       transition: 'all 500ms ease-in',
+//     },
+//     '&.fade-exit': {
+//       opacity: 1,
+//       transform: 'translateX(0)',
+//     },
+//     '&.fade-exit-active': {
+//       opacity: 0.01,
+//       transform: 'translateX(100vw)',
+//       transition: 'all 500ms ease-in',
+//     },
+//   },
+//   index: {
+//     width: '3em',
+//     paddingTop: '1em',
+//     [theme.breakpoints.down('sm')]: { display: 'none' },
+//   },
+//   form: { flex: 2 },
+//   action: {
+//     paddingTop: '0.5em',
+//   },
+//   leftIcon: {
+//     marginRight: theme.spacing.unit,
+//   },
+// });
 
 export class SimpleFormIterator extends Component {
   constructor(props) {
@@ -91,14 +90,14 @@ export class SimpleFormIterator extends Component {
 
   addField = () => {
     const { fields } = this.props;
-    this.ids.push(this.nextId++);
+    this.ids.push(this.nextId++); // eslint-disable-line
     fields.push({});
   };
 
   render() {
     const {
       basePath,
-      classes = {},
+      className,
       children,
       fields,
       meta: { error, submitFailed },
@@ -111,7 +110,7 @@ export class SimpleFormIterator extends Component {
     } = this.props;
     const records = get(record, source);
     return fields ? (
-      <Ul className={classes.root}>
+      <Ul className={className}>
         {submitFailed
         && error && <FormHelperText error>{error}</FormHelperText>}
         <TransitionGroup>
@@ -121,13 +120,11 @@ export class SimpleFormIterator extends Component {
               timeout={500}
               classNames="fade"
             >
-              <Li className={classes.line}>
-                <P
-                  className={classes.index}
-                >
+              <Li>
+                <P>
                   {index + 1}
                 </P>
-                <section className={classes.form}>
+                <section>
                   {Children.map(children, (input, index2) => (
                     <FormInput
                       basePath={
@@ -152,7 +149,7 @@ export class SimpleFormIterator extends Component {
                   ))}
                 </section>
                 {!disableRemove && (
-                  <span className={classes.action}>
+                  <span>
                     <ButtonBs
                       className={classNames(
                         'button-remove',
@@ -161,9 +158,7 @@ export class SimpleFormIterator extends Component {
                       size="small"
                       onClick={this.removeField(index)}
                     >
-                      <CloseIcon
-                        className={classes.leftIcon}
-                      />
+                      <CloseIcon />
                       {translate('ra.action.remove')}
                     </ButtonBs>
                   </span>
@@ -173,8 +168,8 @@ export class SimpleFormIterator extends Component {
           ))}
         </TransitionGroup>
         {!disableAdd && (
-          <Li className={classes.line}>
-            <span className={classes.action}>
+          <Li>
+            <span>
               <ButtonBs
                 className={classNames(
                   'button-add',
@@ -183,7 +178,7 @@ export class SimpleFormIterator extends Component {
                 size="small"
                 onClick={this.addField}
               >
-                <AddIcon className={classes.leftIcon} />
+                <AddIcon />
                 {translate('ra.action.add')}
               </ButtonBs>
             </span>
@@ -203,7 +198,6 @@ SimpleFormIterator.propTypes = {
   defaultValue: PropTypes.any,
   basePath: PropTypes.string,
   children: PropTypes.node,
-  classes: PropTypes.object,
   className: PropTypes.string,
   fields: PropTypes.object,
   meta: PropTypes.object,
@@ -217,5 +211,4 @@ SimpleFormIterator.propTypes = {
 
 export default compose(
   translate,
-  withStyles(styles)
 )(SimpleFormIterator);

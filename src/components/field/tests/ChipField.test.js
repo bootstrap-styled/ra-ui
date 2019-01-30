@@ -8,11 +8,10 @@ describe('<ChipField />', () => {
     shallow(
       <ChipField
         className="className"
-        classes={{}}
         source="name"
         record={{ name: 'foo' }}
       />
-    ).prop('label'),
+    ).text(),
     'foo'
   ));
 
@@ -20,12 +19,11 @@ describe('<ChipField />', () => {
     shallow(
       <ChipField
         className="className"
-        classes={{}}
         source="name"
         record={{ name: 'foo' }}
         label="bar"
       />
-    ).prop('label'),
+    ).text(),
     'foo'
   ));
 });

@@ -26,7 +26,7 @@ export class EditViewGuesser extends Component {
         inferredElements
       );
 
-      process.env.NODE_ENV !== 'production'
+      process.env.NODE_ENV !== 'production' // eslint-disable-line
       // eslint-disable-next-line no-console
       && console.log(
         `Guessed Edit:
@@ -39,7 +39,7 @@ ${inferredChild.getRepresentation()}
     </Edit>
 );`
       );
-      this.setState({ inferredChild: inferredChild.getElement() });
+      this.setState({ inferredChild: inferredChild.getElement() }); // eslint-disable-line
     }
   }
 

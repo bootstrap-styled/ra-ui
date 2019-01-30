@@ -52,7 +52,7 @@ const sanitizeRestProps = ({
 }) => props;
 
 export class SimpleForm extends Component {
-  handleSubmitWithRedirect = (redirect = this.props.redirect) => this.props.handleSubmit((values) => this.props.save(values, redirect));
+  handleSubmitWithRedirect = (redirect = this.props.redirect) => this.props.handleSubmit(values => this.props.save(values, redirect));
 
   render() {
     const {
@@ -77,7 +77,7 @@ export class SimpleForm extends Component {
         {...sanitizeRestProps(rest)}
       >
         <CardContentInner key={version}>
-          {Children.map(children, (input) => (
+          {Children.map(children, input => (
             <FormInput
               basePath={basePath}
               input={input}

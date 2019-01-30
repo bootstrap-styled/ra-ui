@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import styled from 'styled-components';
 import sanitizeRestProps from './sanitizeRestProps';
 
-const Typography = styled.div`
+const NumberFieldBs = styled.div`
   color: rgba(0, 0, 0, 0.87);
   font-size: 0.875rem;
   font-weight: 400;
@@ -61,22 +61,22 @@ export const NumberField = ({
   if (value == null) return null;
   if (!hasNumberFormat) {
     return (
-      <Typography
+      <NumberFieldBs
         className={classnames('text-right', className)}
         {...sanitizeRestProps(rest)}
       >
         {value}
-      </Typography>
+      </NumberFieldBs>
     );
   }
 
   return (
-    <Typography
+    <NumberFieldBs
       className={classnames('text-right', className)}
       {...sanitizeRestProps(rest)}
     >
       {value.toLocaleString(locales, options)}
-    </Typography>
+    </NumberFieldBs>
   );
 };
 

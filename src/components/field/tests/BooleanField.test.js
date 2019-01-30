@@ -8,8 +8,9 @@ describe('<BooleanField />', () => {
     const wrapper = shallow(
       <BooleanField record={{ published: true }} source="published" />
     );
-    assert.ok(wrapper.first().is('WithStyles(Typography)'));
-    assert.equal(wrapper.first().find('pure(Done)').length, 1);
+    console.log(wrapper.debug());
+    assert.ok(wrapper.first().is('BooleanField__Typography'));
+    assert.equal(wrapper.first().find('pure(DoneIcon)').length, 1);
   });
 
   it('should display cross if value is false', () => {
@@ -17,8 +18,8 @@ describe('<BooleanField />', () => {
       <BooleanField record={{ published: false }} source="published" />
     );
 
-    assert.ok(wrapper.first().is('WithStyles(Typography)'));
-    assert.equal(wrapper.first().find('pure(Clear)').length, 1);
+    assert.ok(wrapper.first().is('BooleanField__Typography'));
+    assert.equal(wrapper.first().find('pure(ClearIcon)').length, 1);
   });
 
   it('should not display anything if value is null', () => {
@@ -44,7 +45,7 @@ describe('<BooleanField />', () => {
     const wrapper = shallow(
       <BooleanField record={{ foo: { bar: true } }} source="foo.bar" />
     );
-    assert.ok(wrapper.first().is('WithStyles(Typography)'));
-    assert.equal(wrapper.first().find('pure(Done)').length, 1);
+    assert.ok(wrapper.first().is('BooleanField__Typography'));
+    assert.equal(wrapper.first().find('pure(DoneIcon)').length, 1);
   });
 });

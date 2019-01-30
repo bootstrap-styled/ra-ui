@@ -6,10 +6,10 @@ import TabbedForm from './TabbedForm';
 import Toolbar from './Toolbar';
 
 export {
-    FormInput,
-    FormTab,
-    SimpleForm,
-    SimpleFormIterator,
-    TabbedForm,
-    Toolbar,
+  FormInput,
+  FormTab,
+  SimpleForm,
+  SimpleFormIterator,
+  TabbedForm,
+  Toolbar,
 };

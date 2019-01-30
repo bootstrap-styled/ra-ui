@@ -47,7 +47,7 @@ describe('<RadioButtonGroupInput />', () => {
       />
     );
     const RadioButtonElements = wrapper.find(
-      'WithStyles(FormControlLabel)'
+      'FormControlLabel'
     );
     assert.equal(RadioButtonElements.length, 2);
     const RadioButtonElement1 = RadioButtonElements.first();
@@ -67,7 +67,7 @@ describe('<RadioButtonGroupInput />', () => {
       />
     );
     const RadioButtonElements = wrapper.find(
-      'WithStyles(FormControlLabel)'
+      'FormControlLabel'
     );
     const RadioButtonElement1 = RadioButtonElements.first();
     assert.equal(RadioButtonElement1.prop('value'), 'M');
@@ -83,7 +83,7 @@ describe('<RadioButtonGroupInput />', () => {
       />
     );
     const RadioButtonElements = wrapper.find(
-      'WithStyles(FormControlLabel)'
+      'FormControlLabel'
     );
     const RadioButtonElement1 = RadioButtonElements.first();
     assert.equal(RadioButtonElement1.prop('value'), 'M');
@@ -99,7 +99,7 @@ describe('<RadioButtonGroupInput />', () => {
       />
     );
     const RadioButtonElements = wrapper.find(
-      'WithStyles(FormControlLabel)'
+      'FormControlLabel'
     );
     const RadioButtonElement1 = RadioButtonElements.first();
     assert.equal(RadioButtonElement1.prop('value'), 'M');
@@ -115,7 +115,7 @@ describe('<RadioButtonGroupInput />', () => {
       />
     );
     const RadioButtonElements = wrapper.find(
-      'WithStyles(FormControlLabel)'
+      'FormControlLabel'
     );
     const RadioButtonElement1 = RadioButtonElements.first();
     assert.equal(RadioButtonElement1.prop('value'), 'M');
@@ -131,7 +131,7 @@ describe('<RadioButtonGroupInput />', () => {
       />
     );
     const RadioButtonElements = wrapper.find(
-      'WithStyles(FormControlLabel)'
+      'FormControlLabel'
     );
     const RadioButtonElement1 = RadioButtonElements.first();
     assert.equal(RadioButtonElement1.prop('value'), 'M');
@@ -148,7 +148,7 @@ describe('<RadioButtonGroupInput />', () => {
       />
     );
     const RadioButtonElements = wrapper.find(
-      'WithStyles(FormControlLabel)'
+      'FormControlLabel'
     );
     const RadioButtonElement1 = RadioButtonElements.first();
     assert.equal(RadioButtonElement1.prop('value'), 'M');
@@ -170,7 +170,7 @@ describe('<RadioButtonGroupInput />', () => {
       />
     );
     const RadioButtonElements = wrapper.find(
-      'WithStyles(FormControlLabel)'
+      'FormControlLabel'
     );
     const RadioButtonElement1 = RadioButtonElements.first();
     assert.equal(RadioButtonElement1.prop('label'), '**Male**');
@@ -189,7 +189,7 @@ describe('<RadioButtonGroupInput />', () => {
       />
     );
     const RadioButtonElements = wrapper.find(
-      'WithStyles(FormControlLabel)'
+      'FormControlLabel'
     );
     const RadioButtonElement1 = RadioButtonElements.first();
     assert.equal(RadioButtonElement1.prop('label'), 'Male');

@@ -21,7 +21,7 @@ describe('<DatagridHeaderCell />', () => {
           translate={() => ''}
         />
       );
-      assert.equal(wrapper.find('WithStyles(TableSortLabel)').length, 1);
+      assert.equal(wrapper.find('DatagridHeaderCell__ThContainer').length, 1);
     });
 
     it('should be enabled when field has a sortBy props', () => {
@@ -33,7 +33,7 @@ describe('<DatagridHeaderCell />', () => {
           translate={() => ''}
         />
       );
-      assert.equal(wrapper.find('WithStyles(TableSortLabel)').length, 1);
+      assert.equal(wrapper.find('DatagridHeaderCell__ThContainer').length, 1);
     });
 
     it('should be disabled when field has no sortby and no source', () => {
@@ -46,7 +46,7 @@ describe('<DatagridHeaderCell />', () => {
         />
       );
 
-      assert.equal(wrapper.find('WithStyles(TableSortLabel)').length, 0);
+      assert.equal(wrapper.find('DatagridHeaderCell__ThContainer').length, 0);
     });
 
     it('should be disabled when sortable prop is explicitly set to false', () => {
@@ -59,7 +59,7 @@ describe('<DatagridHeaderCell />', () => {
         />
       );
 
-      assert.equal(wrapper.find('WithStyles(TableSortLabel)').length, 0);
+      assert.equal(wrapper.find('DatagridHeaderCell__ThContainer').length, 0);
     });
 
     it('should use cell className if specified', () => {
@@ -72,7 +72,7 @@ describe('<DatagridHeaderCell />', () => {
           className="blue"
         />
       );
-      const col = wrapper.find('WithStyles(TableCell)');
+      const col = wrapper.find('Th');
       assert.deepEqual(col.at(0).prop('className'), 'blue');
     });
   });

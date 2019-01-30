@@ -146,7 +146,8 @@
       "react/default-props-match-prop-types": 0,
       "no-nested-ternary": 0,
       "no-shadow": 0,
-      "react/prop-types": 0
+      "react/prop-types": 0,
+      "react/no-array-index-key": 0
     },
     "settings": {
       "import/resolver": {

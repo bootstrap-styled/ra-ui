@@ -10,7 +10,7 @@ describe('<DateInput />', () => {
     const wrapper = shallow(
       <DateInput source="foo" meta={{}} input={input} />
     );
-    const datePicker = wrapper.find('TextField');
+    const datePicker = wrapper.find('Input');
     assert.equal(datePicker.length, 1);
     assert.equal(datePicker.first().prop('type'), 'date');
   });
@@ -25,14 +25,11 @@ describe('<DateInput />', () => {
       <DateInput source="foo" input={input} meta={{}} />
     )
       .shallow()
-      .find('WithStyles(Input)')
-      .shallow()
-      .shallow()
-      .find('input');
+      .find('Input');
     wrapper.simulate('change', {
       target: { value: '2010-01-04' },
     });
-    assert.equal(input.onChange.mock.calls[0][0], '2010-01-04');
+    assert.equal(input.onChange.mock.calls[0][0].target.value, '2010-01-04');
   });
 
   describe('error message', () => {
@@ -44,8 +41,8 @@ describe('<DateInput />', () => {
           meta={{ touched: false }}
         />
       );
-      const DatePicker = wrapper.find('TextField');
-      assert.equal(DatePicker.prop('helperText'), '');
+      const DatePicker = wrapper.find('Input');
+      assert.equal(DatePicker.prop('error'), '');
     });
 
     it('should not be displayed if field has been touched but is valid', () => {
@@ -56,8 +53,8 @@ describe('<DateInput />', () => {
           meta={{ touched: true, error: false }}
         />
       );
-      const DatePicker = wrapper.find('TextField');
-      assert.equal(DatePicker.prop('helperText'), '');
+      const DatePicker = wrapper.find('Input');
+      assert.equal(DatePicker.prop('error'), '');
     });
 
     it('should be displayed if field has been touched and is invalid', () => {
@@ -68,8 +65,8 @@ describe('<DateInput />', () => {
           meta={{ touched: true, error: 'Required field.' }}
         />
       );
-      const DatePicker = wrapper.find('TextField');
-      assert.equal(DatePicker.prop('helperText'), 'Required field.');
+      const DatePicker = wrapper.find('Input');
+      assert.equal(DatePicker.prop('error'), 'Required field.');
     });
   });
 });

@@ -54,6 +54,7 @@ export class DateInput extends Component {
       options,
       source,
       resource,
+      helperText,
       ...rest
     } = this.props;
     if (typeof meta === 'undefined') {
@@ -63,7 +64,6 @@ export class DateInput extends Component {
     }
     const { touched, error } = meta;
     const value = sanitizeValue(input.value);
-
     return (
       <FormGroup color={error ? 'danger' : ''} className={className} {...sanitizeRestProps(rest)}>
         <FieldTitle

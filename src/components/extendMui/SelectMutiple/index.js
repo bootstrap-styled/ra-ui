@@ -15,7 +15,7 @@ class SelectInputUnstyled extends React.Component {
 
   handleClick = () => {
     this.setState({
-      isOpen: !this.state.isOpen,
+      isOpen: !this.state.isOpen, // eslint-disable-line
     });
   };
 
@@ -27,10 +27,10 @@ class SelectInputUnstyled extends React.Component {
       let target;
 
       if (event.target) {
-        target = event.target;
+        target = event.target; // eslint-disable-line
       }
 
-      value = Array.isArray(this.props.value) ? [...this.props.value] : [];
+      value = Array.isArray(this.props.value) ? [...this.props.value] : []; // eslint-disable-line
       const itemIndex = value.indexOf(child.props.value);
 
       if (itemIndex === -1) {
@@ -40,7 +40,7 @@ class SelectInputUnstyled extends React.Component {
       }
 
       event.persist();
-      event.target = { ...target, value };
+      event.target = { ...target, value }; // eslint-disable-line
 
       onChange(event, child);
     }
@@ -60,7 +60,7 @@ class SelectInputUnstyled extends React.Component {
         return null;
       }
       let selected;
-      selected = value.indexOf(child.props.value) !== -1;
+      selected = value.indexOf(child.props.value) !== -1; // eslint-disable-line
 
       return React.cloneElement(child, {
         onClick: this.handleItemClick(child),
@@ -89,33 +89,33 @@ class SelectInputUnstyled extends React.Component {
 }
 
 const SelectInput = styled(SelectInputUnstyled)`
-	${props => `
-		&.select-multiple {
-			.select-multiple-toggle {
-				border: 1px solid lightgrey;
-				line-height: 1.25;
-				padding: .25rem;
-				min-height: 32px;
-				border-radius: 5px;
-				min-width: 75px;
-				width: auto;
-				&:focus {
-					outline: 1px solid ${props.theme['$brand-primary']};
-				}
-				.badge {
-					border-radius: 1rem;
-					padding: .75rem;
-				}
-			}
-			.dropdown-item {
-				padding: .25rem;
-				&.active {
-					background-color: lightgrey;
-					color: black;
-				}
-			}
-		}
-	`}
+${props => `
+  &.select-multiple {
+    .select-multiple-toggle {
+      border: 1px solid lightgrey;
+      line-height: 1.25;
+      padding: .25rem;
+      min-height: 32px;
+      border-radius: 5px;
+      min-width: 75px;
+      width: auto;
+      &:focus {
+        outline: 1px solid ${props.theme['$brand-primary']};
+      }
+      .badge {
+        border-radius: 1rem;
+        padding: .75rem;
+      }
+    }
+    .dropdown-item {
+      padding: .25rem;
+      &.active {
+        background-color: lightgrey;
+        color: black;
+      }
+    }
+  }
+`}
 `;
 
 SelectInput.propTypes = {

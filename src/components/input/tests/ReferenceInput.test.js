@@ -31,7 +31,7 @@ describe('<ReferenceInput />', () => {
     const MyComponentElement = wrapper.find('MyComponent');
     assert.equal(MyComponentElement.length, 0);
     const LinearProgressElement = wrapper.find(
-      'WithStyles(LinearProgress)'
+      'LinearProgress'
     );
     assert.equal(LinearProgressElement.length, 1);
   });

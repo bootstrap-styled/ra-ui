@@ -85,7 +85,7 @@ export const ReferenceArrayField = ({ children, ...props }) => {
 
   return (
     <ReferenceArrayFieldController {...props}>
-      {(controllerProps) => (
+      {controllerProps => (
         <ReferenceArrayFieldView
           {...props}
           {...{ children, ...controllerProps }}

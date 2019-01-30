@@ -28,7 +28,7 @@ describe('<ReferenceManyField />', () => {
     const ProgressElements = wrapper.find('WithStyles(LinearProgress)');
     assert.equal(ProgressElements.length, 0);
     const SingleFieldListElement = wrapper.find(
-      'WithStyles(SingleFieldList)'
+      'SingleFieldList'
     );
     assert.equal(SingleFieldListElement.length, 1);
     assert.equal(SingleFieldListElement.at(0).prop('resource'), 'bar');
@@ -54,7 +54,7 @@ describe('<ReferenceManyField />', () => {
     const ProgressElements = wrapper.find('WithStyles(LinearProgress)');
     assert.equal(ProgressElements.length, 0);
     const SingleFieldListElement = wrapper.find(
-      'WithStyles(SingleFieldList)'
+      'SingleFieldList'
     );
     assert.equal(SingleFieldListElement.length, 1);
     assert.equal(SingleFieldListElement.at(0).prop('resource'), 'bar');
@@ -84,7 +84,7 @@ describe('<ReferenceManyField />', () => {
     const ProgressElements = wrapper.find('widthStyles(LinearProgress)');
     assert.equal(ProgressElements.length, 0);
     const SingleFieldListElement = wrapper.find(
-      'WithStyles(SingleFieldList)'
+      'SingleFieldList'
     );
     assert.equal(SingleFieldListElement.length, 1);
     assert.equal(SingleFieldListElement.at(0).prop('resource'), 'bar');
@@ -117,7 +117,7 @@ describe('<ReferenceManyField />', () => {
     const ProgressElements = wrapper.find('WithStyles(LinearProgress)');
     assert.equal(ProgressElements.length, 0);
     const SingleFieldListElement = wrapper.find(
-      'WithStyles(SingleFieldList)'
+      'SingleFieldList'
     );
     assert.equal(SingleFieldListElement.length, 1);
     assert.equal(SingleFieldListElement.at(0).prop('resource'), 'bar');

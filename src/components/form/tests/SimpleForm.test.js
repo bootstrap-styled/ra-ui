@@ -27,7 +27,7 @@ describe('<SimpleForm />', () => {
       </SimpleForm>
     );
     const button = wrapper.find(
-      'WithTheme(WithWidth(WithStyles(Toolbar)))'
+      'WithTheme(WithWidth(Toolbar))'
     );
     assert.equal(button.length, 1);
   });
@@ -41,7 +41,7 @@ describe('<SimpleForm />', () => {
       </SimpleForm>
     );
     const button1 = wrapper1.find(
-      'WithTheme(WithWidth(WithStyles(Toolbar)))'
+      'WithTheme(WithWidth(Toolbar))'
     );
     assert.equal(button1.prop('submitOnEnter'), false);
 
@@ -51,7 +51,7 @@ describe('<SimpleForm />', () => {
       </SimpleForm>
     );
     const button2 = wrapper2.find(
-      'WithTheme(WithWidth(WithStyles(Toolbar)))'
+      'WithTheme(WithWidth(Toolbar))'
     );
     assert.equal(button2.prop('submitOnEnter'), true);
   });

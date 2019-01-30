@@ -30,7 +30,7 @@ describe('<List />', () => {
         <Datagrid />
       </ListView>
     );
-    assert.equal(wrapper.find('WithStyles(Card)').length, 1);
+    assert.equal(wrapper.find('CardContent').length, 1);
   });
 
   it('should render a toolbar, children and pagination', () => {

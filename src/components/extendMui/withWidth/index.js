@@ -73,7 +73,7 @@ const withWidth = (options = {}) => Component => {
       this.handleResize.cancel();
     }
 
-    handleResize = debounce(() => {
+    handleResize = debounce(() => { // eslint-disable-line
       this.updateWidth(window.innerWidth);
     }, resizeInterval);
 
@@ -83,7 +83,7 @@ const withWidth = (options = {}) => Component => {
       // theme provides strings as the value, we thus transform them from string to number.
       const breakpointsWithNumbers = {};
       Object.keys(breakpoints).forEach(bpKeys => {
-        breakpointsWithNumbers[bpKeys] = parseInt(breakpoints[bpKeys]);
+        breakpointsWithNumbers[bpKeys] = parseInt(breakpoints[bpKeys]); // eslint-disable-line
       });
 
       let width = null;

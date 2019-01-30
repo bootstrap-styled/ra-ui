@@ -20,7 +20,7 @@ function exactProp(propTypes) {
     ...propTypes,
     // eslint-disable-next-line prefer-arrow-callback
     [specialProperty]: props => {
-      const unsupportedProps = Object.keys(props).filter(prop => !propTypes.hasOwnProperty(prop));
+      const unsupportedProps = Object.keys(props).filter(prop => !propTypes.hasOwnProperty(prop)); // eslint-disable-line
       if (unsupportedProps.length > 0) {
         return new Error(
           `The following properties are not supported: ${unsupportedProps
@@ -39,12 +39,12 @@ function ownerDocument(node) {
 
 
 function getContainer(container, defaultContainer) {
-  container = typeof container === 'function' ? container() : container;
-  return ReactDOM.findDOMNode(container) || defaultContainer;
+  container = typeof container === 'function' ? container() : container; // eslint-disable-line
+  return ReactDOM.findDOMNode(container) || defaultContainer; // eslint-disable-line
 }
 
 function getOwnerDocument(element) {
-  return ownerDocument(ReactDOM.findDOMNode(element));
+  return ownerDocument(ReactDOM.findDOMNode(element)); // eslint-disable-line
 }
 
 /**
