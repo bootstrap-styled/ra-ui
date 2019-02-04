@@ -36,6 +36,10 @@
       ]
     },
     {
+      "name": "JS doc",
+      "content": "docs/js/jsdoc.md"
+    },
+    {
       "name": "FAQ",
       "content": "docs/faq.md"
     },

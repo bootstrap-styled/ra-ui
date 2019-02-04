@@ -71,7 +71,6 @@ pages:
     paths:
     - public
   only:
-    - dev
     - tags
   tags:
     - docker

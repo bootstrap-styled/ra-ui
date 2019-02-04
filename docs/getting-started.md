@@ -3,5 +3,7 @@ and are a copy of [ra-ui-materialui](https://www.npmjs.com/package/ra-ui-materia
 
 It can be used as a replacement or in conjunction.
 
-## Try the live [demo]($PACKAGE_HOMEPAGE/demo)
+# Live demo
+
+Click [here]($PACKAGE_HOMEPAGE/demo).
 

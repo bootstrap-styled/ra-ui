@@ -119,4 +119,5 @@ const enhance = compose(
   withWidth()
 );
 
+/** @component */
 export default enhance(AppBar);
