@@ -1,3 +1,10 @@
+## [1.0.5](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.4...v1.0.5) (2019-02-04)
+
+
+### Bug Fixes
+
+* **dependencies:** moving autosuggest-highlight to dependencies ([96485ac](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/96485ac))
+
 ## [1.0.4](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.3...v1.0.4) (2019-02-04)
 
 
