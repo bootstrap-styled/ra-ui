@@ -1,3 +1,10 @@
+## [1.0.3](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.2...v1.0.3) (2019-02-04)
+
+
+### Bug Fixes
+
+* **doc:** fixing doc deployment ([02ab510](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/02ab510))
+
 ## [1.0.2](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.1...v1.0.2) (2019-02-04)
 
 
