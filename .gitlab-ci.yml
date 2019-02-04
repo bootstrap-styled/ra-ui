@@ -10,7 +10,7 @@ stages:
   - deploy
 
 # Job: Build
-build:
+.build:
   stage: build
   script:
     - npx @yeutech/rollup-umd-ci-build
@@ -33,7 +33,7 @@ build:
     - docker
 
 # Job: Test
-test:
+.test:
   stage: test
   coverage: '/All files[^|]*\|\s*[\d.]*\s*\|\s*[\d.]*\s*\|\s*[\d.]*\s*\|\s*([\d.]*)\s*\|\s*/'
   script:
@@ -48,7 +48,7 @@ test:
     - docker
 
 # Job: Release
-release:
+.release:
   stage: release
   script:
     - npx @yeutech/rollup-umd-ci-release
@@ -63,11 +63,15 @@ release:
 pages:
   stage: deploy
   script:
+    - npm install --prefix examples/demo
+    - npm run build --prefix examples/demo
     - npx @yeutech/rollup-umd-ci-deploy
+    - mv examples/demo/build public/demo
   artifacts:
     paths:
     - public
   only:
+    - dev
     - tags
   tags:
     - docker
