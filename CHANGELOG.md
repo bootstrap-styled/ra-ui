@@ -1,3 +1,11 @@
+## [1.0.7](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.6...v1.0.7) (2019-02-04)
+
+
+### Bug Fixes
+
+* **dependencies:** added more dependencies ([702b995](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/702b995))
+* **dependencies:** move some devDependencies into dependencies to fix build ([bd320cc](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/bd320cc))
+
 ## [1.0.6](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.5...v1.0.6) (2019-02-04)
 
 
