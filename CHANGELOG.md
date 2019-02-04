@@ -1,3 +1,10 @@
+## [1.0.8](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.7...v1.0.8) (2019-02-04)
+
+
+### Bug Fixes
+
+* **dependencies:** moved react-autosuggest to dependencies ([96a0e55](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/96a0e55))
+
 ## [1.0.7](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.6...v1.0.7) (2019-02-04)
 
 
