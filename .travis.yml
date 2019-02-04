@@ -76,6 +76,9 @@ jobs:
         - chmod +x styleguide/prepare.sh
         - styleguide/prepare.sh
         - npm run styleguide:build
+        - npm install --prefix examples/demo
+        - npm run build --prefix examples/demo
+        - mv examples/demo/build public/demo
       deploy:
         - provider: pages
           skip_cleanup: true

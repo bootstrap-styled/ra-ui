@@ -30,7 +30,10 @@
     },
     {
       "name": "UI Components",
-      "components": "src/**/*.js"
+      "components": [
+        "src/**/[A-Z]*.js",
+        "src/**/[A-z]*/index.js"
+      ]
     },
     {
       "name": "FAQ",
