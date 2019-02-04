@@ -7,6 +7,7 @@ tmp.json
 .npmrc
 .idea
 .babelrc
+examples
 babel.config.js
 babel.ext.json
 .gitlab-ci.yml
