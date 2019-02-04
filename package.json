@@ -286,6 +286,7 @@
     "material-ui-chip-input": "1.0.0-beta.6 - 1.0.0-beta.8",
     "papaparse": "^4.1.4",
     "prop-types": "^15.6.2",
+    "ẗerser": "3.14.1",
     "react-transition-group": "^2.5.2",
     "recompose": "~0.26.0",
     "reselect": "^4.0.0"
