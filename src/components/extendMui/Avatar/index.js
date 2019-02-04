@@ -153,4 +153,5 @@ Avatar.defaultProps = {
   component: 'div',
 };
 
+/** @component */
 export default Avatar;

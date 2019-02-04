@@ -108,4 +108,6 @@ ComposedNumberField.defaultProps = {
   addLabel: true,
   textAlign: 'right',
 };
+
+/** @component */
 export default ComposedNumberField;
