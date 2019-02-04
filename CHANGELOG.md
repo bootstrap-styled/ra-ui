@@ -1,3 +1,10 @@
+## [1.0.1](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.0...v1.0.1) (2019-02-04)
+
+
+### Bug Fixes
+
+* **dependencies:** Install missing dependencvies ([86502c1](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/86502c1))
+
 # 1.0.0 (2019-02-04)
 
 
