@@ -33,4 +33,5 @@ const defaultProps = {
 
 AppBar.defaultProps = defaultProps;
 
+/** @component */
 export default AppBar;
