@@ -1,3 +1,11 @@
+## [1.0.9](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.8...v1.0.9) (2019-02-04)
+
+
+### Bug Fixes
+
+* **dependenceis:** fix terser ([26fbcdc](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/26fbcdc))
+* **dependencies:** fix terser to v3.14.1 ([89ec21d](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/89ec21d))
+
 ## [1.0.8](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.7...v1.0.8) (2019-02-04)
 
 
