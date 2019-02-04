@@ -66,7 +66,7 @@ pages:
     - npm install --prefix examples/demo
     - npm run build --prefix examples/demo
     - npx @yeutech/rollup-umd-ci-deploy
-    - mv examples/demo/public public/demo
+    - mv examples/demo/build public/demo
   artifacts:
     paths:
     - public
