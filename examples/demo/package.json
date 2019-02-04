@@ -28,7 +28,6 @@
         "redux-saga": "~0.16.0"
     },
     "scripts": {
-        "prestart": "[ ! -d ./node_modules ] && npm install",
         "start": "react-scripts start",
         "build": "react-scripts build",
         "eject": "react-scripts eject"

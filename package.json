@@ -39,6 +39,7 @@
     "styleguide": "styleguidist server",
     "prestyleguide:build": "npm run jsdoc",
     "styleguide:build": "styleguidist build",
+    "predemo": "[ -d examples/demo/node_modules ] || npm install --prefix examples/demo",
     "demo": "npm start --prefix examples/demo"
   },
   "repository": {
