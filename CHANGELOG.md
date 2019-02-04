@@ -1,3 +1,11 @@
+## [1.0.6](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.5...v1.0.6) (2019-02-04)
+
+
+### Bug Fixes
+
+* **dependencies:** added missing dependencies ([789f62a](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/789f62a))
+* **dependencies:** adding inflection to dependencies ([8a2ae05](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/8a2ae05))
+
 ## [1.0.5](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.4...v1.0.5) (2019-02-04)
 
 
