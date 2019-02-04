@@ -1,6 +1,6 @@
 {
   "name": "@bootstrap-styled/ra-ui",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "Library of components for backoffice type react-admin.",
   "main": "lib/index.js",
   "jsnext:main": "dist/@bootstrap-styled/ra-ui.esm.js",
