@@ -10,7 +10,8 @@ import Input from '@bootstrap-styled/v4/lib/Input';
 import Form from '@bootstrap-styled/v4/lib/Form';
 import FormGroup from '@bootstrap-styled/v4/lib/Form/FormGroup';
 import FormFeedback from '@bootstrap-styled/v4/lib/Form/FormFeedback';
-import Fa from '@bootstrap-styled/v4/lib/Fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons/faCircleNotch';
 
 import { translate, userLogin } from 'ra-core';
 
@@ -62,10 +63,11 @@ const LoginForm = ({
         className="w-100"
       >
         {isLoading && (
-          <Fa
+          <FontAwesomeIcon
             className="m-3"
             size="2x"
             spin
+            icon={faCircleNotch}
           />
         )
         }

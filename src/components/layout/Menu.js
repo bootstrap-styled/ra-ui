@@ -6,8 +6,7 @@ import compose from 'recompose/compose';
 import classnames from 'classnames';
 import { getResources, translate } from 'ra-core';
 import ListGroup from '@bootstrap-styled/v4/lib/ListGroup';
-import Fa from '@bootstrap-styled/v4/lib/Fa';
-
+import DefaultIcon from '@material-ui/icons/ViewList';
 import DashboardMenuItem from './DashboardMenuItem';
 import MenuItemLink from './MenuItemLink';
 import Responsive from './Responsive';
@@ -45,10 +44,9 @@ const Menu = ({
           key={resource.name}
           to={`/${resource.name}`}
           primaryText={translatedResourceName(resource, translate)}
+          leftFaIcon={resource.faIcon}
           leftIcon={
-            resource.icon && React.createElement(Fa, {
-              className: `fa fa-${resource.icon}`,
-            })
+            resource.icon ? <resource.icon /> : <DefaultIcon />
           }
           onClick={onMenuClick}
           dense={dense}

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styled from 'styled-components';
-
-import Fa from '@bootstrap-styled/v4/lib/Fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
 import Dropdown from '@bootstrap-styled/v4/lib/Dropdown';
 import DropdownToggle from '@bootstrap-styled/v4/lib/Dropdown/DropdownToggle';
 import DropdownMenu from '@bootstrap-styled/v4/lib/Dropdown/DropdownMenu';
@@ -76,7 +76,7 @@ class SelectInputUnstyled extends React.Component {
         <Dropdown isOpen={this.state.isOpen} toggle={this.handleClick} dropup>
           <DropdownToggle tag="div" className="select-multiple-toggle d-flex align-items-center" tabIndex="0">
             {value ? renderValue(value) : null}
-            <Fa plus-circle color="success" className="ml-2" size="2x" />
+            <FontAwesomeIcon icon={faPlusCircle} className="ml-2 text-success" size="2x" />
           </DropdownToggle>
           <DropdownMenu>
             {items}

@@ -8,7 +8,6 @@ describe('<BooleanField />', () => {
     const wrapper = shallow(
       <BooleanField record={{ published: true }} source="published" />
     );
-    console.log(wrapper.debug());
     assert.ok(wrapper.first().is('BooleanField__Typography'));
     assert.equal(wrapper.first().find('pure(DoneIcon)').length, 1);
   });

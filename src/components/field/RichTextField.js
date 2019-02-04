@@ -6,6 +6,7 @@ import sanitizeRestProps from './sanitizeRestProps';
 
 export const removeTags = input => input ? input.replace(/<[^>]+>/gm, '') : '';
 
+/* eslint-disable react/no-danger */
 const RichTextField = ({
   className,
   source,

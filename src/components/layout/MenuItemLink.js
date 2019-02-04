@@ -3,14 +3,27 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { NavLink } from 'react-router-dom';
 import ListGroupItem from '@bootstrap-styled/v4/lib/ListGroup/ListGroupItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export class MenuItemLink extends Component {
     static propTypes = {
+      /** @ignore */
       className: PropTypes.string,
+      /** @ignore */
       leftIcon: PropTypes.node,
+      /** It will be passed to FontAwesomeIcon component as follow: <FontAwesomeIcon icon={faCircle} /> */
+      leftFaIcon: PropTypes.shape({
+        icon: PropTypes.array.isRequired,
+        iconName: PropTypes.string.isRequired,
+        prefix: PropTypes.string.isRequired,
+      }),
+      /** @ignore */
       onClick: PropTypes.func,
+      /** @ignore */
       primaryText: PropTypes.string,
+      /** @ignore */
       staticContext: PropTypes.object,
+      /** @ignore */
       to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
     };
 
@@ -23,6 +36,7 @@ export class MenuItemLink extends Component {
         className,
         primaryText,
         leftIcon,
+        leftFaIcon,
         staticContext,
         ...props
       } = this.props;
@@ -36,7 +50,10 @@ export class MenuItemLink extends Component {
           {...props}
           onClick={this.handleMenuTap}
         >
-          {leftIcon && (
+          {leftFaIcon && (
+            <FontAwesomeIcon icon={leftFaIcon} />
+          )}
+          {!leftFaIcon && leftIcon && (
             <span className="pr-3 py-1 d-flex">
               {cloneElement(leftIcon, { titleAccess: primaryText })}
             </span>

@@ -4,7 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import compose from 'recompose/compose';
 import classnames from 'classnames';
 import { translate } from 'ra-core';
-import Fa from '@bootstrap-styled/v4/lib/Fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons/faCircleNotch';
 
 const styles = theme => ({
   container: {
@@ -40,9 +41,10 @@ const Loading = ({
 }) => (
   <div className={classnames(classes.container, className)}>
     <div className={classes.message}>
-      <Fa
+      <FontAwesomeIcon
         className="m-3"
         size="2x"
+        icon={faCircleNotch}
         spin
       />
       <h1>{translate(loadingPrimary)}</h1>
