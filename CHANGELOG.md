@@ -1,3 +1,13 @@
+## [1.0.4](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.3...v1.0.4) (2019-02-04)
+
+
+### Bug Fixes
+
+* **ci:** build ([a604fa5](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/a604fa5))
+* **demo:** added demo link ([4894a32](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/4894a32))
+* **demo:** fix demo deployment ([c5689f2](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/c5689f2))
+* **demo:** fix demo deployment ([1d27ebc](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/1d27ebc))
+
 ## [1.0.3](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.2...v1.0.3) (2019-02-04)
 
 
