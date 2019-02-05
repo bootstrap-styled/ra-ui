@@ -1,3 +1,11 @@
+## [1.0.12](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.11...v1.0.12) (2019-02-05)
+
+
+### Bug Fixes
+
+* **utils:** added utils folder to extend the validate formulas from react-admin ([c9ec726](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/c9ec726))
+* **utils:** added utils folder to extend the validate formulas from react-admin ([e382edd](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/e382edd))
+
 ## [1.0.11](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.10...v1.0.11) (2019-02-05)
 
 
