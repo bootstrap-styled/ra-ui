@@ -1,3 +1,10 @@
+## [1.0.11](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.10...v1.0.11) (2019-02-05)
+
+
+### Bug Fixes
+
+* **theme:** corrected theme bug. ([1be9e39](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/1be9e39))
+
 ## [1.0.10](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.9...v1.0.10) (2019-02-05)
 
 
