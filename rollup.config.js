@@ -61,11 +61,9 @@ const plugins = [
   commonjs({
     include: 'node_modules/**',
     namedExports: {
-      'node_modules/react-is/index.js': ['isValidElementType'],
       'node_modules/papaparse/papaparse.min.js': ['unparse'],
       'node_modules/@material-ui/core/styles/index.js': ['withStyles', 'createMuiTheme', 'MuiThemeProvider'],
-
-    }
+    },
   }),
   replace({
     'process.env.NODE_ENV': JSON.stringify(prod ? 'production' : 'development'),
@@ -82,7 +80,7 @@ const plugins = [
   cleanup(),
 ];
 
-export default output.map((o) => ({
+export default output.map(o => ({
   input: 'src/index.js',
   external,
   output: o,
