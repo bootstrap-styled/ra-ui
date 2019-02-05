@@ -1,3 +1,19 @@
+## [1.0.11](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.10...v1.0.11) (2019-02-05)
+
+
+### Bug Fixes
+
+* **theme:** corrected theme bug. ([1be9e39](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/1be9e39))
+
+## [1.0.10](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.9...v1.0.10) (2019-02-05)
+
+
+### Bug Fixes
+
+* **demo:** restore demo ([b8656bc](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/b8656bc))
+* **dependencies:** fix dependencies as in react-admin, fix ra-core to 2.6.4 ([a720858](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/a720858))
+* **dependencies:** fix dependencies as in react-admin, fix ra-core to 2.6.4 ([a97479f](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/a97479f))
+
 ## [1.0.9](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.8...v1.0.9) (2019-02-04)
 
 
