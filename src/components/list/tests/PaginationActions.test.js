@@ -30,7 +30,7 @@ describe('<PaginationActions />', () => {
       />
     );
     // 1 2 3 next
-    expect(wrapper.find('WithStyles(Button)')).toHaveLength(4);
+    expect(wrapper.find('PaginationItem')).toHaveLength(4);
   });
 
   it('should skip page action buttons when there are too many', () => {
@@ -45,6 +45,6 @@ describe('<PaginationActions />', () => {
       />
     );
     // prev 1 ... 7 8 9 ... 15 next
-    expect(wrapper.find('WithStyles(Button)')).toHaveLength(7);
+    expect(wrapper.find('PaginationItem')).toHaveLength(9);
   });
 });

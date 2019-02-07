@@ -202,12 +202,10 @@ describe('<CheckboxGroupInput />', () => {
         meta={{ helperText: 'Can i help you?' }}
       />
     );
-    const FormHelperTextElement = wrapper.find(
-      'WithStyles(FormHelperText)'
-    );
-    assert.equal(FormHelperTextElement.length, 1);
+    const helperText = wrapper.find('FormFeedback');
+    assert.equal(helperText.length, 1);
     assert.equal(
-      FormHelperTextElement.children().text(),
+      helperText.children().text(),
       'Can i help you?'
     );
   });
@@ -226,10 +224,8 @@ describe('<CheckboxGroupInput />', () => {
           meta={{ touched: false }}
         />
       );
-      const FormHelperTextElement = wrapper.find(
-        'WithStyles(FormHelperText)'
-      );
-      assert.equal(FormHelperTextElement.length, 0);
+      const helperText = wrapper.find('FormFeedback');
+      assert.equal(helperText.length, 0);
     });
 
     it('should not be displayed if field has been touched but is valid', () => {
@@ -245,10 +241,8 @@ describe('<CheckboxGroupInput />', () => {
           meta={{ touched: true, error: false }}
         />
       );
-      const FormHelperTextElement = wrapper.find(
-        'WithStyles(FormHelperText)'
-      );
-      assert.equal(FormHelperTextElement.length, 0);
+      const helperText = wrapper.find('FormFeedback');
+      assert.equal(helperText.length, 0);
     });
 
     it('should be displayed if field has been touched and is invalid', () => {
@@ -264,12 +258,10 @@ describe('<CheckboxGroupInput />', () => {
           meta={{ touched: true, error: 'Required field.' }}
         />
       );
-      const FormHelperTextElement = wrapper.find(
-        'WithStyles(FormHelperText)'
-      );
-      assert.equal(FormHelperTextElement.length, 1);
+      const helperText = wrapper.find('FormFeedback');
+      assert.equal(helperText.length, 1);
       assert.equal(
-        FormHelperTextElement.children().text(),
+        helperText.children().text(),
         'Required field.'
       );
     });
@@ -291,18 +283,16 @@ describe('<CheckboxGroupInput />', () => {
           }}
         />
       );
-      const FormHelperTextElement = wrapper.find(
-        'WithStyles(FormHelperText)'
-      );
-      assert.equal(FormHelperTextElement.length, 2);
+      const helperText = wrapper.find('FormFeedback');
+      assert.equal(helperText.length, 2);
       assert.equal(
-        FormHelperTextElement.at(0)
+        helperText.at(0)
           .children(0)
           .text(),
         'Required field.'
       );
       assert.equal(
-        FormHelperTextElement.at(1)
+        helperText.at(1)
           .children(0)
           .text(),
         'Can i help you?'

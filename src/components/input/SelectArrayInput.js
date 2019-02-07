@@ -224,7 +224,7 @@ export class SelectArrayInput extends Component {
           {choices.map(this.renderMenuItem)}
         </SelectMutiple>
         {!!(touched && error) && <FormFeedback>{error}</FormFeedback>}
-        {touched && error && <FormFeedback>{helperText}</FormFeedback>}
+        {helperText && <FormFeedback>{helperText}</FormFeedback>}
       </FormGroup>
     );
   }

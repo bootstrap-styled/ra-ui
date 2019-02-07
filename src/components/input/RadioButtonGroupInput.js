@@ -87,6 +87,8 @@ export class RadioButtonGroupInput extends Component {
       optionValue,
       translate,
       translateChoice,
+      resource,
+      input,
     } = this.props;
     const choiceName = React.isValidElement(optionText) // eslint-disable-line no-nested-ternary
       ? React.cloneElement(optionText, { record: choice })
@@ -96,11 +98,13 @@ export class RadioButtonGroupInput extends Component {
     return (
       <Label
         check
+        checked={choice == input.value} // eslint-disable-line eqeqeq
         key={get(choice, optionValue)}
         htmlFor={`${id}_${get(choice, optionValue)}`}
       >
         <Input
           value={get(choice, optionValue)}
+          name={resource}
           onChange={this.handleChange}
           type="radio"
         />
@@ -144,7 +148,7 @@ export class RadioButtonGroupInput extends Component {
         />
         {choices.map(this.renderRadioButton)}
         {!!(touched && error) && <FormFeedback>{error}</FormFeedback>}
-        {touched && error && <FormFeedback>{helperText}</FormFeedback>}
+        {helperText && <FormFeedback>{helperText}</FormFeedback>}
       </FormGroup>
     );
   }
@@ -152,7 +156,6 @@ export class RadioButtonGroupInput extends Component {
 
 RadioButtonGroupInput.propTypes = {
   choices: PropTypes.arrayOf(PropTypes.object),
-  classes: PropTypes.object,
   className: PropTypes.string,
   id: PropTypes.string,
   input: PropTypes.object,
@@ -173,7 +176,6 @@ RadioButtonGroupInput.propTypes = {
 };
 
 RadioButtonGroupInput.defaultProps = {
-  classes: {},
   choices: [],
   options: {},
   optionText: 'name',

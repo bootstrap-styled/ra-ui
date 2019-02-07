@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import styled from 'styled-components';
 import sanitizeRestProps from './sanitizeRestProps';
 
-const NumberFieldBs = styled.div`
+const NumberFieldBs = styled.span`
   color: rgba(0, 0, 0, 0.87);
   font-size: 0.875rem;
   font-weight: 400;

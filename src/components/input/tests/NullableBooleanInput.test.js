@@ -15,7 +15,7 @@ describe('<NullableBooleanInput />', () => {
     const wrapper = shallow(
       <NullableBooleanInput source="foo" {...defaultProps} />
     );
-    const MenuItemElements = wrapper.find('MenuItem');
+    const MenuItemElements = wrapper.find('Option');
     expect(MenuItemElements.length).toEqual(3);
 
     const MenuItemElement1 = MenuItemElements.at(0);
