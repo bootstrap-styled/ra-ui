@@ -65,27 +65,8 @@ describe('<Pagination />', () => {
         .setProps({ width: 'xs' })
         .shallow()
         .shallow();
-      const pagination = wrapper.find('WithStyles(TablePagination)');
-      expect(pagination.prop('rowsPerPageOptions')).toEqual([]);
-    });
-  });
-  describe('desktop', () => {
-    it('should render a <TablePagination> with rowsPerPage choice', () => {
-      const wrapper = shallow(
-        <Pagination
-          page={2}
-          perPage={5}
-          total={15}
-          translate={x => x}
-          width={2}
-        />
-      )
-        .shallow()
-        .shallow()
-        .shallow()
-        .shallow();
-      const pagination = wrapper.find('WithStyles(TablePagination)');
-      expect(pagination.prop('rowsPerPageOptions')).toEqual([5, 10, 25]);
+      const pagination = wrapper.find('pure(translate(PaginationActions))');
+      expect(pagination.prop('rowsPerPage')).toEqual(5);
     });
   });
 });

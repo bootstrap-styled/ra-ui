@@ -19,8 +19,7 @@ describe('<SelectArrayInput />', () => {
         input={{ value: ['programming'] }}
       />
     );
-
-    const SelectFieldElement = wrapper.find('WithStyles(Select)');
+    const SelectFieldElement = wrapper.find('SelectMutiple__SelectInput');
     assert.equal(SelectFieldElement.length, 1);
   });
 
@@ -31,7 +30,7 @@ describe('<SelectArrayInput />', () => {
         input={{ value: ['programming', 'lifestyle'] }}
       />
     );
-    const SelectFieldElement = wrapper.find('WithStyles(Select)');
+    const SelectFieldElement = wrapper.find('SelectMutiple__SelectInput');
     assert.deepEqual(SelectFieldElement.prop('value'), [
       'programming',
       'lifestyle',
@@ -49,7 +48,7 @@ describe('<SelectArrayInput />', () => {
         ]}
       />
     );
-    const MenuItemElements = wrapper.find('MenuItem');
+    const MenuItemElements = wrapper.find('Option');
     assert.equal(MenuItemElements.length, 3);
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), 'programming');
@@ -70,7 +69,7 @@ describe('<SelectArrayInput />', () => {
         choices={[{ foobar: 'M', name: 'Male' }]}
       />
     );
-    const MenuItemElements = wrapper.find('MenuItem');
+    const MenuItemElements = wrapper.find('Option');
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), 'M');
     assert.equal(MenuItemElement1.childAt(0).text(), 'Male');
@@ -84,7 +83,7 @@ describe('<SelectArrayInput />', () => {
         choices={[{ foobar: { id: 'M' }, name: 'Male' }]}
       />
     );
-    const MenuItemElements = wrapper.find('MenuItem');
+    const MenuItemElements = wrapper.find('Option');
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), 'M');
     assert.equal(MenuItemElement1.childAt(0).text(), 'Male');
@@ -98,7 +97,7 @@ describe('<SelectArrayInput />', () => {
         choices={[{ id: 'M', foobar: 'Male' }]}
       />
     );
-    const MenuItemElements = wrapper.find('MenuItem');
+    const MenuItemElements = wrapper.find('Option');
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), 'M');
     assert.equal(MenuItemElement1.childAt(0).text(), 'Male');
@@ -112,7 +111,7 @@ describe('<SelectArrayInput />', () => {
         choices={[{ id: 'M', foobar: { name: 'Male' } }]}
       />
     );
-    const MenuItemElements = wrapper.find('MenuItem');
+    const MenuItemElements = wrapper.find('Option');
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), 'M');
     assert.equal(MenuItemElement1.childAt(0).text(), 'Male');
@@ -126,7 +125,7 @@ describe('<SelectArrayInput />', () => {
         choices={[{ id: 'M', foobar: 'Male' }]}
       />
     );
-    const MenuItemElements = wrapper.find('MenuItem');
+    const MenuItemElements = wrapper.find('Option');
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), 'M');
     assert.equal(MenuItemElement1.childAt(0).text(), 'Male');
@@ -141,7 +140,7 @@ describe('<SelectArrayInput />', () => {
         choices={[{ id: 'M', foobar: 'Male' }]}
       />
     );
-    const MenuItemElements = wrapper.find('MenuItem');
+    const MenuItemElements = wrapper.find('Option');
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), 'M');
     assert.equal(MenuItemElement1.childAt(0).type(), Foobar);
@@ -162,7 +161,7 @@ describe('<SelectArrayInput />', () => {
         translate={x => `**${x}**`}
       />
     );
-    const MenuItemElements = wrapper.find('MenuItem');
+    const MenuItemElements = wrapper.find('Option');
     const MenuItemElement1 = MenuItemElements.first();
     assert.equal(MenuItemElement1.prop('value'), 'M');
     assert.equal(MenuItemElement1.childAt(0).text(), '**Male**');
@@ -175,7 +174,7 @@ describe('<SelectArrayInput />', () => {
         meta={{ helperText: 'Can i help you?' }}
       />
     );
-    const helperText = wrapper.find('WithStyles(FormHelperText)');
+    const helperText = wrapper.find('FormFeedback');
     assert.equal(helperText.length, 1);
     assert.equal(helperText.childAt(0).text(), 'Can i help you?');
   });
@@ -185,7 +184,7 @@ describe('<SelectArrayInput />', () => {
       const wrapper = shallow(
         <SelectArrayInput {...defaultProps} meta={{ touched: false }} />
       );
-      const helperText = wrapper.find('WithStyles(FormHelperText)');
+      const helperText = wrapper.find('FormFeedback');
       assert.equal(helperText.length, 0);
     });
 
@@ -196,7 +195,7 @@ describe('<SelectArrayInput />', () => {
           meta={{ touched: true, error: false }}
         />
       );
-      const helperText = wrapper.find('WithStyles(FormHelperText)');
+      const helperText = wrapper.find('FormFeedback');
       assert.equal(helperText.length, 0);
     });
 
@@ -207,7 +206,7 @@ describe('<SelectArrayInput />', () => {
           meta={{ touched: true, error: 'Required field.' }}
         />
       );
-      const helperText = wrapper.find('WithStyles(FormHelperText)');
+      const helperText = wrapper.find('FormFeedback');
       assert.equal(helperText.length, 1);
       assert.equal(helperText.childAt(0).text(), 'Required field.');
     });
@@ -223,7 +222,7 @@ describe('<SelectArrayInput />', () => {
           }}
         />
       );
-      const helperText = wrapper.find('WithStyles(FormHelperText)');
+      const helperText = wrapper.find('FormFeedback');
       assert.equal(helperText.length, 2);
       assert.equal(
         helperText

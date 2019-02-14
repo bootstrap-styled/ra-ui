@@ -41,8 +41,8 @@ describe('<DateInput />', () => {
           meta={{ touched: false }}
         />
       );
-      const DatePicker = wrapper.find('Input');
-      assert.equal(DatePicker.prop('error'), '');
+      const DatePicker = wrapper.find('FormFeedback');
+      assert.equal(DatePicker.length, 0);
     });
 
     it('should not be displayed if field has been touched but is valid', () => {
@@ -53,8 +53,8 @@ describe('<DateInput />', () => {
           meta={{ touched: true, error: false }}
         />
       );
-      const DatePicker = wrapper.find('Input');
-      assert.equal(DatePicker.prop('error'), '');
+      const DatePicker = wrapper.find('FormFeedback');
+      assert.equal(DatePicker.length, 0);
     });
 
     it('should be displayed if field has been touched and is invalid', () => {
@@ -65,8 +65,8 @@ describe('<DateInput />', () => {
           meta={{ touched: true, error: 'Required field.' }}
         />
       );
-      const DatePicker = wrapper.find('Input');
-      assert.equal(DatePicker.prop('error'), 'Required field.');
+      const DatePicker = wrapper.find('FormFeedback').dive();
+      assert.equal(DatePicker.text(), 'Required field.');
     });
   });
 });

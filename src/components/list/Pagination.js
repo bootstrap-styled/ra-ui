@@ -54,7 +54,7 @@ export class Pagination extends Component {
       isLoading,
       page,
       perPage,
-      rowsPerPageOptions,
+      rowsPerPageOptions, // TODO: our component is not built to sustain this props.
       total,
       translate,
       ...rest

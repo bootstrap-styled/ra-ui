@@ -13,7 +13,7 @@ describe('<SimpleForm />', () => {
         <TextInput source="city" />
       </SimpleForm>
     );
-    const inputs = wrapper.find('WithStyles(FormInput)');
+    const inputs = wrapper.find('FormInput');
     assert.deepEqual(inputs.map(i => i.prop('input').props.source), [
       'name',
       'city',
@@ -27,8 +27,8 @@ describe('<SimpleForm />', () => {
       </SimpleForm>
     );
     const button = wrapper.find(
-      'WithTheme(WithWidth(Toolbar))'
-    );
+      'WithWidth'
+    ).dive();
     assert.equal(button.length, 1);
   });
 
@@ -40,9 +40,10 @@ describe('<SimpleForm />', () => {
         <TextInput source="name" />
       </SimpleForm>
     );
+
     const button1 = wrapper1.find(
-      'WithTheme(WithWidth(Toolbar))'
-    );
+      'WithWidth'
+    ).dive().dive();
     assert.equal(button1.prop('submitOnEnter'), false);
 
     const wrapper2 = shallow(
@@ -51,8 +52,8 @@ describe('<SimpleForm />', () => {
       </SimpleForm>
     );
     const button2 = wrapper2.find(
-      'WithTheme(WithWidth(Toolbar))'
-    );
+      'WithWidth'
+    ).dive().dive();
     assert.equal(button2.prop('submitOnEnter'), true);
   });
 });
