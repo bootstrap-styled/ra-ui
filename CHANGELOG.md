@@ -1,3 +1,12 @@
+## [1.0.13](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.12...v1.0.13) (2019-02-14)
+
+
+### Bug Fixes
+
+* **dependencies:** Using [@rollup-umd](https://module.kopaxgroup.com/rollup-umd)/rollup ([f5f04de](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/f5f04de))
+* **Release:** Release to npmjs registry ([6faf79f](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/6faf79f)), closes [#2](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/issues/2)
+* **tests:** corrected all wrong tests. WIP. ([6237a54](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/6237a54))
+
 ## [1.0.12](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.11...v1.0.12) (2019-02-05)
 
 
