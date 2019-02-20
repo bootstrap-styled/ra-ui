@@ -206,7 +206,7 @@
     "@semantic-release/npm": "^5.1.4",
     "@yeutech/rollup-umd-ci-build": "^1.0.5",
     "@yeutech/rollup-umd-ci-deploy": "^1.0.7",
-    "@yeutech/rollup-umd-ci-release": "^1.0.13",
+    "@yeutech/rollup-umd-ci-release": "^1.0.14",
     "@yeutech/rollup-umd-ci-release-transitive": "^1.2.9",
     "@yeutech/rollup-umd-ci-test": "^1.0.6",
     "@yeutech/rollup-umd-scripts": "^1.0.4",
@@ -259,15 +259,15 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.1",
-    "@bootstrap-styled/css-mixins": "^2.0.5",
+    "@bootstrap-styled/css-mixins": "^2.0.6",
     "@bootstrap-styled/provider": "^1.4.2",
-    "@bootstrap-styled/v4": "^3.0.3",
+    "@bootstrap-styled/v4": "^3.0.4",
     "@fortawesome/free-solid-svg-icons": "^5.7.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
     "autosuggest-highlight": "^3.1.1",
-    "bootstrap-styled": "^2.4.10",
+    "bootstrap-styled": "^2.4.11",
     "react-dropzone": "~4.0.1",
     "react-headroom": "^2.2.4",
     "classnames": "^2.2.6",
@@ -278,7 +278,7 @@
     "prop-types": "^15.6.2",
     "react-transition-group": "^2.5.2",
     "recompose": "~0.26.0",
-    "reselect": "^4.0.0"
+    "reselect": "^3.0.0"
   },
   "peerDependencies": {
     "react": "^16.7.0",
@@ -291,7 +291,8 @@
     "@bootstrap-styled/redux": "^1.1.0"
   },
   "publishConfig": {
-    "registry": "https://npm.kopaxgroup.com",
+    "access": "public",
+    "registry": "https://registry.npmjs.org",
     "tag": "latest"
   },
   "release": {
@@ -379,10 +380,10 @@
     ],
     "coverageThreshold": {
       "global": {
-        "statements": 100,
-        "branches": 100,
-        "functions": 100,
-        "lines": 100
+        "statements": 30,
+        "branches": 30,
+        "functions": 30,
+        "lines": 30
       }
     },
     "moduleDirectories": [
