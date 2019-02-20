@@ -11,7 +11,6 @@ import Button from './Button';
 
 const sanitizeRestProps = ({
   basePath,
-  classes,
   dispatchCrudDelete,
   filterValues,
   label,

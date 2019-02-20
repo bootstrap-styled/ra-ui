@@ -1,5 +1,6 @@
 import React from 'react';
-import { translate, SelectArrayInput } from 'react-admin';
+import { translate } from 'react-admin';
+import { SelectArrayInput } from '@bootstrap-styled/ra-ui';
 
 import segments from '../segments/data';
 

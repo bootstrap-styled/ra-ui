@@ -13,7 +13,6 @@ describe('<FileInputPreview />', () => {
         <div>Child</div>
       </FileInputPreview>
     );
-
     const removeButton = wrapper.find('WithStyles(IconButton)');
     removeButton.simulate('click');
 

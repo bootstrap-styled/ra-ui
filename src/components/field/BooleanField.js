@@ -9,7 +9,7 @@ import styled from 'styled-components';
 
 import sanitizeRestProps from './sanitizeRestProps';
 
-const Typography = styled.div`
+const BooleanTypography = styled.div`
     color: rgba(0, 0, 0, 0.87);
     font-size: 0.875rem;
     font-weight: 400;
@@ -21,23 +21,23 @@ export const BooleanField = ({
 }) => {
   if (get(record, source) === false) {
     return (
-      <Typography
+      <BooleanTypography
         className={className}
         {...sanitizeRestProps(rest)}
       >
         <FalseIcon />
-      </Typography>
+      </BooleanTypography>
     );
   }
 
   if (get(record, source) === true) {
     return (
-      <Typography
+      <BooleanTypography
         className={className}
         {...sanitizeRestProps(rest)}
       >
         <TrueIcon />
-      </Typography>
+      </BooleanTypography>
     );
   }
 

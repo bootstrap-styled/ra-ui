@@ -50,7 +50,6 @@ export const ReferenceInputView = ({
   basePath,
   children,
   choices,
-  classes,
   className,
   error,
   input,
@@ -88,7 +87,6 @@ export const ReferenceInputView = ({
 
   return React.cloneElement(children, {
     allowEmpty,
-    classes,
     className,
     input,
     isRequired,
@@ -115,7 +113,6 @@ ReferenceInputView.propTypes = {
   basePath: PropTypes.string,
   children: PropTypes.element,
   choices: PropTypes.array,
-  classes: PropTypes.object,
   className: PropTypes.string,
   error: PropTypes.string,
   input: PropTypes.object.isRequired,
@@ -233,7 +230,6 @@ ReferenceInput.propTypes = {
   basePath: PropTypes.string,
   children: PropTypes.element.isRequired,
   className: PropTypes.string,
-  classes: PropTypes.object,
   filter: PropTypes.object,
   filterToQuery: PropTypes.func.isRequired,
   input: PropTypes.object.isRequired,

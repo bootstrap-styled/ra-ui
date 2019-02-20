@@ -1,17 +1,17 @@
 import React from 'react';
 import {
-    translate,
     Datagrid,
     Edit,
     EditButton,
-    List,
     NumberField,
     ReferenceManyField,
     SimpleForm,
     TextField,
     TextInput,
-} from 'react-admin';
-import withStyles from '@material-ui/core/styles/withStyles';
+} from '@bootstrap-styled/ra-ui';
+
+import { List, translate } from 'react-admin';
+
 import Icon from '@material-ui/icons/Bookmark';
 
 import ThumbnailField from '../products/ThumbnailField';
@@ -20,14 +20,10 @@ import LinkToRelatedProducts from './LinkToRelatedProducts';
 
 export const CategoryIcon = Icon;
 
-const listStyles = {
-    name: { padding: '0 12px 0 25px' },
-};
-
-export const CategoryList = withStyles(listStyles)(({ classes, ...props }) => (
+export const CategoryList = (({ ...props }) => (
     <List {...props} sort={{ field: 'name', order: 'ASC' }}>
         <Datagrid>
-            <TextField source="name" className={classes.name} />
+            <TextField source="name" />
             <LinkToRelatedProducts />
             <EditButton />
         </Datagrid>

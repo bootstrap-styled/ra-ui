@@ -83,7 +83,6 @@ export const NumberField = ({
 NumberField.propTypes = {
   addLabel: PropTypes.bool,
   basePath: PropTypes.string,
-  classes: PropTypes.object,
   className: PropTypes.string,
   cellClassName: PropTypes.string,
   headerClassName: PropTypes.string,

@@ -1,22 +1,13 @@
 import React from 'react';
 import compose from 'recompose/compose';
 import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import { translate } from 'react-admin';
 import { stringify } from 'query-string';
 
 import { ProductIcon } from '../products';
 
-const styles = {
-    icon: { paddingRight: '0.5em' },
-    link: {
-        display: 'inline-flex',
-        alignItems: 'center',
-    },
-};
-
-const LinkToRelatedProducts = ({ classes, record, translate }) => (
+const LinkToRelatedProducts = ({ record, translate }) => (
     <Button
         size="small"
         color="primary"
@@ -31,15 +22,14 @@ const LinkToRelatedProducts = ({ classes, record, translate }) => (
                 filter: JSON.stringify({ category_id: record.id }),
             }),
         }}
-        className={classes.link}
+        className="d-inline-flex align-items-center"
     >
-        <ProductIcon className={classes.icon} />
+        <ProductIcon className="pr-1" />
         {translate('resources.categories.fields.products')}
     </Button>
 );
 
 const enhance = compose(
-    withStyles(styles),
     translate
 );
 export default enhance(LinkToRelatedProducts);

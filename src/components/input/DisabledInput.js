@@ -7,7 +7,6 @@ import { addField, FieldTitle } from 'ra-core';
 import sanitizeRestProps from './sanitizeRestProps';
 
 const DisabledInput = ({
-  classes,
   className,
   record,
   input: { value }, // eslint-disable-line no-unused-vars

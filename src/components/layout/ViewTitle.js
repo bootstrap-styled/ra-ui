@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 import classnames from 'classnames';
 
 import Responsive from './Responsive';
@@ -32,7 +31,7 @@ const ViewTitle = ({ className, title, ...rest }) => {
           className={classnames('title', className)}
           {...rest}
         >
-          <Typography variant="title">{title}</Typography>
+          <h1>{title}</h1>
         </CardContent>
       )}
     />

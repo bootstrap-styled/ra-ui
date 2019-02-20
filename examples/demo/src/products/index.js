@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    translate,
     Create,
     Datagrid,
     DateField,
@@ -19,9 +18,10 @@ import {
     TextField,
     TextInput,
     required,
-} from 'react-admin';
+} from '@bootstrap-styled/ra-ui';
+
+import { translate } from 'react-admin';
 import Chip from '@material-ui/core/Chip';
-import withStyles from '@material-ui/core/styles/withStyles';
 import Icon from '@material-ui/icons/Collections';
 import RichTextInput from 'ra-input-rich-text';
 
@@ -32,16 +32,10 @@ import Poster from './Poster';
 
 export const ProductIcon = Icon;
 
-const quickFilterStyles = {
-    root: {
-        marginBottom: '0.7em',
-    },
-};
-
 const QuickFilter = translate(
-    withStyles(quickFilterStyles)(({ classes, label, translate }) => (
-        <Chip className={classes.root} label={translate(label)} />
-    ))
+    ({ label, translate }) => (
+        <Chip label={translate(label)} />
+    )
 );
 
 export const ProductFilter = props => (
@@ -77,17 +71,17 @@ export const ProductList = props => (
     </List>
 );
 
-const createStyles = {
-    stock: { width: '5em' },
-    price: { width: '5em' },
-    width: { width: '5em' },
-    widthFormGroup: { display: 'inline-block' },
-    height: { width: '5em' },
-    heightFormGroup: { display: 'inline-block', marginLeft: 32 },
-};
+// const createStyles = {
+//     stock: { width: '5em' },
+//     price: { width: '5em' },
+//     width: { width: '5em' },
+//     widthFormGroup: { display: 'inline-block' },
+//     height: { width: '5em' },
+//     heightFormGroup: { display: 'inline-block', marginLeft: 32 },
+// };
 
-export const ProductCreate = withStyles(createStyles)(
-    ({ classes, ...props }) => (
+export const ProductCreate =
+    ({ ...props }) => (
         <Create {...props}>
             <TabbedForm>
                 <FormTab label="resources.products.tabs.image">
@@ -108,19 +102,14 @@ export const ProductCreate = withStyles(createStyles)(
                     <NumberInput
                         source="price"
                         validate={required()}
-                        className={classes.price}
                     />
                     <NumberInput
                         source="width"
                         validate={required()}
-                        className={classes.width}
-                        formClassName={classes.widthFormGroup}
                     />
                     <NumberInput
                         source="height"
                         validate={required()}
-                        className={classes.height}
-                        formClassName={classes.heightFormGroup}
                     />
                     <ReferenceInput
                         source="category_id"
@@ -132,7 +121,6 @@ export const ProductCreate = withStyles(createStyles)(
                     <NumberInput
                         source="stock"
                         validate={required()}
-                        className={classes.stock}
                     />
                 </FormTab>
                 <FormTab
@@ -143,22 +131,21 @@ export const ProductCreate = withStyles(createStyles)(
                 </FormTab>
             </TabbedForm>
         </Create>
-    )
 );
 
 const ProductTitle = ({ record }) => <span>Poster #{record.reference}</span>;
 
-const editStyles = {
-    ...createStyles,
-    comment: {
-        maxWidth: '20em',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-    },
-};
+// const editStyles = {
+//     ...createStyles,
+//     comment: {
+//         maxWidth: '20em',
+//         overflow: 'hidden',
+//         textOverflow: 'ellipsis',
+//         whiteSpace: 'nowrap',
+//     },
+// };
 
-export const ProductEdit = withStyles(editStyles)(({ classes, ...props }) => (
+export const ProductEdit = ({ ...props }) => (
     <Edit {...props} title={<ProductTitle />}>
         <TabbedForm>
             <FormTab label="resources.products.tabs.image">
@@ -168,21 +155,17 @@ export const ProductEdit = withStyles(editStyles)(({ classes, ...props }) => (
             </FormTab>
             <FormTab label="resources.products.tabs.details" path="details">
                 <TextInput source="reference" />
-                <NumberInput source="price" className={classes.price} />
+                <NumberInput source="price" />
                 <NumberInput
                     source="width"
-                    className={classes.width}
-                    formClassName={classes.widthFormGroup}
                 />
                 <NumberInput
                     source="height"
-                    className={classes.height}
-                    formClassName={classes.heightFormGroup}
                 />
                 <ReferenceInput source="category_id" reference="categories">
                     <SelectInput source="name" />
                 </ReferenceInput>
-                <NumberInput source="stock" className={classes.stock} />
+                <NumberInput source="stock" />
             </FormTab>
             <FormTab
                 label="resources.products.tabs.description"
@@ -203,7 +186,6 @@ export const ProductEdit = withStyles(editStyles)(({ classes, ...props }) => (
                         <StarRatingField />
                         <TextField
                             source="comment"
-                            cellClassName={classes.comment}
                         />
                         <TextField source="status" />
                         <EditButton />
@@ -212,4 +194,4 @@ export const ProductEdit = withStyles(editStyles)(({ classes, ...props }) => (
             </FormTab>
         </TabbedForm>
     </Edit>
-));
+);

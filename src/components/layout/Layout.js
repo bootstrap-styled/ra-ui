@@ -103,7 +103,6 @@ class Layout extends Component {
     const {
       appBar,
       children,
-      classes,
       className,
       customRoutes,
       error,
@@ -151,7 +150,6 @@ class Layout extends Component {
 Layout.propTypes = {
   appBar: componentPropType,
   children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
-  classes: PropTypes.object,
   className: PropTypes.string,
   customRoutes: PropTypes.array,
   dashboard: componentPropType,

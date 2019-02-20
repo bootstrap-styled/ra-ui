@@ -187,7 +187,6 @@ export class SelectInput extends Component {
       const {
         allowEmpty,
         choices,
-        classes,
         className,
         input,
         isRequired,
@@ -234,7 +233,6 @@ export class SelectInput extends Component {
 SelectInput.propTypes = {
   allowEmpty: PropTypes.bool.isRequired,
   choices: PropTypes.arrayOf(PropTypes.object),
-  classes: PropTypes.object,
   className: PropTypes.string,
   input: PropTypes.object,
   isRequired: PropTypes.bool,
@@ -256,7 +254,6 @@ SelectInput.propTypes = {
 
 SelectInput.defaultProps = {
   allowEmpty: false,
-  classes: {},
   choices: [],
   options: {},
   optionText: 'name',

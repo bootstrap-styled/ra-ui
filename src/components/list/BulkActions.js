@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import { withStyles } from '@material-ui/core/styles';
 import FilterNoneIcon from '@material-ui/icons/FilterNone';
 import compose from 'recompose/compose';
 import classnames from 'classnames';
@@ -12,30 +11,30 @@ import { translate } from 'ra-core';
 import Button from '../button/Button';
 import BulkDeleteAction from './BulkDeleteAction';
 
-const styles = theme => ({
-  bulkActionsButton: {
-    opacity: 1,
-    transition: theme.transitions.create('opacity', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    '&.fade-enter': {
-      opacity: 0,
-    },
-    '&.fade-enter-done': {
-      opacity: 1,
-    },
-    '&.fade-exit': {
-      opacity: 0,
-    },
-    '&.fade-exit-done': {
-      opacity: 0,
-    },
-  },
-  icon: {
-    marginRight: theme.spacing.unit,
-  },
-});
+// const styles = theme => ({
+//   bulkActionsButton: {
+//     opacity: 1,
+//     transition: theme.transitions.create('opacity', {
+//       easing: theme.transitions.easing.sharp,
+//       duration: theme.transitions.duration.leavingScreen,
+//     }),
+//     '&.fade-enter': {
+//       opacity: 0,
+//     },
+//     '&.fade-enter-done': {
+//       opacity: 1,
+//     },
+//     '&.fade-exit': {
+//       opacity: 0,
+//     },
+//     '&.fade-exit-done': {
+//       opacity: 0,
+//     },
+//   },
+//   icon: {
+//     marginRight: theme.spacing.unit,
+//   },
+// });
 
 const timeoutDurations = {
   enter: 0,
@@ -44,7 +43,6 @@ const timeoutDurations = {
 
 const sanitizeRestProps = ({
   basePath,
-  classes,
   filterValues,
   resource,
   onUnselectItems,
@@ -92,7 +90,6 @@ class BulkActions extends Component {
   render() {
     const {
       basePath,
-      classes,
       children,
       className,
       filterValues,
@@ -112,7 +109,7 @@ class BulkActions extends Component {
         unmountOnExit
         classNames="fade"
       >
-        <div className={classes.bulkActionsButton}>
+        <div>
           <Button
             buttonRef={this.storeButtonRef}
             className={classnames('bulk-actions-button', className)}
@@ -126,7 +123,7 @@ class BulkActions extends Component {
               smart_count: selectedIds.length,
             })}
           >
-            <FilterNoneIcon className={classes.icon} />
+            <FilterNoneIcon />
           </Button>
           <Menu
             id="bulk-actions-menu"
@@ -167,7 +164,6 @@ class BulkActions extends Component {
 
 BulkActions.propTypes = {
   basePath: PropTypes.string,
-  classes: PropTypes.object,
   className: PropTypes.string,
   children: PropTypes.node,
   filterValues: PropTypes.object, // eslint-disable-line react/forbid-prop-types
@@ -184,7 +180,6 @@ BulkActions.defaultProps = {
 };
 
 const EnhancedButton = compose(
-  withStyles(styles),
   translate
 )(BulkActions);
 

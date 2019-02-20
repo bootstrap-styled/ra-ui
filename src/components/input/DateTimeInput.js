@@ -96,7 +96,6 @@ export const DateTimeInput = ({
 );
 
 DateTimeInput.propTypes = {
-  classes: PropTypes.object,
   className: PropTypes.string,
   input: PropTypes.object,
   isRequired: PropTypes.bool,

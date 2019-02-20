@@ -3,33 +3,30 @@ import PropTypes from 'prop-types';
 import { shallowEqual } from 'recompose';
 import Dropzone from 'react-dropzone';
 import compose from 'recompose/compose';
-import { withStyles } from '@material-ui/core/styles';
 import FormHelperText from '@material-ui/core/FormHelperText';
-import classnames from 'classnames';
 import { addField, translate } from 'ra-core';
 
 import Labeled from './Labeled';
 import FileInputPreview from './FileInputPreview';
 import sanitizeRestProps from './sanitizeRestProps';
 
-const styles = {
-  dropZone: {
-    background: '#efefef',
-    cursor: 'pointer',
-    padding: '1rem',
-    textAlign: 'center',
-    color: '#999',
-  },
-  preview: {},
-  removeButton: {},
-  root: { width: '100%' },
-};
+// const styles = {
+//   dropZone: {
+//     background: '#efefef',
+//     cursor: 'pointer',
+//     padding: '1rem',
+//     textAlign: 'center',
+//     color: '#999',
+//   },
+//   preview: {},
+//   removeButton: {},
+//   root: { width: '100%' },
+// };
 
 export class FileInput extends Component {
   static propTypes = {
     accept: PropTypes.string,
     children: PropTypes.element,
-    classes: PropTypes.object,
     className: PropTypes.string,
     disableClick: PropTypes.bool,
     id: PropTypes.string,
@@ -153,7 +150,6 @@ export class FileInput extends Component {
     const {
       accept,
       children,
-      classes = {},
       className,
       disableClick,
       id,
@@ -174,7 +170,7 @@ export class FileInput extends Component {
       <Labeled
         id={id}
         label={label}
-        className={classnames(classes.root, className)}
+        className={className}
         source={source}
         resource={resource}
         isRequired={isRequired}
@@ -189,7 +185,6 @@ export class FileInput extends Component {
             maxSize={maxSize}
             minSize={minSize}
             multiple={multiple}
-            className={classes.dropZone}
             {...options}
             inputProps={{ id, ...options.inputProps }}
           >
@@ -202,11 +197,9 @@ export class FileInput extends Component {
                   key={index} // eslint-disable-line
                   file={file}
                   onRemove={this.onRemove(file)}
-                  className={classes.removeButton}
                 >
                   {React.cloneElement(children, {
                     record: file,
-                    className: classes.preview,
                   })}
                 </FileInputPreview>
               ))}
@@ -228,5 +221,4 @@ export class FileInput extends Component {
 export default compose(
   addField,
   translate,
-  withStyles(styles)
 )(FileInput);

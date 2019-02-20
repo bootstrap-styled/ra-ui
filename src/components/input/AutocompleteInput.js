@@ -8,7 +8,6 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import { withStyles } from '@material-ui/core/styles';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
 import compose from 'recompose/compose';
@@ -266,7 +265,6 @@ export class AutocompleteInput extends React.Component {
     const {
       autoFocus,
       className,
-      classes = {},
       isRequired,
       label,
       meta,
@@ -307,16 +305,13 @@ export class AutocompleteInput extends React.Component {
         onChange={onChange}
         autoFocus={autoFocus}
         margin="normal"
-        className={classnames(classes.root, className)}
+        className={className}
         inputRef={storeInputRef}
         error={!!(touched && error)}
         helperText={(touched && error) || helperText}
         name={input.name}
         {...options}
         InputProps={{
-          classes: {
-            input: classes.input,
-          },
           ...InputProps,
           ...other,
         }}
@@ -329,7 +324,7 @@ export class AutocompleteInput extends React.Component {
       containerProps: { className, ...containerProps },
       children,
     } = autosuggestOptions;
-    const { classes = {}, options } = this.props;
+    const { options } = this.props;
 
     return (
       <Popper
@@ -341,7 +336,6 @@ export class AutocompleteInput extends React.Component {
       >
         <Paper
           square
-          className={classes.suggestionsPaper}
           {...containerProps}
         >
           {children}
@@ -361,7 +355,7 @@ export class AutocompleteInput extends React.Component {
     const label = this.getSuggestionText(suggestion);
     const matches = match(label, query);
     const parts = parse(label, matches);
-    const { classes = {}, suggestionComponent } = this.props;
+    const { suggestionComponent } = this.props;
 
     return (
       <MenuItem
@@ -378,14 +372,12 @@ export class AutocompleteInput extends React.Component {
             return part.highlight ? (
               <span
                 key={index}
-                className={classes.highlightedSuggestionText}
               >
                                 {part.text}
                             </span>
             ) : (
               <strong
                 key={index}
-                className={classes.suggestionText}
               >
                 {part.text}
               </strong>
@@ -456,7 +448,6 @@ export class AutocompleteInput extends React.Component {
   render() {
     const {
       alwaysRenderSuggestions,
-      classes = {},
       isRequired,
       label,
       meta,
@@ -470,12 +461,12 @@ export class AutocompleteInput extends React.Component {
 
     return (
       <Autosuggest
-        theme={{
-          container: classes.container,
-          suggestionsContainerOpen: classes.suggestionsContainerOpen,
-          suggestionsList: classes.suggestionsList,
-          suggestion: classes.suggestion,
-        }}
+        // theme={{
+        //   container: classes.container,
+        //   suggestionsContainerOpen: classes.suggestionsContainerOpen,
+        //   suggestionsList: classes.suggestionsList,
+        //   suggestion: classes.suggestion,
+        // }}
         renderInputComponent={this.renderInput}
         suggestions={suggestions}
         alwaysRenderSuggestions={alwaysRenderSuggestions}
@@ -492,7 +483,6 @@ export class AutocompleteInput extends React.Component {
         shouldRenderSuggestions={this.shouldRenderSuggestions}
         inputProps={{
           className,
-          classes,
           isRequired,
           label,
           meta,
@@ -514,7 +504,6 @@ AutocompleteInput.propTypes = {
   allowEmpty: PropTypes.bool,
   alwaysRenderSuggestions: PropTypes.bool, // used only for unit tests
   choices: PropTypes.arrayOf(PropTypes.object),
-  classes: PropTypes.object,
   className: PropTypes.string,
   InputProps: PropTypes.object,
   input: PropTypes.object,
@@ -553,5 +542,4 @@ AutocompleteInput.defaultProps = {
 export default compose(
   addField,
   translate,
-  withStyles(styles)
 )(AutocompleteInput);

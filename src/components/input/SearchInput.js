@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import compose from 'recompose/compose';
-import SearchIcon from '@material-ui/icons/Search';
+// import SearchIcon from '@material-ui/icons/Search';
 import { translate } from 'ra-core';
 
 import TextInput from './TextInput';
@@ -23,22 +23,16 @@ const SearchTextInput = styled(TextInput)`
   }
 `;
 
-const SearchInput = ({ classes, translate, ...props }) => (
+const SearchInput = ({ translate, ...props }) => (
   <SearchTextInput
     label={false}
     className="flex-row"
     placeholder={translate('ra.action.search')}
-    InputProps={{
-      endAdornment: (
-        <SearchIcon color="disabled" />
-      ),
-    }}
     {...props}
   />
 );
 
 SearchInput.propTypes = {
-  classes: PropTypes.object,
   translate: PropTypes.func,
 };
 

@@ -6,32 +6,29 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
-import { fade } from '@material-ui/core/styles/colorManipulator';
 import ActionCheck from '@material-ui/icons/CheckCircle';
 import AlertError from '@material-ui/icons/ErrorOutline';
-import classnames from 'classnames';
 import compose from 'recompose/compose';
 import { translate } from 'ra-core';
 
-const styles = theme => ({
-  confirmPrimary: {
-    color: theme.palette.primary.main,
-  },
-  confirmWarning: {
-    color: theme.palette.error.main,
-    '&:hover': {
-      backgroundColor: fade(theme.palette.error.main, 0.12),
-      // Reset on mouse devices
-      '@media (hover: none)': {
-        backgroundColor: 'transparent',
-      },
-    },
-  },
-  iconPaddingStyle: {
-    paddingRight: '0.5em',
-  },
-});
+// const styles = theme => ({
+//   confirmPrimary: {
+//     color: theme.palette.primary.main,
+//   },
+//   confirmWarning: {
+//     color: theme.palette.error.main,
+//     '&:hover': {
+//       backgroundColor: fade(theme.palette.error.main, 0.12),
+//       // Reset on mouse devices
+//       '@media (hover: none)': {
+//         backgroundColor: 'transparent',
+//       },
+//     },
+//   },
+//   iconPaddingStyle: {
+//     paddingRight: '0.5em',
+//   },
+// });
 
 /**
  * Confirmation dialog
@@ -57,7 +54,6 @@ const Confirm = ({
   confirmColor,
   onConfirm,
   onClose,
-  classes,
   translate,
 }) => (
   <Dialog
@@ -71,18 +67,15 @@ const Confirm = ({
     </DialogContent>
     <DialogActions>
       <Button onClick={onClose}>
-        <AlertError className={classes.iconPaddingStyle} />
+        <AlertError />
         {translate(cancel, { _: cancel })}
       </Button>
       <Button
         onClick={onConfirm}
-        className={classnames('ra-confirm', {
-          [classes.confirmWarning]: confirmColor === 'warning',
-          [classes.confirmPrimary]: confirmColor === 'primary',
-        })}
+        color={confirmColor}
         autoFocus
       >
-        <ActionCheck className={classes.iconPaddingStyle} />
+        <ActionCheck />
         {translate(confirm, { _: confirm })}
       </Button>
     </DialogActions>
@@ -91,7 +84,6 @@ const Confirm = ({
 
 Confirm.propTypes = {
   cancel: PropTypes.string.isRequired,
-  classes: PropTypes.object.isRequired,
   confirm: PropTypes.string.isRequired,
   confirmColor: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
@@ -104,13 +96,11 @@ Confirm.propTypes = {
 
 Confirm.defaultProps = {
   cancel: 'ra.action.cancel',
-  classes: {},
   confirm: 'ra.action.confirm',
   confirmColor: 'primary',
   isOpen: false,
 };
 
 export default compose(
-  withStyles(styles),
   translate
 )(Confirm);

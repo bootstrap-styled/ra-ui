@@ -5,7 +5,6 @@ import { SelectArrayInput } from '../SelectArrayInput';
 
 describe('<SelectArrayInput />', () => {
   const defaultProps = {
-    classes: {},
     source: 'foo',
     meta: {},
     input: {},

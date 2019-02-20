@@ -4,7 +4,6 @@ import get from 'lodash/get';
 import FormGroup from '@bootstrap-styled/v4/lib/Form/FormGroup';
 import FormFeedback from '@bootstrap-styled/v4/lib/Form/FormFeedback';
 import Badge from '@bootstrap-styled/v4/lib/Badge';
-import { withStyles } from '@material-ui/core/styles';
 import compose from 'recompose/compose';
 import { addField, translate, FieldTitle } from 'ra-core';
 import Option from '@bootstrap-styled/v4/lib/Option';
@@ -51,20 +50,20 @@ const sanitizeRestProps = ({
   ...rest
 }) => rest;
 
-const styles = theme => ({
-  root: {},
-  chips: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  chip: {
-    margin: theme.spacing.unit / 4,
-  },
-  select: {
-    height: 'auto',
-    overflow: 'auto',
-  },
-});
+// const styles = theme => ({
+//   root: {},
+//   chips: {
+//     display: 'flex',
+//     flexWrap: 'wrap',
+//   },
+//   chip: {
+//     margin: theme.spacing.unit / 4,
+//   },
+//   select: {
+//     height: 'auto',
+//     overflow: 'auto',
+//   },
+// });
 
 /**
  * An Input component for a select box allowing multiple selections, using an array of objects for the options
@@ -171,7 +170,6 @@ export class SelectArrayInput extends Component {
   render() {
     const {
       choices,
-      classes,
       className,
       isRequired,
       label,
@@ -205,7 +203,7 @@ export class SelectArrayInput extends Component {
           value={this.state.value}
           name={source}
           renderValue={selected => (
-            <React.Fragment className={classes.chips}>
+            <React.Fragment>
               {choices
                 .filter(choice => selected.includes(get(choice, optionValue)))
                 .map(choice => (
@@ -232,7 +230,6 @@ export class SelectArrayInput extends Component {
 
 SelectArrayInput.propTypes = {
   choices: PropTypes.arrayOf(PropTypes.object),
-  classes: PropTypes.object,
   className: PropTypes.string,
   children: PropTypes.node,
   input: PropTypes.object,
@@ -253,7 +250,6 @@ SelectArrayInput.propTypes = {
 };
 
 SelectArrayInput.defaultProps = {
-  classes: {},
   choices: [],
   options: {},
   optionText: 'name',
@@ -264,7 +260,6 @@ SelectArrayInput.defaultProps = {
 const EnhancedSelectArrayInput = compose(
   addField,
   translate,
-  withStyles(styles)
 )(SelectArrayInput);
 
 export default EnhancedSelectArrayInput;

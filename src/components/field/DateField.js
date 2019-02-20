@@ -6,7 +6,7 @@ import pure from 'recompose/pure';
 
 import sanitizeRestProps from './sanitizeRestProps';
 
-const Typography = styled.div`
+const TypographyDateField = styled.div`
     color: rgba(0, 0, 0, 0.87);
     font-size: 0.875rem;
     font-weight: 400;
@@ -70,9 +70,9 @@ export const DateField = ({
       : date.toLocaleDateString();
 
   return (
-    <Typography className={className} {...sanitizeRestProps(rest)}>
+    <TypographyDateField className={className} {...sanitizeRestProps(rest)}>
       {dateString}
-    </Typography>
+    </TypographyDateField>
   );
 };
 

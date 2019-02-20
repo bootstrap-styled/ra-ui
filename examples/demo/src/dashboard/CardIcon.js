@@ -1,6 +1,5 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import { withStyles } from '@material-ui/core/styles';
+import { Card } from '@bootstrap-styled/v4';
 
 const styles = {
     card: {
@@ -18,10 +17,10 @@ const styles = {
     },
 };
 
-const CardIcon = ({ Icon, classes, bgColor }) => (
-    <Card className={classes.card} style={{ backgroundColor: bgColor }}>
-        <Icon className={classes.icon} />
+const CardIcon = ({ Icon, bgColor }) => (
+    <Card style={{ backgroundColor: bgColor, float: 'left', margin: '-20px 20px 0 15px', zIndex: '100', borderRadius: 3 }}>
+        <Icon style={styles.icon}/>
     </Card>
 );
 
-export default withStyles(styles)(CardIcon);
+export default CardIcon;

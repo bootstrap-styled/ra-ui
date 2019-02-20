@@ -1,6 +1,7 @@
 import AppBar from './AppBar';
 import AppBarMobile from './AppBarMobile';
 import CardActions from './CardActions';
+import CardContent from './CardContent';
 import CardContentInner from './CardContentInner';
 import Confirm from './Confirm';
 import DashboardMenuItem from './DashboardMenuItem';
@@ -48,4 +49,5 @@ export {
   TitleForRecord,
   UserMenu,
   ViewTitle,
+  CardContent,
 };

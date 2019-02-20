@@ -5,8 +5,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
-import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import CommentIcon from '@material-ui/icons/Comment';
 import Divider from '@material-ui/core/Divider';
 import { Link } from 'react-router-dom';
@@ -16,36 +14,36 @@ import CardIcon from './CardIcon';
 
 import StarRatingField from '../reviews/StarRatingField';
 
-const styles = theme => ({
-    main: {
-        flex: '1',
-        marginRight: '1em',
-        marginTop: 20,
-    },
-    titleLink: { textDecoration: 'none', color: 'inherit' },
-    card: {
-        padding: '16px 0',
-        overflow: 'inherit',
-        textAlign: 'right',
-    },
-    title: {
-        padding: '0 16px',
-    },
-    value: {
-        padding: '0 16px',
-        minHeight: 48,
-    },
-    avatar: {
-        background: theme.palette.background.avatar,
-    },
-    listItemText: {
-        overflowY: 'hidden',
-        height: '4em',
-        display: '-webkit-box',
-        WebkitLineClamp: 2,
-        WebkitBoxOrient: 'vertical',
-    },
-});
+// const styles = theme => ({
+//     main: {
+//         flex: '1',
+//         marginRight: '1em',
+//         marginTop: 20,
+//     },
+//     titleLink: { textDecoration: 'none', color: 'inherit' },
+//     card: {
+//         padding: '16px 0',
+//         overflow: 'inherit',
+//         textAlign: 'right',
+//     },
+//     title: {
+//         padding: '0 16px',
+//     },
+//     value: {
+//         padding: '0 16px',
+//         minHeight: 48,
+//     },
+//     avatar: {
+//         background: theme.palette.background.avatar,
+//     },
+//     listItemText: {
+//         overflowY: 'hidden',
+//         height: '4em',
+//         display: '-webkit-box',
+//         WebkitLineClamp: 2,
+//         WebkitBoxOrient: 'vertical',
+//     },
+// });
 
 const location = {
     pathname: 'reviews',
@@ -57,23 +55,18 @@ const PendingReviews = ({
     customers = {},
     nb,
     translate,
-    classes,
 }) => (
-    <div className={classes.main}>
+    <div>
         <CardIcon Icon={CommentIcon} bgColor="#f44336" />
-        <Card className={classes.card}>
-            <Typography className={classes.title} color="textSecondary">
+        <Card>
+            <p>
                 {translate('pos.dashboard.pending_reviews')}
-            </Typography>
-            <Typography
-                variant="headline"
-                component="h2"
-                className={classes.value}
-            >
-                <Link to={location} className={classes.titleLink}>
+            </p>
+            <h2>
+                <Link to={location}>
                     {nb}
                 </Link>
-            </Typography>
+            </h2>
             <Divider />
             <List>
                 {reviews.map(record => (
@@ -88,7 +81,6 @@ const PendingReviews = ({
                                 src={`${
                                     customers[record.customer_id].avatar
                                 }?size=32x32`}
-                                className={classes.avatar}
                             />
                         ) : (
                             <Avatar />
@@ -97,7 +89,6 @@ const PendingReviews = ({
                         <ListItemText
                             primary={<StarRatingField record={record} />}
                             secondary={record.comment}
-                            className={classes.listItemText}
                             style={{ paddingRight: 0 }}
                         />
                     </ListItem>
@@ -108,7 +99,6 @@ const PendingReviews = ({
 );
 
 const enhance = compose(
-    withStyles(styles),
     translate
 );
 
