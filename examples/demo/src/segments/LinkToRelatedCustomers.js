@@ -12,7 +12,7 @@ const LinkToRelatedCustomers = ({ segment, translate }) => (
         size="sm"
         color="primary"
         className=" d-inline-flex align-items-center"
-        component={Link}
+        tag={Link}
         to={{
             pathname: '/customers',
             search: stringify({
