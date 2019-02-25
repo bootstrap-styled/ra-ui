@@ -1,3 +1,13 @@
+## [1.0.14](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.13...v1.0.14) (2019-02-25)
+
+
+### Bug Fixes
+
+* **demo:** corrected component props to tag. ([fdce532](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/fdce532))
+* **dependencies:** upgrade all dependencies ([585ea58](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/585ea58))
+* **main:** main was pointing to dist esm features that were removed and causing issue in IDE ([7e12403](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/7e12403))
+* **transition BS:** removed all withStyles and classes + improved demo. ([c291333](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/c291333))
+
 ## [1.0.13](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.12...v1.0.13) (2019-02-14)
 
 
