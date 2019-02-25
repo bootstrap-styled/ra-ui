@@ -3,8 +3,6 @@
   "version": "1.0.12",
   "description": "Library of components for backoffice type react-admin.",
   "main": "lib/index.js",
-  "jsnext:main": "dist/@bootstrap-styled/ra-ui.esm.js",
-  "module": "dist/@bootstrap-styled/ra-ui.esm.js",
   "homepage": "https://bootstrap-styled.yeutech.com/ra-ui",
   "engines": {
     "node": ">=8"
