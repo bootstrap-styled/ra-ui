@@ -7,7 +7,6 @@ import {
     DateInput,
     EditButton,
     Filter,
-    List,
     NullableBooleanInput,
     NumberField,
     ReferenceInput,
@@ -15,8 +14,10 @@ import {
     SearchInput,
     TextField,
     TextInput,
-} from 'react-admin';
-import withStyles from '@material-ui/core/styles/withStyles';
+} from '@bootstrap-styled/ra-ui';
+
+import { List } from 'react-admin';
+
 import Icon from '@material-ui/icons/AttachMoney';
 import Divider from '@material-ui/core/Divider';
 import Tabs from '@material-ui/core/Tabs';
@@ -28,11 +29,7 @@ import MobileGrid from './MobileGrid';
 
 export const CommandIcon = Icon;
 
-const filterStyles = {
-    status: { width: 150 },
-};
-
-const CommandFilter = withStyles(filterStyles)(({ classes, ...props }) => (
+const CommandFilter = ({ ...props }) => (
     <Filter {...props}>
         <SearchInput source="q" alwaysOn />
         <ReferenceInput source="customer_id" reference="customers">
@@ -47,11 +44,11 @@ const CommandFilter = withStyles(filterStyles)(({ classes, ...props }) => (
         <TextInput source="total_gte" />
         <NullableBooleanInput source="returned" />
     </Filter>
-));
+);
 
-const datagridStyles = {
-    total: { fontWeight: 'bold' },
-};
+// const datagridStyles = {
+//     total: { fontWeight: 'bold' },
+// };
 
 class TabbedDatagrid extends React.Component {
     tabs = [
@@ -75,7 +72,7 @@ class TabbedDatagrid extends React.Component {
     };
 
     render() {
-        const { classes, filterValues, ...props } = this.props;
+        const { filterValues, ...props } = this.props;
         return (
             <Fragment>
                 <Tabs
@@ -118,7 +115,6 @@ class TabbedDatagrid extends React.Component {
                                             style: 'currency',
                                             currency: 'USD',
                                         }}
-                                        className={classes.total}
                                     />
                                     <EditButton />
                                 </Datagrid>
@@ -138,7 +134,6 @@ class TabbedDatagrid extends React.Component {
                                             style: 'currency',
                                             currency: 'USD',
                                         }}
-                                        className={classes.total}
                                     />
                                     <BooleanField source="returned" />
                                     <EditButton />
@@ -159,7 +154,6 @@ class TabbedDatagrid extends React.Component {
                                             style: 'currency',
                                             currency: 'USD',
                                         }}
-                                        className={classes.total}
                                     />
                                     <BooleanField source="returned" />
                                     <EditButton />
@@ -173,9 +167,9 @@ class TabbedDatagrid extends React.Component {
     }
 }
 
-const StyledTabbedDatagrid = withStyles(datagridStyles)(TabbedDatagrid);
+const StyledTabbedDatagrid = TabbedDatagrid;
 
-const CommandList = ({ classes, ...props }) => (
+const CommandList = ({ ...props }) => (
     <List
         {...props}
         filterDefaultValues={{ status: 'ordered' }}

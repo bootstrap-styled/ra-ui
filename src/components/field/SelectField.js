@@ -4,7 +4,6 @@ import get from 'lodash/get';
 import pure from 'recompose/pure';
 import compose from 'recompose/compose';
 import { translate } from 'ra-core';
-import Typography from '@material-ui/core/Typography';
 
 import sanitizeRestProps from './sanitizeRestProps';
 
@@ -87,16 +86,14 @@ export const SelectField = ({
       ? optionText(choice)
       : choice[optionText];
   return (
-    <Typography
-      component="span"
-      body1="body1"
+    <span
       className={className}
       {...sanitizeRestProps(rest)}
     >
       {translateChoice
         ? translate(choiceName, { _: choiceName })
         : choiceName}
-    </Typography>
+    </span>
   );
 };
 

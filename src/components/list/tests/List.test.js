@@ -47,7 +47,7 @@ describe('<List />', () => {
       </ListView>
     );
     expect(
-      wrapper.find('translate(WithStyles(BulkActionsToolbar))')
+      wrapper.find('translate(BulkActionsToolbar)')
     ).toHaveLength(1);
     expect(wrapper.find('Datagrid')).toHaveLength(1);
     expect(wrapper.find('Pagination')).toHaveLength(1);

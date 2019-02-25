@@ -7,7 +7,6 @@ describe('<NullableBooleanInput />', () => {
   const defaultProps = {
     input: {},
     meta: {},
-    classes: {},
     translate: x => x,
   };
 

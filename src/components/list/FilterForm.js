@@ -82,7 +82,7 @@ export class FilterForm extends Component {
 
   render() {
     const {
-      classes = {}, className, resource, ...rest
+      className, resource, ...rest
     } = this.props;
 
     return (
@@ -96,11 +96,10 @@ export class FilterForm extends Component {
             key={filterElement.props.source}
             filterElement={filterElement}
             handleHide={this.handleHide}
-            classes={classes}
             resource={resource}
           />
         ))}
-        <div className={classes.clearFix} />
+        <div />
       </Form>
     );
   }
@@ -112,7 +111,6 @@ FilterForm.propTypes = {
   displayedFilters: PropTypes.object.isRequired,
   hideFilter: PropTypes.func.isRequired,
   initialValues: PropTypes.object,
-  classes: PropTypes.object,
   className: PropTypes.string,
 };
 

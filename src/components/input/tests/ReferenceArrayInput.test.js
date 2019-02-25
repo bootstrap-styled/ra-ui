@@ -131,7 +131,7 @@ describe('<ReferenceArrayInput />', () => {
       </ReferenceArrayInputView>
     );
     const LinearProgressElement = wrapper.find(
-      'WithStyles(LinearProgress)'
+      'LinearProgress'
     );
     assert.equal(LinearProgressElement.length, 0);
     const ErrorElement = wrapper.find('ReferenceError');

@@ -12,11 +12,10 @@ describe('<PaginationActions />', () => {
         count={15}
         translate={x => x}
         onChangePage={() => null}
-        classes={{}}
       />
     );
-    expect(wrapper.find('WithStyles(Button)')).toHaveLength(0);
-    expect(wrapper.find('WithStyles(Typography)')).toHaveLength(0);
+    expect(wrapper.find('Button')).toHaveLength(0);
+    expect(wrapper.find('Typograph)')).toHaveLength(0);
   });
   it('should render action buttons when pagination is necessary', () => {
     const wrapper = shallow(
@@ -26,7 +25,6 @@ describe('<PaginationActions />', () => {
         count={15}
         translate={x => x}
         onChangePage={() => null}
-        classes={{}}
       />
     );
     // 1 2 3 next
@@ -41,7 +39,6 @@ describe('<PaginationActions />', () => {
         count={15}
         translate={x => x}
         onChangePage={() => null}
-        classes={{}}
       />
     );
     // prev 1 ... 7 8 9 ... 15 next

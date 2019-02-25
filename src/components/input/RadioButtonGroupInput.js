@@ -6,17 +6,16 @@ import FormFeedback from '@bootstrap-styled/v4/lib/Form/FormFeedback';
 import Input from '@bootstrap-styled/v4/lib/Input';
 import Label from '@bootstrap-styled/v4/lib/Label';
 
-import { withStyles } from '@material-ui/core/styles';
 import compose from 'recompose/compose';
 import { addField, translate, FieldTitle } from 'ra-core';
 
 import sanitizeRestProps from './sanitizeRestProps';
 
-const styles = {
-  label: {
-    position: 'relative',
-  },
-};
+// const styles = {
+//   label: {
+//     position: 'relative',
+//   },
+// };
 
 /**
  * An Input component for a radio button group, using an array of objects for the options
@@ -186,5 +185,4 @@ RadioButtonGroupInput.defaultProps = {
 export default compose(
   addField,
   translate,
-  withStyles(styles)
 )(RadioButtonGroupInput);

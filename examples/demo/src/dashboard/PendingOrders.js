@@ -7,25 +7,24 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
-import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import { translate } from 'react-admin';
 
-const style = theme => ({
-    root: {
-        flex: 1,
-    },
-    avatar: {
-        background: theme.palette.background.avatar,
-    },
-    cost: {
-        marginRight: '1em',
-        color: theme.palette.text.primary,
-    },
-});
+// const style = theme => ({
+//     root: {
+//         flex: 1,
+//     },
+//     avatar: {
+//         background: theme.palette.background.avatar,
+//     },
+//     cost: {
+//         marginRight: '1em',
+//         color: theme.palette.text.primary,
+//     },
+// });
 
-const PendingOrders = ({ orders = [], customers = {}, translate, classes }) => (
-    <Card className={classes.root}>
+const PendingOrders = ({ orders = [], customers = {}, translate }) => (
+    <Card>
         <CardHeader title={translate('pos.dashboard.pending_orders')} />
         <List dense={true}>
             {orders.map(record => (
@@ -37,7 +36,6 @@ const PendingOrders = ({ orders = [], customers = {}, translate, classes }) => (
                 >
                     {customers[record.customer_id] ? (
                         <Avatar
-                            className={classes.avatar}
                             src={`${
                                 customers[record.customer_id].avatar
                             }?size=32x32`}
@@ -58,7 +56,7 @@ const PendingOrders = ({ orders = [], customers = {}, translate, classes }) => (
                         })}
                     />
                     <ListItemSecondaryAction>
-                        <span className={classes.cost}>{record.total}$</span>
+                        <span>{record.total}$</span>
                     </ListItemSecondaryAction>
                 </ListItem>
             ))}
@@ -67,7 +65,6 @@ const PendingOrders = ({ orders = [], customers = {}, translate, classes }) => (
 );
 
 const enhance = compose(
-    withStyles(style),
     translate
 );
 

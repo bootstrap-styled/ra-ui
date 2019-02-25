@@ -13,7 +13,6 @@ import TextField from '@material-ui/core/TextField';
 import {
     MuiThemeProvider,
     createMuiTheme,
-    withStyles,
 } from '@material-ui/core/styles';
 import LockIcon from '@material-ui/icons/Lock';
 
@@ -21,45 +20,45 @@ import { Notification, translate, userLogin } from 'react-admin';
 
 import { lightTheme } from './themes';
 
-const styles = theme => ({
-    main: {
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        background: 'url(https://source.unsplash.com/random/1600x900)',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-    },
-    card: {
-        minWidth: 300,
-        marginTop: '6em',
-    },
-    avatar: {
-        margin: '1em',
-        display: 'flex',
-        justifyContent: 'center',
-    },
-    icon: {
-        backgroundColor: theme.palette.secondary.main,
-    },
-    hint: {
-        marginTop: '1em',
-        display: 'flex',
-        justifyContent: 'center',
-        color: theme.palette.grey[500],
-    },
-    form: {
-        padding: '0 1em 1em 1em',
-    },
-    input: {
-        marginTop: '1em',
-    },
-    actions: {
-        padding: '0 1em 1em 1em',
-    },
-});
+// const styles = theme => ({
+//     main: {
+//         display: 'flex',
+//         flexDirection: 'column',
+//         minHeight: '100vh',
+//         alignItems: 'center',
+//         justifyContent: 'flex-start',
+//         background: 'url(https://source.unsplash.com/random/1600x900)',
+//         backgroundRepeat: 'no-repeat',
+//         backgroundSize: 'cover',
+//     },
+//     card: {
+//         minWidth: 300,
+//         marginTop: '6em',
+//     },
+//     avatar: {
+//         margin: '1em',
+//         display: 'flex',
+//         justifyContent: 'center',
+//     },
+//     icon: {
+//         backgroundColor: theme.palette.secondary.main,
+//     },
+//     hint: {
+//         marginTop: '1em',
+//         display: 'flex',
+//         justifyContent: 'center',
+//         color: theme.palette.grey[500],
+//     },
+//     form: {
+//         padding: '0 1em 1em 1em',
+//     },
+//     input: {
+//         marginTop: '1em',
+//     },
+//     actions: {
+//         padding: '0 1em 1em 1em',
+//     },
+// });
 
 // see http://redux-form.com/6.4.3/examples/material-ui/
 const renderInput = ({
@@ -86,19 +85,19 @@ class Login extends Component {
         );
 
     render() {
-        const { classes, handleSubmit, isLoading, translate } = this.props;
+        const { handleSubmit, isLoading, translate } = this.props;
         return (
-            <div className={classes.main}>
-                <Card className={classes.card}>
-                    <div className={classes.avatar}>
-                        <Avatar className={classes.icon}>
+            <div>
+                <Card>
+                    <div>
+                        <Avatar>
                             <LockIcon />
                         </Avatar>
                     </div>
                     <form onSubmit={handleSubmit(this.login)}>
-                        <div className={classes.hint}>Hint: demo / demo</div>
-                        <div className={classes.form}>
-                            <div className={classes.input}>
+                        <div>Hint: demo / demo</div>
+                        <div>
+                            <div>
                                 <Field
                                     autoFocus
                                     name="username"
@@ -107,7 +106,7 @@ class Login extends Component {
                                     disabled={isLoading}
                                 />
                             </div>
-                            <div className={classes.input}>
+                            <div>
                                 <Field
                                     name="password"
                                     component={renderInput}
@@ -117,13 +116,12 @@ class Login extends Component {
                                 />
                             </div>
                         </div>
-                        <CardActions className={classes.actions}>
+                        <CardActions>
                             <Button
                                 variant="raised"
                                 type="submit"
                                 color="primary"
                                 disabled={isLoading}
-                                className={classes.button}
                                 fullWidth
                             >
                                 {isLoading && (
@@ -143,7 +141,6 @@ class Login extends Component {
 Login.propTypes = {
     ...propTypes,
     authProvider: PropTypes.func,
-    classes: PropTypes.object,
     previousRoute: PropTypes.string,
     translate: PropTypes.func.isRequired,
     userLogin: PropTypes.func.isRequired,
@@ -171,7 +168,6 @@ const enhance = compose(
         mapStateToProps,
         { userLogin }
     ),
-    withStyles(styles)
 );
 
 const EnhancedLogin = enhance(Login);

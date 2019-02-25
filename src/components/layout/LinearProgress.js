@@ -14,13 +14,12 @@ import ProgressBar from '@bootstrap-styled/v4/lib/Progress/ProgressBar';
  *
  * @param {object} classes CSS class names injected by withStyles
  */
-export const LinearProgress = ({ classes, className, ...rest }) => (
+export const LinearProgress = ({ className, ...rest }) => (
   <Progress className={classnames(className, 'my-2')} style={{ width: '60px' }} {...rest}>
     <ProgressBar valueNow={100} striped animated />
   </Progress>
 );
 LinearProgress.propTypes = {
-  classes: PropTypes.object,
   className: PropTypes.string,
 };
 // wat? TypeScript looses the displayName if we don't set it explicitly

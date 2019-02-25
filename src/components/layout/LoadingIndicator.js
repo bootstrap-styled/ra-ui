@@ -7,7 +7,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import RefreshIconButton from '../button/RefreshIconButton';
 
 export const LoadingIndicator = ({
-  classes, className, isLoading, ...rest
+  className, isLoading, ...rest
 }) => isLoading ? (
   <CircularProgress
     size={25}
@@ -19,7 +19,6 @@ export const LoadingIndicator = ({
 );
 
 LoadingIndicator.propTypes = {
-  classes: PropTypes.object,
   className: PropTypes.string,
   isLoading: PropTypes.bool,
   width: PropTypes.string,

@@ -16,7 +16,6 @@ function AvatarUnstyled(props) {
     alt,
     children: childrenProp,
     childrenClassName: childrenClassNameProp,
-    classes,
     className: classNameProp,
     component: Component,
     imgProps,
@@ -27,7 +26,6 @@ function AvatarUnstyled(props) {
   } = props;
 
   const className = classnames(
-    classes.root,
     {
       'color-default': childrenProp && !src && !srcSet,
     },
@@ -116,11 +114,6 @@ Avatar.propTypes = {
    * Used by Chip and ListItemIcon to style the Avatar icon.
    */
   childrenClassName: PropTypes.string,
-  /**
-   * Override or extend the styles applied to the component.
-   * See [CSS API](#css-api) below for more details.
-   */
-  classes: PropTypes.object.isRequired,
   /**
    * @ignore
    */

@@ -38,7 +38,6 @@ class ApproveButton extends Component {
 }
 
 ApproveButton.propTypes = {
-    classes: PropTypes.object,
     record: PropTypes.object,
     reviewApprove: PropTypes.func,
     reviewReject: PropTypes.func,

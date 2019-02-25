@@ -12,7 +12,6 @@ const sanitizeRestProps = ({ alwaysOn, ...props }) => props;
 const FilterFormInput = ({
   filterElement,
   handleHide,
-  classes,
   resource,
   translate,
 }) => (
@@ -41,14 +40,13 @@ const FilterFormInput = ({
       resource={resource}
       record={emptyRecord}
     />
-    <div className={classes.spacer}>&nbsp;</div>
+    <div>&nbsp;</div>
   </div>
 );
 
 FilterFormInput.propTypes = {
   filterElement: PropTypes.node,
   handleHide: PropTypes.func,
-  classes: PropTypes.object,
   resource: PropTypes.string,
   translate: PropTypes.func,
 };

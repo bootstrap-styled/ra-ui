@@ -8,7 +8,6 @@ import Chip from '@material-ui/core/Chip';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
-import { withStyles } from '@material-ui/core/styles';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
 import blue from '@material-ui/core/colors/blue';
@@ -212,7 +211,6 @@ export class AutocompleteArrayInput extends React.Component {
     const {
       autoFocus,
       className,
-      classes,
       isRequired,
       label,
       meta,
@@ -268,7 +266,7 @@ export class AutocompleteArrayInput extends React.Component {
     { value, isFocused, isDisabled, handleClick, handleDelete },
     key
   ) => {
-    const { classes = {}, choices } = this.props;
+    const { choices } = this.props;
 
     const suggestion = choices.find(
       choice => this.getSuggestionValue(choice) === value
@@ -277,10 +275,6 @@ export class AutocompleteArrayInput extends React.Component {
     return (
       <Chip
         key={key}
-        className={classNames(classes.chip, {
-          [classes.chipDisabled]: isDisabled,
-          [classes.chipFocused]: isFocused,
-        })}
         onClick={handleClick}
         onDelete={handleDelete}
         label={this.getSuggestionText(suggestion)}
@@ -360,7 +354,7 @@ export class AutocompleteArrayInput extends React.Component {
     const label = this.getSuggestionText(suggestion);
     const matches = match(label, query);
     const parts = parse(label, matches);
-    const { classes = {}, suggestionComponent } = this.props;
+    const { suggestionComponent } = this.props;
 
     return (
       <MenuItem
@@ -377,14 +371,12 @@ export class AutocompleteArrayInput extends React.Component {
             return part.highlight ? (
               <span
                 key={index}
-                className={classes.highlightedSuggestionText}
               >
                                 {part.text}
                             </span>
             ) : (
               <strong
                 key={index}
-                className={classes.suggestionText}
               >
                 {part.text}
               </strong>
@@ -424,7 +416,6 @@ export class AutocompleteArrayInput extends React.Component {
   render() {
     const {
       alwaysRenderSuggestions,
-      classes = {},
       isRequired,
       label,
       meta,
@@ -437,12 +428,12 @@ export class AutocompleteArrayInput extends React.Component {
 
     return (
       <Autosuggest
-        theme={{
-          container: classes.container,
-          suggestionsContainerOpen: classes.suggestionsContainerOpen,
-          suggestionsList: classes.suggestionsList,
-          suggestion: classes.suggestion,
-        }}
+        // theme={{
+        //   container: classes.container,
+        //   suggestionsContainerOpen: classes.suggestionsContainerOpen,
+        //   suggestionsList: classes.suggestionsList,
+        //   suggestion: classes.suggestion,
+        // }}
         renderInputComponent={this.renderInput}
         suggestions={suggestions}
         alwaysRenderSuggestions={alwaysRenderSuggestions}
@@ -460,7 +451,6 @@ export class AutocompleteArrayInput extends React.Component {
         inputProps={{
           blurBehavior: 'add',
           className,
-          classes,
           isRequired,
           label,
           meta,
@@ -480,7 +470,6 @@ AutocompleteArrayInput.propTypes = {
   allowEmpty: PropTypes.bool,
   alwaysRenderSuggestions: PropTypes.bool, // used only for unit tests
   choices: PropTypes.arrayOf(PropTypes.object),
-  classes: PropTypes.object,
   className: PropTypes.string,
   InputProps: PropTypes.object,
   input: PropTypes.object,
@@ -518,5 +507,4 @@ AutocompleteArrayInput.defaultProps = {
 export default compose(
   addField,
   translate,
-  withStyles(styles)
 )(AutocompleteArrayInput);

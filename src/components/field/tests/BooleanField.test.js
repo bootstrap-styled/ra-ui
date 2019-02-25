@@ -8,7 +8,7 @@ describe('<BooleanField />', () => {
     const wrapper = shallow(
       <BooleanField record={{ published: true }} source="published" />
     );
-    assert.ok(wrapper.first().is('BooleanField__Typography'));
+    assert.ok(wrapper.first().is('BooleanField__BooleanTypography'));
     assert.equal(wrapper.first().find('pure(DoneIcon)').length, 1);
   });
 
@@ -17,7 +17,7 @@ describe('<BooleanField />', () => {
       <BooleanField record={{ published: false }} source="published" />
     );
 
-    assert.ok(wrapper.first().is('BooleanField__Typography'));
+    assert.ok(wrapper.first().is('BooleanField__BooleanTypography'));
     assert.equal(wrapper.first().find('pure(ClearIcon)').length, 1);
   });
 
@@ -44,7 +44,7 @@ describe('<BooleanField />', () => {
     const wrapper = shallow(
       <BooleanField record={{ foo: { bar: true } }} source="foo.bar" />
     );
-    assert.ok(wrapper.first().is('BooleanField__Typography'));
+    assert.ok(wrapper.first().is('BooleanField__BooleanTypography'));
     assert.equal(wrapper.first().find('pure(DoneIcon)').length, 1);
   });
 });

@@ -42,7 +42,6 @@ export class NullableBooleanInput extends Component {
 
   render() {
     const {
-      classes,
       className,
       isRequired,
       label,
@@ -84,7 +83,6 @@ export class NullableBooleanInput extends Component {
 }
 
 NullableBooleanInput.propTypes = {
-  classes: PropTypes.object,
   className: PropTypes.string,
   input: PropTypes.object,
   isRequired: PropTypes.bool,

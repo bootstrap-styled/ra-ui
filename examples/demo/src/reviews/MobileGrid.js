@@ -3,7 +3,6 @@ import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
-import { withStyles } from '@material-ui/core/styles';
 import { DateField, EditButton, translate } from 'react-admin';
 
 import CustomerReferenceField from '../visitors/CustomerReferenceField';
@@ -19,36 +18,36 @@ const cardStyle = {
     margin: '0.5rem 0',
 };
 
-const listStyles = theme => ({
-    card: {
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        margin: '0.5rem 0',
-    },
-    cardTitleContent: {
-        display: 'flex',
-        flexDirection: 'rows',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    },
-    cardContent: theme.typography.body1,
-    cardContentRow: {
-        display: 'flex',
-        flexDirection: 'rows',
-        alignItems: 'center',
-        margin: '0.5rem 0',
-    },
-});
+// const listStyles = theme => ({
+//     card: {
+//         height: '100%',
+//         display: 'flex',
+//         flexDirection: 'column',
+//         margin: '0.5rem 0',
+//     },
+//     cardTitleContent: {
+//         display: 'flex',
+//         flexDirection: 'rows',
+//         alignItems: 'center',
+//         justifyContent: 'space-between',
+//     },
+//     cardContent: theme.typography.body1,
+//     cardContentRow: {
+//         display: 'flex',
+//         flexDirection: 'rows',
+//         alignItems: 'center',
+//         margin: '0.5rem 0',
+//     },
+// });
 
-const MobileGrid = withStyles(listStyles)(
-    translate(({ classes, ids, data, basePath, translate }) => (
+const MobileGrid = (
+    translate(({ ids, data, basePath, translate }) => (
         <div style={{ margin: '1em' }}>
             {ids.map(id => (
                 <Card key={id} style={rowStyle(data[id], cardStyle)}>
                     <CardHeader
                         title={
-                            <div className={classes.cardTitleContent}>
+                            <div>
                                 <span>
                                     {translate('resources.reviews.fields.date')}:&nbsp;
                                     <DateField
@@ -65,19 +64,19 @@ const MobileGrid = withStyles(listStyles)(
                             </div>
                         }
                     />
-                    <CardContent className={classes.cardContent}>
-                        <span className={classes.cardContentRow}>
+                    <CardContent>
+                        <span>
                             {translate('resources.reviews.fields.rating', 1)}:&nbsp;
                             <StarRatingField record={data[id]} />
                         </span>
-                        <span className={classes.cardContentRow}>
+                        <span>
                             {translate('resources.customers.name', 1)}:&nbsp;
                             <CustomerReferenceField
                                 record={data[id]}
                                 basePath={basePath}
                             />
                         </span>
-                        <span className={classes.cardContentRow}>
+                        <span>
                             {translate('resources.reviews.fields.product_id')}:&nbsp;
                             <ProductReferenceField
                                 record={data[id]}
@@ -85,13 +84,13 @@ const MobileGrid = withStyles(listStyles)(
                             />
                         </span>
                         {data[id].status === 'pending' && (
-                            <span className={classes.cardContentRow}>
+                            <span>
                                 {translate('resources.reviews.fields.comment')}:<br />
                                 {data[id].comment}
                             </span>
                         )}
                         {data[id].status === 'pending' && (
-                            <span className={classes.cardContentRow}>
+                            <span>
                                 <ApproveButton record={data[id]} />
                             </span>
                         )}

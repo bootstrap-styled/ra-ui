@@ -8,7 +8,6 @@ import ViewTitle from './ViewTitle';
  * @deprecated
  */
 export const Header = ({
-  classes,
   className,
   title,
   actions,
@@ -30,7 +29,6 @@ export const Header = ({
 };
 
 Header.propTypes = {
-  classes: PropTypes.object,
   className: PropTypes.string,
   title: PropTypes.any,
   actions: PropTypes.element,

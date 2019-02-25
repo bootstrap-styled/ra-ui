@@ -1,49 +1,47 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import compose from 'recompose/compose';
 import Button from '@bootstrap-styled/v4/lib/Button';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import { withStyles } from '@material-ui/core/styles';
 import ErrorIcon from '@material-ui/icons/Report';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import { translate } from 'ra-core';
 import Title from './Title';
 
-const styles = theme => ({
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    [theme.breakpoints.down('sm')]: {
-      padding: '1em',
-    },
-    fontFamily: 'Roboto, sans-serif',
-    opacity: 0.5,
-  },
-  title: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  icon: {
-    width: '2em',
-    height: '2em',
-    marginRight: '0.5em',
-  },
-  panel: {
-    marginTop: '1em',
-  },
-  panelDetails: {
-    whiteSpace: 'pre-wrap',
-  },
-  toolbar: {
-    marginTop: '2em',
-  },
-});
+// const styles = theme => ({
+//   container: {
+//     display: 'flex',
+//     flexDirection: 'column',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     [theme.breakpoints.down('sm')]: {
+//       padding: '1em',
+//     },
+//     fontFamily: 'Roboto, sans-serif',
+//     opacity: 0.5,
+//   },
+//   title: {
+//     display: 'flex',
+//     alignItems: 'center',
+//   },
+//   icon: {
+//     width: '2em',
+//     height: '2em',
+//     marginRight: '0.5em',
+//   },
+//   panel: {
+//     marginTop: '1em',
+//   },
+//   panelDetails: {
+//     whiteSpace: 'pre-wrap',
+//   },
+//   toolbar: {
+//     marginTop: '2em',
+//   },
+// });
 
 function goBack() {
   history.go(-1); // eslint-disable-line no-restricted-globals
@@ -52,7 +50,6 @@ function goBack() {
 const Error = ({
   error,
   errorInfo,
-  classes,
   className,
   title,
   translate,
@@ -60,18 +57,18 @@ const Error = ({
 }) => (
   <Fragment>
     <Title defaultTitle={title} />
-    <div className={classnames(classes.container, className)} {...rest}>
-      <h1 className={classes.title} role="alert">
-        <ErrorIcon className={classes.icon} />
+    <div className={className} {...rest}>
+      <h1 role="alert">
+        <ErrorIcon />
         {translate('ra.page.error')}
       </h1>
       <div>{translate('ra.message.error')}</div>
       {process.env.NODE_ENV !== 'production' && (
-        <ExpansionPanel className={classes.panel}>
+        <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             {translate('ra.message.details')}
           </ExpansionPanelSummary>
-          <ExpansionPanelDetails className={classes.panelDetails}>
+          <ExpansionPanelDetails>
             <div>
               <h2>{translate(error.toString())}</h2>
               {errorInfo.componentStack}
@@ -79,7 +76,7 @@ const Error = ({
           </ExpansionPanelDetails>
         </ExpansionPanel>
       )}
-      <div className={classes.toolbar}>
+      <div>
         <Button onClick={goBack}>
           {translate('ra.action.back')}
         </Button>
@@ -89,7 +86,6 @@ const Error = ({
 );
 
 Error.propTypes = {
-  classes: PropTypes.object,
   className: PropTypes.string,
   error: PropTypes.object.isRequired,
   errorInfo: PropTypes.object,
@@ -98,7 +94,6 @@ Error.propTypes = {
 };
 
 const enhance = compose(
-  withStyles(styles),
   translate
 );
 

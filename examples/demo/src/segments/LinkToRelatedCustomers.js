@@ -1,26 +1,18 @@
 import React from 'react';
 import compose from 'recompose/compose';
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
+import Button from '@bootstrap-styled/v4/lib/Button';
 import { Link } from 'react-router-dom';
 import { translate } from 'react-admin';
 import { stringify } from 'query-string';
 
 import { VisitorIcon } from '../visitors';
 
-const styles = {
-    icon: { paddingRight: '0.5em' },
-    link: {
-        display: 'inline-flex',
-        alignItems: 'center',
-    },
-};
-
-const LinkToRelatedCustomers = ({ classes, segment, translate }) => (
+const LinkToRelatedCustomers = ({ segment, translate }) => (
     <Button
-        size="small"
+        size="sm"
         color="primary"
-        component={Link}
+        className=" d-inline-flex align-items-center"
+        tag={Link}
         to={{
             pathname: '/customers',
             search: stringify({
@@ -29,15 +21,13 @@ const LinkToRelatedCustomers = ({ classes, segment, translate }) => (
                 filter: JSON.stringify({ groups: segment }),
             }),
         }}
-        className={classes.link}
     >
-        <VisitorIcon className={classes.icon} />
+        <VisitorIcon className="pr-1" />
         {translate('resources.segments.fields.customers')}
     </Button>
 );
 
 const enhance = compose(
-    withStyles(styles),
     translate
 );
 export default enhance(LinkToRelatedCustomers);

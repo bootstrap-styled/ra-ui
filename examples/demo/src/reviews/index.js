@@ -19,7 +19,6 @@ import {
     SimpleForm,
     TextField,
 } from 'react-admin';
-import withStyles from '@material-ui/core/styles/withStyles';
 import Icon from '@material-ui/icons/Comment';
 
 import ProductReferenceField from '../products/ProductReferenceField';
@@ -34,12 +33,8 @@ import MobileGrid from './MobileGrid';
 
 export const ReviewIcon = Icon;
 
-const filterStyles = {
-    status: { width: 150 },
-};
-
-export const ReviewFilter = withStyles(filterStyles)(
-    ({ classes, ...props }) => (
+export const ReviewFilter = (
+    ({ ...props }) => (
         <Filter {...props}>
             <SearchInput source="q" alwaysOn />
             <SelectInput
@@ -49,7 +44,6 @@ export const ReviewFilter = withStyles(filterStyles)(
                     { id: 'pending', name: 'Pending' },
                     { id: 'rejected', name: 'Rejected' },
                 ]}
-                className={classes.status}
             />
             <ReferenceInput source="customer_id" reference="customers">
                 <AutocompleteInput
@@ -66,20 +60,20 @@ export const ReviewFilter = withStyles(filterStyles)(
         </Filter>
     )
 );
-
-const listStyles = {
-    headerRow: {
-        borderLeftColor: 'white',
-        borderLeftWidth: 5,
-        borderLeftStyle: 'solid',
-    },
-    comment: {
-        maxWidth: '18em',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-    },
-};
+//
+// const listStyles = {
+//     headerRow: {
+//         borderLeftColor: 'white',
+//         borderLeftWidth: 5,
+//         borderLeftStyle: 'solid',
+//     },
+//     comment: {
+//         maxWidth: '18em',
+//         overflow: 'hidden',
+//         textOverflow: 'ellipsis',
+//         whiteSpace: 'nowrap',
+//     },
+// };
 
 const ReviewsBulkActions = props => (
     <BulkActions {...props}>
@@ -89,7 +83,7 @@ const ReviewsBulkActions = props => (
     </BulkActions>
 );
 
-export const ReviewList = withStyles(listStyles)(({ classes, ...props }) => (
+export const ReviewList = ({ ...props }) => (
     <List
         {...props}
         bulkActions={<ReviewsBulkActions />}
@@ -102,7 +96,6 @@ export const ReviewList = withStyles(listStyles)(({ classes, ...props }) => (
             medium={
                 <Datagrid
                     rowStyle={rowStyle}
-                    classes={{ headerRow: classes.headerRow }}
                 >
                     <DateField source="date" />
                     <CustomerReferenceField />
@@ -110,7 +103,6 @@ export const ReviewList = withStyles(listStyles)(({ classes, ...props }) => (
                     <StarRatingField />
                     <TextField
                         source="comment"
-                        cellClassName={classes.comment}
                     />
                     <TextField source="status" />
                     <ApproveButton />
@@ -119,31 +111,30 @@ export const ReviewList = withStyles(listStyles)(({ classes, ...props }) => (
             }
         />
     </List>
-));
+);
 
-const editStyle = {
-    detail: {
-        display: 'inline-block',
-        verticalAlign: 'top',
-        marginRight: '2em',
-        minWidth: '8em',
-    },
-};
-export const ReviewEdit = withStyles(editStyle)(({ classes, ...props }) => (
+// const editStyle = {
+//     detail: {
+//         display: 'inline-block',
+//         verticalAlign: 'top',
+//         marginRight: '2em',
+//         minWidth: '8em',
+//     },
+// };
+export const ReviewEdit = ({ ...props }) => (
     <Edit {...props} actions={<ReviewEditActions />}>
         <SimpleForm>
-            <DateField source="date" formClassName={classes.detail} />
-            <CustomerReferenceField formClassName={classes.detail} />
-            <ProductReferenceField formClassName={classes.detail} />
+            <DateField source="date" />
+            <CustomerReferenceField />
+            <ProductReferenceField />
             <ReferenceField
                 source="command_id"
                 reference="commands"
                 addLabel
-                formClassName={classes.detail}
             >
                 <TextField source="reference" />
             </ReferenceField>
-            <StarRatingField formClassName={classes.detail} />
+            <StarRatingField />
             <LongTextInput source="comment" />
             <SelectInput
                 source="status"
@@ -155,4 +146,4 @@ export const ReviewEdit = withStyles(editStyle)(({ classes, ...props }) => (
             />
         </SimpleForm>
     </Edit>
-));
+);

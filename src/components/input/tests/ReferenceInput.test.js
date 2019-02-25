@@ -49,7 +49,7 @@ describe('<ReferenceInput />', () => {
       </ReferenceInputView>
     );
     const LinearProgressElement = wrapper.find(
-      'WithStyles(LinearProgress)'
+      'LinearProgress'
     );
     assert.equal(LinearProgressElement.length, 0);
     const MyComponentElement = wrapper.find('MyComponent');

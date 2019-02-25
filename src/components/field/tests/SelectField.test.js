@@ -28,7 +28,7 @@ describe('<SelectField />', () => {
     const wrapper = shallow(
       <SelectField {...defaultProps} record={{ foo: 0 }} />
     );
-    const chipElement = wrapper.find('WithStyles(Typography)');
+    const chipElement = wrapper.find('span');
     assert.equal(chipElement.children().text(), 'hello');
   });
 
@@ -41,7 +41,7 @@ describe('<SelectField />', () => {
         className="foo"
       />
     );
-    const chipElement = wrapper.find('WithStyles(Typography)');
+    const chipElement = wrapper.find('span');
     assert.deepEqual(chipElement.prop('className'), 'foo');
   });
 
@@ -53,7 +53,7 @@ describe('<SelectField />', () => {
         source="foo.bar"
       />
     );
-    const chipElement = wrapper.find('WithStyles(Typography)');
+    const chipElement = wrapper.find('span');
     assert.equal(chipElement.children().text(), 'hello');
   });
 
@@ -66,7 +66,7 @@ describe('<SelectField />', () => {
         choices={[{ foobar: 0, name: 'hello' }]}
       />
     );
-    const chipElement = wrapper.find('WithStyles(Typography)');
+    const chipElement = wrapper.find('span');
     assert.equal(chipElement.children().text(), 'hello');
   });
 
@@ -79,7 +79,7 @@ describe('<SelectField />', () => {
         choices={[{ id: 0, foobar: 'hello' }]}
       />
     );
-    const chipElement = wrapper.find('WithStyles(Typography)');
+    const chipElement = wrapper.find('span');
     assert.equal(chipElement.children().text(), 'hello');
   });
 
@@ -92,7 +92,7 @@ describe('<SelectField />', () => {
         choices={[{ id: 0, foobar: 'hello' }]}
       />
     );
-    const chipElement = wrapper.find('WithStyles(Typography)');
+    const chipElement = wrapper.find('span');
     assert.equal(chipElement.children().text(), 'hello');
   });
 
@@ -121,7 +121,7 @@ describe('<SelectField />', () => {
         translate={x => `**${x}**`}
       />
     );
-    const chipElement = wrapper.find('WithStyles(Typography)');
+    const chipElement = wrapper.find('span');
     assert.equal(chipElement.children().text(), '**hello**');
   });
 
@@ -134,7 +134,7 @@ describe('<SelectField />', () => {
         translateChoice={false}
       />
     );
-    const chipElement = wrapper.find('WithStyles(Typography)');
+    const chipElement = wrapper.find('span');
     assert.equal(chipElement.children().text(), 'hello');
   });
 });

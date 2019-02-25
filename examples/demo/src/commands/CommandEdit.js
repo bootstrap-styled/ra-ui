@@ -1,17 +1,16 @@
 import React from 'react';
 import {
-    translate,
     AutocompleteInput,
     BooleanInput,
     DateInput,
-    EditController,
     ReferenceInput,
     SelectInput,
     SimpleForm,
     TitleForRecord,
-} from 'react-admin';
-import Card from '@material-ui/core/Card';
-import withStyles from '@material-ui/core/styles/withStyles';
+} from '@bootstrap-styled/ra-ui';
+import { translate, EditController } from 'react-admin';
+
+import Card from '@bootstrap-styled/v4/lib/Cards/Card';
 
 import Basket from './Basket';
 
@@ -23,17 +22,12 @@ const CommandTitle = translate(({ record, translate }) => (
     </span>
 ));
 
-const editStyles = {
-    root: { display: 'flex', alignItems: 'flex-start' },
-    form: { flexGrow: 2, marginRight: '2em' },
-};
-
-const CommandEdit = ({ classes, ...props }) => (
+const CommandEdit = ({ ...props }) => (
     <EditController title={<CommandTitle />} {...props}>
         {controllerProps =>
             controllerProps.record ? (
-                <div className={classes.root}>
-                    <Card className={classes.form}>
+                <div>
+                    <Card>
                         <TitleForRecord
                             defaultTitle={controllerProps.defaultTitle}
                             record={controllerProps.record}
@@ -73,4 +67,4 @@ const CommandEdit = ({ classes, ...props }) => (
     </EditController>
 );
 
-export default withStyles(editStyles)(CommandEdit);
+export default CommandEdit;

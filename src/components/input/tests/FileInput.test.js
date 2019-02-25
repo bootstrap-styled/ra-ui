@@ -322,7 +322,7 @@ describe('<FileInput />', () => {
       </FileInput>
     );
 
-    const inputPreview = wrapper.find('WithStyles(translate(FileInputPreview))');
+    const inputPreview = wrapper.find('translate(FileInputPreview)');
     inputPreview.at(1).prop('onRemove')();
     wrapper.update();
 

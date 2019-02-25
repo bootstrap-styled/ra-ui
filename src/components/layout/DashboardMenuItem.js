@@ -22,7 +22,6 @@ const DashboardMenuItem = ({
 );
 
 DashboardMenuItem.propTypes = {
-  classes: PropTypes.object,
   className: PropTypes.string,
   onClick: PropTypes.func,
   translate: PropTypes.func.isRequired,

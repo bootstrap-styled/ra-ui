@@ -66,7 +66,6 @@ ImageField.propTypes = {
   className: PropTypes.string,
   cellClassName: PropTypes.string,
   headerClassName: PropTypes.string,
-  classes: PropTypes.object,
   record: PropTypes.object,
   sortBy: PropTypes.string,
   source: PropTypes.string.isRequired,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReferenceField, TextField } from 'react-admin';
+import { ReferenceField, TextField } from '@bootstrap-styled/ra-ui';
 
 const ProductReferenceField = props => (
     <ReferenceField

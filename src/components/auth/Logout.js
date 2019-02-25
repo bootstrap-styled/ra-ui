@@ -10,7 +10,6 @@ import ExitIcon from '@material-ui/icons/PowerSettingsNew';
 import { translate, userLogout as userLogoutAction } from 'ra-core';
 
 const sanitizeRestProps = ({
-  classes,
   className,
   translate,
   userLogout,
@@ -24,7 +23,7 @@ const sanitizeRestProps = ({
  * Used for the Logout Menu item in the sidebar
  */
 const Logout = ({
-  classes, className, translate, userLogout, ...rest
+  className, translate, userLogout, ...rest
 }) => (
   <DropdownItem
     className={classnames('logout', className)}
@@ -39,7 +38,6 @@ const Logout = ({
 );
 
 Logout.propTypes = {
-  classes: PropTypes.object,
   className: PropTypes.string,
   translate: PropTypes.func,
   userLogout: PropTypes.func,

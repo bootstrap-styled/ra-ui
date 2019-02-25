@@ -9,7 +9,6 @@ import {
     EditButton,
     Filter,
     FormTab,
-    List,
     LongTextInput,
     NullableBooleanInput,
     NumberField,
@@ -19,8 +18,9 @@ import {
     TabbedForm,
     TextField,
     TextInput,
-} from 'react-admin';
-import withStyles from '@material-ui/core/styles/withStyles';
+} from '@bootstrap-styled/ra-ui';
+
+import { List } from 'react-admin';
 import Icon from '@material-ui/icons/Person';
 
 import NbItemsField from '../commands/NbItemsField';
@@ -63,11 +63,11 @@ const colored = WrappedComponent => {
 export const ColoredNumberField = colored(NumberField);
 ColoredNumberField.defaultProps = NumberField.defaultProps;
 
-const listStyles = {
-    nb_commands: { color: 'purple' },
-};
+// const listStyles = {
+//     nb_commands: { color: 'purple' },
+// };
 
-export const VisitorList = withStyles(listStyles)(({ classes, ...props }) => (
+export const VisitorList = (({ ...props }) => (
     <List
         {...props}
         filters={<VisitorFilter />}
@@ -83,7 +83,6 @@ export const VisitorList = withStyles(listStyles)(({ classes, ...props }) => (
                     <NumberField
                         source="nb_commands"
                         label="resources.customers.fields.commands"
-                        className={classes.nb_commands}
                     />
                     <ColoredNumberField
                         source="total_spent"
@@ -102,49 +101,46 @@ export const VisitorList = withStyles(listStyles)(({ classes, ...props }) => (
 const VisitorTitle = ({ record }) =>
     record ? <FullNameField record={record} size={32} /> : null;
 
-const editStyles = {
-    first_name: { display: 'inline-block' },
-    last_name: { display: 'inline-block', marginLeft: 32 },
-    email: { width: 544 },
-    address: { maxWidth: 544 },
-    zipcode: { display: 'inline-block' },
-    city: { display: 'inline-block', marginLeft: 32 },
-    comment: {
-        maxWidth: '20em',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-    },
-};
+// const editStyles = {
+//     first_name: { display: 'inline-block' },
+//     last_name: { display: 'inline-block', marginLeft: 32 },
+//     email: { width: 544 },
+//     address: { maxWidth: 544 },
+//     zipcode: { display: 'inline-block' },
+//     city: { display: 'inline-block', marginLeft: 32 },
+//     comment: {
+//         maxWidth: '20em',
+//         overflow: 'hidden',
+//         textOverflow: 'ellipsis',
+//         whiteSpace: 'nowrap',
+//     },
+// };
 
-export const VisitorEdit = withStyles(editStyles)(({ classes, ...props }) => (
+export const VisitorEdit = (({ ...props }) => (
     <Edit title={<VisitorTitle />} {...props}>
         <TabbedForm>
             <FormTab label="resources.customers.tabs.identity">
                 <TextInput
                     source="first_name"
-                    formClassName={classes.first_name}
+                    className="d-inline-block"
                 />
                 <TextInput
                     source="last_name"
-                    formClassName={classes.last_name}
+                    className="d-inline-block"
                 />
                 <TextInput
                     type="email"
                     source="email"
                     validation={{ email: true }}
-                    fullWidth={true}
-                    formClassName={classes.email}
                 />
                 <DateInput source="birthday" />
             </FormTab>
             <FormTab label="resources.customers.tabs.address" path="address">
                 <LongTextInput
                     source="address"
-                    formClassName={classes.address}
                 />
-                <TextInput source="zipcode" formClassName={classes.zipcode} />
-                <TextInput source="city" formClassName={classes.city} />
+                <TextInput source="zipcode" className="d-inline-block" />
+                <TextInput source="city" className="d-inline-block" />
             </FormTab>
             <FormTab label="resources.customers.tabs.orders" path="orders">
                 <ReferenceManyField
@@ -179,7 +175,6 @@ export const VisitorEdit = withStyles(editStyles)(({ classes, ...props }) => (
                         <StarRatingField />
                         <TextField
                             source="comment"
-                            cellClassName={classes.comment}
                         />
                         <EditButton style={{ padding: 0 }} />
                     </Datagrid>
@@ -205,35 +200,33 @@ export const VisitorEdit = withStyles(editStyles)(({ classes, ...props }) => (
     </Edit>
 ));
 
-export const VisitorCreate = withStyles(editStyles)(({ classes, ...props }) => (
+export const VisitorCreate = (({ ...props }) => (
     <Create {...props}>
         <TabbedForm>
             <FormTab label="resources.customers.tabs.identity">
                 <TextInput
                     autoFocus
                     source="first_name"
-                    formClassName={classes.first_name}
+                    className="d-inline-block"
                 />
                 <TextInput
                     source="last_name"
-                    formClassName={classes.last_name}
+                    className="d-inline-block"
                 />
                 <TextInput
                     type="email"
                     source="email"
                     validation={{ email: true }}
                     fullWidth={true}
-                    formClassName={classes.email}
                 />
                 <DateInput source="birthday" />
             </FormTab>
             <FormTab label="resources.customers.tabs.address" path="address">
                 <LongTextInput
                     source="address"
-                    formClassName={classes.address}
                 />
-                <TextInput source="zipcode" formClassName={classes.zipcode} />
-                <TextInput source="city" formClassName={classes.city} />
+                <TextInput source="zipcode" className="d-inline-block" />
+                <TextInput source="city" className="d-inline-block" />
             </FormTab>
         </TabbedForm>
     </Create>
