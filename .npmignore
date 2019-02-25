@@ -34,3 +34,4 @@ rollup.config.js
 /lib/**/*.md
 /examples
 /Makefile
+**/tests/*.test.js
