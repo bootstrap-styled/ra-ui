@@ -1,3 +1,10 @@
+## [1.0.16](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.15...v1.0.16) (2019-03-04)
+
+
+### Bug Fixes
+
+* **ncurc:** added .ncurc configuration ([964172d](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/964172d))
+
 ## [1.0.15](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.14...v1.0.15) (2019-02-28)
 
 
