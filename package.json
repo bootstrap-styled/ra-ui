@@ -432,22 +432,5 @@
   "declinationId": "bs-redux",
   "contributors": [
     "Dimitri Kopriwa <dimitri.kopriwa@yeutech.vn> (https://github.com/kopax)"
-  ],
-  "transitive": {
-    "name": "ra-ui",
-    "scope": "bootstrap-styled",
-    "scopedName": "@bootstrap-styled/ra-ui",
-    "homepage": "https://bootstrap-styled.github.io/ra-ui",
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/bootstrap-styled/ra-ui.git"
-    },
-    "bugs": {
-      "url": "https://github.com/bootstrap-styled/ra-ui/issues"
-    },
-    "publishConfig": {
-      "access": "public",
-      "registry": "https://registry.npmjs.org"
-    }
-  }
+  ]
 }
