@@ -1,3 +1,10 @@
+## [1.0.17](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.16...v1.0.17) (2019-03-11)
+
+
+### Bug Fixes
+
+* **documentation:** Upgrade @rollup-umd/documentation to v2.0.0 and removed react-styleguidist. Publish to GitHub ([fe464fa](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/fe464fa))
+
 ## [1.0.16](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.15...v1.0.16) (2019-03-04)
 
 

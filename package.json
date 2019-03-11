@@ -1,6 +1,6 @@
 {
   "name": "@bootstrap-styled/ra-ui",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Library of components for backoffice type react-admin.",
   "main": "lib/index.js",
   "homepage": "https://bootstrap-styled.yeutech.com/ra-ui",
@@ -37,7 +37,8 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "predemo": "[ -d examples/demo/node_modules ] || npm install --prefix examples/demo",
-    "demo": "npm start --prefix examples/demo"
+    "demo": "npm start --prefix examples/demo",
+    "postinstall": "node -e \"console.log('\\u001b[31m@bootstrap-styled/ra-ui is deprecated, use @bootstrap-styled/ra-ui instead.')\" || exit 0"
   },
   "repository": {
     "type": "git",
