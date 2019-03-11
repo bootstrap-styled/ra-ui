@@ -1,32 +1,50 @@
 # ra-ui
 
-Library of components for backoffice type react-admin..
+[![Build Status](https://travis-ci.org/bootstrap-styled/ra-ui.svg?branch=master)](https://travis-ci.org/bootstrap-styled/ra-ui)
+[![npm Version](https://img.shields.io/npm/v/@bootstrap-styled/ra-ui.svg?style=flat)](https://www.npmjs.com/package/@bootstrap-styled/ra-ui)
+[![License](https://img.shields.io/npm/l/@bootstrap-styled/ra-ui.svg?style=flat)](https://www.npmjs.com/package/@bootstrap-styled/ra-ui)
+[![NPM monthly downloads](https://img.shields.io/npm/dm/@bootstrap-styled/ra-ui.svg?style=flat)](https://npmjs.org/package/@bootstrap-styled/ra-ui)
+[![NPM total downloads](https://img.shields.io/npm/dt/@bootstrap-styled/ra-ui.svg?style=flat)](https://npmjs.org/package/@bootstrap-styled/ra-ui)
+[![npm Version](https://img.shields.io/node/v/@bootstrap-styled/ra-ui.svg?style=flat)](https://www.npmjs.com/package/@bootstrap-styled/ra-ui)
+[![Module formats](https://img.shields.io/badge/module%20formats-umd%2C%20cjs%2C%20esm-green.svg?style=flat)](https://www.npmjs.com/package/@bootstrap-styled/ra-ui)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=com.github.bootstrap-styled.ra-ui&metric=coverage)](https://sonarcloud.io/dashboard?id=com.github.bootstrap-styled.ra-ui) [![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=com.github.bootstrap-styled.ra-ui&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.github.bootstrap-styled.ra-ui)
+[![gitter](https://badges.gitter.im/bootstrap-styled/bootstrap-styled.svg)](https://gitter.im/bootstrap-styled)
 
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-
-**Master**
-
-[![build status](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/badges/master/build.svg)](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commits/master)
-[![coverage report](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/badges/master/coverage.svg)](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commits/master)
-
-**Dev**
-
-[![build status](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/badges/dev/build.svg)](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commits/dev)
-[![coverage report](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/badges/dev/coverage.svg)](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commits/dev)
+Library of components for backoffice type react-admin.
 
 
 ## Table of Contents
 
   - [Documentation](#documentation)
-  - [License](#license)
+  - [Contributors](#contributors)
+  - [Contributing](#contributing)
+  - [License MIT](#license-mit)
 
 ---
-  
+
 ## Documentation
 
-  - View ra-ui [HTML documentation](https://bootstrap-styled.yeutech.com/ra-ui) *(require access)*
+Read [ra-ui documentation](https://bootstrap-styled.github.io/ra-ui).
 
-## License
+## Contributors
 
-Copyright (c) 2019 Yeutech Company Limited. Made with love in Vietnam with [rollup-umd](https://module.kopaxgroup.com/dev-tools/rollup-umd/tags/v1.4.6) 1.4.6
+We are grateful to the contributors for their ideas and collaboration:
+- [Dimitri Kopriwa](https://github.com/kopax)
+
+
+## Contributing
+
+If you want to contribute to ra-ui please see our [contributing and community guidelines](https://github.com/bootstrap-styled/ra-ui/blob/master/.github/CONTRIBUTING.md), they\'ll help you get set up locally and explain the whole process.
+
+Please also note that all repositories under the bootstrap-styled organization follow our [Code of Conduct](https://github.com/bootstrap-styled/ra-ui/blob/master/CODE_OF_CONDUCT.md), make sure to review and follow it.
+
+## License MIT
+
+Copyright 2019 Yeutech Company Limited
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+

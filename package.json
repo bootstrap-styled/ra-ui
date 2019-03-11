@@ -3,7 +3,7 @@
   "version": "1.0.17",
   "description": "Library of components for backoffice type react-admin.",
   "main": "lib/index.js",
-  "homepage": "https://bootstrap-styled.yeutech.com/ra-ui",
+  "homepage": "https://bootstrap-styled.github.io/ra-ui",
   "engines": {
     "node": ">=8"
   },
@@ -37,15 +37,14 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "predemo": "[ -d examples/demo/node_modules ] || npm install --prefix examples/demo",
-    "demo": "npm start --prefix examples/demo",
-    "postinstall": "node -e \"console.log('\\u001b[31m@bootstrap-styled/ra-ui is deprecated, use @bootstrap-styled/ra-ui instead.')\" || exit 0"
+    "demo": "npm start --prefix examples/demo"
   },
   "repository": {
     "type": "git",
-    "url": "https://module.kopaxgroup.com/bootstrap-styled/ra-ui.git"
+    "url": "https://github.com/bootstrap-styled/ra-ui.git"
   },
   "bugs": {
-    "url": "https://module.kopaxgroup.com/bootstrap-styled/ra-ui/issues"
+    "url": "https://github.com/bootstrap-styled/ra-ui/issues"
   },
   "keywords": [
     "bootstrap",
@@ -232,16 +231,10 @@
     "@rollup-umd/ncu": "^1.0.6",
     "@rollup-umd/rollup": "^1.0.8",
     "@semantic-release/changelog": "^3.0.2",
-    "@semantic-release/exec": "^3.3.2",
     "@semantic-release/git": "^7.0.8",
-    "@semantic-release/gitlab": "^3.1.2",
+    "@semantic-release/github": "^5.2.10",
     "@semantic-release/npm": "^5.1.4",
-    "@yeutech/rollup-umd-ci-build": "^1.0.5",
-    "@yeutech/rollup-umd-ci-deploy": "^1.0.9",
-    "@yeutech/rollup-umd-ci-release": "^1.0.15",
-    "@yeutech/rollup-umd-ci-release-transitive": "^1.2.9",
-    "@yeutech/rollup-umd-ci-test": "^1.0.6",
-    "@yeutech/rollup-umd-scripts": "^2.1.1",
+    "@yeutech-lab/documentation": "^2.0.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.3.1",
     "babel-loader": "8.0.5",
@@ -322,33 +315,20 @@
     "@bootstrap-styled/redux": "^1.1.2"
   },
   "publishConfig": {
-    "access": "public",
     "registry": "https://registry.npmjs.org",
-    "tag": "latest"
+    "tag": "latest",
+    "access": "public"
   },
   "release": {
     "branch": "master",
-    "success": false,
-    "fail": false,
     "npmPublish": true,
     "verifyConditions": [
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "npx @yeutech/rollup-umd-ci-release-transitive verify"
-      },
       "@semantic-release/changelog",
       "@semantic-release/npm",
       "@semantic-release/git",
-      {
-        "path": "@semantic-release/gitlab",
-        "gitlabUrl": "https://module.kopaxgroup.com"
-      }
+      "@semantic-release/github"
     ],
     "prepare": [
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "npx @yeutech/rollup-umd-ci-release-transitive prepare"
-      },
       "@semantic-release/changelog",
       "@semantic-release/npm",
       {
@@ -365,12 +345,49 @@
     "publish": [
       "@semantic-release/npm",
       {
-        "path": "@semantic-release/gitlab",
-        "gitlabUrl": "https://module.kopaxgroup.com"
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "npx @yeutech/rollup-umd-ci-release-transitive publish ${nextRelease.version}"
+        "path": "@semantic-release/github",
+        "assets": [
+          {
+            "path": "package.json"
+          },
+          {
+            "path": "LICENSE.md"
+          },
+          {
+            "path": "CHANGELOG.md"
+          },
+          {
+            "path": "README.md"
+          },
+          {
+            "path": "dist/*.esm.js",
+            "label": "ES module"
+          },
+          {
+            "path": "dist/*.esm.js.map",
+            "label": "ES module source map"
+          },
+          {
+            "path": "dist/*.min.js",
+            "label": "UMD compressed"
+          },
+          {
+            "path": "dist/*.min.js.map",
+            "label": "UMD compressed source map"
+          },
+          {
+            "path": "dist/*.cjs.min.js",
+            "label": "CJS compressed"
+          },
+          {
+            "path": "dist/*.cjs.min.js.map",
+            "label": "CJS compressed source map"
+          },
+          {
+            "path": "lib/*.js",
+            "label": "CJS folder"
+          }
+        ]
       }
     ]
   },
@@ -433,22 +450,5 @@
   "declinationId": "bs-redux",
   "contributors": [
     "Dimitri Kopriwa <dimitri.kopriwa@yeutech.vn> (https://github.com/kopax)"
-  ],
-  "transitive": {
-    "name": "ra-ui",
-    "scope": "bootstrap-styled",
-    "scopedName": "@bootstrap-styled/ra-ui",
-    "homepage": "https://bootstrap-styled.github.io/ra-ui",
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/bootstrap-styled/ra-ui.git"
-    },
-    "bugs": {
-      "url": "https://github.com/bootstrap-styled/ra-ui/issues"
-    },
-    "publishConfig": {
-      "access": "public",
-      "registry": "https://registry.npmjs.org"
-    }
-  }
+  ]
 }
