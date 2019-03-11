@@ -1,3 +1,10 @@
+## [1.0.18](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.17...v1.0.18) (2019-03-11)
+
+
+### Bug Fixes
+
+* **release:** GitHub release https://github.com/bootstrap-styled/ra-ui ([659191a](https://github.com/bootstrap-styled/ra-ui/commit/659191a))
+
 ## [1.0.17](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.16...v1.0.17) (2019-03-11)
 
 
