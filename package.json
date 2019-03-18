@@ -1,7 +1,7 @@
 {
   "name": "@bootstrap-styled/ra-ui",
-  "version": "0.0.0-development",
-  "description": "Library of components for backoffice type react-admin.",
+  "version": "1.0.18",
+  "description": "UI components for react-admin",
   "main": "lib/index.js",
   "homepage": "https://bootstrap-styled.github.io/ra-ui",
   "engines": {
