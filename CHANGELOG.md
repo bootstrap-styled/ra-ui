@@ -1,3 +1,10 @@
+## [1.0.20](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.19...v1.0.20) (2019-03-18)
+
+
+### Bug Fixes
+
+* **demo:** upgrade demo ([66e5a93](https://github.com/bootstrap-styled/ra-ui/commit/66e5a93))
+
 ## [1.0.19](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.18...v1.0.19) (2019-03-18)
 
 
