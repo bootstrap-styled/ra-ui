@@ -61,6 +61,7 @@ export const CreateView = ({
             basePath,
             resource,
             hasList,
+            ...actions.props,
           })}
         </CardContentInner>
       )}
