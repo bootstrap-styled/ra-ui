@@ -1,3 +1,10 @@
+## [1.0.22](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.21...v1.0.22) (2019-03-22)
+
+
+### Bug Fixes
+
+* **Actions:** actions now support customized props ([b021e81](https://github.com/bootstrap-styled/ra-ui/commit/b021e81))
+
 ## [1.0.21](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.20...v1.0.21) (2019-03-21)
 
 
