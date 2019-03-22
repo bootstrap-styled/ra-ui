@@ -75,6 +75,7 @@ export const ShowView = ({
               hasList,
               hasEdit,
               resource,
+              ...actions.props,
             })}
           </CardContentInner>
         )}

@@ -81,6 +81,7 @@ export const EditView = ({
               hasShow,
               hasList,
               resource,
+              ...actions.props,
             })}
           </CardContentInner>
         )}
