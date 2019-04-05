@@ -92,7 +92,7 @@ class Sidebar extends PureComponent {
             docked
             left={DRAWER_WIDTH}
             active={open}
-            className={cn({ close: !open })}
+            className={cn('mt-2', { close: !open })}
             onClose={this.toggleSidebar}
             {...rest}
           >
