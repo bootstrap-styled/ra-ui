@@ -4,41 +4,33 @@ import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import Drawer from '@bootstrap-styled/v4/lib/Drawer';
 import { setSidebarVisibility } from 'ra-core';
+import styled from 'styled-components';
+import { mediaBreakpointOnly } from '@bootstrap-styled/css-mixins/lib/breakpoints';
+import cn from 'classnames';
 import withWidth from '../extendMui/withWidth';
-
 import Responsive from './Responsive';
 
 export const DRAWER_WIDTH = '230px';
 export const CLOSED_DRAWER_WIDTH = '55px';
 
-// const styles = theme => ({
-//   drawerPaper: {
-//     position: 'relative',
-//     height: 'auto',
-//     width: DRAWER_WIDTH,
-//     overflowX: 'hidden',
-//     transition: theme.transitions.create('width', {
-//       easing: theme.transitions.easing.sharp,
-//       duration: theme.transitions.duration.leavingScreen,
-//     }),
-//     backgroundColor: 'transparent',
-//     borderRight: 'none',
-//     marginTop: '4.5em',
-//     [theme.breakpoints.only('xs')]: {
-//       marginTop: 0,
-//       height: '100vh',
-//       position: 'inherit',
-//       backgroundColor: theme.palette.background.default,
-//     },
-//     [theme.breakpoints.up('md')]: {
-//       border: 'none',
-//       marginTop: '5.5em',
-//     },
-//   },
-//   drawerPaperClose: {
-//     width: 55,
-//   },
-// });
+const DrawerPaper = styled(Drawer)`
+  width: ${DRAWER_WIDTH};
+  overflow-x: hidden;
+  transition: width 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+  ${mediaBreakpointOnly('xs', `
+    margin-top: 0;
+    height: 100vh;
+    position: inherit;
+  `)}
+  ${mediaBreakpointOnly('md', `
+    border: none;
+    margin-top: 5.5em;
+  `)}
+ 
+  &.close {
+    width: ${CLOSED_DRAWER_WIDTH} !important;
+  }
+`;
 
 
 // We shouldn't need PureComponent here as it's connected
@@ -82,38 +74,30 @@ class Sidebar extends PureComponent {
           </Drawer>
         )}
         small={(
-          <Drawer
+          <DrawerPaper
             docked
             left={DRAWER_WIDTH}
             active={open}
-            // classes={{
-            //   paper: classnames(classes.drawerPaper,
-            //     !open && classes.drawerPaperClose),
-            // }}
+            className={cn('mt-3', { close: !open })}
             onClose={this.toggleSidebar}
-            className="mt-3"
             {...rest}
           >
             {React.cloneElement(children, {
               onMenuClick: this.handleClose,
             })}
-          </Drawer>
+          </DrawerPaper>
         )}
         medium={(
-          <Drawer
+          <DrawerPaper
             docked
             left={DRAWER_WIDTH}
             active={open}
-            // classes={{
-            //   paper: classnames(classes.drawerPaper,
-            //     !open && classes.drawerPaperClose),
-            // }}
-            className="mt-3"
+            className={cn({ close: !open })}
             onClose={this.toggleSidebar}
             {...rest}
           >
             {React.cloneElement(children)}
-          </Drawer>
+          </DrawerPaper>
         )}
       />
     );
