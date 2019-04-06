@@ -1,49 +1,50 @@
 import React from 'react';
 import compose from 'recompose/compose';
-import Card from '@material-ui/core/Card';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import CommentIcon from '@material-ui/icons/Comment';
 import Divider from '@material-ui/core/Divider';
 import { Link } from 'react-router-dom';
 import { translate } from 'react-admin';
-
+import { Card, H3, P, ListGroup, ListGroupItem, ListGroupItemText } from '@bootstrap-styled/v4';
+import styled from 'styled-components';
 import CardIcon from './CardIcon';
 
 import StarRatingField from '../reviews/StarRatingField';
 
-// const styles = theme => ({
-//     main: {
-//         flex: '1',
-//         marginRight: '1em',
-//         marginTop: 20,
-//     },
-//     titleLink: { textDecoration: 'none', color: 'inherit' },
-//     card: {
-//         padding: '16px 0',
-//         overflow: 'inherit',
-//         textAlign: 'right',
-//     },
-//     title: {
-//         padding: '0 16px',
-//     },
-//     value: {
-//         padding: '0 16px',
-//         minHeight: 48,
-//     },
-//     avatar: {
-//         background: theme.palette.background.avatar,
-//     },
-//     listItemText: {
-//         overflowY: 'hidden',
-//         height: '4em',
-//         display: '-webkit-box',
-//         WebkitLineClamp: 2,
-//         WebkitBoxOrient: 'vertical',
-//     },
-// });
+const styles = theme => ({
+    main: {
+        flex: '1',
+        marginRight: '1em',
+        marginTop: 20,
+    },
+    titleLink: { textDecoration: 'none', color: 'inherit' },
+    card: {
+        padding: '16px 0',
+        overflow: 'inherit',
+        textAlign: 'right',
+        display: 'block',
+        minHeight: 52,
+    },
+    title: {
+        padding: '0 16px',
+    },
+    value: {
+        padding: '0 16px',
+        minHeight: 48,
+    },
+    avatar: {
+        background: theme.palette.background.avatar,
+    },
+})
+
+const ListItemTextWrapper = styled.div`
+      overflow-y: hidden;
+      height: 4em;
+      display: -webkit-box;
+      Webkit-line-clamp: 2;
+      Webkit-box-orient: vertical;
+      margin-left: 16px;
+`;
 
 const location = {
     pathname: 'reviews',
@@ -56,25 +57,19 @@ const PendingReviews = ({
     nb,
     translate,
 }) => (
-    <div>
+    <div style={styles.main}>
         <CardIcon Icon={CommentIcon} bgColor="#f44336" />
-        <Card>
-            <p>
-                {translate('pos.dashboard.pending_reviews')}
-            </p>
-            <h2>
-                <Link to={location}>
-                    {nb}
-                </Link>
-            </h2>
+        <Card style={styles.card}>
+            <P>{translate('pos.dashboard.pending_reviews')}</P>
+            <H3><Link to={location}>{nb}</Link></H3>
             <Divider />
-            <List>
+            <ListGroup>
                 {reviews.map(record => (
-                    <ListItem
+                    <ListGroupItem
                         key={record.id}
-                        button
-                        component={Link}
+                        tag={Link}
                         to={`/reviews/${record.id}`}
+                        style={{ textDecoration: 'none', fontSize: '13px', flexFlow: 'unset' }}
                     >
                         {customers[record.customer_id] ? (
                             <Avatar
@@ -85,15 +80,15 @@ const PendingReviews = ({
                         ) : (
                             <Avatar />
                         )}
-
-                        <ListItemText
-                            primary={<StarRatingField record={record} />}
-                            secondary={record.comment}
-                            style={{ paddingRight: 0 }}
-                        />
-                    </ListItem>
+                        <ListItemTextWrapper>
+                          <ListGroupItemText className="d-flex flex-column">
+                            <StarRatingField record={record} />
+                            {record.comment}
+                          </ListGroupItemText>
+                        </ListItemTextWrapper>
+                    </ListGroupItem>
                 ))}
-            </List>
+            </ListGroup>
         </Card>
     </div>
 );
