@@ -1,8 +1,8 @@
 import React, { cloneElement, Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { NavLink } from 'react-router-dom';
 import ListGroupItem from '@bootstrap-styled/v4/lib/ListGroup/ListGroupItem';
+import DropdownItem from '@bootstrap-styled/v4/lib/Dropdown/DropdownItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export class MenuItemLink extends Component {
@@ -25,6 +25,8 @@ export class MenuItemLink extends Component {
       staticContext: PropTypes.object,
       /** @ignore */
       to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+      /** Changes root component so its used in userMenu */
+      userMenu: PropTypes.bool,
     };
 
     handleMenuTap = e => {
@@ -38,12 +40,15 @@ export class MenuItemLink extends Component {
         leftIcon,
         leftFaIcon,
         staticContext,
+        userMenu,
         ...props
       } = this.props;
 
+      const MenuItem = userMenu ? DropdownItem : ListGroupItem;
+
       return (
-        <ListGroupItem
-          className={classnames(className, 'border-0 rounded-0 d-flex flex-start pl-2')}
+        <MenuItem
+          className={className}
           style={{ textDecoration: 'none', transition: 'all .2s ease-in-out' }}
           action
           tag={NavLink}
@@ -59,7 +64,7 @@ export class MenuItemLink extends Component {
             </span>
           )}
           {primaryText}
-        </ListGroupItem>
+        </MenuItem>
       );
     }
 }
