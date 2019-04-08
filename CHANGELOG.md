@@ -1,3 +1,50 @@
+## [1.0.18](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.17...v1.0.18) (2019-03-11)
+
+
+### Bug Fixes
+
+* **release:** GitHub release https://github.com/bootstrap-styled/ra-ui ([659191a](https://github.com/bootstrap-styled/ra-ui/commit/659191a))
+
+## [1.0.17](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.16...v1.0.17) (2019-03-11)
+
+
+### Bug Fixes
+
+* **documentation:** Upgrade @rollup-umd/documentation to v2.0.0 and removed react-styleguidist. Publish to GitHub ([fe464fa](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/fe464fa))
+
+## [1.0.16](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.15...v1.0.16) (2019-03-04)
+
+
+### Bug Fixes
+
+* **ncurc:** added .ncurc configuration ([964172d](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/964172d))
+
+## [1.0.15](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.14...v1.0.15) (2019-02-28)
+
+
+### Bug Fixes
+
+* **dependencies:** upgrade all dependencies ([b0d71d6](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/b0d71d6))
+
+## [1.0.14](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.13...v1.0.14) (2019-02-25)
+
+
+### Bug Fixes
+
+* **demo:** corrected component props to tag. ([fdce532](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/fdce532))
+* **dependencies:** upgrade all dependencies ([585ea58](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/585ea58))
+* **main:** main was pointing to dist esm features that were removed and causing issue in IDE ([7e12403](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/7e12403))
+* **transition BS:** removed all withStyles and classes + improved demo. ([c291333](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/c291333))
+
+## [1.0.13](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.12...v1.0.13) (2019-02-14)
+
+
+### Bug Fixes
+
+* **dependencies:** Using [@rollup-umd](https://module.kopaxgroup.com/rollup-umd)/rollup ([f5f04de](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/f5f04de))
+* **Release:** Release to npmjs registry ([6faf79f](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/6faf79f)), closes [#2](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/issues/2)
+* **tests:** corrected all wrong tests. WIP. ([6237a54](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/commit/6237a54))
+
 ## [1.0.12](https://module.kopaxgroup.com/bootstrap-styled/ra-ui/compare/v1.0.11...v1.0.12) (2019-02-05)
 
 

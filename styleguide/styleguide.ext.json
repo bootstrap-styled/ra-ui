@@ -61,5 +61,9 @@
       "name": "Code of conduct",
       "content": "CODE_OF_CONDUCT.md"
     }
-  ]
+  ],
+  "ribbon": {
+    "url": "https://github.com/bootstrap-styled/ra-ui",
+    "text": "Fork us on GitHub"
+  }
 }
