@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
@@ -68,7 +68,7 @@ class Sidebar extends PureComponent {
             onClose={this.toggleSidebar}
             {...rest}
           >
-            {React.cloneElement(children, {
+            {cloneElement(Children.only(children), {
               onMenuClick: this.handleClose,
             })}
           </Drawer>
@@ -82,7 +82,7 @@ class Sidebar extends PureComponent {
             onClose={this.toggleSidebar}
             {...rest}
           >
-            {React.cloneElement(children, {
+            {cloneElement(Children.only(children), {
               onMenuClick: this.handleClose,
             })}
           </DrawerPaper>
@@ -96,7 +96,7 @@ class Sidebar extends PureComponent {
             onClose={this.toggleSidebar}
             {...rest}
           >
-            {React.cloneElement(children)}
+            {cloneElement(Children.only(children))}
           </DrawerPaper>
         )}
       />

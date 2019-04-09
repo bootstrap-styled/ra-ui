@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -45,47 +45,67 @@ import { translate } from 'ra-core';
  *     onClose={() => { // do something }}
  * />
  */
-const Confirm = ({
-  isOpen,
-  title,
-  content,
-  confirm,
-  cancel,
-  confirmColor,
-  onConfirm,
-  onClose,
-  translate,
-}) => (
-  <Dialog
-    open={isOpen}
-    onClose={onClose}
-    aria-labelledby="alert-dialog-title"
-  >
-    <DialogTitle id="alert-dialog-title">{translate(title, { _: title })}</DialogTitle>
-    <DialogContent>
-      <DialogContentText>{translate(content, { _: content })}</DialogContentText>
-    </DialogContent>
-    <DialogActions>
-      <Button onClick={onClose}>
-        <AlertError />
-        {translate(cancel, { _: cancel })}
-      </Button>
-      <Button
-        onClick={onConfirm}
-        color={confirmColor}
-        autoFocus
+class Confirm extends Component {
+  state = { loading: false };
+
+  handleConfirm = e => {
+    e.stopPropagation();
+    this.setState({ loading: true });
+    this.props.onConfirm();
+  };
+
+  render() {
+    const {
+      isOpen,
+      title,
+      content,
+      confirm,
+      cancel,
+      onClose,
+      translate,
+      translateOptions = {},
+    } = this.props;
+    const { loading } = this.state;
+
+    return (
+      <Dialog
+        open={isOpen}
+        onClose={onClose}
+        aria-labelledby="alert-dialog-title"
       >
-        <ActionCheck />
-        {translate(confirm, { _: confirm })}
-      </Button>
-    </DialogActions>
-  </Dialog>
-);
+        <DialogTitle id="alert-dialog-title">
+          {translate(title, { _: title, ...translateOptions })}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            {translate(content, {
+              _: content,
+              ...translateOptions,
+            })}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button disabled={loading} onClick={onClose}>
+            <AlertError />
+            {translate(cancel, { _: cancel })}
+          </Button>
+          <Button
+            disabled={loading}
+            onClick={this.handleConfirm}
+            autoFocus
+          >
+            <ActionCheck />
+            {translate(confirm, { _: confirm })}
+          </Button>
+        </DialogActions>
+      </Dialog>
+    );
+  }
+}
 
 Confirm.propTypes = {
   cancel: PropTypes.string.isRequired,
   confirm: PropTypes.string.isRequired,
-  confirmColor: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   isOpen: PropTypes.bool,
   onClose: PropTypes.func.isRequired,
@@ -94,10 +114,10 @@ Confirm.propTypes = {
   translate: PropTypes.func.isRequired,
 };
 
+
 Confirm.defaultProps = {
   cancel: 'ra.action.cancel',
   confirm: 'ra.action.confirm',
-  confirmColor: 'primary',
   isOpen: false,
 };
 

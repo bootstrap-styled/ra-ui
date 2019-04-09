@@ -89,8 +89,8 @@ const enhance = compose(
       areStatePropsEqual: (prev, next) => prev.resources.every(
         (value, index) => value === next.resources[index] // shallow compare resources
       )
-                && prev.pathname == next.pathname // eslint-disable-line eqeqeq
-                && prev.open == next.open, // eslint-disable-line eqeqeq
+                && prev.pathname === next.pathname // eslint-disable-line eqeqeq
+                && prev.open === next.open, // eslint-disable-line eqeqeq
     }
   ),
 );
