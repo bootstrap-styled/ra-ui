@@ -1,3 +1,31 @@
+## [1.0.22](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.21...v1.0.22) (2019-03-22)
+
+
+### Bug Fixes
+
+* **Actions:** actions now support customized props ([b021e81](https://github.com/bootstrap-styled/ra-ui/commit/b021e81))
+
+## [1.0.21](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.20...v1.0.21) (2019-03-21)
+
+
+### Bug Fixes
+
+* **dependencies:** upgrade all dependencies ([6d6cbce](https://github.com/bootstrap-styled/ra-ui/commit/6d6cbce))
+
+## [1.0.20](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.19...v1.0.20) (2019-03-18)
+
+
+### Bug Fixes
+
+* **demo:** upgrade demo ([66e5a93](https://github.com/bootstrap-styled/ra-ui/commit/66e5a93))
+
+## [1.0.19](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.18...v1.0.19) (2019-03-18)
+
+
+### Bug Fixes
+
+* **demo:** fix demo and upgrade all dependencies ([2e0afc5](https://github.com/bootstrap-styled/ra-ui/commit/2e0afc5))
+
 ## [1.0.18](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.17...v1.0.18) (2019-03-11)
 
 
