@@ -105,7 +105,6 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  color: 'primary',
   size: 'sm',
 };
 
