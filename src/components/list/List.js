@@ -1,5 +1,5 @@
 /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
-import React from 'react';
+import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 
 import classnames from 'classnames';
@@ -8,10 +8,12 @@ import { ListController, getListControllerProps } from 'ra-core';
 import Title from '../layout/Title';
 import ListToolbar from './ListToolbar';
 import DefaultPagination from './Pagination';
-import DefaultBulkActionButtons from '../button/BulkDeleteButton';
+import BulkDeleteButton from '../button/BulkDeleteButton';
 import BulkActionsToolbar from './BulkActionsToolbar';
 import DefaultActions from './ListActions';
 import CardContent from '../layout/CardContent';
+
+const DefaultBulkActionButtons = props => <BulkDeleteButton {...props} />;
 
 const sanitizeRestProps = ({
   actions,
@@ -74,12 +76,13 @@ const sanitizeRestProps = ({
 
 export const ListView = ({
   // component props
-  actions = <DefaultActions />,
+  actions,
   aside,
+  filter,
   filters,
   bulkActions, // deprecated
-  bulkActionButtons = <DefaultBulkActionButtons />,
-  pagination = <DefaultPagination />,
+  bulkActionButtons,
+  pagination,
   // overridable by user
   children,
   className,
@@ -115,17 +118,17 @@ export const ListView = ({
         )}
         <div key={version}>
           {children
-          && React.cloneElement(children, {
+          && cloneElement(Children.only(children), {
             ...controllerProps,
             hasBulkActions:
               bulkActions !== false
               && bulkActionButtons !== false,
           })}
           {pagination
-          && React.cloneElement(pagination, controllerProps)}
+          && cloneElement(pagination, controllerProps)}
         </div>
       </CardContent>
-      {aside && React.cloneElement(aside, controllerProps)}
+      {aside && cloneElement(aside, controllerProps)}
     </div>
   );
 };
@@ -171,6 +174,12 @@ ListView.propTypes = {
   total: PropTypes.number,
   translate: PropTypes.func,
   version: PropTypes.number,
+};
+
+ListView.defaultProps = {
+  actions: <DefaultActions />,
+  bulkActionButtons: <DefaultBulkActionButtons />,
+  pagination: <DefaultPagination />,
 };
 
 /**

@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, {
+  Component, isValidElement, Children, cloneElement,
+} from 'react';
 import PropTypes from 'prop-types';
 import { sanitizeListRestProps } from 'ra-core';
 import Table from '@bootstrap-styled/v4/lib/Table';
@@ -145,9 +147,9 @@ class Datagrid extends Component {
                   />
                 </Th>
               )}
-              {React.Children.map(
+              {Children.map(
                 children,
-                (field, index) => field ? (
+                (field, index) => isValidElement(field) ? (
                   <DatagridHeaderCell
                     currentSort={currentSort}
                     field={field}
@@ -163,7 +165,7 @@ class Datagrid extends Component {
               )}
             </Tr>
           </Thead>
-          {React.cloneElement(
+          {cloneElement(
             body,
             {
               basePath,

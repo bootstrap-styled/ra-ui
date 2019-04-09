@@ -9,7 +9,6 @@ export class Filter extends Component {
   renderButton() {
     const {
       context,
-      debounce,
       resource,
       children,
       showFilter,
@@ -34,7 +33,6 @@ export class Filter extends Component {
   renderForm() {
     const {
       context,
-      debounce,
       resource,
       children,
       hideFilter,
@@ -68,17 +66,12 @@ export class Filter extends Component {
 Filter.propTypes = {
   children: PropTypes.node,
   context: PropTypes.oneOf(['form', 'button']),
-  debounce: PropTypes.number.isRequired,
   displayedFilters: PropTypes.object,
   filterValues: PropTypes.object,
   hideFilter: PropTypes.func,
   setFilters: PropTypes.func,
   showFilter: PropTypes.func,
   resource: PropTypes.string.isRequired,
-};
-
-Filter.defaultProps = {
-  debounce: 500,
 };
 
 export default Filter;
