@@ -9,6 +9,7 @@ import ShowGuesser from './ShowGuesser';
 import SimpleShowLayout from './SimpleShowLayout';
 import TabbedShowLayout from './TabbedShowLayout';
 import Tab from './Tab';
+import TabbedShowLayoutTabs from './TabbedShowLayoutTabs';
 
 export {
   Create,
@@ -25,4 +26,5 @@ export {
   SimpleShowLayout,
   TabbedShowLayout,
   Tab,
+  TabbedShowLayoutTabs,
 };

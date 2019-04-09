@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import MuiTab from '@material-ui/core/Tab';
@@ -79,7 +79,7 @@ class Tab extends Component {
     <span className={className}>
       {React.Children.map(
         children,
-        field => field && (
+        field => field && isValidElement(field) ? (
           <div
             key={field.props.source}
             className={classnames(
@@ -108,7 +108,7 @@ class Tab extends Component {
               })
             )}
           </div>
-        )
+        ) : null
       )}
     </span>
   );
