@@ -12,6 +12,7 @@ const DashboardMenuItem = ({
   ...props
 }) => (
   <MenuItemLink
+    className={className}
     onClick={onClick}
     to="/"
     primaryText={translate('ra.page.dashboard')}

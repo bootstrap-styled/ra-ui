@@ -42,15 +42,16 @@ class UserMenu extends React.Component {
           aria-haspopup
           toggle={this.handleMenu}
           isOpen={open}
+          style={{ height: '48px' }}
         >
           <Button
-            className="add-filter h-100 cursor-pointer"
+            className="add-filter h-100 cursor-pointer text-white"
             onClick={this.handleMenu}
             label={label}
           >
             {icon}
           </Button>
-          <DropdownMenu right>
+          <DropdownMenu right className="mt-0 rounded-0 rounded-bottom">
             {Children.map(children, menuItem => cloneElement(menuItem, { onClick: this.handleMenu }))}
             {logout}
           </DropdownMenu>
