@@ -41,7 +41,7 @@ jobs:
         - '10'
         - '8'
       script:
-        - npm run build
+        - npx @rollup-umd/build
     # Job: Test
     - stage: test
       node_js:
@@ -52,8 +52,7 @@ jobs:
         sonarcloud:
           organization: $(echo $TRAVIS_REPO_SLUG | awk -F '/' '{print $1}')
       script:
-        - npm run test
-        - if [[ "$TRAVIS_BRANCH" != greenkeeper* && -n "$SONAR_TOKEN" ]]; then sonar-scanner -Dsonar.projectVersion=${SONAR_VERSION}; fi
+        - npx @rollup-umd/test
 
     # Job: Release
     - stage: release
@@ -72,7 +71,7 @@ jobs:
       script:
         - targetVersion=$(git describe --tags `git rev-list --tags --max-count=1`)
         - npx @rollup-umd/deploy --target-version "${targetVersion}"
-        # this is necessary to place the demo
+        # this is will add the demo site to the pages build
         - npm install --prefix examples/demo
         - npm run build --prefix examples/demo
         - mv examples/demo/build public/demo
