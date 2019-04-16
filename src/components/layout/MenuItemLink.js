@@ -51,7 +51,6 @@ export class MenuItemLink extends Component {
         <MenuItem
           className={className}
           style={{ textDecoration: 'none', transition: 'all .2s ease-in-out' }}
-          action
           tag={NavLink}
           {...props}
           onClick={this.handleMenuTap}
