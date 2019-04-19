@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{2087:function(r,e,t){"use strict";t.r(e);var n=t(2084);e.default=function(){return Object(n.a)({clientOptions:{uri:"http://localhost:4000/graphql"}}).then(function(r){return function(e,t,n){return r(e,function(r){switch(r){case"customers":return"Customer";case"categories":return"Category";case"commands":return"Command";case"products":return"Product";case"reviews":return"Review";default:throw new Error("Unknown resource ".concat(r))}}(t),n)}})}}}]);
+//# sourceMappingURL=6.0d102ed6.chunk.js.map
