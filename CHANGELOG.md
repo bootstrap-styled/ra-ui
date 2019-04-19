@@ -1,3 +1,22 @@
+## [1.0.24](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.23...v1.0.24) (2019-04-19)
+
+
+### Bug Fixes
+
+* **Button:** removed default props colors: primary. ([a6526e0](https://github.com/bootstrap-styled/ra-ui/commit/a6526e0))
+* **components:** minor fixes and improvements. ([95c7d6d](https://github.com/bootstrap-styled/ra-ui/commit/95c7d6d))
+* **dependencies:** more permissive peer dependencies and unfix version of ra-core ([32a2d42](https://github.com/bootstrap-styled/ra-ui/commit/32a2d42))
+* **MenuItemLink:** removed mistake props ([2aa723f](https://github.com/bootstrap-styled/ra-ui/commit/2aa723f))
+* **migartion ra-ui-2.8.5:** migrated detail/ ([6a81796](https://github.com/bootstrap-styled/ra-ui/commit/6a81796))
+* **migration ra-ui-2.8.5:** migrate layout/ ([9d6cd7b](https://github.com/bootstrap-styled/ra-ui/commit/9d6cd7b))
+* **migration ra-ui-2.8.5:** migrated field/ ([964aa2d](https://github.com/bootstrap-styled/ra-ui/commit/964aa2d))
+* **migration ra-ui-2.8.5:** migrated form/ ([a60798e](https://github.com/bootstrap-styled/ra-ui/commit/a60798e))
+* **migration ra-ui-2.8.5:** migrated input/ ([1ace0cb](https://github.com/bootstrap-styled/ra-ui/commit/1ace0cb))
+* **migration ra-ui-2.8.5:** migrated list/ ([6131ed8](https://github.com/bootstrap-styled/ra-ui/commit/6131ed8))
+* **migration ra-ui-2.8.5:** updated ra-ui-maui and migrated auth/ and button/ ([1653816](https://github.com/bootstrap-styled/ra-ui/commit/1653816))
+* **package.json:** merge resolv. ([34cc6c0](https://github.com/bootstrap-styled/ra-ui/commit/34cc6c0))
+* **theme:** moved main theme at root of folders. ([2bc19e2](https://github.com/bootstrap-styled/ra-ui/commit/2bc19e2))
+
 ## [1.0.23](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.22...v1.0.23) (2019-04-12)
 
 
