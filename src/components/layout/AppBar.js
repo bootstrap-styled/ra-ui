@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react';
+import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
@@ -51,16 +51,19 @@ const AppBarUnstyled = ({
     <BsAppBar className={classnames(className, 'appbar p-0')} {...rest}>
       <MenuButton
         aria-label="open drawer"
-        className="mx-3"
+        className="mr-3 ml-1"
         onClick={toggleSidebar}
       >
         <MenuIcon />
       </MenuButton>
-      <H2 className="appbar-title my-0" id="react-admin-title">
-        <span>
-          {typeof title === 'string' ? title : React.cloneElement(title)}
-        </span>
-      </H2>
+      {Children.count(children) === 0 ? (
+        <H2
+          className="appbar-title my-0"
+          id="react-admin-title"
+        />
+      ) : (
+        children
+      )}
       <LoadingIndicator />
       {cloneElement(userMenu, { logout })}
     </BsAppBar>

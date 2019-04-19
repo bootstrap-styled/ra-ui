@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { shallowEqual } from 'recompose';
 import Dropzone from 'react-dropzone';
@@ -111,9 +111,7 @@ export class FileInput extends Component {
       return file;
     }
 
-    const { source, title } = React.Children.toArray(
-      this.props.children
-    )[0].props;
+    const { source, title } = Children.only(this.props.children).props;
 
     const transformedFile = {
       rawFile: file,
@@ -198,19 +196,15 @@ export class FileInput extends Component {
                   file={file}
                   onRemove={this.onRemove(file)}
                 >
-                  {React.cloneElement(children, {
+                  {cloneElement(Children.only(children), {
                     record: file,
                   })}
                 </FileInputPreview>
               ))}
             </div>
           )}
-          {meta
-          && meta.touched
-          && meta.error && (
-            <FormHelperText>
-              {translate(meta.error)}
-            </FormHelperText>
+          {meta && meta.touched && meta.error && (
+            <FormHelperText>{translate(meta.error)}</FormHelperText>
           )}
         </span>
       </Labeled>

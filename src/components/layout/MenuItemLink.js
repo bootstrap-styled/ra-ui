@@ -20,11 +20,12 @@ export class MenuItemLink extends Component {
       /** @ignore */
       onClick: PropTypes.func,
       /** @ignore */
-      primaryText: PropTypes.string,
+      primaryText: PropTypes.node,
       /** @ignore */
       staticContext: PropTypes.object,
       /** @ignore */
-      to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+      to: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+        .isRequired,
       /** Changes root component so its used in userMenu */
       userMenu: PropTypes.bool,
     };
@@ -50,7 +51,6 @@ export class MenuItemLink extends Component {
         <MenuItem
           className={className}
           style={{ textDecoration: 'none', transition: 'all .2s ease-in-out' }}
-          action
           tag={NavLink}
           {...props}
           onClick={this.handleMenuTap}

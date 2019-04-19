@@ -20,6 +20,8 @@ const Toolbar = styled.div`
 
 const ListToolbar = ({
   filters,
+  filterValues, // dynamically set via the UI by the user
+  permanentFilter, // set in the List component by the developer
   actions,
   bulkActions,
   exporter,
@@ -29,6 +31,7 @@ const ListToolbar = ({
     {filters
     && React.cloneElement(filters, {
       ...rest,
+      filterValues,
       context: 'form',
     })}
     <span />
@@ -38,6 +41,8 @@ const ListToolbar = ({
       bulkActions,
       exporter,
       filters,
+      filterValues,
+      permanentFilter,
       ...actions.props,
     })}
   </Toolbar>
@@ -46,6 +51,7 @@ const ListToolbar = ({
 ListToolbar.propTypes = {
   filters: PropTypes.element,
   actions: PropTypes.element,
+  permanentFilter: PropTypes.object,
   bulkActions: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
   exporter: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
 };

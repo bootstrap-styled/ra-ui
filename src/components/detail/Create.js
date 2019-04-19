@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { CreateController } from 'ra-core';
@@ -57,7 +57,7 @@ export const CreateView = ({
     <CardContent>
       {actions && (
         <CardContentInner>
-          {React.cloneElement(actions, {
+          {cloneElement(actions, {
             basePath,
             resource,
             hasList,
@@ -65,7 +65,7 @@ export const CreateView = ({
           })}
         </CardContentInner>
       )}
-      {React.cloneElement(children, {
+      {cloneElement(Children.only(children), {
         basePath,
         record,
         redirect:
@@ -77,7 +77,7 @@ export const CreateView = ({
       })}
     </CardContent>
     {aside
-    && React.cloneElement(aside, {
+    && cloneElement(aside, {
       basePath,
       record,
       resource,

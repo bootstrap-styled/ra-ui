@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import CardBlock from '@bootstrap-styled/v4/lib/Cards/CardBlock';
 
@@ -53,6 +53,7 @@ export const EditView = ({
   resource,
   save,
   title,
+  undoable,
   version,
   ...rest
 }) => {
@@ -64,7 +65,7 @@ export const EditView = ({
   }
   return (
     <div
-      className={classnames('edit-page', className)}
+      className={classnames('edit-page d-flex', className)}
       {...sanitizeRestProps(rest)}
     >
       <TitleForRecord
@@ -75,7 +76,7 @@ export const EditView = ({
       <CardContent>
         {actions && (
           <CardContentInner>
-            {React.cloneElement(actions, {
+            {cloneElement(actions, {
               basePath,
               data: record,
               hasShow,
@@ -87,7 +88,7 @@ export const EditView = ({
         )}
         {record ? (
           <CardContentInner>
-            {React.cloneElement(children, {
+            {cloneElement(Children.only(children), {
               basePath,
               record,
               redirect:
@@ -96,6 +97,7 @@ export const EditView = ({
                   : children.props.redirect,
               resource,
               save,
+              undoable,
               version,
             })}
           </CardContentInner>

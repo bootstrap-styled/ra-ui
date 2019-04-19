@@ -1,4 +1,4 @@
-import React, { Children, cloneElement } from 'react';
+import React, { Children, cloneElement, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import ButtonDropdown from '@bootstrap-styled/v4/lib/Button/ButtonDropdown';
@@ -45,14 +45,15 @@ class UserMenu extends React.Component {
           style={{ height: '48px' }}
         >
           <Button
-            className="add-filter h-100 cursor-pointer text-white"
+            className="add-filter h-100 cursor-pointer text-white rounded-0"
             onClick={this.handleMenu}
             label={label}
           >
             {icon}
           </Button>
           <DropdownMenu right className="mt-0 rounded-0 rounded-bottom">
-            {Children.map(children, menuItem => cloneElement(menuItem, { onClick: this.handleMenu }))}
+            {Children.map(children, menuItem => isValidElement(menuItem)
+              ? cloneElement(menuItem, { onClick: this.handleClose }) : null)}
             {logout}
           </DropdownMenu>
         </ButtonDropdown>

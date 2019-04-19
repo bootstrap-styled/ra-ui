@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import Progress from '@bootstrap-styled/v4/lib/Progress';
 import ProgressBar from '@bootstrap-styled/v4/lib/Progress/ProgressBar';
@@ -23,7 +23,7 @@ export const ReferenceArrayFieldView = ({
     );
   }
 
-  return React.cloneElement(children, {
+  return React.cloneElement(Children.only(children), {
     className,
     resource: reference,
     ids,
