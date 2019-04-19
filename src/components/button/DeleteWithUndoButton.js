@@ -7,6 +7,7 @@ import classnames from 'classnames';
 import { translate, crudDelete, startUndoable } from 'ra-core';
 import styled from 'styled-components';
 import Color from '@bootstrap-styled/color';
+import { omit } from 'lodash';
 
 import Button from './Button';
 
@@ -33,7 +34,7 @@ const StyledButton = styled(Button)`
   ${props => `
     color: ${props.theme.$red} 
     &:hover {
-      background-color: ${Color(props.theme.$red.fade(0.12).toString())}
+      background-color: ${Color(props.theme.$red).fade(0.12).toString()}
     }
   `}
 `;
@@ -66,7 +67,8 @@ class DeleteWithUndoButton extends Component {
       icon,
       onClick,
       ...rest
-    } = this.props;
+    } = omit(this.props, ['theme']);
+
     return (
       <StyledButton
         onClick={this.handleDelete}
@@ -97,12 +99,18 @@ DeleteWithUndoButton.propTypes = {
   startUndoable: PropTypes.func,
   translate: PropTypes.func,
   icon: PropTypes.element,
+  theme: PropTypes.shape({
+    $red: PropTypes.string,
+  }),
 };
 
 DeleteWithUndoButton.defaultProps = {
   redirect: 'list',
   undoable: true,
   icon: <ActionDelete />,
+  theme: {
+    $red: '#d9534f',
+  },
 };
 
 export default compose(

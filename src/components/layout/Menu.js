@@ -35,7 +35,7 @@ const Menu = ({
   logout,
   ...rest
 }) => (
-  <ListGroup className={classnames(className, 'd-flex flex-column flex-start pl-4 mt-2')} style={{ width: DRAWER_WIDTH }} {...rest}>
+  <ListGroup className={classnames(className, 'd-flex flex-column flex-start pl-2 mt-2')} style={{ width: DRAWER_WIDTH }} {...rest}>
     {hasDashboard && <DashboardMenuItem onClick={onMenuClick} className="border-0 rounded-0 d-flex flex-start pl-2" />}
     {resources
       .filter(r => r.hasList)

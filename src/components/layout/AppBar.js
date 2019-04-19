@@ -51,7 +51,7 @@ const AppBarUnstyled = ({
     <BsAppBar className={classnames(className, 'appbar p-0')} {...rest}>
       <MenuButton
         aria-label="open drawer"
-        className="mx-3"
+        className="mr-3 ml-1"
         onClick={toggleSidebar}
       >
         <MenuIcon />

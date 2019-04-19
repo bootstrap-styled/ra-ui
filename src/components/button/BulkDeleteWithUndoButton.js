@@ -6,6 +6,7 @@ import ActionDelete from '@material-ui/icons/Delete';
 import { startUndoable, crudDeleteMany } from 'ra-core';
 import styled from 'styled-components';
 import Color from '@bootstrap-styled/color';
+import { omit } from 'lodash';
 
 import Button from './Button';
 
@@ -25,7 +26,7 @@ const StyledButton = styled(Button)`
   ${props => `
     color: ${props.theme.$red} 
     &:hover {
-      background-color: ${Color(props.theme.$red.fade(0.12).toString())}
+      background-color: ${Color(props.theme.$red).fade(0.12).toString()}
     }
   `}
 `;
@@ -38,12 +39,19 @@ class BulkDeleteWithUndoButton extends Component {
     startUndoable: PropTypes.func,
     selectedIds: PropTypes.arrayOf(PropTypes.any).isRequired,
     icon: PropTypes.element,
+    className: PropTypes.string,
+    theme: PropTypes.shape({
+      $red: PropTypes.string,
+    }),
   };
 
   static defaultProps = {
     label: 'ra.action.delete',
     undoable: true,
     icon: <ActionDelete />,
+    theme: {
+      $red: '#d9534f',
+    },
   };
 
   handleClick = () => {
@@ -64,13 +72,13 @@ class BulkDeleteWithUndoButton extends Component {
 
   render() {
     const {
-      classes, label, icon, onClick, ...rest
-    } = this.props;
+      className, label, icon, onClick, ...rest
+    } = omit(this.props, ['theme']);
     return (
       <StyledButton
         onClick={this.handleClick}
         label={label}
-        className={classes.deleteButton}
+        className={className}
         {...sanitizeRestProps(rest)}
       >
         {icon}

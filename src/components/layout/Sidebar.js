@@ -11,7 +11,7 @@ import withWidth from '../extendMui/withWidth';
 import Responsive from './Responsive';
 
 export const DRAWER_WIDTH = '230px';
-export const CLOSED_DRAWER_WIDTH = '55px';
+export const CLOSED_DRAWER_WIDTH = '57px';
 
 const DrawerPaper = styled(Drawer)`
   width: ${DRAWER_WIDTH};
@@ -78,7 +78,7 @@ class Sidebar extends PureComponent {
             docked
             left={DRAWER_WIDTH}
             active={open}
-            className={cn('mt-3', { close: !open })}
+            className={cn('pt-3', { close: !open })}
             onClose={this.toggleSidebar}
             {...rest}
           >
@@ -92,7 +92,7 @@ class Sidebar extends PureComponent {
             docked
             left={DRAWER_WIDTH}
             active={open}
-            className={cn('mt-2', { close: !open })}
+            className={cn('pt-2', { close: !open })}
             onClose={this.toggleSidebar}
             {...rest}
           >

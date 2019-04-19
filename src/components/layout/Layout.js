@@ -16,7 +16,7 @@ import Sidebar from './Sidebar';
 import Menu from './Menu';
 import Notification from './Notification';
 import Error from './Error';
-import defaultTheme from '../defaultTheme';
+import defaultTheme from '../theme';
 
 const LayoutWrapper = styled.div`
   ${props => `
@@ -33,6 +33,7 @@ const LayoutWrapper = styled.div`
 const LayoutFrame = styled.div`
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 `;
 
 const ContentWithSidebar = styled.main`
