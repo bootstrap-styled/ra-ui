@@ -1,4 +1,4 @@
-import React, { cloneElement, Component } from 'react';
+import React, { cloneElement, Component, Children } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import LinearProgress from '@material-ui/core/LinearProgress';
@@ -91,7 +91,7 @@ export class SingleFieldList extends Component {
                 to={resourceLinkPath}
                 onClick={stopPropagation}
               >
-                {cloneElement(children, {
+                {cloneElement(Children.only(children), {
                   record: data[id],
                   resource,
                   basePath,
@@ -102,7 +102,7 @@ export class SingleFieldList extends Component {
             );
           }
 
-          return cloneElement(children, {
+          return cloneElement(Children.only(children), {
             key: id,
             record: data[id],
             resource,

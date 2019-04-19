@@ -9,6 +9,7 @@ const Title = ({
   className,
   defaultTitle,
   record,
+  locale,
   title,
   translate,
   ...rest
@@ -33,6 +34,7 @@ const Title = ({
 Title.propTypes = {
   defaultTitle: PropTypes.string.isRequired,
   className: PropTypes.string,
+  locale: PropTypes.string,
   record: PropTypes.object,
   translate: PropTypes.func.isRequired,
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),

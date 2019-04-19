@@ -1,3 +1,44 @@
+## [1.0.23](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.22...v1.0.23) (2019-04-12)
+
+
+### Bug Fixes
+
+* **demo:** added some new visuals ([575e4a1](https://github.com/bootstrap-styled/ra-ui/commit/575e4a1))
+* **dependencies:** downgrade @material-ui/core to v1.5.1 and @material-ui/icons to v1.1.1 to respect dependency of react-admin v2.6.4. Installed dependency history v7.4.0 to prevent newer version from being installed ([c01b896](https://github.com/bootstrap-styled/ra-ui/commit/c01b896))
+* **dependencies:** install ci dependencies ([a317000](https://github.com/bootstrap-styled/ra-ui/commit/a317000))
+* **Layout:** improved visuals of Sidebar. ([138e53b](https://github.com/bootstrap-styled/ra-ui/commit/138e53b))
+* **Layout:** improved visuals of UserMenu and SideBar. ([ec654c1](https://github.com/bootstrap-styled/ra-ui/commit/ec654c1))
+* **Menu:** improved visuals ([94e102a](https://github.com/bootstrap-styled/ra-ui/commit/94e102a))
+* **MenuItem:** allow to beused in both userMenu and Sidebar ([028a1bd](https://github.com/bootstrap-styled/ra-ui/commit/028a1bd))
+
+## [1.0.22](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.21...v1.0.22) (2019-03-22)
+
+
+### Bug Fixes
+
+* **Actions:** actions now support customized props ([b021e81](https://github.com/bootstrap-styled/ra-ui/commit/b021e81))
+
+## [1.0.21](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.20...v1.0.21) (2019-03-21)
+
+
+### Bug Fixes
+
+* **dependencies:** upgrade all dependencies ([6d6cbce](https://github.com/bootstrap-styled/ra-ui/commit/6d6cbce))
+
+## [1.0.20](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.19...v1.0.20) (2019-03-18)
+
+
+### Bug Fixes
+
+* **demo:** upgrade demo ([66e5a93](https://github.com/bootstrap-styled/ra-ui/commit/66e5a93))
+
+## [1.0.19](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.18...v1.0.19) (2019-03-18)
+
+
+### Bug Fixes
+
+* **demo:** fix demo and upgrade all dependencies ([2e0afc5](https://github.com/bootstrap-styled/ra-ui/commit/2e0afc5))
+
 ## [1.0.18](https://github.com/bootstrap-styled/ra-ui/compare/v1.0.17...v1.0.18) (2019-03-11)
 
 

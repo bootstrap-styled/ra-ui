@@ -8,6 +8,7 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import { withStyles, createStyles } from '@material-ui/core/styles';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
 import compose from 'recompose/compose';
@@ -15,7 +16,7 @@ import classnames from 'classnames';
 
 import { addField, translate, FieldTitle } from 'ra-core';
 
-const styles = theme => ({
+const styles = theme => createStyles({
   container: {
     flexGrow: 1,
     position: 'relative',
@@ -102,7 +103,11 @@ export class AutocompleteInput extends React.Component {
     suggestions: [],
   };
 
+  ignoreNextChoicesUpdate = false;
+
   inputEl = null;
+
+  anchorEl = null;
 
   componentWillMount() {
     const selectedItem = this.getSelectedItem(
@@ -135,9 +140,15 @@ export class AutocompleteInput extends React.Component {
             : this.props.choices,
         prevSuggestions: false,
       });
+      // Avoid displaying the suggestions again when one just has been selected
+      this.ignoreNextChoicesUpdate = true;
       // Ensure to reset the filter
       this.updateFilter('');
     } else if (!isEqual(choices, this.props.choices)) {
+      if (this.ignoreNextChoicesUpdate) {
+        this.ignoreNextChoicesUpdate = false;
+        return;
+      }
       const selectedItem = this.getSelectedItem(
         nextProps,
         this.state.inputValue
@@ -156,12 +167,11 @@ export class AutocompleteInput extends React.Component {
     }
   }
 
-  getSelectedItem = ({ choices }, inputValue) =>
-    choices && inputValue
-      ? choices.find(
+  getSelectedItem = ({ choices }, inputValue) => choices && inputValue
+    ? choices.find(
       choice => this.getSuggestionValue(choice) === inputValue
-      )
-      : null;
+    )
+    : null;
 
   getSuggestionValue = suggestion => get(suggestion, this.props.optionValue);
 
@@ -169,10 +179,9 @@ export class AutocompleteInput extends React.Component {
     if (!suggestion) return '';
 
     const { optionText, translate, translateChoice } = this.props;
-    const suggestionLabel =
-      typeof optionText === 'function'
-        ? optionText(suggestion)
-        : get(suggestion, optionText);
+    const suggestionLabel = typeof optionText === 'function'
+      ? optionText(suggestion)
+      : get(suggestion, optionText, '');
 
     // We explicitly call toString here because AutoSuggest expect a string
     return translateChoice
@@ -184,16 +193,9 @@ export class AutocompleteInput extends React.Component {
     const { input } = this.props;
 
     const inputValue = this.getSuggestionValue(suggestion);
-    this.setState(
-      {
-        dirty: false,
-        inputValue,
-        selectedItem: suggestion,
-        searchText: this.getSuggestionText(suggestion),
-        suggestions: [suggestion],
-      },
-      () => input && input.onChange && input.onChange(inputValue)
-    );
+    if (input && input.onChange) {
+      input.onChange(inputValue);
+    }
 
     if (method === 'enter') {
       event.preventDefault();
@@ -202,7 +204,7 @@ export class AutocompleteInput extends React.Component {
 
   handleSuggestionsFetchRequested = () => {
     this.setState(({ suggestions, prevSuggestions }) => ({
-      suggestions: prevSuggestions ? prevSuggestions : suggestions,
+      suggestions: prevSuggestions || suggestions,
     }));
   };
 
@@ -211,60 +213,30 @@ export class AutocompleteInput extends React.Component {
   };
 
   handleMatchSuggestionOrFilter = inputValue => {
-    const { choices, inputValueMatcher, input } = this.props;
-
-    const matches =
-      inputValue &&
-      choices.filter(it =>
-        inputValueMatcher(inputValue, it, this.getSuggestionText)
-      );
-
-    if (matches.length === 1) {
-      const match = matches[0];
-      const nextId = this.getSuggestionValue(match);
-      const suggestionText = this.getSuggestionText(match);
-
-      if (this.state.inputValue !== nextId) {
-        this.setState(
-          {
-            inputValue: nextId,
-            searchText: suggestionText, // The searchText could be whatever the inputvalue matcher likes, so sanitize it
-            selectedItem: match,
-            suggestions: [match],
-          },
-          () => input.onChange(nextId)
-        );
-      } else {
-        this.setState({
-          dirty: false,
-          suggestions: [match],
-          searchText: suggestionText,
-        });
-      }
-    } else {
-      this.setState({
-        dirty: true,
-        searchText: inputValue,
-      });
-      this.updateFilter(inputValue);
-    }
+    this.setState({
+      dirty: true,
+      searchText: inputValue,
+    });
+    this.updateFilter(inputValue);
   };
 
   handleChange = (event, { newValue, method }) => {
     switch (method) {
       case 'type':
-      case 'escape': {
-        this.handleMatchSuggestionOrFilter(newValue);
-      }
+      case 'escape':
+        {
+          this.handleMatchSuggestionOrFilter(newValue);
+        }
         break;
     }
   };
 
   renderInput = inputProps => {
-    const { input } = this.props;
+    const { helperText, input } = this.props;
     const {
       autoFocus,
       className,
+      classes = {},
       isRequired,
       label,
       meta,
@@ -282,36 +254,40 @@ export class AutocompleteInput extends React.Component {
       );
     }
 
-    const { touched, error, helperText = false } = meta;
+    const { touched, error } = meta;
 
     // We need to store the input reference for our Popper element containg the suggestions
     // but Autosuggest also needs this reference (it provides the ref prop)
     const storeInputRef = input => {
       this.inputEl = input;
+      this.updateAnchorEl();
       ref(input);
     };
 
     return (
       <TextField
-        label={
+        label={(
           <FieldTitle
             label={label}
             source={source}
             resource={resource}
             isRequired={isRequired}
           />
-        }
+        )}
         value={value}
         onChange={onChange}
         autoFocus={autoFocus}
         margin="normal"
-        className={className}
+        className={classnames(classes.root, className)}
         inputRef={storeInputRef}
         error={!!(touched && error)}
         helperText={(touched && error) || helperText}
         name={input.name}
         {...options}
         InputProps={{
+          classes: {
+            input: classes.input,
+          },
           ...InputProps,
           ...other,
         }}
@@ -319,23 +295,48 @@ export class AutocompleteInput extends React.Component {
     );
   };
 
+  updateAnchorEl() {
+    if (!this.inputEl) {
+      return;
+    }
+
+    const inputPosition = this.inputEl.getBoundingClientRect();
+
+    if (!this.anchorEl) {
+      this.anchorEl = { getBoundingClientRect: () => inputPosition };
+    } else {
+      const anchorPosition = this.anchorEl.getBoundingClientRect();
+
+      if (
+        anchorPosition.x !== inputPosition.x
+        || anchorPosition.y !== inputPosition.y
+      ) {
+        this.anchorEl = { getBoundingClientRect: () => inputPosition };
+      }
+    }
+  }
+
   renderSuggestionsContainer = autosuggestOptions => {
     const {
       containerProps: { className, ...containerProps },
       children,
     } = autosuggestOptions;
-    const { options } = this.props;
+    const { classes = {}, options } = this.props;
+
+    // Force the Popper component to reposition the popup only when this.inputEl is moved to another location
+    this.updateAnchorEl();
 
     return (
       <Popper
         className={className}
         open={Boolean(children)}
-        anchorEl={this.inputEl}
+        anchorEl={this.anchorEl}
         placement="bottom-start"
         {...options.suggestionsContainerProps}
       >
         <Paper
           square
+          className={classes.suggestionsPaper}
           {...containerProps}
         >
           {children}
@@ -345,17 +346,17 @@ export class AutocompleteInput extends React.Component {
   };
 
   renderSuggestionComponent = ({
-                                 suggestion,
-                                 query,
-                                 isHighlighted,
-                                 ...props
-                               }) => <div {...props} />;
+    suggestion,
+    query,
+    isHighlighted,
+    ...props
+  }) => <div {...props} />;
 
   renderSuggestion = (suggestion, { query, isHighlighted }) => {
     const label = this.getSuggestionText(suggestion);
     const matches = match(label, query);
     const parts = parse(label, matches);
-    const { suggestionComponent } = this.props;
+    const { classes = {}, suggestionComponent } = this.props;
 
     return (
       <MenuItem
@@ -368,21 +369,21 @@ export class AutocompleteInput extends React.Component {
         isHighlighted={isHighlighted}
       >
         <div>
-          {parts.map((part, index) => {
-            return part.highlight ? (
-              <span
-                key={index}
-              >
-                                {part.text}
-                            </span>
-            ) : (
-              <strong
-                key={index}
-              >
-                {part.text}
-              </strong>
-            );
-          })}
+          {parts.map((part, index) => part.highlight ? (
+            <span
+              key={index}
+              className={classes.highlightedSuggestionText}
+            >
+              {part.text}
+            </span>
+          ) : (
+            <strong
+              key={index}
+              className={classes.suggestionText}
+            >
+              {part.text}
+            </strong>
+          ))}
         </div>
       </MenuItem>
     );
@@ -422,11 +423,9 @@ export class AutocompleteInput extends React.Component {
         setFilter(value);
       } else {
         this.setState({
-          suggestions: choices.filter(choice =>
-            this.getSuggestionText(choice)
-              .toLowerCase()
-              .includes(value.toLowerCase())
-          ),
+          suggestions: choices.filter(choice => this.getSuggestionText(choice)
+            .toLowerCase()
+            .includes(value.toLowerCase())),
         });
       }
     }
@@ -436,8 +435,8 @@ export class AutocompleteInput extends React.Component {
   shouldRenderSuggestions = val => {
     const { shouldRenderSuggestions } = this.props;
     if (
-      shouldRenderSuggestions !== undefined &&
-      typeof shouldRenderSuggestions === 'function'
+      shouldRenderSuggestions !== undefined
+      && typeof shouldRenderSuggestions === 'function'
     ) {
       return shouldRenderSuggestions(val);
     }
@@ -448,6 +447,7 @@ export class AutocompleteInput extends React.Component {
   render() {
     const {
       alwaysRenderSuggestions,
+      classes = {},
       isRequired,
       label,
       meta,
@@ -461,12 +461,12 @@ export class AutocompleteInput extends React.Component {
 
     return (
       <Autosuggest
-        // theme={{
-        //   container: classes.container,
-        //   suggestionsContainerOpen: classes.suggestionsContainerOpen,
-        //   suggestionsList: classes.suggestionsList,
-        //   suggestion: classes.suggestion,
-        // }}
+        theme={{
+          container: classes.container,
+          suggestionsContainerOpen: classes.suggestionsContainerOpen,
+          suggestionsList: classes.suggestionsList,
+          suggestion: classes.suggestion,
+        }}
         renderInputComponent={this.renderInput}
         suggestions={suggestions}
         alwaysRenderSuggestions={alwaysRenderSuggestions}
@@ -483,6 +483,7 @@ export class AutocompleteInput extends React.Component {
         shouldRenderSuggestions={this.shouldRenderSuggestions}
         inputProps={{
           className,
+          classes,
           isRequired,
           label,
           meta,
@@ -504,6 +505,7 @@ AutocompleteInput.propTypes = {
   allowEmpty: PropTypes.bool,
   alwaysRenderSuggestions: PropTypes.bool, // used only for unit tests
   choices: PropTypes.arrayOf(PropTypes.object),
+  classes: PropTypes.object,
   className: PropTypes.string,
   InputProps: PropTypes.object,
   input: PropTypes.object,
@@ -522,7 +524,6 @@ AutocompleteInput.propTypes = {
   suggestionComponent: PropTypes.func,
   translate: PropTypes.func.isRequired,
   translateChoice: PropTypes.bool.isRequired,
-  inputValueMatcher: PropTypes.func,
 };
 
 AutocompleteInput.defaultProps = {
@@ -532,14 +533,10 @@ AutocompleteInput.defaultProps = {
   optionValue: 'id',
   limitChoicesToValue: false,
   translateChoice: true,
-  inputValueMatcher: (input, suggestion, getOptionText) =>
-    getOptionText(suggestion)
-      .toLowerCase()
-      .trim()
-      .includes(input.toLowerCase().trim()),
 };
 
 export default compose(
   addField,
   translate,
+  withStyles(styles)
 )(AutocompleteInput);

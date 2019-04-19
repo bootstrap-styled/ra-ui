@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { ReferenceFieldController } from 'ra-core';
@@ -37,7 +37,7 @@ export const ReferenceFieldView = ({
         className={className}
         onClick={stopPropagation}
       >
-        {React.cloneElement(children, {
+        {React.cloneElement(Children.only(children), {
           className: classnames(
             children.props.className,
           ),
@@ -52,7 +52,7 @@ export const ReferenceFieldView = ({
     );
   }
 
-  return React.cloneElement(children, {
+  return React.cloneElement(Children.only(children), {
     record: referenceRecord,
     resource: reference,
     allowEmpty,

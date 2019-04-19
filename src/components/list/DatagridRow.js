@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
@@ -59,7 +59,7 @@ class DatagridRow extends Component {
     event.stopPropagation();
   };
 
-  handleClick = async () => {
+  handleClick = async event => {
     const {
       basePath, rowClick, id, record,
     } = this.props;
@@ -68,14 +68,14 @@ class DatagridRow extends Component {
 
     if (typeof rowClick === 'function') {
       const path = await rowClick(id, basePath, record);
-      this.handleRedirection(path);
+      this.handleRedirection(path, event);
       return;
     }
 
-    this.handleRedirection(rowClick);
+    this.handleRedirection(rowClick, event);
   };
 
-  handleRedirection = path => {
+  handleRedirection = (path, event) => {
     const { basePath, id, push } = this.props;
 
     if (path === 'edit') {
@@ -84,6 +84,11 @@ class DatagridRow extends Component {
     }
     if (path === 'show') {
       push(linkToRecord(basePath, id, 'show'));
+      return;
+    }
+
+    if (path === 'expand') {
+      this.handleToggleExpanded(event);
       return;
     }
 
@@ -140,7 +145,7 @@ class DatagridRow extends Component {
           )}
           {React.Children.map(
             children,
-            (field, index) => field ? (
+            (field, index) => isValidElement(field) ? (
               <DatagridCell
                 key={`${id}-${field.props.source || index}`}
                 className={classnames(

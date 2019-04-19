@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { cloneElement, Children } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { ShowController } from 'ra-core';
@@ -58,7 +58,7 @@ export const ShowView = ({
   }
   return (
     <div
-      className={classnames('show-page', className)}
+      className={classnames('show-page d-flex', className)}
       {...sanitizeRestProps(rest)}
     >
       <TitleForRecord
@@ -69,7 +69,7 @@ export const ShowView = ({
       <CardContent>
         {actions && (
           <CardContentInner>
-            {React.cloneElement(actions, {
+            {cloneElement(actions, {
               basePath,
               data: record,
               hasList,
@@ -82,7 +82,7 @@ export const ShowView = ({
         {record
         && (
           <CardContentInner>
-            {React.cloneElement(children, {
+            {cloneElement(Children.only(children), {
               resource,
               basePath,
               record,
@@ -93,7 +93,7 @@ export const ShowView = ({
         }
       </CardContent>
       {aside
-      && React.cloneElement(aside, {
+      && cloneElement(aside, {
         resource,
         basePath,
         record,

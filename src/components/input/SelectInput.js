@@ -16,6 +16,7 @@ const sanitizeRestProps = ({
   crudGetMatching,
   crudGetOne,
   defaultValue,
+  emptyValue,
   filter,
   filterToQuery,
   formClassName,
@@ -149,7 +150,7 @@ export class SelectInput extends Component {
 
     addAllowEmpty = choices => {
       if (this.props.allowEmpty) {
-        return [<Option value="" key="null" />, ...choices];
+        return [<Option value={this.props.emptyValue} key="null" />, ...choices];
       }
 
       return choices;
@@ -232,6 +233,7 @@ export class SelectInput extends Component {
 
 SelectInput.propTypes = {
   allowEmpty: PropTypes.bool.isRequired,
+  emptyValue: PropTypes.any,
   choices: PropTypes.arrayOf(PropTypes.object),
   className: PropTypes.string,
   input: PropTypes.object,
@@ -254,6 +256,7 @@ SelectInput.propTypes = {
 
 SelectInput.defaultProps = {
   allowEmpty: false,
+  emptyValue: '',
   choices: [],
   options: {},
   optionText: 'name',

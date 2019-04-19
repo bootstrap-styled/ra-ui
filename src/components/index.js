@@ -1,5 +1,5 @@
 import Link from './Link';
-import defaultTheme from './defaultTheme';
+import theme, { makeTheme } from './theme';
 
 export * from './auth';
 export * from './button';
@@ -9,4 +9,4 @@ export * from './field';
 export * from './input';
 export * from './layout';
 export * from './list';
-export { Link, defaultTheme };
+export { Link, theme, makeTheme };

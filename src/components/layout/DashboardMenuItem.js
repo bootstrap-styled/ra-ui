@@ -7,6 +7,7 @@ import MenuItemLink from './MenuItemLink';
 
 const DashboardMenuItem = ({
   className,
+  locale,
   onClick,
   translate,
   ...props
@@ -24,6 +25,7 @@ const DashboardMenuItem = ({
 
 DashboardMenuItem.propTypes = {
   className: PropTypes.string,
+  locale: PropTypes.string,
   onClick: PropTypes.func,
   translate: PropTypes.func.isRequired,
 };

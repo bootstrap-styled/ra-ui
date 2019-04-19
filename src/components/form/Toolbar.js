@@ -1,4 +1,4 @@
-import React, { Children, Fragment } from 'react';
+import React, { Children, Fragment, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import compose from 'recompose/compose';
 import styled from 'styled-components';
@@ -54,6 +54,7 @@ const Toolbar = ({
   resource,
   saving,
   submitOnEnter,
+  undoable,
   width,
   ...rest
 }) => (
@@ -74,19 +75,19 @@ const Toolbar = ({
             saving={saving}
             submitOnEnter={submitOnEnter}
           />
-          {record
-          && typeof record.id !== 'undefined' && (
+          {record && typeof record.id !== 'undefined' && (
             <DeleteButton
               basePath={basePath}
               record={record}
               resource={resource}
+              undoable={undoable}
             />
           )}
         </div>
       ) : (
         Children.map(
           children,
-          button => button
+          button => button && isValidElement(button)
             ? React.cloneElement(button, {
               basePath,
               handleSubmit: valueOrDefault(
@@ -103,6 +104,10 @@ const Toolbar = ({
               submitOnEnter: valueOrDefault(
                 button.props.submitOnEnter,
                 submitOnEnter
+              ),
+              undoable: valueOrDefault(
+                button.props.undoable,
+                undoable
               ),
             })
             : null
@@ -131,6 +136,7 @@ Toolbar.propTypes = {
   saving: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   submitOnEnter: PropTypes.bool,
   width: PropTypes.string,
+  undoable: PropTypes.bool,
 };
 
 Toolbar.defaultProps = {

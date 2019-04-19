@@ -14,6 +14,7 @@ const FilterFormInput = ({
   handleHide,
   resource,
   translate,
+  locale, // eslint-disable-line no-unused-vars
 }) => (
   <div
     data-source={filterElement.props.source}
@@ -25,7 +26,7 @@ const FilterFormInput = ({
         size="sm"
         onClick={handleHide}
         data-key={filterElement.props.source}
-        tooltip={translate(
+        title={translate(
           'ra.action.remove_filter'
         )}
       >
@@ -48,6 +49,7 @@ FilterFormInput.propTypes = {
   filterElement: PropTypes.node,
   handleHide: PropTypes.func,
   resource: PropTypes.string,
+  locale: PropTypes.string,
   translate: PropTypes.func,
 };
 

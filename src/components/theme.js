@@ -7,6 +7,7 @@ const theme = makeScopedTheme('raUiBootstrapStyled', {
   '$appbar-color': '#fff',
   '$appbar-bg-color': '#0275d8',
 });
+
 export const makeTheme = toMakeTheme(theme);
 
 export default theme;

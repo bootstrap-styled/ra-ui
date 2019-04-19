@@ -100,9 +100,14 @@ Button.propTypes = {
   color: PropTypes.string,
   disabled: PropTypes.bool,
   label: PropTypes.string,
-  size: PropTypes.string,
+  size: PropTypes.oneOf(['sm', '', 'lg']),
   translate: PropTypes.func.isRequired,
 };
+
+Button.defaultProps = {
+  size: 'sm',
+};
+
 
 const enhance = compose(
   translate
