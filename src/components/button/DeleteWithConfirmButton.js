@@ -31,7 +31,7 @@ const sanitizeRestProps = ({
 
 const StyledButton = styled(Button)`
   ${props => `
-    color: ${props.theme.$red}
+    color: ${props.theme.$red};
     &:hover {
       background-color: ${Color(props.theme.$red).fade(0.12).toString()}
     }
