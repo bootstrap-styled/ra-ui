@@ -12,9 +12,6 @@ const LinkBs = styled(RRLink)`
   `}
 `;
 
-/**
- * @deprecated Use react-router-dom's Link instead
- */
 const Link = ({
   to, children, className, ...rest
 }) => (
@@ -27,6 +24,6 @@ Link.propTypes = {
   children: PropTypes.node,
   to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
-
+console.log('1', Link);
 /** @component */
 export default Link;

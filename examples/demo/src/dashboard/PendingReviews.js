@@ -1,17 +1,22 @@
 import React from 'react';
-import compose from 'recompose/compose';
+import Card from '@material-ui/core/Card';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
 import CommentIcon from '@material-ui/icons/Comment';
 import Divider from '@material-ui/core/Divider';
+import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
-import { translate } from 'react-admin';
-import { Card, H3, P, ListGroup, ListGroupItem, ListGroupItemText } from '@bootstrap-styled/v4';
-import styled from 'styled-components';
+import { useTranslate } from 'react-admin';
+
 import CardIcon from './CardIcon';
 
 import StarRatingField from '../reviews/StarRatingField';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     main: {
         flex: '1',
         marginRight: '1em',
@@ -22,8 +27,6 @@ const styles = theme => ({
         padding: '16px 0',
         overflow: 'inherit',
         textAlign: 'right',
-        display: 'block',
-        minHeight: 52,
     },
     title: {
         padding: '0 16px',
@@ -35,66 +38,74 @@ const styles = theme => ({
     avatar: {
         background: theme.palette.background.avatar,
     },
-})
-
-const ListItemTextWrapper = styled.div`
-      overflow-y: hidden;
-      height: 4em;
-      display: -webkit-box;
-      Webkit-line-clamp: 2;
-      Webkit-box-orient: vertical;
-      margin-left: 16px;
-`;
+    listItemText: {
+        overflowY: 'hidden',
+        height: '4em',
+        display: '-webkit-box',
+        WebkitLineClamp: 2,
+        WebkitBoxOrient: 'vertical',
+    },
+}));
 
 const location = {
     pathname: 'reviews',
     query: { filter: JSON.stringify({ status: 'pending' }) },
 };
 
-const PendingReviews = ({
-    reviews = [],
-    customers = {},
-    nb,
-    translate,
-}) => (
-    <div style={styles.main}>
-        <CardIcon Icon={CommentIcon} bgColor="#f44336" />
-        <Card style={styles.card}>
-            <P>{translate('pos.dashboard.pending_reviews')}</P>
-            <H3><Link to={location}>{nb}</Link></H3>
-            <Divider />
-            <ListGroup>
-                {reviews.map(record => (
-                    <ListGroupItem
-                        key={record.id}
-                        tag={Link}
-                        to={`/reviews/${record.id}`}
-                        style={{ textDecoration: 'none', fontSize: '13px', flexFlow: 'unset' }}
-                    >
-                        {customers[record.customer_id] ? (
-                            <Avatar
-                                src={`${
-                                    customers[record.customer_id].avatar
-                                }?size=32x32`}
+const PendingReviews = ({ reviews = [], customers = {}, nb }) => {
+    const classes = useStyles();
+    const translate = useTranslate();
+    return (
+        <div className={classes.main}>
+            <CardIcon Icon={CommentIcon} bgColor="#f44336" />
+            <Card className={classes.card}>
+                <Typography className={classes.title} color="textSecondary">
+                    {translate('pos.dashboard.pending_reviews')}
+                </Typography>
+                <Typography
+                    variant="h5"
+                    component="h2"
+                    className={classes.value}
+                >
+                    <Link to={location} className={classes.titleLink}>
+                        {nb}
+                    </Link>
+                </Typography>
+                <Divider />
+                <List>
+                    {reviews.map(record => (
+                        <ListItem
+                            key={record.id}
+                            button
+                            component={Link}
+                            to={`/reviews/${record.id}`}
+                            alignItems="flex-start"
+                        >
+                            <ListItemAvatar>
+                                {customers[record.customer_id] ? (
+                                    <Avatar
+                                        src={`${
+                                            customers[record.customer_id].avatar
+                                        }?size=32x32`}
+                                        className={classes.avatar}
+                                    />
+                                ) : (
+                                    <Avatar />
+                                )}
+                            </ListItemAvatar>
+
+                            <ListItemText
+                                primary={<StarRatingField record={record} />}
+                                secondary={record.comment}
+                                className={classes.listItemText}
+                                style={{ paddingRight: 0 }}
                             />
-                        ) : (
-                            <Avatar />
-                        )}
-                        <ListItemTextWrapper>
-                          <ListGroupItemText className="d-flex flex-column">
-                            <StarRatingField record={record} />
-                            {record.comment}
-                          </ListGroupItemText>
-                        </ListItemTextWrapper>
-                    </ListGroupItem>
-                ))}
-            </ListGroup>
-        </Card>
-    </div>
-);
+                        </ListItem>
+                    ))}
+                </List>
+            </Card>
+        </div>
+    );
+};
 
-const enhance = compose(
-    translate
-);
-
-export default enhance(PendingReviews);
+export default PendingReviews;

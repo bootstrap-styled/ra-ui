@@ -6,10 +6,14 @@ This is a demo of the [@bootstrap-styled/ra-ui](https://github.com/bootstrap-sty
 
 ## How to run
 
-After having cloned the ra-ui repository, run the following commands at the ra-ui root:
+After having cloned the react-admin repository, run the following commands at the react-admin root:
 
 ```sh
-npm run demo
+make install
+
+make build
+
+make run-demo
 ```
 
 ## Available Scripts
@@ -36,3 +40,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
+
+### `npm run deploy`
+
+Deploy the build to GitHub gh-pages.

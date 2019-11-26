@@ -1,35 +1,44 @@
 import React from 'react';
-import compose from 'recompose/compose';
 import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
-import { translate } from 'react-admin';
+import { useTranslate } from 'react-admin';
 import { stringify } from 'query-string';
 
-import { ProductIcon } from '../products';
+import products from '../products';
 
-const LinkToRelatedProducts = ({ record, translate }) => (
-    <Button
-        size="small"
-        color="primary"
-        component={Link}
-        to={{
-            pathname: '/products',
-            search: stringify({
-                page: 1,
-                perPage: 25,
-                sort: 'id',
-                order: 'DESC',
-                filter: JSON.stringify({ category_id: record.id }),
-            }),
-        }}
-        className="d-inline-flex align-items-center"
-    >
-        <ProductIcon className="pr-1" />
-        {translate('resources.categories.fields.products')}
-    </Button>
-);
+const useStyles = makeStyles({
+    icon: { paddingRight: '0.5em' },
+    link: {
+        display: 'inline-flex',
+        alignItems: 'center',
+    },
+});
 
-const enhance = compose(
-    translate
-);
-export default enhance(LinkToRelatedProducts);
+const LinkToRelatedProducts = ({ record }) => {
+    const translate = useTranslate();
+    const classes = useStyles();
+    return (
+        <Button
+            size="small"
+            color="primary"
+            component={Link}
+            to={{
+                pathname: '/products',
+                search: stringify({
+                    page: 1,
+                    perPage: 25,
+                    sort: 'id',
+                    order: 'DESC',
+                    filter: JSON.stringify({ category_id: record.id }),
+                }),
+            }}
+            className={classes.link}
+        >
+            <products.icon className={classes.icon} />
+            {translate('resources.categories.fields.products')}
+        </Button>
+    );
+};
+
+export default LinkToRelatedProducts;

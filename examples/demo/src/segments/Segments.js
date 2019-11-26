@@ -1,40 +1,50 @@
 import React from 'react';
-import { translate } from 'react-admin';
-import { Title } from '@bootstrap-styled/ra-ui';
-import Card from '@bootstrap-styled/v4/lib/Cards/Card';
-import Table from '@bootstrap-styled/v4/lib/Table';
-import Tbody from '@bootstrap-styled/v4/lib/Table/Tbody';
-import Td from '@bootstrap-styled/v4/lib/Table/Td';
-import Th from '@bootstrap-styled/v4/lib/Table/Th';
-import Thead from '@bootstrap-styled/v4/lib/Table/Thead';
-import Tr from '@bootstrap-styled/v4/lib/Table/Tr';
-
+import Card from '@material-ui/core/Card';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import { makeStyles } from '@material-ui/core/styles';
+import { useTranslate, Title } from 'react-admin';
 
 import LinkToRelatedCustomers from './LinkToRelatedCustomers';
 import segments from './data';
 
-export default translate(({ translate }) => (
-    <Card>
-        <Title title={translate('resources.segments.name')} />
-        <Table className="mb-0">
-            <Thead>
-                <Tr>
-                    <Th style={{border: 'none'}}>
-                        {translate('resources.segments.fields.name')}
-                    </Th>
-                    <Th style={{border: 'none'}} />
-                </Tr>
-            </Thead>
-            <Tbody>
-                {segments.map(segment => (
-                    <Tr key={segment.id}>
-                        <Td>{translate(segment.name)}</Td>
-                        <Td>
-                            <LinkToRelatedCustomers segment={segment.id} />
-                        </Td>
-                    </Tr>
-                ))}
-            </Tbody>
-        </Table>
-    </Card>
-));
+const useStyles = makeStyles({
+    root: {
+        marginTop: 16,
+    },
+});
+
+const Segments = () => {
+    const translate = useTranslate();
+    const classes = useStyles();
+    return (
+        <Card className={classes.root}>
+            <Title title={translate('resources.segments.name')} />
+            <Table size="small">
+                <TableHead>
+                    <TableRow>
+                        <TableCell>
+                            {translate('resources.segments.fields.name')}
+                        </TableCell>
+                        <TableCell />
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {segments.map(segment => (
+                        <TableRow key={segment.id}>
+                            <TableCell>{translate(segment.name)}</TableCell>
+                            <TableCell>
+                                <LinkToRelatedCustomers segment={segment.id} />
+                            </TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </Card>
+    );
+};
+
+export default Segments;
