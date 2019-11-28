@@ -5,10 +5,10 @@ import pure from 'recompose/pure';
 import FalseIcon from '@material-ui/icons/Clear';
 import TrueIcon from '@material-ui/icons/Done';
 import compose from 'recompose/compose';
-import { translate } from 'ra-core';
+import { useTranslate } from 'ra-core';
 import styled from 'styled-components';
 
-
+import { fieldPropTypes } from './types';
 import sanitizeRestProps from './sanitizeRestProps';
 
 const BooleanTypography = styled.div`
@@ -41,18 +41,16 @@ export const BooleanField = ({
   classes,
   source,
   record = {},
-  translate,
   valueLabelTrue,
   valueLabelFalse,
   ...rest
 }) => {
+  const translate = useTranslate();
   const value = get(record, source);
   let ariaLabel = value ? valueLabelTrue : valueLabelFalse;
 
   if (!ariaLabel) {
-    ariaLabel = value === false
-      ? translate('ra.boolean.false')
-      : translate('ra.boolean.true');
+    ariaLabel = value === false ? 'ra.boolean.false' : 'ra.boolean.true';
   }
 
   if (value === false) {
@@ -61,8 +59,8 @@ export const BooleanField = ({
         className={className}
         {...sanitizeRestProps(rest)}
       >
-        <BooleanFieldLabel>{ariaLabel}</BooleanFieldLabel>
-        <FalseIcon />
+        <BooleanFieldLabel>{translate(ariaLabel, { _: ariaLabel })}</BooleanFieldLabel>
+        <FalseIcon data-testid="false" />
       </BooleanTypography>
     );
   }
@@ -73,8 +71,8 @@ export const BooleanField = ({
         className={className}
         {...sanitizeRestProps(rest)}
       >
-        <BooleanFieldLabel>{ariaLabel}</BooleanFieldLabel>
-        <TrueIcon />
+        <BooleanFieldLabel>{translate(ariaLabel, { _: ariaLabel })}</BooleanFieldLabel>
+        <TrueIcon data-testid="true" />
       </BooleanTypography>
     );
   }
@@ -87,31 +85,17 @@ export const BooleanField = ({
   );
 };
 
-BooleanField.propTypes = {
-  addLabel: PropTypes.bool,
-  basePath: PropTypes.string,
-  className: PropTypes.string,
-  cellClassName: PropTypes.string,
-  headerClassName: PropTypes.string,
-  label: PropTypes.string,
-  record: PropTypes.object,
-  sortBy: PropTypes.string,
-  source: PropTypes.string.isRequired,
-  valueLabelTrue: PropTypes.string,
-  valueLabelFalse: PropTypes.string,
-};
+const EnhancedBooleanField = compose(pure)(BooleanField);
 
-BooleanField.defaultProps = {
-  translate: x => x,
-};
-
-const PureBooleanField = compose(
-  pure,
-  translate
-)(BooleanField);
-
-PureBooleanField.defaultProps = {
+EnhancedBooleanField.defaultProps = {
   addLabel: true,
 };
 
-export default PureBooleanField;
+EnhancedBooleanField.propTypes = {
+  ...fieldPropTypes,
+  valueLabelFalse: PropTypes.string,
+  valueLabelTrue: PropTypes.string,
+};
+EnhancedBooleanField.displayName = 'EnhancedBooleanField';
+
+export default EnhancedBooleanField;

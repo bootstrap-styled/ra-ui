@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import pure from 'recompose/pure';
-import A from '@bootstrap-styled/v4/lib/A';
+import { A } from '@bootstrap-styled/v4';
 import sanitizeRestProps from './sanitizeRestProps';
+import { fieldPropTypes } from './types';
 
 const UrlField = ({
   className, source, record = {}, ...rest
@@ -17,22 +17,13 @@ const UrlField = ({
   </A>
 );
 
-UrlField.propTypes = {
-  addLabel: PropTypes.bool,
-  basePath: PropTypes.string,
-  className: PropTypes.string,
-  cellClassName: PropTypes.string,
-  headerClassName: PropTypes.string,
-  label: PropTypes.string,
-  record: PropTypes.object,
-  sortBy: PropTypes.string,
-  source: PropTypes.string.isRequired,
-};
+const EnhancedUrlField = pure(UrlField);
 
-const PureUrlField = pure(UrlField);
-
-PureUrlField.defaultProps = {
+EnhancedUrlField.defaultProps = {
   addLabel: true,
 };
 
-export default PureUrlField;
+EnhancedUrlField.propTypes = fieldPropTypes;
+EnhancedUrlField.displayName = 'EnhancedUrlField';
+
+export default EnhancedUrlField;

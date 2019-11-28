@@ -12,9 +12,6 @@ const LinkBs = styled(RRLink)`
   `}
 `;
 
-/**
- * @deprecated Use react-router-dom's Link instead
- */
 const Link = ({
   to, children, className, ...rest
 }) => (

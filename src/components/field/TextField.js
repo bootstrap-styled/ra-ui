@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import pure from 'recompose/pure';
 import styled from 'styled-components';
 
 import sanitizeRestProps from './sanitizeRestProps';
+import { fieldPropTypes } from './types';
 
 const Text = styled.span`
   margin: 0;
@@ -29,24 +29,19 @@ const TextField = ({
   );
 };
 
-TextField.propTypes = {
-  addLabel: PropTypes.bool,
-  basePath: PropTypes.string,
-  className: PropTypes.string,
-  cellClassName: PropTypes.string,
-  headerClassName: PropTypes.string,
-  label: PropTypes.string,
-  record: PropTypes.object,
-  sortBy: PropTypes.string,
-  source: PropTypes.string.isRequired,
-};
-
 // wat? TypeScript looses the displayName if we don't set it explicitly
 TextField.displayName = 'TextField';
-const PureTextField = pure(TextField);
 
-PureTextField.defaultProps = {
+const EnhancedTextField = pure(TextField);
+
+EnhancedTextField.defaultProps = {
   addLabel: true,
 };
 
-export default PureTextField;
+EnhancedTextField.propTypes = {
+  ...fieldPropTypes,
+};
+
+EnhancedTextField.displayName = 'EnhancedTextField';
+
+export default EnhancedTextField;

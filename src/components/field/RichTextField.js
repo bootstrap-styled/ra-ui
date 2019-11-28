@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import pure from 'recompose/pure';
 import sanitizeRestProps from './sanitizeRestProps';
+import { fieldPropTypes } from './types';
 
 export const removeTags = input => input ? input.replace(/<[^>]+>/gm, '') : '';
 
@@ -36,24 +37,18 @@ const RichTextField = ({
   );
 };
 
-RichTextField.propTypes = {
-  addLabel: PropTypes.bool,
-  basePath: PropTypes.string,
-  className: PropTypes.string,
-  cellClassName: PropTypes.string,
-  headerClassName: PropTypes.string,
-  label: PropTypes.string,
-  record: PropTypes.object,
-  sortBy: PropTypes.string,
-  source: PropTypes.string.isRequired,
-  stripTags: PropTypes.bool,
-};
+const EnhancedRichTextField = pure(RichTextField);
 
-const PureRichTextField = pure(RichTextField);
-
-PureRichTextField.defaultProps = {
+EnhancedRichTextField.defaultProps = {
   addLabel: true,
   stripTags: false,
 };
 
-export default PureRichTextField;
+EnhancedRichTextField.propTypes = {
+  ...fieldPropTypes,
+  stripTags: PropTypes.bool,
+};
+
+EnhancedRichTextField.displayName = 'EnhancedRichTextField';
+
+export default EnhancedRichTextField;

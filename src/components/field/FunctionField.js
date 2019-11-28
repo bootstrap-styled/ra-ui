@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import pure from 'recompose/pure';
 
 import sanitizeRestProps from './sanitizeRestProps';
+import { fieldPropTypes } from './types';
 
 /**
  * @example
@@ -20,23 +20,16 @@ const FunctionField = ({
   </span>
 ) : null;
 
-FunctionField.propTypes = {
-  addLabel: PropTypes.bool,
-  basePath: PropTypes.string,
-  className: PropTypes.string,
-  cellClassName: PropTypes.string,
-  headerClassName: PropTypes.string,
-  label: PropTypes.string,
-  render: PropTypes.func.isRequired,
-  record: PropTypes.object,
-  sortBy: PropTypes.string,
-  source: PropTypes.string,
-};
+const EnhancedFunctionField = pure(FunctionField);
 
-const PureFunctionField = pure(FunctionField);
-
-PureFunctionField.defaultProps = {
+EnhancedFunctionField.defaultProps = {
   addLabel: true,
 };
 
-export default PureFunctionField;
+EnhancedFunctionField.propTypes = {
+  ...fieldPropTypes,
+};
+
+EnhancedFunctionField.displayName = 'EnhancedFunctionField';
+
+export default EnhancedFunctionField;

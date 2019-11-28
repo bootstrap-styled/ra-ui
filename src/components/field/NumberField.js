@@ -5,6 +5,7 @@ import pure from 'recompose/pure';
 import classnames from 'classnames';
 import styled from 'styled-components';
 import sanitizeRestProps from './sanitizeRestProps';
+import { fieldPropTypes } from './types';
 
 const NumberFieldBs = styled.span`
   color: rgba(0, 0, 0, 0.87);
@@ -56,18 +57,12 @@ export const NumberField = ({
   textAlign,
   ...rest
 }) => {
-  if (!record) return null;
+  if (!record) {
+    return null;
+  }
   const value = get(record, source);
-  if (value == null) return null;
-  if (!hasNumberFormat) {
-    return (
-      <NumberFieldBs
-        className={classnames('text-right', className)}
-        {...sanitizeRestProps(rest)}
-      >
-        {value}
-      </NumberFieldBs>
-    );
+  if (value == null) {
+    return null;
   }
 
   return (
@@ -75,38 +70,29 @@ export const NumberField = ({
       className={classnames('text-right', className)}
       {...sanitizeRestProps(rest)}
     >
-      {value.toLocaleString(locales, options)}
+      {hasNumberFormat ? value.toLocaleString(locales, options) : value}
     </NumberFieldBs>
   );
 };
+// wat? TypeScript looses the displayName if we don't set it explicitly
+NumberField.displayName = 'NumberField';
 
-NumberField.propTypes = {
-  addLabel: PropTypes.bool,
-  basePath: PropTypes.string,
-  className: PropTypes.string,
-  cellClassName: PropTypes.string,
-  headerClassName: PropTypes.string,
-  label: PropTypes.string,
+const EnhancedNumberField = pure(NumberField);
+
+EnhancedNumberField.defaultProps = {
+  addLabel: true,
+  textAlign: 'right',
+};
+
+EnhancedNumberField.propTypes = {
+  ...fieldPropTypes,
   locales: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
   ]),
   options: PropTypes.object,
-  record: PropTypes.object,
-  textAlign: PropTypes.string,
-  sortBy: PropTypes.string,
-  source: PropTypes.string.isRequired,
 };
 
-// wat? TypeScript looses the displayName if we don't set it explicitly
-NumberField.displayName = 'NumberField';
+EnhancedNumberField.displayName = 'EnhancedNumberField';
 
-const ComposedNumberField = pure(NumberField);
-
-ComposedNumberField.defaultProps = {
-  addLabel: true,
-  textAlign: 'right',
-};
-
-/** @component */
-export default ComposedNumberField;
+export default EnhancedNumberField;

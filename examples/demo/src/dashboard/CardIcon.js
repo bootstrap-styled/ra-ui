@@ -1,13 +1,13 @@
 import React from 'react';
-import { Card } from '@bootstrap-styled/v4';
+import Card from '@material-ui/core/Card';
+import { makeStyles } from '@material-ui/core/styles';
 
-const styles = {
+const useStyles = makeStyles({
     card: {
         float: 'left',
         margin: '-20px 20px 0 15px',
         zIndex: 100,
         borderRadius: 3,
-        display: 'block',
     },
     icon: {
         float: 'right',
@@ -16,12 +16,15 @@ const styles = {
         padding: 14,
         color: '#fff',
     },
-};
+});
 
-const CardIcon = ({ Icon, bgColor }) => (
-    <Card style={{ backgroundColor: bgColor, float: 'left', margin: '-20px 20px 0 15px', zIndex: '100', borderRadius: 3, display: 'block' }}>
-        <Icon style={styles.icon}/>
-    </Card>
-);
+const CardIcon = ({ Icon, bgColor }) => {
+    const classes = useStyles();
+    return (
+        <Card className={classes.card} style={{ backgroundColor: bgColor }}>
+            <Icon className={classes.icon} />
+        </Card>
+    );
+};
 
 export default CardIcon;

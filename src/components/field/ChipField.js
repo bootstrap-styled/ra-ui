@@ -1,10 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import compose from 'recompose/compose';
 import get from 'lodash/get';
 import pure from 'recompose/pure';
-import Badge from '@bootstrap-styled/v4/lib/Badge';
+import { Badge } from '@bootstrap-styled/v4';
 import classnames from 'classnames';
 import sanitizeRestProps from './sanitizeRestProps';
+import { fieldPropTypes } from './types';
 
 export const ChipField = ({
   className,
@@ -20,17 +21,17 @@ export const ChipField = ({
   </Badge>
 );
 
-ChipField.propTypes = {
-  className: PropTypes.string,
-  elStyle: PropTypes.object,
-  sortBy: PropTypes.string,
-  source: PropTypes.string.isRequired,
-  record: PropTypes.object,
+const EnhancedChipField = compose(pure)(ChipField);
+
+EnhancedChipField.defaultProps = {
+  addLabel: true,
 };
 
-// wat? TypeScript looses the displayName if we don't set it explicitly
-ChipField.displayName = 'ChipField';
+EnhancedChipField.propTypes = {
+  ...ChipField.propTypes,
+  ...fieldPropTypes,
+};
 
-const PureChipField = pure(ChipField);
+EnhancedChipField.displayName = 'EnhancedChipField';
 
-export default PureChipField;
+export default EnhancedChipField;

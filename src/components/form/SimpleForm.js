@@ -1,11 +1,12 @@
 import React, { Children, Component } from 'react';
 import PropTypes from 'prop-types';
-import { reduxForm } from 'redux-form';
+import { Form as ReactFinalForm } from 'react-final-form';
+import arrayMutators from 'final-form-arrays';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import classnames from 'classnames';
-import { getDefaultValues, translate, REDUX_FORM_NAME } from 'ra-core';
-import Form from '@bootstrap-styled/v4/lib/Form';
+import { translate, REDUX_FORM_NAME } from 'ra-core';
+import { Form } from '@bootstrap-styled/v4';
 
 import FormInput from './FormInput';
 import Toolbar from './Toolbar';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReferenceField, TextField } from '@bootstrap-styled/ra-ui';
+import { ReferenceField, TextField } from 'react-admin';
 
 const ProductReferenceField = props => (
     <ReferenceField
@@ -11,6 +11,7 @@ const ProductReferenceField = props => (
         <TextField source="reference" />
     </ReferenceField>
 );
+
 ProductReferenceField.defaultProps = {
     source: 'product_id',
     addLabel: true,

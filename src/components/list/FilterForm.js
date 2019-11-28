@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { reduxForm } from 'redux-form';
+import { Form as ReactFinalForm, FormSpy } from 'react-final-form';
 import FormBs from '@bootstrap-styled/v4/lib/Form';
 import styled from 'styled-components';
 import compose from 'recompose/compose';

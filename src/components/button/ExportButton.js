@@ -5,7 +5,7 @@ import GetApp from '@material-ui/icons/GetApp';
 import {
   crudGetAll, downloadCSV, CRUD_GET_MANY, GET_MANY,
 } from 'ra-core';
-import { unparse as convertToCSV } from 'papaparse/papaparse.min';
+import jsonExport from 'jsonexport/dist';
 
 import Button from './Button';
 
@@ -132,7 +132,7 @@ class ExportButton extends Component {
             fetchRelatedRecords(dispatch),
             dispatch
           )
-          : downloadCSV(convertToCSV(data), resource)
+          : jsonExport(data, (err, csv) => downloadCSV(csv, resource))
       )
     );
 

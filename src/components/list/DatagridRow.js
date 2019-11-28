@@ -1,7 +1,7 @@
 import React, { Component, Fragment, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
+import { push } from 'connected-react-router';
 import Tr from '@bootstrap-styled/v4/lib/Table/Tr';
 import Td from '@bootstrap-styled/v4/lib/Table/Td';
 import Button from '@bootstrap-styled/v4/lib/Button';

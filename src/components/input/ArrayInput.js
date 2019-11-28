@@ -1,9 +1,8 @@
 import React, { cloneElement, Component, Children } from 'react';
 import PropTypes from 'prop-types';
 import { isRequired, FieldTitle } from 'ra-core';
-import { FieldArray } from 'redux-form';
-import FormGroup from '@bootstrap-styled/v4/lib/Form/FormGroup';
-import Label from '@bootstrap-styled/v4/lib/Label';
+import { useFieldArray } from 'react-final-form-arrays';
+import { FormGroup, Label } from '@bootstrap-styled/v4';
 
 import sanitizeRestProps from './sanitizeRestProps';
 
