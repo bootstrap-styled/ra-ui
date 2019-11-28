@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import classnames from 'classnames';
-import Ul from '@bootstrap-styled/v4/lib/Ul';
-import Li from '@bootstrap-styled/v4/lib/Li';
-import A from '@bootstrap-styled/v4/lib/A';
+import { A, Li, Ul } from '@bootstrap-styled/v4';
 import sanitizeRestProps from './sanitizeRestProps';
+import { fieldPropTypes } from './types';
 
 export const FileField = ({
   className,
@@ -66,16 +65,12 @@ export const FileField = ({
     </div>
   );
 };
+FileField.defaultProps = {
+  addLabel: true,
+};
 
 FileField.propTypes = {
-  addLabel: PropTypes.bool,
-  basePath: PropTypes.string,
-  className: PropTypes.string,
-  cellClassName: PropTypes.string,
-  headerClassName: PropTypes.string,
-  record: PropTypes.object,
-  sortBy: PropTypes.string,
-  source: PropTypes.string.isRequired,
+  ...fieldPropTypes,
   src: PropTypes.string,
   title: PropTypes.string,
   target: PropTypes.string,

@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, propTypes, reduxForm } from 'redux-form';
+import { Field, Form as ReactFinalForm } from 'react-final-form';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
-
-import Button from '@bootstrap-styled/v4/lib/Button';
-import Label from '@bootstrap-styled/v4/lib/Label';
-import Input from '@bootstrap-styled/v4/lib/Input';
-import Form from '@bootstrap-styled/v4/lib/Form';
-import FormGroup from '@bootstrap-styled/v4/lib/Form/FormGroup';
-import FormFeedback from '@bootstrap-styled/v4/lib/Form/FormFeedback';
+import {
+  Button,
+  Label,
+  Input,
+  Form,
+  FormGroup,
+  FormFeedback,
+} from '@bootstrap-styled/v4';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleNotch } from '@fortawesome/free-solid-svg-icons/faCircleNotch';
 
-import { translate, userLogin } from 'ra-core';
+import { useTranslate, useLogin, useNotify, useSafeSetState } from 'ra-core';
 
 // see http://redux-form.com/6.4.3/examples/material-ui/
 const renderInput = ({
@@ -76,26 +77,10 @@ const LoginForm = ({
     </div>
   </Form>
 );
+
 LoginForm.propTypes = {
-  ...propTypes,
-  redirectTo: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+  // eslint-disable-next-line react/no-unused-prop-types
+  redirectTo: PropTypes.string,
 };
 
-const mapStateToProps = state => ({ isLoading: state.admin.loading > 0 });
-
-const enhance = compose(
-  translate,
-  connect(mapStateToProps),
-  reduxForm({
-    form: 'signIn',
-    validate: (values, props) => {
-      const errors = {};
-      const { translate } = props;
-      if (!values.username) errors.username = translate('ra.validation.required');
-      if (!values.password) errors.password = translate('ra.validation.required');
-      return errors;
-    },
-  })
-);
-
-export default enhance(LoginForm);
+export default LoginForm;

@@ -7,6 +7,7 @@
     "@bootstrap-styled/ra-ui": "^1.0.23",
     "@material-ui/core": "^4.3.3",
     "@material-ui/icons": "^4.2.1",
+    "core-js": "^2.6.10",
     "data-generator-retail": "^3.0.0",
     "fakerest": "~2.1.0",
     "fetch-mock": "~6.3.0",
@@ -46,6 +47,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@testing-library/react": "^8.0.7",
     "react-app-rewired": "^2.1.5",
     "react-dev-utils": "^9.1.0"
   }

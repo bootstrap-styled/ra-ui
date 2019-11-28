@@ -5,6 +5,7 @@ import get from 'lodash/get';
 import pure from 'recompose/pure';
 
 import sanitizeRestProps from './sanitizeRestProps';
+import { fieldPropTypes } from './types';
 
 const TypographyDateField = styled.div`
     color: rgba(0, 0, 0, 0.87);
@@ -57,9 +58,13 @@ export const DateField = ({
   source,
   ...rest
 }) => {
-  if (!record) return null;
+  if (!record) {
+    return null;
+  }
   const value = get(record, source);
-  if (value == null) return null;
+  if (value == null) {
+    return null;
+  }
   const date = value instanceof Date ? value : new Date(value);
   const dateString = showTime
     ? toLocaleStringSupportsLocales
@@ -76,28 +81,22 @@ export const DateField = ({
   );
 };
 
-DateField.propTypes = {
-  addLabel: PropTypes.bool,
-  basePath: PropTypes.string,
-  className: PropTypes.string,
-  cellClassName: PropTypes.string,
-  headerClassName: PropTypes.string,
-  label: PropTypes.string,
+const EnhancedDateField = pure(DateField);
+
+EnhancedDateField.defaultProps = {
+  addLabel: true,
+};
+
+EnhancedDateField.propTypes = {
+  ...fieldPropTypes,
   locales: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
   ]),
   options: PropTypes.object,
-  record: PropTypes.object,
   showTime: PropTypes.bool,
-  sortBy: PropTypes.string,
-  source: PropTypes.string.isRequired,
 };
 
-const PureDateField = pure(DateField);
+EnhancedDateField.displayName = 'EnhancedDateField';
 
-PureDateField.defaultProps = {
-  addLabel: true,
-};
-
-export default PureDateField;
+export default EnhancedDateField;

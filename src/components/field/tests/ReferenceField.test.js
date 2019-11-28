@@ -16,6 +16,7 @@ describe('<ReferenceField />', () => {
         resource="comments"
         resourceLinkPath="/posts/123"
         basePath="/comments"
+        loaded
       >
         <TextField source="title" />
       </ReferenceFieldView>

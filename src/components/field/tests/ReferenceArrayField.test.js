@@ -16,7 +16,7 @@ describe('<ReferenceArrayField />', () => {
         basePath=""
         data={null}
         ids={[1, 2]}
-        loadedOnce={false}
+        loaded={false}
       >
         <SingleFieldList>
           <TextField source="title" />
@@ -43,6 +43,7 @@ describe('<ReferenceArrayField />', () => {
         basePath=""
         data={data}
         ids={[1, 2]}
+        loaded
       >
         <SingleFieldList>
           <TextField source="title" />
@@ -70,6 +71,7 @@ describe('<ReferenceArrayField />', () => {
         basePath=""
         data={{}}
         ids={[]}
+        loaded
       >
         <SingleFieldList>
           <TextField source="title" />
@@ -100,6 +102,7 @@ describe('<ReferenceArrayField />', () => {
         source="barIds"
         basePath=""
         data={data}
+        loaded
         ids={['abc-1', 'abc-2']}
       >
         <SingleFieldList>
@@ -134,6 +137,7 @@ describe('<ReferenceArrayField />', () => {
         source="barIds"
         basePath=""
         data={data}
+        loaded
         ids={[1, 2]}
       >
         <SingleFieldList>
@@ -167,6 +171,7 @@ describe('<ReferenceArrayField />', () => {
         basePath=""
         data={data}
         ids={[1, 2]}
+        loaded
       >
         <SingleFieldList>
           <TextField source="title" />

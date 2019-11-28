@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import classnames from 'classnames';
-import Ul from '@bootstrap-styled/v4/lib/Ul';
-import Li from '@bootstrap-styled/v4/lib/Li';
-import Img from '@bootstrap-styled/v4/lib/Img';
+import { Li, Ul, Img } from '@bootstrap-styled/v4';
 
 import sanitizeRestProps from './sanitizeRestProps';
+import { fieldPropTypes } from './types';
 
 export const ImageField = ({
   className,
@@ -60,20 +59,17 @@ export const ImageField = ({
   );
 };
 
+// wat? TypeScript looses the displayName if we don't set it explicitly
+ImageField.displayName = 'ImageField';
+
+ImageField.defaultProps = {
+  addLabel: true,
+};
+
 ImageField.propTypes = {
-  addLabel: PropTypes.bool,
-  basePath: PropTypes.string,
-  className: PropTypes.string,
-  cellClassName: PropTypes.string,
-  headerClassName: PropTypes.string,
-  record: PropTypes.object,
-  sortBy: PropTypes.string,
-  source: PropTypes.string.isRequired,
+  ...fieldPropTypes,
   src: PropTypes.string,
   title: PropTypes.string,
 };
-
-// wat? TypeScript looses the displayName if we don't set it explicitly
-ImageField.displayName = 'ImageField';
 
 export default ImageField;

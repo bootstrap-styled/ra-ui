@@ -24,6 +24,6 @@ Link.propTypes = {
   children: PropTypes.node,
   to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
-console.log('1', Link);
+
 /** @component */
 export default Link;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Admin, Resource } from 'react-admin';
 import polyglotI18nProvider from 'ra-i18n-polyglot';
-import { Link } from '@bootstrap-styled/ra-ui';
+// import { Link } from '@bootstrap-styled/ra-ui';
 import './App.css';
 
 import authProvider from './authProvider';
@@ -20,8 +20,8 @@ import reviews from './reviews';
 
 import dataProviderFactory from './dataProvider';
 import fakeServerFactory from './fakeServer';
-console.log('2', Link);
 
+// console.log(!!Link ? 'imported' : 'fail');
 const i18nProvider = polyglotI18nProvider(locale => {
     if (locale === 'fr') {
         return import('./i18n/fr').then(messages => messages.default);

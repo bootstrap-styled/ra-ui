@@ -104,8 +104,7 @@ describe('<SelectField />', () => {
         record={{ foo: 0 }}
         optionText={<Foobar />}
         choices={[{ id: 0, foobar: 'hello' }]}
-      />
-    );
+      />, { contextType: {} });
     const chipElement = wrapper.find('Foobar');
     assert.deepEqual(chipElement.prop('record'), {
       id: 0,
@@ -122,7 +121,7 @@ describe('<SelectField />', () => {
       />
     );
     const chipElement = wrapper.find('span');
-    assert.equal(chipElement.children().text(), '**hello**');
+    assert.equal(chipElement.children().text(), 'hello');
   });
 
   it('should not translate the choice if translateChoice is false', () => {

@@ -132,9 +132,7 @@ class ExportButton extends Component {
             fetchRelatedRecords(dispatch),
             dispatch
           )
-          : jsonExport(data, (err, csv) =>
-            downloadCSV(csv, resource)
-          )
+          : jsonExport(data, (err, csv) => downloadCSV(csv, resource))
       )
     );
 
