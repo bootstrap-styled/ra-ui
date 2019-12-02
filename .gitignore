@@ -17,5 +17,6 @@ dist
 .git-credentials
 package-lock.json
 /*.tgz
+!/examples/demo/bootstrap-styled-react-admin-1.0.1.tgz
 .iml
 examples/demo/build

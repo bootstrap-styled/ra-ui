@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Admin, Resource } from 'react-admin';
 import polyglotI18nProvider from 'ra-i18n-polyglot';
-// import { Link } from '@bootstrap-styled/ra-ui';
 import './App.css';
 
 import authProvider from './authProvider';

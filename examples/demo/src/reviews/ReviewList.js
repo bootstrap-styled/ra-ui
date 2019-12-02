@@ -14,7 +14,7 @@ const ReviewsBulkActionButtons = props => (
     <Fragment>
         <BulkAcceptButton {...props} />
         <BulkRejectButton {...props} />
-        <BulkDeleteButton {...props} />
+        <BulkDeleteButton undoable={false} {...props} />
     </Fragment>
 );
 

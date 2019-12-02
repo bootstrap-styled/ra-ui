@@ -1,5 +1,5 @@
 import React from 'react';
-import { Datagrid, DateField, TextField } from 'react-admin';
+import { Datagrid, DateField, TextField, CloneButton } from 'react-admin';
 import { makeStyles } from '@material-ui/core/styles';
 
 import ProductReferenceField from '../products/ProductReferenceField';
@@ -38,6 +38,7 @@ const ReviewListDesktop = props => {
             <StarRatingField />
             <TextField source="comment" cellClassName={classes.comment} />
             <TextField source="status" />
+            <CloneButton />
         </Datagrid>
     );
 };
