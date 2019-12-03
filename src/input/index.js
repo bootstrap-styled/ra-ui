@@ -1,49 +1,47 @@
+import ArrayInput from './ArrayInput';
+import AutocompleteArrayInput from './AutocompleteArrayInput';
+import AutocompleteInput from './AutocompleteInput';
+import BooleanInput from './BooleanInput';
+import CheckboxGroupInput from './CheckboxGroupInput';
+import DateInput from './DateInput';
+import DateTimeInput from './DateTimeInput';
+import FileInput from './FileInput';
+import ImageInput from './ImageInput';
+import InputHelperText from './InputHelperText';
+import InputPropTypes from './InputPropTypes';
+import Labeled from './Labeled';
+import NullableBooleanInput from './NullableBooleanInput';
+import NumberInput from './NumberInput';
+import RadioButtonGroupInput from './RadioButtonGroupInput';
+import ReferenceArrayInput from './ReferenceArrayInput';
+import ReferenceInput from './ReferenceInput';
+import ResettableTextField from './ResettableTextField';
+import SearchInput from './SearchInput';
+import SelectArrayInput from './SelectArrayInput';
+import SelectInput from './SelectInput';
+import TextInput from './TextInput';
 
-const __importDefault = (this && this.__importDefault) || function (mod) {
-  return (mod && mod.__esModule) ? mod : { default: mod };
+export {
+  ArrayInput,
+  AutocompleteArrayInput,
+  AutocompleteInput,
+  BooleanInput,
+  CheckboxGroupInput,
+  DateInput,
+  DateTimeInput,
+  FileInput,
+  ImageInput,
+  InputHelperText,
+  InputPropTypes,
+  Labeled,
+  NullableBooleanInput,
+  NumberInput,
+  RadioButtonGroupInput,
+  ReferenceArrayInput,
+  ReferenceInput,
+  ResettableTextField,
+  SearchInput,
+  SelectArrayInput,
+  SelectInput,
+  TextInput,
 };
-Object.defineProperty(exports, '__esModule', { value: true });
-const ArrayInput_1 = __importDefault(require('./ArrayInput'));
-exports.ArrayInput = ArrayInput_1.default;
-const AutocompleteArrayInput_1 = __importDefault(require('./AutocompleteArrayInput'));
-exports.AutocompleteArrayInput = AutocompleteArrayInput_1.default;
-const AutocompleteInput_1 = __importDefault(require('./AutocompleteInput'));
-exports.AutocompleteInput = AutocompleteInput_1.default;
-const BooleanInput_1 = __importDefault(require('./BooleanInput'));
-exports.BooleanInput = BooleanInput_1.default;
-const CheckboxGroupInput_1 = __importDefault(require('./CheckboxGroupInput'));
-exports.CheckboxGroupInput = CheckboxGroupInput_1.default;
-const DateInput_1 = __importDefault(require('./DateInput'));
-exports.DateInput = DateInput_1.default;
-const DateTimeInput_1 = __importDefault(require('./DateTimeInput'));
-exports.DateTimeInput = DateTimeInput_1.default;
-const FileInput_1 = __importDefault(require('./FileInput'));
-exports.FileInput = FileInput_1.default;
-const ImageInput_1 = __importDefault(require('./ImageInput'));
-exports.ImageInput = ImageInput_1.default;
-const InputHelperText_1 = __importDefault(require('./InputHelperText'));
-exports.InputHelperText = InputHelperText_1.default;
-const InputPropTypes_1 = __importDefault(require('./InputPropTypes'));
-exports.InputPropTypes = InputPropTypes_1.default;
-const Labeled_1 = __importDefault(require('./Labeled'));
-exports.Labeled = Labeled_1.default;
-const NullableBooleanInput_1 = __importDefault(require('./NullableBooleanInput'));
-exports.NullableBooleanInput = NullableBooleanInput_1.default;
-const NumberInput_1 = __importDefault(require('./NumberInput'));
-exports.NumberInput = NumberInput_1.default;
-const RadioButtonGroupInput_1 = __importDefault(require('./RadioButtonGroupInput'));
-exports.RadioButtonGroupInput = RadioButtonGroupInput_1.default;
-const ReferenceArrayInput_1 = __importDefault(require('./ReferenceArrayInput'));
-exports.ReferenceArrayInput = ReferenceArrayInput_1.default;
-const ReferenceInput_1 = __importDefault(require('./ReferenceInput'));
-exports.ReferenceInput = ReferenceInput_1.default;
-const ResettableTextField_1 = __importDefault(require('./ResettableTextField'));
-exports.ResettableTextField = ResettableTextField_1.default;
-const SearchInput_1 = __importDefault(require('./SearchInput'));
-exports.SearchInput = SearchInput_1.default;
-const SelectArrayInput_1 = __importDefault(require('./SelectArrayInput'));
-exports.SelectArrayInput = SelectArrayInput_1.default;
-const SelectInput_1 = __importDefault(require('./SelectInput'));
-exports.SelectInput = SelectInput_1.default;
-const TextInput_1 = __importDefault(require('./TextInput'));
-exports.TextInput = TextInput_1.default;
