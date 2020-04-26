@@ -8,7 +8,7 @@
         "@react-admin/data-generator": "^2.4.0",
         "@bootstrap-styled/ra-ui": "^1.0.19",
         "fakerest": "~2.1.0",
-        "fetch-mock": "~6.3.0",
+        "fetch-mock": "~6.5.2",
         "json-graphql-server": "~2.1.1",
         "ra-data-fakerest": "^2.0.0",
         "ra-data-graphql-simple": "^2.0.0",
