@@ -1,0 +1,680 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - ra-data-graphql-simple > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-redux > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - redux-form > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - ra-input-rich-text > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - json-graphql-server > graphql-tools > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - ra-data-graphql-simple > ra-data-graphql > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - ra-data-simple-rest > ra-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-admin > ra-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-admin > ra-ui-materialui > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > @babel/core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > eslint > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > eslint-plugin-flowtype > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > eslint-plugin-import > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > html-webpack-plugin > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > webpack-manifest-plugin > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - json-graphql-server > apollo-client > redux > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - ra-data-simple-rest > ra-core > redux > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-admin > ra-core > redux > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-admin > ra-ui-materialui > redux > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - ra-data-simple-rest > ra-core > react-redux > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-admin > ra-core > react-redux > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-admin > ra-ui-materialui > react-redux > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - ra-data-simple-rest > ra-core > redux-form > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-admin > ra-core > redux-form > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-admin > ra-ui-materialui > redux-form > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-admin > ra-ui-materialui > ra-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > @svgr/webpack > @babel/core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-eslint > @babel/traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-preset-react-app > @babel/core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > eslint > inquirer > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > eslint > table > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > optimize-css-assets-webpack-plugin > last-call-webpack-plugin > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > react-dev-utils > inquirer > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > webpack-dev-server > http-proxy-middleware > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - '@bootstrap-styled/ra-ui > @bootstrap-styled/v4 > @rollup-umd/documentation-cli > async > lodash':
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > webpack-dev-server > portfinder > async > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-admin > ra-ui-materialui > ra-core > redux > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-admin > ra-ui-materialui > ra-core > react-redux > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-admin > ra-ui-materialui > ra-core > redux-form > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-block-scoping > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-eslint > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-preset-react-app > @babel/plugin-transform-classes > @babel/helper-define-map > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-api > async > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-eslint > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-lib-instrument > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-snapshot > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-lib-instrument > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-lib-instrument > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-lib-instrument > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > @svgr/webpack > @babel/preset-env > @babel/plugin-transform-unicode-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-unicode-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-eslint > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-lib-instrument > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-lib-instrument > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-lib-instrument > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-api > istanbul-lib-instrument > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-resolve-dependencies > jest-snapshot > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-snapshot > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-api > istanbul-lib-instrument > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-lib-instrument > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-api > istanbul-lib-instrument > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > jest-jasmine2 > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-jasmine2 > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-api > istanbul-lib-instrument > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-register > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-register > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > @svgr/webpack > @babel/preset-env > @babel/preset-modules > @babel/plugin-transform-dotall-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-api > istanbul-lib-instrument > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-lib-instrument > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-api > istanbul-lib-instrument > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > jest-jasmine2 > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-jasmine2 > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-api > istanbul-lib-instrument > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > jest-jasmine2 > jest-snapshot > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-jasmine2 > jest-snapshot > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-snapshot > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-api > istanbul-lib-instrument > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > jest-jasmine2 > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > jest-jasmine2 > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-helpers > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-helpers > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-register > babel-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-register > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-register > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-environment-jsdom > jsdom > request-promise-native > request-promise-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > @svgr/webpack > @svgr/core > @svgr/plugin-jsx > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > istanbul-api > istanbul-lib-instrument > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > jest-jasmine2 > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > jest-jasmine2 > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-helpers > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-helpers > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-register > babel-core > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > jest-jasmine2 > jest-snapshot > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > jest-jasmine2 > jest-snapshot > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-register > babel-core > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-helpers > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-helpers > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-register > babel-core > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > jest-jasmine2 > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-helpers > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-helpers > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-helpers > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-register > babel-core > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-register > babel-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-register > babel-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-register > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > jest-environment-jsdom > jsdom > request-promise-native > request-promise-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > @svgr/webpack > @svgr/core > @svgr/plugin-jsx > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-register > babel-core > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-helpers > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-helpers > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-register > babel-core > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > jest-jasmine2 > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-helpers > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-helpers > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-helpers > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-register > babel-core > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-register > babel-core > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > jest-jasmine2 > jest-snapshot > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-register > babel-core > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-helpers > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-helpers > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-helpers > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-register > babel-core > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-register > babel-core > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-register > babel-core > babel-helpers > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > babel-helpers > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-helpers > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-register > babel-core > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-register > babel-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > jest-environment-jsdom > jsdom > request-promise-native > request-promise-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > jest-environment-jsdom > jsdom > request-promise-native > request-promise-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > @svgr/webpack > @svgr/core > @svgr/plugin-jsx > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > babel-preset-react-app > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-register > babel-core > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-helpers > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-helpers > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-helpers > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-register > babel-core > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-register > babel-core > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-helpers > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-register > babel-core > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-generator > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-helpers > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-register > babel-core > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-helpers > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-register > babel-core > babel-helpers > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > babel-helpers > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > jest-environment-jsdom > jsdom > request-promise-native > request-promise-core > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > @svgr/webpack > @svgr/core > @svgr/plugin-jsx > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-generator > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-helpers > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-register > babel-core > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-helpers > babel-template > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-config > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-traverse > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
+    - react-scripts > jest > jest-cli > jest-runner > jest-runtime > jest-config > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2020-05-01T00:52:09.306Z'
