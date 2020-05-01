@@ -29,7 +29,7 @@
     "test:clean": "rimraf ./coverage",
     "test:watch": "npm run test -- --watch",
     "lint": "eslint src",
-    "prepublish": "npm run build",
+    "prepublish": "npm run snyk-protect && npm run build",
     "lint-staged": "lint-staged",
     "jsdoc-documentation": "jsdoc-documentation",
     "jsdoc": "jsdoc-documentation --file",
@@ -37,7 +37,8 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "predemo": "[ -d examples/demo/node_modules ] || npm install --prefix examples/demo",
-    "demo": "npm start --prefix examples/demo"
+    "demo": "npm start --prefix examples/demo",
+    "snyk-protect": "snyk protect"
   },
   "repository": {
     "type": "git",
@@ -306,7 +307,8 @@
     "react-headroom": "^2.2.7",
     "react-transition-group": "^2.6.0",
     "recompose": "~0.26.0",
-    "reselect": "^3.0.0"
+    "reselect": "^3.0.0",
+    "snyk": "^1.316.1"
   },
   "peerDependencies": {
     "react": "^16.0.0",
@@ -454,5 +456,6 @@
   "declinationId": "bs-redux",
   "contributors": [
     "Dimitri Kopriwa <dimitri.kopriwa@yeutech.vn> (https://github.com/kopax)"
-  ]
+  ],
+  "snyk": true
 }
