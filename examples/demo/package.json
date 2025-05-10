@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-        "@material-ui/core": "~1.4.0",
+        "@material-ui/core": "~4.12.4",
         "@material-ui/icons": "~1.1.0",
         "@react-admin/data-generator": "^2.4.0",
         "@bootstrap-styled/ra-ui": "^1.0.19",
@@ -17,7 +17,7 @@
         "ra-language-english": "^2.0.0",
         "ra-language-french": "^2.0.0",
         "react": "~16.3.1",
-        "react-admin": "^2.0.0",
+        "react-admin": "^3.0.0",
         "react-app-polyfill": "^0.1.3",
         "react-dom": "~16.3.1",
         "react-redux": "~5.0.7",
